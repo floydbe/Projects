@@ -251,13 +251,34 @@ def harris_corner(im, sigma, n_size = 4):
 	return result
 
 def sift(im, sigma = 1.6, num_scales = 5, num_octaves = 4, k = math.sqrt(2)):
-	im = gaussian(im, sigma)
-	
+	scale = []
+	a,b = im.scale
+	for c in range(num_octaves):
+		starting_im = resize(im, a/2, b/2)
+	for i in range(num_scales):
+		scale.append(gaussian(im, (k**i)*sigma))
+	dogs = []
+	for j in range(len(scale)-1):
+		dogs.append(scale[j+1]-scale[j])
+	keypoints = []
+	for z in range(len(dogs)):
+		for x in range(a):
+			for y in range(b):
+				total = 0
+				for p in [-1,0,1]:
+					for q in [-1,0,1]:
+						for r in [-1,0,1]:
+							if dogs[z][x][y] >= dogs[z+p][x+q][y+r]:
+								total += 1
+				if total == 24:
+					keypoints.append([z,x,y])
+						
 
 keystring = 'mandrill'
 a = Image.open('Images/' + keystring + '.jpg').convert('L')
 b = np.array(a, dtype = 'int64')
-edge = canny_edge(b, 1.25)
-save(edge, keystring + '_edge.jpg')
-corn = harris_corner(b, 2, 3)
-save(corn, keystring + '_corn.jpg')
+#edge = canny_edge(b, 1.25)
+#save(edge, keystring + '_edge.jpg')
+#corn = harris_corner(b, 2, 3)
+#save(corn, keystring + '_corn.jpg')
+sift(b)
