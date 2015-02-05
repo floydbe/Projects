@@ -7,6 +7,7 @@ import matplotlib.cm as cm
 import math
 import time
 from operator import itemgetter
+from skimage.draw import circle_perimeter
 	
 def resize_half(im):
 	new = np.zeros((im.shape[0]/2, im.shape[1]/2))
@@ -296,10 +297,12 @@ def calc_extrema(dogs):
 	return extrema
 
 def draw_circle(im, x, y, r):
-	new_im = Image.fromarray(np.uint8(im))
-	draw = ImageDraw.Draw(new_im)
-	draw.ellipse((x-r,y-r,x+r,x+r),outline = 255)
-	return np.array(new_im, dtype = 'int64')
+	rr, cc = circle_perimeter(int(x),int(y),int(r*3))
+	try:
+		im[rr, cc] = 255
+	except:
+		pass
+	return im
 				
 def sift(img, sigma = 1.6, num_scales = 5, num_octaves = 4, k = math.sqrt(2)):
 	im = img.copy()
@@ -325,10 +328,9 @@ def sift(img, sigma = 1.6, num_scales = 5, num_octaves = 4, k = math.sqrt(2)):
 				pass
 		im = octave[len(octave)-1-2]
 		im = resize_half(im)
-	harris = harris_corner(img, sigma)
+	harris = enlarge_points(harris_corner(img, sigma),9)
 	for p,q,r in keypoints:
-		if harris[p][q]:
-			print p,q,harris[p][q]
+		if harris[p][q] == 255:
 			img = draw_circle(img, p, q, r)
 	return img
 
@@ -337,9 +339,8 @@ a = Image.open('Images/' + keystring + '.jpg').convert('L')
 b = np.array(a, dtype = 'int64')
 #edge = canny_edge(b, 1.25)
 #save(edge, keystring + '_edge.jpg')
-corn = harris_corner(b, 2, 3)
-corn = enlarge_points(corn)
-save(corn, keystring + '_corn.jpg')
-#save(draw_circle(b, 50, 50, 5), 'circles.jpg')
-#s = sift(b)
-#save(s, keystring + '_sift.jpg')
+#corn = harris_corner(b, 2, 3)
+#corn = enlarge_points(corn)
+#save(corn, keystring + '_corn.jpg')
+s = sift(b)
+save(s, keystring + '_sift.jpg')
