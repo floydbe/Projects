@@ -250,6 +250,10 @@ def harris_corner(im, sigma, n_size = 4):
 	print 'corner dectection complete'
 	return result
 
+def sift(im, sigma = 1.6, num_scales = 5, num_octaves = 4, k = math.sqrt(2)):
+	im = gaussian(im, sigma)
+	
+
 keystring = 'mandrill'
 a = Image.open('Images/' + keystring + '.jpg').convert('L')
 b = np.array(a, dtype = 'int64')
