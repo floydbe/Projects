@@ -8,9 +8,16 @@ import math
 import time
 from operator import itemgetter
 	
-def resize(im,sz):
+def resize_half(im):
+	new = np.zeros((im.shape[0]/2, im.shape[1]/2))
+	for a in range(new.shape[0]):
+		for b in range(new.shape[1]):
+			new[a][b] = im[2*a][2*b]
+	return new
+	
+def resize(im,sz):	
 	pil_im = Image.fromarray(np.uint8(im))
-	return np.array(pil_im.resize(sz))
+	return np.array(pil_im.resize(sz), dtype = 'int64')
 
 def threshold(im, t):
 	new_im = np.copy(im)
@@ -232,7 +239,8 @@ def harris_corner(im, sigma, n_size = 4):
 			for j in range(-1*n_size, n_size+1):
 				try:
 					if result[x+i][y+j] < e:
-						result[x+i][y+j] = 0.0
+						result[x+i][y+j] = 0
+						result[x][y] = 255
 				except:
 					pass
 	return result
@@ -247,7 +255,6 @@ def enlarge_points(im, area = 3):
 					for q in range(-(area-1)/2, (area-1)/2 + 1):
 						result[x+p][y+q] = im[x][y]
 	return result
-	
 
 def is_extrema(x,y,lower,middle,upper):
 	minimum = True
@@ -289,11 +296,10 @@ def calc_extrema(dogs):
 	return extrema
 
 def draw_circle(im, x, y, r):
-	r = 5
 	new_im = Image.fromarray(np.uint8(im))
 	draw = ImageDraw.Draw(new_im)
-	draw.ellipse((x-r,y-r,x+r,x+r))
-	return np.array(new_im)
+	draw.ellipse((x-r,y-r,x+r,x+r),outline = 255)
+	return np.array(new_im, dtype = 'int64')
 				
 def sift(img, sigma = 1.6, num_scales = 5, num_octaves = 4, k = math.sqrt(2)):
 	im = img.copy()
@@ -313,28 +319,27 @@ def sift(img, sigma = 1.6, num_scales = 5, num_octaves = 4, k = math.sqrt(2)):
 			try:
 				a = a * (2**o)
 				b = b * (2**o)
+				result[a][b] = c
 				keypoints.append([a,b,c])
-				result[a][b] += c
 			except:
 				pass
 		im = octave[len(octave)-1-2]
-		im = resize(im, (wid/(2**o), hei/(2**o)))
-	print [i>0 for i in result.flatten()]
+		im = resize_half(im)
 	harris = harris_corner(img, sigma)
-	for p in range(wid):
-		for q in range(hei):
-			if harris[p][q] == 0:
-				result[p][q] = 0
-			else:
-				draw_circle(img, p, q, result[p][q])
-	return result
+	for p,q,r in keypoints:
+		if harris[p][q]:
+			print p,q,harris[p][q]
+			img = draw_circle(img, p, q, r)
+	return img
 
 keystring = 'checkers-crop'
 a = Image.open('Images/' + keystring + '.jpg').convert('L')
 b = np.array(a, dtype = 'int64')
 #edge = canny_edge(b, 1.25)
 #save(edge, keystring + '_edge.jpg')
-#corn = harris_corner(b, 2, 3)
-#save(corn, keystring + '_corn.jpg')
+corn = harris_corner(b, 2, 3)
+corn = enlarge_points(corn)
+save(corn, keystring + '_corn.jpg')
+#save(draw_circle(b, 50, 50, 5), 'circles.jpg')
 s = sift(b)
 save(s, keystring + '_sift.jpg')
