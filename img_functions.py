@@ -166,18 +166,12 @@ def explore(final, grad, low_t, high_t, i, j, visited):
 	return final, visited
 
 def canny_edge(im, sigma):
-	print "beginning edge detection"
-	print "blurring image with sigma =", sigma
 	blurred = gaussian(im, sigma)
-	print "calculating gradient"
 	(grad, theta, dx, dy) = gradient(blurred)
-	print "applying non-maximum suppression"
 	suppressed = non_max_suppression(grad, theta)
 	low_t = 0.66*np.median(im)
 	high_t = 1.33*np.median(im)
-	print "applying hysteresis with (low_t, high_t) =", (low_t,high_t)
 	final = hysteresis(suppressed, low_t, high_t)
-	print "edge detection complete"
 	return final
 
 def display(im):
@@ -206,13 +200,11 @@ def filter_by_eig(l, result, thresh):
 	return new_l, result		
 
 def harris_corner(im, sigma, n_size = 4):
-	print '\nstarting corner detection'
 	candidates = []
 	blurred = gaussian(im, sigma)
 	grad, theta, dx, dy = gradient(blurred)
 	a,b = im.shape
 	result = np.zeros((a,b))
-	print 'calculating covarience matrices'
 	for x in range(a):
 		for y in range(b):
 			covar = np.zeros((2,2))
@@ -232,23 +224,29 @@ def harris_corner(im, sigma, n_size = 4):
 			candidates.append([eig,x,y])
 	eigs = np.array([i[0] for i in candidates])
 	threshold = (2 * np.median(eigs) + np.amax(eigs)) / 3
-	print 'applying threshold:', threshold
 	candidates, result = filter_by_eig(candidates, result, threshold)
 	candidates.sort(key = itemgetter(0), reverse = True) 
-	print 'expanding maximal points'
 	for e,x,y in candidates:
 		for i in range(-1*n_size, n_size+1):
 			for j in range(-1*n_size, n_size+1):
 				try:
 					if result[x+i][y+j] < e:
-						if (abs(i) <= 1) and (abs(i) <= 1):
-							result[x+i][y+j] = e
-						else:
-							result[x+i][y+j] = 0.0
+						result[x+i][y+j] = 0.0
 				except:
 					pass
-	print 'corner dectection complete'
 	return result
+
+def enlarge_points(im, area = 3):
+	a,b = im.shape
+	result = np.zeros((a,b))
+	for x in range(a):
+		for y in range(b):
+			if not (im[x][y] == 0):
+				for p in range(-(area-1)/2, (area-1)/2 + 1):
+					for q in range(-(area-1)/2, (area-1)/2 + 1):
+						result[x+p][y+q] = im[x][y]
+	return result
+	
 
 def is_extrema(x,y,lower,middle,upper):
 	minimum = True
@@ -306,16 +304,23 @@ def sift(im, sigma = 1.6, num_scales = 5, num_octaves = 4, k = math.sqrt(2)):
 				a = a * (2**o)
 				b = b * (2**o)
 				keypoints.append([a,b,c])
-				result[a][b] = c
+				result[a][b] += c
 			except:
 				pass
-	display(result)
+	harris = harris_corner(im, sigma)
+	for p in range(im.shape[0]):
+		for q in range(im.shape[1]):
+			if harris[p][q] == 0:
+				result[p][q] = 0				
+	return result
 
-keystring = 'mandrill'
+keystring = 'building'
 a = Image.open('Images/' + keystring + '.jpg').convert('L')
 b = np.array(a, dtype = 'int64')
 #edge = canny_edge(b, 1.25)
 #save(edge, keystring + '_edge.jpg')
 #corn = harris_corner(b, 2, 3)
 #save(corn, keystring + '_corn.jpg')
-sift(b, num_octaves = 1)
+s = sift(b)
+s_e = enlarge_points(s)
+save(se, keystring + '_sift.jpg')
