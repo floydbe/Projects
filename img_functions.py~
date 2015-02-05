@@ -245,7 +245,7 @@ def enlarge_points(im, area = 3):
 				for p in range(-(area-1)/2, (area-1)/2 + 1):
 					for q in range(-(area-1)/2, (area-1)/2 + 1):
 						result[x+p][y+q] = im[x][y]
-	return points
+	return result
 	
 
 def is_extrema(x,y,lower,middle,upper):
@@ -323,4 +323,4 @@ b = np.array(a, dtype = 'int64')
 #save(corn, keystring + '_corn.jpg')
 s = sift(b)
 s_e = enlarge_points(s)
-save(se, keystring + '_sift.jpg')
+save(s_e, keystring + '_sift.jpg')
