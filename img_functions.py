@@ -250,27 +250,48 @@ def harris_corner(im, sigma, n_size = 4):
 	print 'corner dectection complete'
 	return result
 
-def is_extrema(x,y,c,lower,middle,upper):
+def is_extrema(x,y,lower,middle,upper):
 	minimum = True
 	maximum = True
 	
-	height,width,depth = middle.shape
-	comparison = middle[x][y][c]
+	height,width = middle.shape
+	comparison = middle[x][y]
 	for a in [-1,0,1]:
 		for b in [-1,0,1]:
 			if (not maximum) and (not minimum):
-
+				return False
+			try:
+				if upper[x+a][y+a] >= comparison:
+					maximum = False
+				elif lower[x+a][y+b] >= comparison:
+					maximum = False
+				elif (not ((a == 0) and (b == 0))) and (middle[x+a][y+b] >= comparison):
+					maximum = False
+			
+				if upper[x+a][y+a] <= comparison:
+					minimum = False
+				elif lower[x+a][y+b] <= comparison:
+					minimum = False
+				elif (not ((a == 0) and (b == 0))) and (middle[x+a][y+b] <= comparison):
+					minimum = False
+			except:
+				maximum = minimum = False
+	return (maximum or minimum)
+		
 def calc_extrema(dogs):
-	width, height, depth = dogs[0].shape
+	width, height = dogs[0].shape
 	extrema = []
 	for x in range(width):
-		for y in range(hight):
-			for z in range(depth):
-				for a in range(len(dogs)):
-					
-
+		for y in range(height):
+			for a in range(2, len(dogs)):
+				is_ex = is_extrema(x,y, dogs[a], dogs[a-1], dogs[a-2])
+				if is_ex:
+					extrema.append([x,y,a-1])
+	return extrema
+				
 def sift(im, sigma = 1.6, num_scales = 5, num_octaves = 4, k = math.sqrt(2)):
-	
+	keypoints = []
+	result = np.zeros(im.shape)
 	for o in range(num_octaves):
 		octave = []
 		for s in range(num_scales):
@@ -279,31 +300,16 @@ def sift(im, sigma = 1.6, num_scales = 5, num_octaves = 4, k = math.sqrt(2)):
 		for x in range(len(octave)-1):
 			dogs.append(octave[x+1] - octave[x])
 		extrema = calc_extrema(dogs)
-	
-	
-	
-	scale = []
-	a,b = im.scale
-	for c in range(num_octaves):
-		starting_im = resize(im, a/2, b/2)
-	for i in range(num_scales):
-		scale.append(gaussian(im, (k**i)*sigma))
-	dogs = []
-	for j in range(len(scale)-1):
-		dogs.append(scale[j+1]-scale[j])
-	keypoints = []
-	for z in range(len(dogs)):
-		for x in range(a):
-			for y in range(b):
-				total = 0
-				for p in [-1,0,1]:
-					for q in [-1,0,1]:
-						for r in [-1,0,1]:
-							if dogs[z][x][y] >= dogs[z+p][x+q][y+r]:
-								total += 1
-				if total == 24:
-					keypoints.append([z,x,y])
-						
+		for a,b,c in extrema:
+			c = math.pow(k,o)*math.pow(k,c)*sigma
+			try:
+				a = a * (2**o)
+				b = b * (2**o)
+				keypoints.append([a,b,c])
+				result[a][b] = c
+			except:
+				pass
+	display(result)
 
 keystring = 'mandrill'
 a = Image.open('Images/' + keystring + '.jpg').convert('L')
@@ -312,4 +318,4 @@ b = np.array(a, dtype = 'int64')
 #save(edge, keystring + '_edge.jpg')
 #corn = harris_corner(b, 2, 3)
 #save(corn, keystring + '_corn.jpg')
-sift(b)
+sift(b, num_octaves = 1)
