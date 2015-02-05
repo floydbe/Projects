@@ -253,6 +253,8 @@ def harris_corner(im, sigma, n_size = 4):
 def sift(im, sigma = 1.6, num_scales = 5, num_octaves = 4, k = math.sqrt(2)):
 	scale = []
 	a,b = im.scale
+	for c in range(num_octaves):
+		starting_im = resize(im, a/2, b/2)
 	for i in range(num_scales):
 		scale.append(gaussian(im, (k**i)*sigma))
 	dogs = []

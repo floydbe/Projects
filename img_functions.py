@@ -250,7 +250,38 @@ def harris_corner(im, sigma, n_size = 4):
 	print 'corner dectection complete'
 	return result
 
+def is_extrema(x,y,c,lower,middle,upper):
+	minimum = True
+	maximum = True
+	
+	height,width,depth = middle.shape
+	comparison = middle[x][y][c]
+	for a in [-1,0,1]:
+		for b in [-1,0,1]:
+			if (not maximum) and (not minimum):
+
+def calc_extrema(dogs):
+	width, height, depth = dogs[0].shape
+	extrema = []
+	for x in range(width):
+		for y in range(hight):
+			for z in range(depth):
+				for a in range(len(dogs)):
+					
+
 def sift(im, sigma = 1.6, num_scales = 5, num_octaves = 4, k = math.sqrt(2)):
+	
+	for o in range(num_octaves):
+		octave = []
+		for s in range(num_scales):
+			octave.append(gaussian(im, (k**s)*sigma))
+		dogs = []
+		for x in range(len(octave)-1):
+			dogs.append(octave[x+1] - octave[x])
+		extrema = calc_extrema(dogs)
+	
+	
+	
 	scale = []
 	a,b = im.scale
 	for c in range(num_octaves):
