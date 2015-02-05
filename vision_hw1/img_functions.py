@@ -1,4 +1,4 @@
-from PIL import Image
+from PIL import Image, ImageDraw
 import numpy as np
 import pylab as plt
 from scipy import ndimage
@@ -8,8 +8,8 @@ import math
 import time
 from operator import itemgetter
 	
-def imresize(im,sz):
-	pil_im = Image.fromarray(uint8(im))
+def resize(im,sz):
+	pil_im = Image.fromarray(np.uint8(im))
 	return np.array(pil_im.resize(sz))
 
 def threshold(im, t):
@@ -187,7 +187,8 @@ def display2(im1, im2):
 	plt.show()
 
 def save(im, filename):
-	rescaled = (255.0 / im.max() * (im - im.min())).astype(np.uint8)
+	#rescaled = (255.0 / im.max() * (im - im.min())).astype(np.uint8)
+	rescaled = np.uint8(im)
 	im = Image.fromarray(rescaled)
 	im.save(filename)
 
@@ -286,10 +287,19 @@ def calc_extrema(dogs):
 				if is_ex:
 					extrema.append([x,y,a-1])
 	return extrema
+
+def draw_circle(im, x, y, r):
+	r = 5
+	new_im = Image.fromarray(np.uint8(im))
+	draw = ImageDraw.Draw(new_im)
+	draw.ellipse((x-r,y-r,x+r,x+r))
+	return np.array(new_im)
 				
-def sift(im, sigma = 1.6, num_scales = 5, num_octaves = 4, k = math.sqrt(2)):
+def sift(img, sigma = 1.6, num_scales = 5, num_octaves = 4, k = math.sqrt(2)):
+	im = img.copy()
 	keypoints = []
-	result = np.zeros(im.shape)
+	wid, hei = im.shape
+	result = np.zeros((wid,hei))
 	for o in range(num_octaves):
 		octave = []
 		for s in range(num_scales):
@@ -307,14 +317,18 @@ def sift(im, sigma = 1.6, num_scales = 5, num_octaves = 4, k = math.sqrt(2)):
 				result[a][b] += c
 			except:
 				pass
-	harris = harris_corner(im, sigma)
-	for p in range(im.shape[0]):
-		for q in range(im.shape[1]):
+		im = octave[len(octave)-1-2]
+		im = resize(im, (wid/(2**o), hei/(2**o)))
+	harris = harris_corner(img, sigma)
+	for p in range(wid):
+		for q in range(hei):
 			if harris[p][q] == 0:
-				result[p][q] = 0				
+				result[p][q] = 0
+			else:
+				draw_circle(img, p, q, result[p][q])
 	return result
 
-keystring = 'building'
+keystring = 'checkers-crop'
 a = Image.open('Images/' + keystring + '.jpg').convert('L')
 b = np.array(a, dtype = 'int64')
 #edge = canny_edge(b, 1.25)
@@ -322,5 +336,4 @@ b = np.array(a, dtype = 'int64')
 #corn = harris_corner(b, 2, 3)
 #save(corn, keystring + '_corn.jpg')
 s = sift(b)
-s_e = enlarge_points(s)
-save(s_e, keystring + '_sift.jpg')
+save(s, keystring + '_sift.jpg')
