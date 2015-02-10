@@ -1,0 +1,222 @@
+<!doctype html>
+<html>
+<head>
+	<title>HTML Editor - Full Version</title>
+</head>
+<body>
+<p>Jamie Floyd</p>
+
+<p>bef2cj</p>
+
+<p>README:</p>
+
+<p>The submitted file contains all the image-processing related functions I have written so far this semester, including some that were not utilized in this assignment. This results in it being a little more bloated than necessary, so I apologize. I hope you will find all functions very intuitively named to aid in your search. Among them, canny_edge( ), harris_corner( ), and sift( ) are good places to start for this assignment.</p>
+
+<p><span style="font-size:36px;">Canny Edge Detector</span></p>
+
+<p>The parameters to canny_edge( ) are just the image and sigma value for the gaussian blur. I experimented with several different sigmas; based on personal preference, I chose a lower value. I prefer to see as many edges as possible without marking definite false positives. All thresholds are determined automatically based on the image. I experimented with several different tactics here: basing off the original intensity image, basing of the gradient map, etc. Within those, I experimented with the mean, median, and mean after normalizing the image&#39;s histogram. I finally determined that 1.33 * the median of the images was a fairly good high threshold across images and 0.66 * that median was an effective lower threshold. All images shown below use those techniques for thresholding and have a sigma value of 1.25.</p>
+
+<table border="1" cellpadding="1" cellspacing="1" height="384" width="817">
+	<tbody>
+		<tr>
+			<td>Original:</td>
+			<td>Intensity and blurred:</td>
+		</tr>
+		<tr>
+			<td><img alt="" src="mandrill.jpg" /></td>
+			<td><img alt="" src="mandrill_blur.jpg" /></td>
+		</tr>
+		<tr>
+			<td>dx:</td>
+			<td>dy:</td>
+		</tr>
+		<tr>
+			<td><img alt="" src="mandrill_dx.jpg" /></td>
+			<td><img alt="" src="mandrill_dy.jpg" /></td>
+		</tr>
+		<tr>
+			<td>Gradient Manitude</td>
+			<td>Non-max suppression</td>
+		</tr>
+		<tr>
+			<td><img alt="" src="mandrill_grad.jpg" /></td>
+			<td><img alt="" src="mandrill_suppressed.jpg" /></td>
+		</tr>
+	</tbody>
+</table>
+
+<p>Final result:</p>
+
+<p><img alt="" src="mandrill_edge.jpg" /></p>
+
+<p>&nbsp;</p>
+
+<table border="1" cellpadding="1" cellspacing="1" height="384" width="817">
+	<tbody>
+		<tr>
+			<td>Original:</td>
+			<td>Intensity and blurred:</td>
+		</tr>
+		<tr>
+			<td><img alt="" src="building.jpg" /></td>
+			<td><img alt="" src="building_blur.jpg" /></td>
+		</tr>
+		<tr>
+			<td>dx:</td>
+			<td>dy:</td>
+		</tr>
+		<tr>
+			<td><img alt="" src="building_dx.jpg" /></td>
+			<td><img alt="" src="building_dy.jpg" /></td>
+		</tr>
+		<tr>
+			<td>Gradient Manitude</td>
+			<td>Non-max suppression</td>
+		</tr>
+		<tr>
+			<td><img alt="" src="building_grad.jpg" /></td>
+			<td><img alt="" src="building_suppressed.jpg" /></td>
+		</tr>
+	</tbody>
+</table>
+
+<p>Final result:</p>
+
+<p><img alt="" src="building_edge.jpg" /></p>
+
+<p>&nbsp;</p>
+
+<table border="1" cellpadding="1" cellspacing="1" height="384" width="817">
+	<tbody>
+		<tr>
+			<td>Original:</td>
+			<td>Intensity and blurred:</td>
+		</tr>
+		<tr>
+			<td><img alt="" src="checker.jpg" /></td>
+			<td><img alt="" src="checker_blur.jpg" /></td>
+		</tr>
+		<tr>
+			<td>dx:</td>
+			<td>dy:</td>
+		</tr>
+		<tr>
+			<td><img alt="" src="checker_dx.jpg" /></td>
+			<td><img alt="" src="checker_dy.jpg" /></td>
+		</tr>
+		<tr>
+			<td>Gradient Manitude</td>
+			<td>Non-max suppression</td>
+		</tr>
+		<tr>
+			<td><img alt="" src="checker_grad.jpg" /></td>
+			<td><img alt="" src="checker_suppressed.jpg" /></td>
+		</tr>
+	</tbody>
+</table>
+
+<p>Final result:</p>
+
+<p><img alt="" src="checker_edge.jpg" /></p>
+
+<p>Some others I enjoyed testing the edge detector on:</p>
+
+<table border="1" cellpadding="1" cellspacing="1" height="51" width="803">
+	<tbody>
+		<tr>
+			<td>Original</td>
+			<td>Final Result</td>
+		</tr>
+		<tr>
+			<td><img alt="" src="branch.jpg" width="600" height="400" /></td>
+			<td><img alt="" src="branch_canny.jpg" width="600" height="400" /></td>
+		</tr>
+	</tbody>
+</table>
+
+<table border="1" cellpadding="1" cellspacing="1" height="51" width="803">
+	<tbody>
+		<tr>
+			<td>Original</td>
+			<td>Final Result</td>
+		</tr>
+		<tr>
+			<td><img alt="" src="silhouette.jpg" width="600" height="400" /></td>
+			<td><img alt="" src="silhouette_canny.jpg" width="600" height="400" /></td>
+		</tr>
+	</tbody>
+</table>
+
+<table border="1" cellpadding="1" cellspacing="1" height="51" width="803">
+	<tbody>
+		<tr>
+			<td>Original</td>
+			<td>Final Result</td>
+		</tr>
+		<tr>
+			<td><img alt="" src="vader.jpg" width="600" height="400" /></td>
+			<td><img alt="" src="vader_canny.jpg" width="600" height="400" /></td>
+		</tr>
+	</tbody>
+</table>
+
+<p>&nbsp;</p>
+
+<p><span style="font-size:48px;">Harris Corner Detector</span></p>
+
+<p><span style="font-size:16px;">The harris_corner( ) function takes an image, sigma, and neighborhood size (which defaults to 4). When experimenting with sigma, I found the opposite preference from the edge detector: I&#39;d rather mark only really good corners, so I increased the sigma a bit. Again, I made an auto-threshold</span> for the eigenvalues of the covarience matrix. Instead of only storing eigenvalues that pass a threshold, I stored all of them, then calculated thier median for use in my threshold. I then filtered the list of eigenvalues by this new threshold. It seemed fairly effective across all test images. Both images below use this technique, a sigma value of 2, and neighborhood size of 4. Since the normal output of the function is a black image with single pixels marked white as corners, I am displaying the result of running that through an enlarge_points( ) function that increases the corners&#39; visibility.</p>
+
+<table border="1" cellpadding="1" cellspacing="1" height="257" width="914">
+	<tbody>
+		<tr>
+			<td>Original</td>
+			<td>Final Result</td>
+		</tr>
+		<tr>
+			<td><img alt="" src="checker.jpg" /></td>
+			<td><img alt="" src="checker_corn.jpg" /></td>
+		</tr>
+		<tr>
+			<td>Original</td>
+			<td>Final Result</td>
+		</tr>
+		<tr>
+			<td><img alt="" src="building.jpg" /></td>
+			<td><img alt="" src="building_corn.jpg" /></td>
+		</tr>
+		<tr>
+			<td>Original</td>
+			<td>Final Result</td>
+		</tr>
+		<tr>
+			<td><img alt="" src="mandrill.jpg" /></td>
+			<td><img alt="" src="mandrill_corn.jpg" /></td>
+		</tr>
+	</tbody>
+</table>
+
+<p><span style="font-size:48px;">Sift</span></p>
+
+<p>The sift( ) function only requires the image as a parameter, though it has several optional parameters that default to the values described in the paper. I did very little experimenting with different values here since the author laid out his evidence for the default values. The keypoints are marked with white circles, the radius of which denote the sigma at which it was an extremum.</p>
+
+<table border="1" cellpadding="1" cellspacing="1" height="51" width="908">
+	<tbody>
+		<tr>
+			<td>Original</td>
+			<td>Extrema - no filter</td>
+		</tr>
+		<tr>
+			<td><img alt="" src="building.jpg" /></td>
+			<td><img alt="" src="building_sift_nofilter.jpg" /></td>
+		</tr>
+	</tbody>
+</table>
+
+<p>Here is the final result with the filtering of the extrema. There are six remaining keypoints (they are a little difficult to see).</p>
+
+<p><img alt="" src="building_sift.jpg" /></p>
+
+<p>&nbsp;</p>
+</body>
+</html>
+

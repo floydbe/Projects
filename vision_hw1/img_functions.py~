@@ -32,8 +32,10 @@ def gaussian(im, sigma):
 def gradient(im):
 	xGradient = np.array([[-1,0,1],[-2,0,2],[-1,0,1]])
 	yGradient = np.array([[-1,-2,-1],[0,0,0],[1,2,1]])
+	im = im.astype(np.int64)
 	dx = ndimage.convolve(im, xGradient)
 	dy = ndimage.convolve(im, yGradient)
+	imshow([im,dx,dy])
 	tot_grad = np.sqrt(np.square(np.absolute(dx)) + np.square(np.absolute(dy)))
 	theta = np.arctan2(dy, dx)
 	return (tot_grad, theta, np.absolute(dx), np.absolute(dy))
@@ -175,11 +177,17 @@ def explore(final, grad, low_t, high_t, i, j, visited):
 
 def canny_edge(im, sigma):
 	blurred = gaussian(im, sigma)
+	save(blurred, "checker_blur.jpg")
 	(grad, theta, dx, dy) = gradient(blurred)
+	save(dx,"checker_dx.jpg")
+	save(dy,"checker_dy.jpg")
+	save(grad,"checker_grad.jpg")
 	suppressed = non_max_suppression(grad, theta)
+	save(suppressed, "checker_suppressed.jpg")
 	low_t = 0.66*np.median(im)
 	high_t = 1.33*np.median(im)
 	final = hysteresis(suppressed, low_t, high_t)
+	save(final, "checker_edge.jpg")
 	return final
 
 def display(im):
@@ -195,8 +203,8 @@ def display2(im1, im2):
 	plt.show()
 
 def save(im, filename):
-	#rescaled = (255.0 / im.max() * (im - im.min())).astype(np.uint8)
-	rescaled = np.uint8(im)
+	rescaled = (255.0 / im.max() * (im - im.min())).astype(np.uint8)
+	#rescaled = np.uint8(im)
 	im = Image.fromarray(rescaled)
 	im.save(filename)
 
@@ -254,7 +262,10 @@ def enlarge_points(im, area = 3):
 			if not (im[x][y] == 0):
 				for p in range(-(area-1)/2, (area-1)/2 + 1):
 					for q in range(-(area-1)/2, (area-1)/2 + 1):
-						result[x+p][y+q] = im[x][y]
+						try:
+							result[x+p][y+q] = im[x][y]
+						except:
+							pass
 	return result
 
 def is_extrema(x,y,lower,middle,upper):
@@ -330,19 +341,17 @@ def sift(img, sigma = 1.6, num_scales = 5, num_octaves = 4, k = math.sqrt(2)):
 		im = resize_half(im)
 	harris = enlarge_points(harris_corner(img, sigma),9)
 	for p,q,r in keypoints:
-		if harris[p][q] == 255:
-			img = draw_circle(img, p, q, r)
+	#	if harris[p][q] == 255:
+		img = draw_circle(img, p, q, r)
 	return img
 
-keystring = 'checkers-crop'
+keystring = 'checker'
 a = Image.open('Images/' + keystring + '.jpg').convert('L')
 b = np.array(a, dtype = 'int64')
-print b.shape
-print resize_half(b).shape
-#edge = canny_edge(b, 1.25)
-#save(edge, keystring + '_edge.jpg')
-#corn = harris_corner(b, 2, 3)
-#corn = enlarge_points(corn)
-#save(corn, keystring + '_corn.jpg')
-s = sift(b)
-save(s, keystring + '_sift.jpg')
+edge = canny_edge(b, 1.25)
+save(edge, keystring + '_edge.jpg')
+corn = harris_corner(b, 2, 3)
+corn = enlarge_points(corn,9)
+save(corn, keystring + '_corn.jpg')
+#s = sift(b)
+#save(s, keystring + '_sift_nofilter.jpg')
