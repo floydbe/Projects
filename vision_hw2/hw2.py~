@@ -55,11 +55,11 @@ for im in imlist:
 			maxx = max(line[1],line[3],line[5],line[7],line[9],line[11])
 			y_ran = maxy - miny
 			x_ran = maxx - minx
-			ex_perc = 0.25
+			ex_perc = 0.3
 			y_scale = int(ex_perc * y_ran)
 			x_scale = int(ex_perc * x_ran)
 			i = imread(im)
 			cropped = i[miny-y_scale:maxy+y_scale,minx-x_scale:maxx+x_scale]
 			cropped = imresize(cropped, (12,12))
 			faces.append(cropped)
-imsave(combine(faces), "average_face_0.25.jpg")
+imsave(combine(faces), "average_face_0.3.jpg")
