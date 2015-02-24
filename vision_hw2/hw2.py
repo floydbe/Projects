@@ -4,6 +4,8 @@ import numpy as np
 import Image
 from scipy import misc
 import pylab as plt
+import random
+import time
 
 testA_im_loc = "test/"
 testA_data_loc = "testA_data.txt"
@@ -34,9 +36,12 @@ def combine(im_list):
 				result[x][y] += i[x][y]
 	return result / len(im_list)	# divide the sum array by the number of images
 
+
+
 f = open(testA_data_loc, 'r')
 face_locs = f.readlines()
 f.close()
+
 parsed = []
 for face in face_locs:
 	parsed.append(face.split())
@@ -45,6 +50,8 @@ for p in parsed:
 		p[idx] = int(float(p[idx]))
 
 imlist = get_imlist(testA_im_loc, '.gif')
+
+# Build up list of face patches
 faces = []
 for im in imlist:
 	for line in parsed:
@@ -55,11 +62,30 @@ for im in imlist:
 			maxx = max(line[1],line[3],line[5],line[7],line[9],line[11])
 			y_ran = maxy - miny
 			x_ran = maxx - minx
-			ex_perc = 0.4
+			ex_perc = 0.2
 			y_scale = int(ex_perc * y_ran)
 			x_scale = int(ex_perc * x_ran)
 			i = imread(im)
 			cropped = i[miny-y_scale:maxy+y_scale,minx-x_scale:maxx+x_scale]
 			cropped = imresize(cropped, (12,12))
 			faces.append(cropped)
-imsave(combine(faces), "average_face_0.4.jpg")
+
+imsave(combine(faces),"face.jpg")
+
+# Build up list of not-face patches
+not_faces = []
+while len(not_faces) < 100:
+	for im in imlist:
+		i = imread(im)
+		r1 = random.randint(0,i.shape[0]-1)
+		r2 = random.randint(0,i.shape[1]-1)
+		try:
+			crop = i[r1:r1+12,r2:r2+12]
+			crop = imresize(crop, (12,12))
+			not_faces.append(crop)
+		except IndexError:
+			print "out of bounds"
+		except:
+			print "unknown"
+
+imsave(combine(not_faces),"notface.jpg")
