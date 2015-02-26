@@ -37,6 +37,26 @@ def combine(im_list):
 	return result / len(im_list)	# divide the sum array by the number of images
 
 
+def create_collage(faces, not_faces):
+	height = 10
+	width = 10
+	l_result = np.zeros((240,1))
+	for i in range(width):
+		column = imresize(faces[height*i], (24,24))	
+		for j in range(height-1):
+			column = np.concatenate((column,imresize(faces[height*i+j+1], (24,24))), axis=0)
+		l_result = np.concatenate((l_result,column), axis=1)
+	
+	r_result = np.zeros((240,1))
+	for i in range(width):
+		column = imresize(not_faces[height*i], (24,24))	
+		for j in range(height-1):
+			column = np.concatenate((column,imresize(not_faces[height*i+j+1], (24,24))), axis=0)
+		r_result = np.concatenate((r_result,column), axis=1)
+	result = np.concatenate((l_result[:,1:], r_result[:,1:]), axis=1)
+	
+	imsave(result, "collage.jpg")
+
 
 f = open(testA_data_loc, 'r')
 face_locs = f.readlines()
@@ -69,8 +89,8 @@ for im in imlist:
 			cropped = i[miny-y_scale:maxy+y_scale,minx-x_scale:maxx+x_scale]
 			cropped = imresize(cropped, (12,12))
 			faces.append(cropped)
-
-imsave(combine(faces),"face.jpg")
+face_mean = combine(faces)
+imsave(face_mean,"face.jpg")
 
 # Build up list of not-face patches
 not_faces = []
@@ -87,5 +107,29 @@ while len(not_faces) < 100:
 			print "out of bounds"
 		except:
 			print "unknown"
+not_face_mean = combine(not_faces)
+imsave(not_face_mean,"notface.jpg")
 
-imsave(combine(not_faces),"notface.jpg")
+create_collage(faces,not_faces)
+
+face_cov = np.zeros((144,144))
+
+for a in range(144):
+	for b in range(144):
+		if a < 100 and b < 100:
+			face_cov[a][b] = abs(faces[a].flatten()[b]-face_mean.flatten()[b])
+U, s, V = np.linalg.svd(face_cov)
+tau = 0.00000000001
+k = 0
+det = 1
+for sv in s:
+	if sv > tau:
+		det *= sv
+		k += 1
+u = U[:,:k]
+s = s[:k]
+u_t = np.transpose(u)
+s = np.diag(s)
+e = np.dot(u, np.dot(s,u_t))
+s_inv = np.linalg.inv(s)
+e_inv = np.dot(u, np.dot(s_inv,u_t))
