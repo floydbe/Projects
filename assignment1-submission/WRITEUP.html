@@ -1,0 +1,5276 @@
+<html>
+<script>
+function showhide(name) {
+	e = document.getElementById(name);
+	if (e.style.display=='none') {
+		e.style.display = 'block';
+	} else {
+		e.style.display = 'none';
+	}
+}
+</script>
+<head>
+</head>
+<body>
+<h1>CS 6501: Topics in Computer Vision Assignment 1</h1>
+Will Hawkins<br>
+whh8b<br>
+Please use two (2) free late days for this submission<br>
+<p>
+I have never taken a single graphics course in my entire life. Needless to say,
+that makes this class exciting and challenging. The first assignment lived up
+to my expectation that these implementation tasks would be both interesting
+and difficult. <br>
+In completing this assignment, I showed myself that I could incorporate
+<i>calculus</i> into my code. I had never done this before. My exposure to
+the math of computer science is extensive, but it has primarily focused on
+sets and matrixes and other discrete concepts. This little taste of the
+numerical recipes it takes to implement continuous calculations into an 
+implementation has been fascinating. I look forward to doing more on this
+in the coming assignments.<br>
+I hope that this writeup conveys the excitement and 
+satisfaction I got from completing these tasks.<br>
+</p>
+<h2>Canny Edge Detector</h2>
+<h3>Implementation</h3>
+<p>
+I implemented the Canny Edge Detector in five steps:<br>
+<ol>
+<li>Convert the color image to an intensity image.<br>
+Using the formula given in class, each pixel's intensity is:<br>
+<math xmlns='http://www.w3.org/1998/Math/MathML' display='block'><mi>I</mi><mo stretchy="false">(</mo><mi>x</mi><mo>,</mo><mi>y</mi><mo stretchy="false">)</mo><mo>=</mo><mi>O</mi><mo stretchy="false">(</mo><mi>x</mi><mo>,</mo><mi>y</mi><mo>,</mo><mi>B</mi><mo stretchy="false">)</mo><mo>*</mo><mn>0.1</mn><mo>+</mo><mi>O</mi><mo stretchy="false">(</mo><mi>x</mi><mo>,</mo><mi>y</mi><mo>,</mo><mi>R</mi><mo stretchy="false">)</mo><mo>*</mo><mn>0.3</mn><mo>+</mo><mi>O</mi><mo stretchy="false">(</mo><mi>x</mi><mo>,</mo><mi>y</mi><mo>,</mo><mi>G</mi><mo stretchy="false">)</mo><mo>*</mo><mn>0.6</mn></math>
+where <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>O</mi></math> is the original image and the third dimension is the color channel.
+You can see the implementation in <code>_intensify</code> starting at line 767.
+<li>Compute the gradiant<br>
+This step is a Gaussian blur of the original image followed by a computation
+of the derivative of the blurred image. Although not necessary for 
+edge detection, my implementation of gradient computation uses the
+partial derivatives of the image in the X and Y dimensions.<br>
+I calculate partial derivatives in the X and Y dimensions
+by combining the Gaussian blur with the gradient calculation.
+Therefore, these two sub-steps happen in one loop 
+through the image. I calculate the combined convolutions in 1-dimension
+as the derivative of the continuous Gaussian function rather than as an 
+approximation using finite differences. In other words,<br>
+<math xmlns='http://www.w3.org/1998/Math/MathML' display='block'><mfrac><mo>&PartialD;</mo><mrow><mo>&PartialD;</mo><mi>X</mi></mrow></mfrac><mi>G</mi><mo stretchy="false">(</mo><mi>x</mi><mo>,</mo><mi>&sigma;</mi><mo stretchy="false">)</mo><mo>=</mo><mo lspace="verythinmathspace" rspace="0em">&minus;</mo><mi>x</mi><mfrac><mn>1</mn><mrow><msup><mi>&sigma;</mi> <mn>2</mn></msup></mrow></mfrac><mi>G</mi><mo stretchy="false">(</mo><mi>x</mi><mo>,</mo><mi>&sigma;</mi><mo stretchy="false">)</mo></math>
+I combine the two 1-dimensional derivatives to create the convolution matrix
+and store the derivatives separately. You can see the implementation in
+<code>_compute_separate_gradient</code> starting on line 901.<br>
+In edge detection I only need the magnitude of the gradient and its direction.
+To find such values, I combine the partial derivatives by 
+calculating the square root of the sum of the squares of the two components. 
+See line 897 where I am computing the combined gradient using the 
+separate gradients (<code>_compute_gradient</code>).
+<li>Thin the gradiant<br>
+I simply followed the steps outlined in the assignment. See <code>
+_thin_gradient</code> starting on line 793.
+<li>"Relativize" the thinned gradiant<br>
+This step <i>brightened</i> the strongest edges to full intensity
+and then rescales all other edges. This makes the edges in the image
+easier to see.
+<li>Calculate connected edges
+I calculate connected edges based on a start and continue threshold. Thanks 
+to an idea from a fellow classmate, I decided to specify these thresholds
+with respect to the mean edge intensity (after they were relativized in the 
+previous step). The thresholds are in [0,1]. See <code>_connected_edges</code>
+on line 614.
+</ol>
+Although there are built-in Gaussian filters supplied by numpy/skimage, I took
+the opportunity to code everything by hand. The resulting implementation is
+definitely much slower than the "native" version, but I have mastered the
+material by not relying on those functions.<br>
+There are places where I have improved on my initial naive implementation. There are 
+hotspots in the code that I detected using Python profilers. You can see
+an example of an optimization at line 953.<br>
+</p>
+<h3>Results</h3>
+<p>
+To determine the optimal values for sigma, start threshold and continue
+threshold, I generated images based on a range of parameters:
+<table>
+<tr><td>parameter</td><td>start</td><td>stop</td><td>step</td></tr>
+<tr>
+<td>sigma</td><td>1.0</td><td>2.0</td><td>0.1</td>
+</tr>
+<tr>
+<td>start threshold</td><td>0.4</td><td>0.6</td><td>0.1</td>
+</tr>
+<tr>
+<td>continue threshold</td><td>0.1</td><td>0.3</td><td>0.1</td>
+</tr>
+</table>
+The entire set of images are available for viewing by clicking on the links 
+below. NB: There are lots of them!<br>
+<div onclick="showhide('circle');" style="text-decoration:underline;">Show/hide full Circle results</div><br>
+<div id=circle style="display:none">
+<table>
+<tr>
+<td colspan=3>
+Sigma: 1.0&nbsp;
+Start: 0.4&nbsp;
+Continue: 0.1&nbsp;
+</td>
+</tr>
+<tr>
+<td>X Derivative</td><td>Y Derivative</td><td>Final Result</td>
+</tr>
+<tr>
+<td><img src=./results/circle/1.0-0.4-0.1-grad-x.jpg height=100 width=100></td>
+<td><img src=./results/circle/1.0-0.4-0.1-grad-y.jpg height=100 width=100></td>
+<td><img src=./results/circle/1.0-0.4-0.1.jpg height=100 width=100></td>
+</tr>
+<tr>
+<td colspan=3>
+Sigma: 1.0&nbsp;
+Start: 0.4&nbsp;
+Continue: 0.2&nbsp;
+</td>
+</tr>
+<tr>
+<td>X Derivative</td><td>Y Derivative</td><td>Final Result</td>
+</tr>
+<tr>
+<td><img src=./results/circle/1.0-0.4-0.2-grad-x.jpg height=100 width=100></td>
+<td><img src=./results/circle/1.0-0.4-0.2-grad-y.jpg height=100 width=100></td>
+<td><img src=./results/circle/1.0-0.4-0.2.jpg height=100 width=100></td>
+</tr>
+<tr>
+<td colspan=3>
+Sigma: 1.0&nbsp;
+Start: 0.4&nbsp;
+Continue: 0.3&nbsp;
+</td>
+</tr>
+<tr>
+<td>X Derivative</td><td>Y Derivative</td><td>Final Result</td>
+</tr>
+<tr>
+<td><img src=./results/circle/1.0-0.4-0.3-grad-x.jpg height=100 width=100></td>
+<td><img src=./results/circle/1.0-0.4-0.3-grad-y.jpg height=100 width=100></td>
+<td><img src=./results/circle/1.0-0.4-0.3.jpg height=100 width=100></td>
+</tr>
+<tr>
+<td colspan=3>
+Sigma: 1.0&nbsp;
+Start: 0.5&nbsp;
+Continue: 0.1&nbsp;
+</td>
+</tr>
+<tr>
+<td>X Derivative</td><td>Y Derivative</td><td>Final Result</td>
+</tr>
+<tr>
+<td><img src=./results/circle/1.0-0.5-0.1-grad-x.jpg height=100 width=100></td>
+<td><img src=./results/circle/1.0-0.5-0.1-grad-y.jpg height=100 width=100></td>
+<td><img src=./results/circle/1.0-0.5-0.1.jpg height=100 width=100></td>
+</tr>
+<tr>
+<td colspan=3>
+Sigma: 1.0&nbsp;
+Start: 0.5&nbsp;
+Continue: 0.2&nbsp;
+</td>
+</tr>
+<tr>
+<td>X Derivative</td><td>Y Derivative</td><td>Final Result</td>
+</tr>
+<tr>
+<td><img src=./results/circle/1.0-0.5-0.2-grad-x.jpg height=100 width=100></td>
+<td><img src=./results/circle/1.0-0.5-0.2-grad-y.jpg height=100 width=100></td>
+<td><img src=./results/circle/1.0-0.5-0.2.jpg height=100 width=100></td>
+</tr>
+<tr>
+<td colspan=3>
+Sigma: 1.0&nbsp;
+Start: 0.5&nbsp;
+Continue: 0.3&nbsp;
+</td>
+</tr>
+<tr>
+<td>X Derivative</td><td>Y Derivative</td><td>Final Result</td>
+</tr>
+<tr>
+<td><img src=./results/circle/1.0-0.5-0.3-grad-x.jpg height=100 width=100></td>
+<td><img src=./results/circle/1.0-0.5-0.3-grad-y.jpg height=100 width=100></td>
+<td><img src=./results/circle/1.0-0.5-0.3.jpg height=100 width=100></td>
+</tr>
+<tr>
+<td colspan=3>
+Sigma: 1.0&nbsp;
+Start: 0.6&nbsp;
+Continue: 0.1&nbsp;
+</td>
+</tr>
+<tr>
+<td>X Derivative</td><td>Y Derivative</td><td>Final Result</td>
+</tr>
+<tr>
+<td><img src=./results/circle/1.0-0.6-0.1-grad-x.jpg height=100 width=100></td>
+<td><img src=./results/circle/1.0-0.6-0.1-grad-y.jpg height=100 width=100></td>
+<td><img src=./results/circle/1.0-0.6-0.1.jpg height=100 width=100></td>
+</tr>
+<tr>
+<td colspan=3>
+Sigma: 1.0&nbsp;
+Start: 0.6&nbsp;
+Continue: 0.2&nbsp;
+</td>
+</tr>
+<tr>
+<td>X Derivative</td><td>Y Derivative</td><td>Final Result</td>
+</tr>
+<tr>
+<td><img src=./results/circle/1.0-0.6-0.2-grad-x.jpg height=100 width=100></td>
+<td><img src=./results/circle/1.0-0.6-0.2-grad-y.jpg height=100 width=100></td>
+<td><img src=./results/circle/1.0-0.6-0.2.jpg height=100 width=100></td>
+</tr>
+<tr>
+<td colspan=3>
+Sigma: 1.0&nbsp;
+Start: 0.6&nbsp;
+Continue: 0.3&nbsp;
+</td>
+</tr>
+<tr>
+<td>X Derivative</td><td>Y Derivative</td><td>Final Result</td>
+</tr>
+<tr>
+<td><img src=./results/circle/1.0-0.6-0.3-grad-x.jpg height=100 width=100></td>
+<td><img src=./results/circle/1.0-0.6-0.3-grad-y.jpg height=100 width=100></td>
+<td><img src=./results/circle/1.0-0.6-0.3.jpg height=100 width=100></td>
+</tr>
+<tr>
+<td colspan=3>
+Sigma: 1.1&nbsp;
+Start: 0.4&nbsp;
+Continue: 0.1&nbsp;
+</td>
+</tr>
+<tr>
+<td>X Derivative</td><td>Y Derivative</td><td>Final Result</td>
+</tr>
+<tr>
+<td><img src=./results/circle/1.1-0.4-0.1-grad-x.jpg height=100 width=100></td>
+<td><img src=./results/circle/1.1-0.4-0.1-grad-y.jpg height=100 width=100></td>
+<td><img src=./results/circle/1.1-0.4-0.1.jpg height=100 width=100></td>
+</tr>
+<tr>
+<td colspan=3>
+Sigma: 1.1&nbsp;
+Start: 0.4&nbsp;
+Continue: 0.2&nbsp;
+</td>
+</tr>
+<tr>
+<td>X Derivative</td><td>Y Derivative</td><td>Final Result</td>
+</tr>
+<tr>
+<td><img src=./results/circle/1.1-0.4-0.2-grad-x.jpg height=100 width=100></td>
+<td><img src=./results/circle/1.1-0.4-0.2-grad-y.jpg height=100 width=100></td>
+<td><img src=./results/circle/1.1-0.4-0.2.jpg height=100 width=100></td>
+</tr>
+<tr>
+<td colspan=3>
+Sigma: 1.1&nbsp;
+Start: 0.4&nbsp;
+Continue: 0.3&nbsp;
+</td>
+</tr>
+<tr>
+<td>X Derivative</td><td>Y Derivative</td><td>Final Result</td>
+</tr>
+<tr>
+<td><img src=./results/circle/1.1-0.4-0.3-grad-x.jpg height=100 width=100></td>
+<td><img src=./results/circle/1.1-0.4-0.3-grad-y.jpg height=100 width=100></td>
+<td><img src=./results/circle/1.1-0.4-0.3.jpg height=100 width=100></td>
+</tr>
+<tr>
+<td colspan=3>
+Sigma: 1.1&nbsp;
+Start: 0.5&nbsp;
+Continue: 0.1&nbsp;
+</td>
+</tr>
+<tr>
+<td>X Derivative</td><td>Y Derivative</td><td>Final Result</td>
+</tr>
+<tr>
+<td><img src=./results/circle/1.1-0.5-0.1-grad-x.jpg height=100 width=100></td>
+<td><img src=./results/circle/1.1-0.5-0.1-grad-y.jpg height=100 width=100></td>
+<td><img src=./results/circle/1.1-0.5-0.1.jpg height=100 width=100></td>
+</tr>
+<tr>
+<td colspan=3>
+Sigma: 1.1&nbsp;
+Start: 0.5&nbsp;
+Continue: 0.2&nbsp;
+</td>
+</tr>
+<tr>
+<td>X Derivative</td><td>Y Derivative</td><td>Final Result</td>
+</tr>
+<tr>
+<td><img src=./results/circle/1.1-0.5-0.2-grad-x.jpg height=100 width=100></td>
+<td><img src=./results/circle/1.1-0.5-0.2-grad-y.jpg height=100 width=100></td>
+<td><img src=./results/circle/1.1-0.5-0.2.jpg height=100 width=100></td>
+</tr>
+<tr>
+<td colspan=3>
+Sigma: 1.1&nbsp;
+Start: 0.5&nbsp;
+Continue: 0.3&nbsp;
+</td>
+</tr>
+<tr>
+<td>X Derivative</td><td>Y Derivative</td><td>Final Result</td>
+</tr>
+<tr>
+<td><img src=./results/circle/1.1-0.5-0.3-grad-x.jpg height=100 width=100></td>
+<td><img src=./results/circle/1.1-0.5-0.3-grad-y.jpg height=100 width=100></td>
+<td><img src=./results/circle/1.1-0.5-0.3.jpg height=100 width=100></td>
+</tr>
+<tr>
+<td colspan=3>
+Sigma: 1.1&nbsp;
+Start: 0.6&nbsp;
+Continue: 0.1&nbsp;
+</td>
+</tr>
+<tr>
+<td>X Derivative</td><td>Y Derivative</td><td>Final Result</td>
+</tr>
+<tr>
+<td><img src=./results/circle/1.1-0.6-0.1-grad-x.jpg height=100 width=100></td>
+<td><img src=./results/circle/1.1-0.6-0.1-grad-y.jpg height=100 width=100></td>
+<td><img src=./results/circle/1.1-0.6-0.1.jpg height=100 width=100></td>
+</tr>
+<tr>
+<td colspan=3>
+Sigma: 1.1&nbsp;
+Start: 0.6&nbsp;
+Continue: 0.2&nbsp;
+</td>
+</tr>
+<tr>
+<td>X Derivative</td><td>Y Derivative</td><td>Final Result</td>
+</tr>
+<tr>
+<td><img src=./results/circle/1.1-0.6-0.2-grad-x.jpg height=100 width=100></td>
+<td><img src=./results/circle/1.1-0.6-0.2-grad-y.jpg height=100 width=100></td>
+<td><img src=./results/circle/1.1-0.6-0.2.jpg height=100 width=100></td>
+</tr>
+<tr>
+<td colspan=3>
+Sigma: 1.1&nbsp;
+Start: 0.6&nbsp;
+Continue: 0.3&nbsp;
+</td>
+</tr>
+<tr>
+<td>X Derivative</td><td>Y Derivative</td><td>Final Result</td>
+</tr>
+<tr>
+<td><img src=./results/circle/1.1-0.6-0.3-grad-x.jpg height=100 width=100></td>
+<td><img src=./results/circle/1.1-0.6-0.3-grad-y.jpg height=100 width=100></td>
+<td><img src=./results/circle/1.1-0.6-0.3.jpg height=100 width=100></td>
+</tr>
+<tr>
+<td colspan=3>
+Sigma: 1.2&nbsp;
+Start: 0.4&nbsp;
+Continue: 0.1&nbsp;
+</td>
+</tr>
+<tr>
+<td>X Derivative</td><td>Y Derivative</td><td>Final Result</td>
+</tr>
+<tr>
+<td><img src=./results/circle/1.2-0.4-0.1-grad-x.jpg height=100 width=100></td>
+<td><img src=./results/circle/1.2-0.4-0.1-grad-y.jpg height=100 width=100></td>
+<td><img src=./results/circle/1.2-0.4-0.1.jpg height=100 width=100></td>
+</tr>
+<tr>
+<td colspan=3>
+Sigma: 1.2&nbsp;
+Start: 0.4&nbsp;
+Continue: 0.2&nbsp;
+</td>
+</tr>
+<tr>
+<td>X Derivative</td><td>Y Derivative</td><td>Final Result</td>
+</tr>
+<tr>
+<td><img src=./results/circle/1.2-0.4-0.2-grad-x.jpg height=100 width=100></td>
+<td><img src=./results/circle/1.2-0.4-0.2-grad-y.jpg height=100 width=100></td>
+<td><img src=./results/circle/1.2-0.4-0.2.jpg height=100 width=100></td>
+</tr>
+<tr>
+<td colspan=3>
+Sigma: 1.2&nbsp;
+Start: 0.4&nbsp;
+Continue: 0.3&nbsp;
+</td>
+</tr>
+<tr>
+<td>X Derivative</td><td>Y Derivative</td><td>Final Result</td>
+</tr>
+<tr>
+<td><img src=./results/circle/1.2-0.4-0.3-grad-x.jpg height=100 width=100></td>
+<td><img src=./results/circle/1.2-0.4-0.3-grad-y.jpg height=100 width=100></td>
+<td><img src=./results/circle/1.2-0.4-0.3.jpg height=100 width=100></td>
+</tr>
+<tr>
+<td colspan=3>
+Sigma: 1.2&nbsp;
+Start: 0.5&nbsp;
+Continue: 0.1&nbsp;
+</td>
+</tr>
+<tr>
+<td>X Derivative</td><td>Y Derivative</td><td>Final Result</td>
+</tr>
+<tr>
+<td><img src=./results/circle/1.2-0.5-0.1-grad-x.jpg height=100 width=100></td>
+<td><img src=./results/circle/1.2-0.5-0.1-grad-y.jpg height=100 width=100></td>
+<td><img src=./results/circle/1.2-0.5-0.1.jpg height=100 width=100></td>
+</tr>
+<tr>
+<td colspan=3>
+Sigma: 1.2&nbsp;
+Start: 0.5&nbsp;
+Continue: 0.2&nbsp;
+</td>
+</tr>
+<tr>
+<td>X Derivative</td><td>Y Derivative</td><td>Final Result</td>
+</tr>
+<tr>
+<td><img src=./results/circle/1.2-0.5-0.2-grad-x.jpg height=100 width=100></td>
+<td><img src=./results/circle/1.2-0.5-0.2-grad-y.jpg height=100 width=100></td>
+<td><img src=./results/circle/1.2-0.5-0.2.jpg height=100 width=100></td>
+</tr>
+<tr>
+<td colspan=3>
+Sigma: 1.2&nbsp;
+Start: 0.5&nbsp;
+Continue: 0.3&nbsp;
+</td>
+</tr>
+<tr>
+<td>X Derivative</td><td>Y Derivative</td><td>Final Result</td>
+</tr>
+<tr>
+<td><img src=./results/circle/1.2-0.5-0.3-grad-x.jpg height=100 width=100></td>
+<td><img src=./results/circle/1.2-0.5-0.3-grad-y.jpg height=100 width=100></td>
+<td><img src=./results/circle/1.2-0.5-0.3.jpg height=100 width=100></td>
+</tr>
+<tr>
+<td colspan=3>
+Sigma: 1.2&nbsp;
+Start: 0.6&nbsp;
+Continue: 0.1&nbsp;
+</td>
+</tr>
+<tr>
+<td>X Derivative</td><td>Y Derivative</td><td>Final Result</td>
+</tr>
+<tr>
+<td><img src=./results/circle/1.2-0.6-0.1-grad-x.jpg height=100 width=100></td>
+<td><img src=./results/circle/1.2-0.6-0.1-grad-y.jpg height=100 width=100></td>
+<td><img src=./results/circle/1.2-0.6-0.1.jpg height=100 width=100></td>
+</tr>
+<tr>
+<td colspan=3>
+Sigma: 1.2&nbsp;
+Start: 0.6&nbsp;
+Continue: 0.2&nbsp;
+</td>
+</tr>
+<tr>
+<td>X Derivative</td><td>Y Derivative</td><td>Final Result</td>
+</tr>
+<tr>
+<td><img src=./results/circle/1.2-0.6-0.2-grad-x.jpg height=100 width=100></td>
+<td><img src=./results/circle/1.2-0.6-0.2-grad-y.jpg height=100 width=100></td>
+<td><img src=./results/circle/1.2-0.6-0.2.jpg height=100 width=100></td>
+</tr>
+<tr>
+<td colspan=3>
+Sigma: 1.2&nbsp;
+Start: 0.6&nbsp;
+Continue: 0.3&nbsp;
+</td>
+</tr>
+<tr>
+<td>X Derivative</td><td>Y Derivative</td><td>Final Result</td>
+</tr>
+<tr>
+<td><img src=./results/circle/1.2-0.6-0.3-grad-x.jpg height=100 width=100></td>
+<td><img src=./results/circle/1.2-0.6-0.3-grad-y.jpg height=100 width=100></td>
+<td><img src=./results/circle/1.2-0.6-0.3.jpg height=100 width=100></td>
+</tr>
+<tr>
+<td colspan=3>
+Sigma: 1.3&nbsp;
+Start: 0.4&nbsp;
+Continue: 0.1&nbsp;
+</td>
+</tr>
+<tr>
+<td>X Derivative</td><td>Y Derivative</td><td>Final Result</td>
+</tr>
+<tr>
+<td><img src=./results/circle/1.3-0.4-0.1-grad-x.jpg height=100 width=100></td>
+<td><img src=./results/circle/1.3-0.4-0.1-grad-y.jpg height=100 width=100></td>
+<td><img src=./results/circle/1.3-0.4-0.1.jpg height=100 width=100></td>
+</tr>
+<tr>
+<td colspan=3>
+Sigma: 1.3&nbsp;
+Start: 0.4&nbsp;
+Continue: 0.2&nbsp;
+</td>
+</tr>
+<tr>
+<td>X Derivative</td><td>Y Derivative</td><td>Final Result</td>
+</tr>
+<tr>
+<td><img src=./results/circle/1.3-0.4-0.2-grad-x.jpg height=100 width=100></td>
+<td><img src=./results/circle/1.3-0.4-0.2-grad-y.jpg height=100 width=100></td>
+<td><img src=./results/circle/1.3-0.4-0.2.jpg height=100 width=100></td>
+</tr>
+<tr>
+<td colspan=3>
+Sigma: 1.3&nbsp;
+Start: 0.4&nbsp;
+Continue: 0.3&nbsp;
+</td>
+</tr>
+<tr>
+<td>X Derivative</td><td>Y Derivative</td><td>Final Result</td>
+</tr>
+<tr>
+<td><img src=./results/circle/1.3-0.4-0.3-grad-x.jpg height=100 width=100></td>
+<td><img src=./results/circle/1.3-0.4-0.3-grad-y.jpg height=100 width=100></td>
+<td><img src=./results/circle/1.3-0.4-0.3.jpg height=100 width=100></td>
+</tr>
+<tr>
+<td colspan=3>
+Sigma: 1.3&nbsp;
+Start: 0.5&nbsp;
+Continue: 0.1&nbsp;
+</td>
+</tr>
+<tr>
+<td>X Derivative</td><td>Y Derivative</td><td>Final Result</td>
+</tr>
+<tr>
+<td><img src=./results/circle/1.3-0.5-0.1-grad-x.jpg height=100 width=100></td>
+<td><img src=./results/circle/1.3-0.5-0.1-grad-y.jpg height=100 width=100></td>
+<td><img src=./results/circle/1.3-0.5-0.1.jpg height=100 width=100></td>
+</tr>
+<tr>
+<td colspan=3>
+Sigma: 1.3&nbsp;
+Start: 0.5&nbsp;
+Continue: 0.2&nbsp;
+</td>
+</tr>
+<tr>
+<td>X Derivative</td><td>Y Derivative</td><td>Final Result</td>
+</tr>
+<tr>
+<td><img src=./results/circle/1.3-0.5-0.2-grad-x.jpg height=100 width=100></td>
+<td><img src=./results/circle/1.3-0.5-0.2-grad-y.jpg height=100 width=100></td>
+<td><img src=./results/circle/1.3-0.5-0.2.jpg height=100 width=100></td>
+</tr>
+<tr>
+<td colspan=3>
+Sigma: 1.3&nbsp;
+Start: 0.5&nbsp;
+Continue: 0.3&nbsp;
+</td>
+</tr>
+<tr>
+<td>X Derivative</td><td>Y Derivative</td><td>Final Result</td>
+</tr>
+<tr>
+<td><img src=./results/circle/1.3-0.5-0.3-grad-x.jpg height=100 width=100></td>
+<td><img src=./results/circle/1.3-0.5-0.3-grad-y.jpg height=100 width=100></td>
+<td><img src=./results/circle/1.3-0.5-0.3.jpg height=100 width=100></td>
+</tr>
+<tr>
+<td colspan=3>
+Sigma: 1.3&nbsp;
+Start: 0.6&nbsp;
+Continue: 0.1&nbsp;
+</td>
+</tr>
+<tr>
+<td>X Derivative</td><td>Y Derivative</td><td>Final Result</td>
+</tr>
+<tr>
+<td><img src=./results/circle/1.3-0.6-0.1-grad-x.jpg height=100 width=100></td>
+<td><img src=./results/circle/1.3-0.6-0.1-grad-y.jpg height=100 width=100></td>
+<td><img src=./results/circle/1.3-0.6-0.1.jpg height=100 width=100></td>
+</tr>
+<tr>
+<td colspan=3>
+Sigma: 1.3&nbsp;
+Start: 0.6&nbsp;
+Continue: 0.2&nbsp;
+</td>
+</tr>
+<tr>
+<td>X Derivative</td><td>Y Derivative</td><td>Final Result</td>
+</tr>
+<tr>
+<td><img src=./results/circle/1.3-0.6-0.2-grad-x.jpg height=100 width=100></td>
+<td><img src=./results/circle/1.3-0.6-0.2-grad-y.jpg height=100 width=100></td>
+<td><img src=./results/circle/1.3-0.6-0.2.jpg height=100 width=100></td>
+</tr>
+<tr>
+<td colspan=3>
+Sigma: 1.3&nbsp;
+Start: 0.6&nbsp;
+Continue: 0.3&nbsp;
+</td>
+</tr>
+<tr>
+<td>X Derivative</td><td>Y Derivative</td><td>Final Result</td>
+</tr>
+<tr>
+<td><img src=./results/circle/1.3-0.6-0.3-grad-x.jpg height=100 width=100></td>
+<td><img src=./results/circle/1.3-0.6-0.3-grad-y.jpg height=100 width=100></td>
+<td><img src=./results/circle/1.3-0.6-0.3.jpg height=100 width=100></td>
+</tr>
+<tr>
+<td colspan=3>
+Sigma: 1.4&nbsp;
+Start: 0.4&nbsp;
+Continue: 0.1&nbsp;
+</td>
+</tr>
+<tr>
+<td>X Derivative</td><td>Y Derivative</td><td>Final Result</td>
+</tr>
+<tr>
+<td><img src=./results/circle/1.4-0.4-0.1-grad-x.jpg height=100 width=100></td>
+<td><img src=./results/circle/1.4-0.4-0.1-grad-y.jpg height=100 width=100></td>
+<td><img src=./results/circle/1.4-0.4-0.1.jpg height=100 width=100></td>
+</tr>
+<tr>
+<td colspan=3>
+Sigma: 1.4&nbsp;
+Start: 0.4&nbsp;
+Continue: 0.2&nbsp;
+</td>
+</tr>
+<tr>
+<td>X Derivative</td><td>Y Derivative</td><td>Final Result</td>
+</tr>
+<tr>
+<td><img src=./results/circle/1.4-0.4-0.2-grad-x.jpg height=100 width=100></td>
+<td><img src=./results/circle/1.4-0.4-0.2-grad-y.jpg height=100 width=100></td>
+<td><img src=./results/circle/1.4-0.4-0.2.jpg height=100 width=100></td>
+</tr>
+<tr>
+<td colspan=3>
+Sigma: 1.4&nbsp;
+Start: 0.4&nbsp;
+Continue: 0.3&nbsp;
+</td>
+</tr>
+<tr>
+<td>X Derivative</td><td>Y Derivative</td><td>Final Result</td>
+</tr>
+<tr>
+<td><img src=./results/circle/1.4-0.4-0.3-grad-x.jpg height=100 width=100></td>
+<td><img src=./results/circle/1.4-0.4-0.3-grad-y.jpg height=100 width=100></td>
+<td><img src=./results/circle/1.4-0.4-0.3.jpg height=100 width=100></td>
+</tr>
+<tr>
+<td colspan=3>
+Sigma: 1.4&nbsp;
+Start: 0.5&nbsp;
+Continue: 0.1&nbsp;
+</td>
+</tr>
+<tr>
+<td>X Derivative</td><td>Y Derivative</td><td>Final Result</td>
+</tr>
+<tr>
+<td><img src=./results/circle/1.4-0.5-0.1-grad-x.jpg height=100 width=100></td>
+<td><img src=./results/circle/1.4-0.5-0.1-grad-y.jpg height=100 width=100></td>
+<td><img src=./results/circle/1.4-0.5-0.1.jpg height=100 width=100></td>
+</tr>
+<tr>
+<td colspan=3>
+Sigma: 1.4&nbsp;
+Start: 0.5&nbsp;
+Continue: 0.2&nbsp;
+</td>
+</tr>
+<tr>
+<td>X Derivative</td><td>Y Derivative</td><td>Final Result</td>
+</tr>
+<tr>
+<td><img src=./results/circle/1.4-0.5-0.2-grad-x.jpg height=100 width=100></td>
+<td><img src=./results/circle/1.4-0.5-0.2-grad-y.jpg height=100 width=100></td>
+<td><img src=./results/circle/1.4-0.5-0.2.jpg height=100 width=100></td>
+</tr>
+<tr>
+<td colspan=3>
+Sigma: 1.4&nbsp;
+Start: 0.5&nbsp;
+Continue: 0.3&nbsp;
+</td>
+</tr>
+<tr>
+<td>X Derivative</td><td>Y Derivative</td><td>Final Result</td>
+</tr>
+<tr>
+<td><img src=./results/circle/1.4-0.5-0.3-grad-x.jpg height=100 width=100></td>
+<td><img src=./results/circle/1.4-0.5-0.3-grad-y.jpg height=100 width=100></td>
+<td><img src=./results/circle/1.4-0.5-0.3.jpg height=100 width=100></td>
+</tr>
+<tr>
+<td colspan=3>
+Sigma: 1.4&nbsp;
+Start: 0.6&nbsp;
+Continue: 0.1&nbsp;
+</td>
+</tr>
+<tr>
+<td>X Derivative</td><td>Y Derivative</td><td>Final Result</td>
+</tr>
+<tr>
+<td><img src=./results/circle/1.4-0.6-0.1-grad-x.jpg height=100 width=100></td>
+<td><img src=./results/circle/1.4-0.6-0.1-grad-y.jpg height=100 width=100></td>
+<td><img src=./results/circle/1.4-0.6-0.1.jpg height=100 width=100></td>
+</tr>
+<tr>
+<td colspan=3>
+Sigma: 1.4&nbsp;
+Start: 0.6&nbsp;
+Continue: 0.2&nbsp;
+</td>
+</tr>
+<tr>
+<td>X Derivative</td><td>Y Derivative</td><td>Final Result</td>
+</tr>
+<tr>
+<td><img src=./results/circle/1.4-0.6-0.2-grad-x.jpg height=100 width=100></td>
+<td><img src=./results/circle/1.4-0.6-0.2-grad-y.jpg height=100 width=100></td>
+<td><img src=./results/circle/1.4-0.6-0.2.jpg height=100 width=100></td>
+</tr>
+<tr>
+<td colspan=3>
+Sigma: 1.4&nbsp;
+Start: 0.6&nbsp;
+Continue: 0.3&nbsp;
+</td>
+</tr>
+<tr>
+<td>X Derivative</td><td>Y Derivative</td><td>Final Result</td>
+</tr>
+<tr>
+<td><img src=./results/circle/1.4-0.6-0.3-grad-x.jpg height=100 width=100></td>
+<td><img src=./results/circle/1.4-0.6-0.3-grad-y.jpg height=100 width=100></td>
+<td><img src=./results/circle/1.4-0.6-0.3.jpg height=100 width=100></td>
+</tr>
+<tr>
+<td colspan=3>
+Sigma: 1.5&nbsp;
+Start: 0.4&nbsp;
+Continue: 0.1&nbsp;
+</td>
+</tr>
+<tr>
+<td>X Derivative</td><td>Y Derivative</td><td>Final Result</td>
+</tr>
+<tr>
+<td><img src=./results/circle/1.5-0.4-0.1-grad-x.jpg height=100 width=100></td>
+<td><img src=./results/circle/1.5-0.4-0.1-grad-y.jpg height=100 width=100></td>
+<td><img src=./results/circle/1.5-0.4-0.1.jpg height=100 width=100></td>
+</tr>
+<tr>
+<td colspan=3>
+Sigma: 1.5&nbsp;
+Start: 0.4&nbsp;
+Continue: 0.2&nbsp;
+</td>
+</tr>
+<tr>
+<td>X Derivative</td><td>Y Derivative</td><td>Final Result</td>
+</tr>
+<tr>
+<td><img src=./results/circle/1.5-0.4-0.2-grad-x.jpg height=100 width=100></td>
+<td><img src=./results/circle/1.5-0.4-0.2-grad-y.jpg height=100 width=100></td>
+<td><img src=./results/circle/1.5-0.4-0.2.jpg height=100 width=100></td>
+</tr>
+<tr>
+<td colspan=3>
+Sigma: 1.5&nbsp;
+Start: 0.4&nbsp;
+Continue: 0.3&nbsp;
+</td>
+</tr>
+<tr>
+<td>X Derivative</td><td>Y Derivative</td><td>Final Result</td>
+</tr>
+<tr>
+<td><img src=./results/circle/1.5-0.4-0.3-grad-x.jpg height=100 width=100></td>
+<td><img src=./results/circle/1.5-0.4-0.3-grad-y.jpg height=100 width=100></td>
+<td><img src=./results/circle/1.5-0.4-0.3.jpg height=100 width=100></td>
+</tr>
+<tr>
+<td colspan=3>
+Sigma: 1.5&nbsp;
+Start: 0.5&nbsp;
+Continue: 0.1&nbsp;
+</td>
+</tr>
+<tr>
+<td>X Derivative</td><td>Y Derivative</td><td>Final Result</td>
+</tr>
+<tr>
+<td><img src=./results/circle/1.5-0.5-0.1-grad-x.jpg height=100 width=100></td>
+<td><img src=./results/circle/1.5-0.5-0.1-grad-y.jpg height=100 width=100></td>
+<td><img src=./results/circle/1.5-0.5-0.1.jpg height=100 width=100></td>
+</tr>
+<tr>
+<td colspan=3>
+Sigma: 1.5&nbsp;
+Start: 0.5&nbsp;
+Continue: 0.2&nbsp;
+</td>
+</tr>
+<tr>
+<td>X Derivative</td><td>Y Derivative</td><td>Final Result</td>
+</tr>
+<tr>
+<td><img src=./results/circle/1.5-0.5-0.2-grad-x.jpg height=100 width=100></td>
+<td><img src=./results/circle/1.5-0.5-0.2-grad-y.jpg height=100 width=100></td>
+<td><img src=./results/circle/1.5-0.5-0.2.jpg height=100 width=100></td>
+</tr>
+<tr>
+<td colspan=3>
+Sigma: 1.5&nbsp;
+Start: 0.5&nbsp;
+Continue: 0.3&nbsp;
+</td>
+</tr>
+<tr>
+<td>X Derivative</td><td>Y Derivative</td><td>Final Result</td>
+</tr>
+<tr>
+<td><img src=./results/circle/1.5-0.5-0.3-grad-x.jpg height=100 width=100></td>
+<td><img src=./results/circle/1.5-0.5-0.3-grad-y.jpg height=100 width=100></td>
+<td><img src=./results/circle/1.5-0.5-0.3.jpg height=100 width=100></td>
+</tr>
+<tr>
+<td colspan=3>
+Sigma: 1.5&nbsp;
+Start: 0.6&nbsp;
+Continue: 0.1&nbsp;
+</td>
+</tr>
+<tr>
+<td>X Derivative</td><td>Y Derivative</td><td>Final Result</td>
+</tr>
+<tr>
+<td><img src=./results/circle/1.5-0.6-0.1-grad-x.jpg height=100 width=100></td>
+<td><img src=./results/circle/1.5-0.6-0.1-grad-y.jpg height=100 width=100></td>
+<td><img src=./results/circle/1.5-0.6-0.1.jpg height=100 width=100></td>
+</tr>
+<tr>
+<td colspan=3>
+Sigma: 1.5&nbsp;
+Start: 0.6&nbsp;
+Continue: 0.2&nbsp;
+</td>
+</tr>
+<tr>
+<td>X Derivative</td><td>Y Derivative</td><td>Final Result</td>
+</tr>
+<tr>
+<td><img src=./results/circle/1.5-0.6-0.2-grad-x.jpg height=100 width=100></td>
+<td><img src=./results/circle/1.5-0.6-0.2-grad-y.jpg height=100 width=100></td>
+<td><img src=./results/circle/1.5-0.6-0.2.jpg height=100 width=100></td>
+</tr>
+<tr>
+<td colspan=3>
+Sigma: 1.5&nbsp;
+Start: 0.6&nbsp;
+Continue: 0.3&nbsp;
+</td>
+</tr>
+<tr>
+<td>X Derivative</td><td>Y Derivative</td><td>Final Result</td>
+</tr>
+<tr>
+<td><img src=./results/circle/1.5-0.6-0.3-grad-x.jpg height=100 width=100></td>
+<td><img src=./results/circle/1.5-0.6-0.3-grad-y.jpg height=100 width=100></td>
+<td><img src=./results/circle/1.5-0.6-0.3.jpg height=100 width=100></td>
+</tr>
+<tr>
+<td colspan=3>
+Sigma: 1.6&nbsp;
+Start: 0.4&nbsp;
+Continue: 0.1&nbsp;
+</td>
+</tr>
+<tr>
+<td>X Derivative</td><td>Y Derivative</td><td>Final Result</td>
+</tr>
+<tr>
+<td><img src=./results/circle/1.6-0.4-0.1-grad-x.jpg height=100 width=100></td>
+<td><img src=./results/circle/1.6-0.4-0.1-grad-y.jpg height=100 width=100></td>
+<td><img src=./results/circle/1.6-0.4-0.1.jpg height=100 width=100></td>
+</tr>
+<tr>
+<td colspan=3>
+Sigma: 1.6&nbsp;
+Start: 0.4&nbsp;
+Continue: 0.2&nbsp;
+</td>
+</tr>
+<tr>
+<td>X Derivative</td><td>Y Derivative</td><td>Final Result</td>
+</tr>
+<tr>
+<td><img src=./results/circle/1.6-0.4-0.2-grad-x.jpg height=100 width=100></td>
+<td><img src=./results/circle/1.6-0.4-0.2-grad-y.jpg height=100 width=100></td>
+<td><img src=./results/circle/1.6-0.4-0.2.jpg height=100 width=100></td>
+</tr>
+<tr>
+<td colspan=3>
+Sigma: 1.6&nbsp;
+Start: 0.4&nbsp;
+Continue: 0.3&nbsp;
+</td>
+</tr>
+<tr>
+<td>X Derivative</td><td>Y Derivative</td><td>Final Result</td>
+</tr>
+<tr>
+<td><img src=./results/circle/1.6-0.4-0.3-grad-x.jpg height=100 width=100></td>
+<td><img src=./results/circle/1.6-0.4-0.3-grad-y.jpg height=100 width=100></td>
+<td><img src=./results/circle/1.6-0.4-0.3.jpg height=100 width=100></td>
+</tr>
+<tr>
+<td colspan=3>
+Sigma: 1.6&nbsp;
+Start: 0.5&nbsp;
+Continue: 0.1&nbsp;
+</td>
+</tr>
+<tr>
+<td>X Derivative</td><td>Y Derivative</td><td>Final Result</td>
+</tr>
+<tr>
+<td><img src=./results/circle/1.6-0.5-0.1-grad-x.jpg height=100 width=100></td>
+<td><img src=./results/circle/1.6-0.5-0.1-grad-y.jpg height=100 width=100></td>
+<td><img src=./results/circle/1.6-0.5-0.1.jpg height=100 width=100></td>
+</tr>
+<tr>
+<td colspan=3>
+Sigma: 1.6&nbsp;
+Start: 0.5&nbsp;
+Continue: 0.2&nbsp;
+</td>
+</tr>
+<tr>
+<td>X Derivative</td><td>Y Derivative</td><td>Final Result</td>
+</tr>
+<tr>
+<td><img src=./results/circle/1.6-0.5-0.2-grad-x.jpg height=100 width=100></td>
+<td><img src=./results/circle/1.6-0.5-0.2-grad-y.jpg height=100 width=100></td>
+<td><img src=./results/circle/1.6-0.5-0.2.jpg height=100 width=100></td>
+</tr>
+<tr>
+<td colspan=3>
+Sigma: 1.6&nbsp;
+Start: 0.5&nbsp;
+Continue: 0.3&nbsp;
+</td>
+</tr>
+<tr>
+<td>X Derivative</td><td>Y Derivative</td><td>Final Result</td>
+</tr>
+<tr>
+<td><img src=./results/circle/1.6-0.5-0.3-grad-x.jpg height=100 width=100></td>
+<td><img src=./results/circle/1.6-0.5-0.3-grad-y.jpg height=100 width=100></td>
+<td><img src=./results/circle/1.6-0.5-0.3.jpg height=100 width=100></td>
+</tr>
+<tr>
+<td colspan=3>
+Sigma: 1.6&nbsp;
+Start: 0.6&nbsp;
+Continue: 0.1&nbsp;
+</td>
+</tr>
+<tr>
+<td>X Derivative</td><td>Y Derivative</td><td>Final Result</td>
+</tr>
+<tr>
+<td><img src=./results/circle/1.6-0.6-0.1-grad-x.jpg height=100 width=100></td>
+<td><img src=./results/circle/1.6-0.6-0.1-grad-y.jpg height=100 width=100></td>
+<td><img src=./results/circle/1.6-0.6-0.1.jpg height=100 width=100></td>
+</tr>
+<tr>
+<td colspan=3>
+Sigma: 1.6&nbsp;
+Start: 0.6&nbsp;
+Continue: 0.2&nbsp;
+</td>
+</tr>
+<tr>
+<td>X Derivative</td><td>Y Derivative</td><td>Final Result</td>
+</tr>
+<tr>
+<td><img src=./results/circle/1.6-0.6-0.2-grad-x.jpg height=100 width=100></td>
+<td><img src=./results/circle/1.6-0.6-0.2-grad-y.jpg height=100 width=100></td>
+<td><img src=./results/circle/1.6-0.6-0.2.jpg height=100 width=100></td>
+</tr>
+<tr>
+<td colspan=3>
+Sigma: 1.6&nbsp;
+Start: 0.6&nbsp;
+Continue: 0.3&nbsp;
+</td>
+</tr>
+<tr>
+<td>X Derivative</td><td>Y Derivative</td><td>Final Result</td>
+</tr>
+<tr>
+<td><img src=./results/circle/1.6-0.6-0.3-grad-x.jpg height=100 width=100></td>
+<td><img src=./results/circle/1.6-0.6-0.3-grad-y.jpg height=100 width=100></td>
+<td><img src=./results/circle/1.6-0.6-0.3.jpg height=100 width=100></td>
+</tr>
+<tr>
+<td colspan=3>
+Sigma: 1.7&nbsp;
+Start: 0.4&nbsp;
+Continue: 0.1&nbsp;
+</td>
+</tr>
+<tr>
+<td>X Derivative</td><td>Y Derivative</td><td>Final Result</td>
+</tr>
+<tr>
+<td><img src=./results/circle/1.7-0.4-0.1-grad-x.jpg height=100 width=100></td>
+<td><img src=./results/circle/1.7-0.4-0.1-grad-y.jpg height=100 width=100></td>
+<td><img src=./results/circle/1.7-0.4-0.1.jpg height=100 width=100></td>
+</tr>
+<tr>
+<td colspan=3>
+Sigma: 1.7&nbsp;
+Start: 0.4&nbsp;
+Continue: 0.2&nbsp;
+</td>
+</tr>
+<tr>
+<td>X Derivative</td><td>Y Derivative</td><td>Final Result</td>
+</tr>
+<tr>
+<td><img src=./results/circle/1.7-0.4-0.2-grad-x.jpg height=100 width=100></td>
+<td><img src=./results/circle/1.7-0.4-0.2-grad-y.jpg height=100 width=100></td>
+<td><img src=./results/circle/1.7-0.4-0.2.jpg height=100 width=100></td>
+</tr>
+<tr>
+<td colspan=3>
+Sigma: 1.7&nbsp;
+Start: 0.4&nbsp;
+Continue: 0.3&nbsp;
+</td>
+</tr>
+<tr>
+<td>X Derivative</td><td>Y Derivative</td><td>Final Result</td>
+</tr>
+<tr>
+<td><img src=./results/circle/1.7-0.4-0.3-grad-x.jpg height=100 width=100></td>
+<td><img src=./results/circle/1.7-0.4-0.3-grad-y.jpg height=100 width=100></td>
+<td><img src=./results/circle/1.7-0.4-0.3.jpg height=100 width=100></td>
+</tr>
+<tr>
+<td colspan=3>
+Sigma: 1.7&nbsp;
+Start: 0.5&nbsp;
+Continue: 0.1&nbsp;
+</td>
+</tr>
+<tr>
+<td>X Derivative</td><td>Y Derivative</td><td>Final Result</td>
+</tr>
+<tr>
+<td><img src=./results/circle/1.7-0.5-0.1-grad-x.jpg height=100 width=100></td>
+<td><img src=./results/circle/1.7-0.5-0.1-grad-y.jpg height=100 width=100></td>
+<td><img src=./results/circle/1.7-0.5-0.1.jpg height=100 width=100></td>
+</tr>
+<tr>
+<td colspan=3>
+Sigma: 1.7&nbsp;
+Start: 0.5&nbsp;
+Continue: 0.2&nbsp;
+</td>
+</tr>
+<tr>
+<td>X Derivative</td><td>Y Derivative</td><td>Final Result</td>
+</tr>
+<tr>
+<td><img src=./results/circle/1.7-0.5-0.2-grad-x.jpg height=100 width=100></td>
+<td><img src=./results/circle/1.7-0.5-0.2-grad-y.jpg height=100 width=100></td>
+<td><img src=./results/circle/1.7-0.5-0.2.jpg height=100 width=100></td>
+</tr>
+<tr>
+<td colspan=3>
+Sigma: 1.7&nbsp;
+Start: 0.5&nbsp;
+Continue: 0.3&nbsp;
+</td>
+</tr>
+<tr>
+<td>X Derivative</td><td>Y Derivative</td><td>Final Result</td>
+</tr>
+<tr>
+<td><img src=./results/circle/1.7-0.5-0.3-grad-x.jpg height=100 width=100></td>
+<td><img src=./results/circle/1.7-0.5-0.3-grad-y.jpg height=100 width=100></td>
+<td><img src=./results/circle/1.7-0.5-0.3.jpg height=100 width=100></td>
+</tr>
+<tr>
+<td colspan=3>
+Sigma: 1.7&nbsp;
+Start: 0.6&nbsp;
+Continue: 0.1&nbsp;
+</td>
+</tr>
+<tr>
+<td>X Derivative</td><td>Y Derivative</td><td>Final Result</td>
+</tr>
+<tr>
+<td><img src=./results/circle/1.7-0.6-0.1-grad-x.jpg height=100 width=100></td>
+<td><img src=./results/circle/1.7-0.6-0.1-grad-y.jpg height=100 width=100></td>
+<td><img src=./results/circle/1.7-0.6-0.1.jpg height=100 width=100></td>
+</tr>
+<tr>
+<td colspan=3>
+Sigma: 1.7&nbsp;
+Start: 0.6&nbsp;
+Continue: 0.2&nbsp;
+</td>
+</tr>
+<tr>
+<td>X Derivative</td><td>Y Derivative</td><td>Final Result</td>
+</tr>
+<tr>
+<td><img src=./results/circle/1.7-0.6-0.2-grad-x.jpg height=100 width=100></td>
+<td><img src=./results/circle/1.7-0.6-0.2-grad-y.jpg height=100 width=100></td>
+<td><img src=./results/circle/1.7-0.6-0.2.jpg height=100 width=100></td>
+</tr>
+<tr>
+<td colspan=3>
+Sigma: 1.7&nbsp;
+Start: 0.6&nbsp;
+Continue: 0.3&nbsp;
+</td>
+</tr>
+<tr>
+<td>X Derivative</td><td>Y Derivative</td><td>Final Result</td>
+</tr>
+<tr>
+<td><img src=./results/circle/1.7-0.6-0.3-grad-x.jpg height=100 width=100></td>
+<td><img src=./results/circle/1.7-0.6-0.3-grad-y.jpg height=100 width=100></td>
+<td><img src=./results/circle/1.7-0.6-0.3.jpg height=100 width=100></td>
+</tr>
+<tr>
+<td colspan=3>
+Sigma: 1.8&nbsp;
+Start: 0.4&nbsp;
+Continue: 0.1&nbsp;
+</td>
+</tr>
+<tr>
+<td>X Derivative</td><td>Y Derivative</td><td>Final Result</td>
+</tr>
+<tr>
+<td><img src=./results/circle/1.8-0.4-0.1-grad-x.jpg height=100 width=100></td>
+<td><img src=./results/circle/1.8-0.4-0.1-grad-y.jpg height=100 width=100></td>
+<td><img src=./results/circle/1.8-0.4-0.1.jpg height=100 width=100></td>
+</tr>
+<tr>
+<td colspan=3>
+Sigma: 1.8&nbsp;
+Start: 0.4&nbsp;
+Continue: 0.2&nbsp;
+</td>
+</tr>
+<tr>
+<td>X Derivative</td><td>Y Derivative</td><td>Final Result</td>
+</tr>
+<tr>
+<td><img src=./results/circle/1.8-0.4-0.2-grad-x.jpg height=100 width=100></td>
+<td><img src=./results/circle/1.8-0.4-0.2-grad-y.jpg height=100 width=100></td>
+<td><img src=./results/circle/1.8-0.4-0.2.jpg height=100 width=100></td>
+</tr>
+<tr>
+<td colspan=3>
+Sigma: 1.8&nbsp;
+Start: 0.4&nbsp;
+Continue: 0.3&nbsp;
+</td>
+</tr>
+<tr>
+<td>X Derivative</td><td>Y Derivative</td><td>Final Result</td>
+</tr>
+<tr>
+<td><img src=./results/circle/1.8-0.4-0.3-grad-x.jpg height=100 width=100></td>
+<td><img src=./results/circle/1.8-0.4-0.3-grad-y.jpg height=100 width=100></td>
+<td><img src=./results/circle/1.8-0.4-0.3.jpg height=100 width=100></td>
+</tr>
+<tr>
+<td colspan=3>
+Sigma: 1.8&nbsp;
+Start: 0.5&nbsp;
+Continue: 0.1&nbsp;
+</td>
+</tr>
+<tr>
+<td>X Derivative</td><td>Y Derivative</td><td>Final Result</td>
+</tr>
+<tr>
+<td><img src=./results/circle/1.8-0.5-0.1-grad-x.jpg height=100 width=100></td>
+<td><img src=./results/circle/1.8-0.5-0.1-grad-y.jpg height=100 width=100></td>
+<td><img src=./results/circle/1.8-0.5-0.1.jpg height=100 width=100></td>
+</tr>
+<tr>
+<td colspan=3>
+Sigma: 1.8&nbsp;
+Start: 0.5&nbsp;
+Continue: 0.2&nbsp;
+</td>
+</tr>
+<tr>
+<td>X Derivative</td><td>Y Derivative</td><td>Final Result</td>
+</tr>
+<tr>
+<td><img src=./results/circle/1.8-0.5-0.2-grad-x.jpg height=100 width=100></td>
+<td><img src=./results/circle/1.8-0.5-0.2-grad-y.jpg height=100 width=100></td>
+<td><img src=./results/circle/1.8-0.5-0.2.jpg height=100 width=100></td>
+</tr>
+<tr>
+<td colspan=3>
+Sigma: 1.8&nbsp;
+Start: 0.5&nbsp;
+Continue: 0.3&nbsp;
+</td>
+</tr>
+<tr>
+<td>X Derivative</td><td>Y Derivative</td><td>Final Result</td>
+</tr>
+<tr>
+<td><img src=./results/circle/1.8-0.5-0.3-grad-x.jpg height=100 width=100></td>
+<td><img src=./results/circle/1.8-0.5-0.3-grad-y.jpg height=100 width=100></td>
+<td><img src=./results/circle/1.8-0.5-0.3.jpg height=100 width=100></td>
+</tr>
+<tr>
+<td colspan=3>
+Sigma: 1.8&nbsp;
+Start: 0.6&nbsp;
+Continue: 0.1&nbsp;
+</td>
+</tr>
+<tr>
+<td>X Derivative</td><td>Y Derivative</td><td>Final Result</td>
+</tr>
+<tr>
+<td><img src=./results/circle/1.8-0.6-0.1-grad-x.jpg height=100 width=100></td>
+<td><img src=./results/circle/1.8-0.6-0.1-grad-y.jpg height=100 width=100></td>
+<td><img src=./results/circle/1.8-0.6-0.1.jpg height=100 width=100></td>
+</tr>
+<tr>
+<td colspan=3>
+Sigma: 1.8&nbsp;
+Start: 0.6&nbsp;
+Continue: 0.2&nbsp;
+</td>
+</tr>
+<tr>
+<td>X Derivative</td><td>Y Derivative</td><td>Final Result</td>
+</tr>
+<tr>
+<td><img src=./results/circle/1.8-0.6-0.2-grad-x.jpg height=100 width=100></td>
+<td><img src=./results/circle/1.8-0.6-0.2-grad-y.jpg height=100 width=100></td>
+<td><img src=./results/circle/1.8-0.6-0.2.jpg height=100 width=100></td>
+</tr>
+<tr>
+<td colspan=3>
+Sigma: 1.8&nbsp;
+Start: 0.6&nbsp;
+Continue: 0.3&nbsp;
+</td>
+</tr>
+<tr>
+<td>X Derivative</td><td>Y Derivative</td><td>Final Result</td>
+</tr>
+<tr>
+<td><img src=./results/circle/1.8-0.6-0.3-grad-x.jpg height=100 width=100></td>
+<td><img src=./results/circle/1.8-0.6-0.3-grad-y.jpg height=100 width=100></td>
+<td><img src=./results/circle/1.8-0.6-0.3.jpg height=100 width=100></td>
+</tr>
+<tr>
+<td colspan=3>
+Sigma: 1.9&nbsp;
+Start: 0.4&nbsp;
+Continue: 0.1&nbsp;
+</td>
+</tr>
+<tr>
+<td>X Derivative</td><td>Y Derivative</td><td>Final Result</td>
+</tr>
+<tr>
+<td><img src=./results/circle/1.9-0.4-0.1-grad-x.jpg height=100 width=100></td>
+<td><img src=./results/circle/1.9-0.4-0.1-grad-y.jpg height=100 width=100></td>
+<td><img src=./results/circle/1.9-0.4-0.1.jpg height=100 width=100></td>
+</tr>
+<tr>
+<td colspan=3>
+Sigma: 1.9&nbsp;
+Start: 0.4&nbsp;
+Continue: 0.2&nbsp;
+</td>
+</tr>
+<tr>
+<td>X Derivative</td><td>Y Derivative</td><td>Final Result</td>
+</tr>
+<tr>
+<td><img src=./results/circle/1.9-0.4-0.2-grad-x.jpg height=100 width=100></td>
+<td><img src=./results/circle/1.9-0.4-0.2-grad-y.jpg height=100 width=100></td>
+<td><img src=./results/circle/1.9-0.4-0.2.jpg height=100 width=100></td>
+</tr>
+<tr>
+<td colspan=3>
+Sigma: 1.9&nbsp;
+Start: 0.4&nbsp;
+Continue: 0.3&nbsp;
+</td>
+</tr>
+<tr>
+<td>X Derivative</td><td>Y Derivative</td><td>Final Result</td>
+</tr>
+<tr>
+<td><img src=./results/circle/1.9-0.4-0.3-grad-x.jpg height=100 width=100></td>
+<td><img src=./results/circle/1.9-0.4-0.3-grad-y.jpg height=100 width=100></td>
+<td><img src=./results/circle/1.9-0.4-0.3.jpg height=100 width=100></td>
+</tr>
+<tr>
+<td colspan=3>
+Sigma: 1.9&nbsp;
+Start: 0.5&nbsp;
+Continue: 0.1&nbsp;
+</td>
+</tr>
+<tr>
+<td>X Derivative</td><td>Y Derivative</td><td>Final Result</td>
+</tr>
+<tr>
+<td><img src=./results/circle/1.9-0.5-0.1-grad-x.jpg height=100 width=100></td>
+<td><img src=./results/circle/1.9-0.5-0.1-grad-y.jpg height=100 width=100></td>
+<td><img src=./results/circle/1.9-0.5-0.1.jpg height=100 width=100></td>
+</tr>
+<tr>
+<td colspan=3>
+Sigma: 1.9&nbsp;
+Start: 0.5&nbsp;
+Continue: 0.2&nbsp;
+</td>
+</tr>
+<tr>
+<td>X Derivative</td><td>Y Derivative</td><td>Final Result</td>
+</tr>
+<tr>
+<td><img src=./results/circle/1.9-0.5-0.2-grad-x.jpg height=100 width=100></td>
+<td><img src=./results/circle/1.9-0.5-0.2-grad-y.jpg height=100 width=100></td>
+<td><img src=./results/circle/1.9-0.5-0.2.jpg height=100 width=100></td>
+</tr>
+<tr>
+<td colspan=3>
+Sigma: 1.9&nbsp;
+Start: 0.5&nbsp;
+Continue: 0.3&nbsp;
+</td>
+</tr>
+<tr>
+<td>X Derivative</td><td>Y Derivative</td><td>Final Result</td>
+</tr>
+<tr>
+<td><img src=./results/circle/1.9-0.5-0.3-grad-x.jpg height=100 width=100></td>
+<td><img src=./results/circle/1.9-0.5-0.3-grad-y.jpg height=100 width=100></td>
+<td><img src=./results/circle/1.9-0.5-0.3.jpg height=100 width=100></td>
+</tr>
+<tr>
+<td colspan=3>
+Sigma: 1.9&nbsp;
+Start: 0.6&nbsp;
+Continue: 0.1&nbsp;
+</td>
+</tr>
+<tr>
+<td>X Derivative</td><td>Y Derivative</td><td>Final Result</td>
+</tr>
+<tr>
+<td><img src=./results/circle/1.9-0.6-0.1-grad-x.jpg height=100 width=100></td>
+<td><img src=./results/circle/1.9-0.6-0.1-grad-y.jpg height=100 width=100></td>
+<td><img src=./results/circle/1.9-0.6-0.1.jpg height=100 width=100></td>
+</tr>
+<tr>
+<td colspan=3>
+Sigma: 1.9&nbsp;
+Start: 0.6&nbsp;
+Continue: 0.2&nbsp;
+</td>
+</tr>
+<tr>
+<td>X Derivative</td><td>Y Derivative</td><td>Final Result</td>
+</tr>
+<tr>
+<td><img src=./results/circle/1.9-0.6-0.2-grad-x.jpg height=100 width=100></td>
+<td><img src=./results/circle/1.9-0.6-0.2-grad-y.jpg height=100 width=100></td>
+<td><img src=./results/circle/1.9-0.6-0.2.jpg height=100 width=100></td>
+</tr>
+<tr>
+<td colspan=3>
+Sigma: 1.9&nbsp;
+Start: 0.6&nbsp;
+Continue: 0.3&nbsp;
+</td>
+</tr>
+<tr>
+<td>X Derivative</td><td>Y Derivative</td><td>Final Result</td>
+</tr>
+<tr>
+<td><img src=./results/circle/1.9-0.6-0.3-grad-x.jpg height=100 width=100></td>
+<td><img src=./results/circle/1.9-0.6-0.3-grad-y.jpg height=100 width=100></td>
+<td><img src=./results/circle/1.9-0.6-0.3.jpg height=100 width=100></td>
+</tr>
+<tr>
+<td colspan=3>
+Sigma: 2.0&nbsp;
+Start: 0.4&nbsp;
+Continue: 0.1&nbsp;
+</td>
+</tr>
+<tr>
+<td>X Derivative</td><td>Y Derivative</td><td>Final Result</td>
+</tr>
+<tr>
+<td><img src=./results/circle/2.0-0.4-0.1-grad-x.jpg height=100 width=100></td>
+<td><img src=./results/circle/2.0-0.4-0.1-grad-y.jpg height=100 width=100></td>
+<td><img src=./results/circle/2.0-0.4-0.1.jpg height=100 width=100></td>
+</tr>
+<tr>
+<td colspan=3>
+Sigma: 2.0&nbsp;
+Start: 0.4&nbsp;
+Continue: 0.2&nbsp;
+</td>
+</tr>
+<tr>
+<td>X Derivative</td><td>Y Derivative</td><td>Final Result</td>
+</tr>
+<tr>
+<td><img src=./results/circle/2.0-0.4-0.2-grad-x.jpg height=100 width=100></td>
+<td><img src=./results/circle/2.0-0.4-0.2-grad-y.jpg height=100 width=100></td>
+<td><img src=./results/circle/2.0-0.4-0.2.jpg height=100 width=100></td>
+</tr>
+<tr>
+<td colspan=3>
+Sigma: 2.0&nbsp;
+Start: 0.4&nbsp;
+Continue: 0.3&nbsp;
+</td>
+</tr>
+<tr>
+<td>X Derivative</td><td>Y Derivative</td><td>Final Result</td>
+</tr>
+<tr>
+<td><img src=./results/circle/2.0-0.4-0.3-grad-x.jpg height=100 width=100></td>
+<td><img src=./results/circle/2.0-0.4-0.3-grad-y.jpg height=100 width=100></td>
+<td><img src=./results/circle/2.0-0.4-0.3.jpg height=100 width=100></td>
+</tr>
+<tr>
+<td colspan=3>
+Sigma: 2.0&nbsp;
+Start: 0.5&nbsp;
+Continue: 0.1&nbsp;
+</td>
+</tr>
+<tr>
+<td>X Derivative</td><td>Y Derivative</td><td>Final Result</td>
+</tr>
+<tr>
+<td><img src=./results/circle/2.0-0.5-0.1-grad-x.jpg height=100 width=100></td>
+<td><img src=./results/circle/2.0-0.5-0.1-grad-y.jpg height=100 width=100></td>
+<td><img src=./results/circle/2.0-0.5-0.1.jpg height=100 width=100></td>
+</tr>
+<tr>
+<td colspan=3>
+Sigma: 2.0&nbsp;
+Start: 0.5&nbsp;
+Continue: 0.2&nbsp;
+</td>
+</tr>
+<tr>
+<td>X Derivative</td><td>Y Derivative</td><td>Final Result</td>
+</tr>
+<tr>
+<td><img src=./results/circle/2.0-0.5-0.2-grad-x.jpg height=100 width=100></td>
+<td><img src=./results/circle/2.0-0.5-0.2-grad-y.jpg height=100 width=100></td>
+<td><img src=./results/circle/2.0-0.5-0.2.jpg height=100 width=100></td>
+</tr>
+<tr>
+<td colspan=3>
+Sigma: 2.0&nbsp;
+Start: 0.5&nbsp;
+Continue: 0.3&nbsp;
+</td>
+</tr>
+<tr>
+<td>X Derivative</td><td>Y Derivative</td><td>Final Result</td>
+</tr>
+<tr>
+<td><img src=./results/circle/2.0-0.5-0.3-grad-x.jpg height=100 width=100></td>
+<td><img src=./results/circle/2.0-0.5-0.3-grad-y.jpg height=100 width=100></td>
+<td><img src=./results/circle/2.0-0.5-0.3.jpg height=100 width=100></td>
+</tr>
+<tr>
+<td colspan=3>
+Sigma: 2.0&nbsp;
+Start: 0.6&nbsp;
+Continue: 0.1&nbsp;
+</td>
+</tr>
+<tr>
+<td>X Derivative</td><td>Y Derivative</td><td>Final Result</td>
+</tr>
+<tr>
+<td><img src=./results/circle/2.0-0.6-0.1-grad-x.jpg height=100 width=100></td>
+<td><img src=./results/circle/2.0-0.6-0.1-grad-y.jpg height=100 width=100></td>
+<td><img src=./results/circle/2.0-0.6-0.1.jpg height=100 width=100></td>
+</tr>
+<tr>
+<td colspan=3>
+Sigma: 2.0&nbsp;
+Start: 0.6&nbsp;
+Continue: 0.2&nbsp;
+</td>
+</tr>
+<tr>
+<td>X Derivative</td><td>Y Derivative</td><td>Final Result</td>
+</tr>
+<tr>
+<td><img src=./results/circle/2.0-0.6-0.2-grad-x.jpg height=100 width=100></td>
+<td><img src=./results/circle/2.0-0.6-0.2-grad-y.jpg height=100 width=100></td>
+<td><img src=./results/circle/2.0-0.6-0.2.jpg height=100 width=100></td>
+</tr>
+<tr>
+<td colspan=3>
+Sigma: 2.0&nbsp;
+Start: 0.6&nbsp;
+Continue: 0.3&nbsp;
+</td>
+</tr>
+<tr>
+<td>X Derivative</td><td>Y Derivative</td><td>Final Result</td>
+</tr>
+<tr>
+<td><img src=./results/circle/2.0-0.6-0.3-grad-x.jpg height=100 width=100></td>
+<td><img src=./results/circle/2.0-0.6-0.3-grad-y.jpg height=100 width=100></td>
+<td><img src=./results/circle/2.0-0.6-0.3.jpg height=100 width=100></td>
+</tr>
+</table>
+</div>
+<div onclick="showhide('building');" style="text-decoration:underline;">Show/hide full Building results</div><br>
+<div id=building style="display:none">
+<table>
+<tr>
+<td colspan=3>
+Sigma: 1.0&nbsp;
+Start: 0.4&nbsp;
+Continue: 0.1&nbsp;
+</td>
+</tr>
+<tr>
+<td>X Derivative</td><td>Y Derivative</td><td>Final Result</td>
+</tr>
+<tr>
+<td><img src=./results/building/1.0-0.4-0.1-grad-x.jpg height=288 width=384></td>
+<td><img src=./results/building/1.0-0.4-0.1-grad-y.jpg height=288 width=384></td>
+<td><img src=./results/building/1.0-0.4-0.1.jpg height=288 width=384></td>
+</tr>
+<tr>
+<td colspan=3>
+Sigma: 1.0&nbsp;
+Start: 0.4&nbsp;
+Continue: 0.2&nbsp;
+</td>
+</tr>
+<tr>
+<td>X Derivative</td><td>Y Derivative</td><td>Final Result</td>
+</tr>
+<tr>
+<td><img src=./results/building/1.0-0.4-0.2-grad-x.jpg height=288 width=384></td>
+<td><img src=./results/building/1.0-0.4-0.2-grad-y.jpg height=288 width=384></td>
+<td><img src=./results/building/1.0-0.4-0.2.jpg height=288 width=384></td>
+</tr>
+<tr>
+<td colspan=3>
+Sigma: 1.0&nbsp;
+Start: 0.4&nbsp;
+Continue: 0.3&nbsp;
+</td>
+</tr>
+<tr>
+<td>X Derivative</td><td>Y Derivative</td><td>Final Result</td>
+</tr>
+<tr>
+<td><img src=./results/building/1.0-0.4-0.3-grad-x.jpg height=288 width=384></td>
+<td><img src=./results/building/1.0-0.4-0.3-grad-y.jpg height=288 width=384></td>
+<td><img src=./results/building/1.0-0.4-0.3.jpg height=288 width=384></td>
+</tr>
+<tr>
+<td colspan=3>
+Sigma: 1.0&nbsp;
+Start: 0.5&nbsp;
+Continue: 0.1&nbsp;
+</td>
+</tr>
+<tr>
+<td>X Derivative</td><td>Y Derivative</td><td>Final Result</td>
+</tr>
+<tr>
+<td><img src=./results/building/1.0-0.5-0.1-grad-x.jpg height=288 width=384></td>
+<td><img src=./results/building/1.0-0.5-0.1-grad-y.jpg height=288 width=384></td>
+<td><img src=./results/building/1.0-0.5-0.1.jpg height=288 width=384></td>
+</tr>
+<tr>
+<td colspan=3>
+Sigma: 1.0&nbsp;
+Start: 0.5&nbsp;
+Continue: 0.2&nbsp;
+</td>
+</tr>
+<tr>
+<td>X Derivative</td><td>Y Derivative</td><td>Final Result</td>
+</tr>
+<tr>
+<td><img src=./results/building/1.0-0.5-0.2-grad-x.jpg height=288 width=384></td>
+<td><img src=./results/building/1.0-0.5-0.2-grad-y.jpg height=288 width=384></td>
+<td><img src=./results/building/1.0-0.5-0.2.jpg height=288 width=384></td>
+</tr>
+<tr>
+<td colspan=3>
+Sigma: 1.0&nbsp;
+Start: 0.5&nbsp;
+Continue: 0.3&nbsp;
+</td>
+</tr>
+<tr>
+<td>X Derivative</td><td>Y Derivative</td><td>Final Result</td>
+</tr>
+<tr>
+<td><img src=./results/building/1.0-0.5-0.3-grad-x.jpg height=288 width=384></td>
+<td><img src=./results/building/1.0-0.5-0.3-grad-y.jpg height=288 width=384></td>
+<td><img src=./results/building/1.0-0.5-0.3.jpg height=288 width=384></td>
+</tr>
+<tr>
+<td colspan=3>
+Sigma: 1.0&nbsp;
+Start: 0.6&nbsp;
+Continue: 0.1&nbsp;
+</td>
+</tr>
+<tr>
+<td>X Derivative</td><td>Y Derivative</td><td>Final Result</td>
+</tr>
+<tr>
+<td><img src=./results/building/1.0-0.6-0.1-grad-x.jpg height=288 width=384></td>
+<td><img src=./results/building/1.0-0.6-0.1-grad-y.jpg height=288 width=384></td>
+<td><img src=./results/building/1.0-0.6-0.1.jpg height=288 width=384></td>
+</tr>
+<tr>
+<td colspan=3>
+Sigma: 1.0&nbsp;
+Start: 0.6&nbsp;
+Continue: 0.2&nbsp;
+</td>
+</tr>
+<tr>
+<td>X Derivative</td><td>Y Derivative</td><td>Final Result</td>
+</tr>
+<tr>
+<td><img src=./results/building/1.0-0.6-0.2-grad-x.jpg height=288 width=384></td>
+<td><img src=./results/building/1.0-0.6-0.2-grad-y.jpg height=288 width=384></td>
+<td><img src=./results/building/1.0-0.6-0.2.jpg height=288 width=384></td>
+</tr>
+<tr>
+<td colspan=3>
+Sigma: 1.0&nbsp;
+Start: 0.6&nbsp;
+Continue: 0.3&nbsp;
+</td>
+</tr>
+<tr>
+<td>X Derivative</td><td>Y Derivative</td><td>Final Result</td>
+</tr>
+<tr>
+<td><img src=./results/building/1.0-0.6-0.3-grad-x.jpg height=288 width=384></td>
+<td><img src=./results/building/1.0-0.6-0.3-grad-y.jpg height=288 width=384></td>
+<td><img src=./results/building/1.0-0.6-0.3.jpg height=288 width=384></td>
+</tr>
+<tr>
+<td colspan=3>
+Sigma: 1.1&nbsp;
+Start: 0.4&nbsp;
+Continue: 0.1&nbsp;
+</td>
+</tr>
+<tr>
+<td>X Derivative</td><td>Y Derivative</td><td>Final Result</td>
+</tr>
+<tr>
+<td><img src=./results/building/1.1-0.4-0.1-grad-x.jpg height=288 width=384></td>
+<td><img src=./results/building/1.1-0.4-0.1-grad-y.jpg height=288 width=384></td>
+<td><img src=./results/building/1.1-0.4-0.1.jpg height=288 width=384></td>
+</tr>
+<tr>
+<td colspan=3>
+Sigma: 1.1&nbsp;
+Start: 0.4&nbsp;
+Continue: 0.2&nbsp;
+</td>
+</tr>
+<tr>
+<td>X Derivative</td><td>Y Derivative</td><td>Final Result</td>
+</tr>
+<tr>
+<td><img src=./results/building/1.1-0.4-0.2-grad-x.jpg height=288 width=384></td>
+<td><img src=./results/building/1.1-0.4-0.2-grad-y.jpg height=288 width=384></td>
+<td><img src=./results/building/1.1-0.4-0.2.jpg height=288 width=384></td>
+</tr>
+<tr>
+<td colspan=3>
+Sigma: 1.1&nbsp;
+Start: 0.4&nbsp;
+Continue: 0.3&nbsp;
+</td>
+</tr>
+<tr>
+<td>X Derivative</td><td>Y Derivative</td><td>Final Result</td>
+</tr>
+<tr>
+<td><img src=./results/building/1.1-0.4-0.3-grad-x.jpg height=288 width=384></td>
+<td><img src=./results/building/1.1-0.4-0.3-grad-y.jpg height=288 width=384></td>
+<td><img src=./results/building/1.1-0.4-0.3.jpg height=288 width=384></td>
+</tr>
+<tr>
+<td colspan=3>
+Sigma: 1.1&nbsp;
+Start: 0.5&nbsp;
+Continue: 0.1&nbsp;
+</td>
+</tr>
+<tr>
+<td>X Derivative</td><td>Y Derivative</td><td>Final Result</td>
+</tr>
+<tr>
+<td><img src=./results/building/1.1-0.5-0.1-grad-x.jpg height=288 width=384></td>
+<td><img src=./results/building/1.1-0.5-0.1-grad-y.jpg height=288 width=384></td>
+<td><img src=./results/building/1.1-0.5-0.1.jpg height=288 width=384></td>
+</tr>
+<tr>
+<td colspan=3>
+Sigma: 1.1&nbsp;
+Start: 0.5&nbsp;
+Continue: 0.2&nbsp;
+</td>
+</tr>
+<tr>
+<td>X Derivative</td><td>Y Derivative</td><td>Final Result</td>
+</tr>
+<tr>
+<td><img src=./results/building/1.1-0.5-0.2-grad-x.jpg height=288 width=384></td>
+<td><img src=./results/building/1.1-0.5-0.2-grad-y.jpg height=288 width=384></td>
+<td><img src=./results/building/1.1-0.5-0.2.jpg height=288 width=384></td>
+</tr>
+<tr>
+<td colspan=3>
+Sigma: 1.1&nbsp;
+Start: 0.5&nbsp;
+Continue: 0.3&nbsp;
+</td>
+</tr>
+<tr>
+<td>X Derivative</td><td>Y Derivative</td><td>Final Result</td>
+</tr>
+<tr>
+<td><img src=./results/building/1.1-0.5-0.3-grad-x.jpg height=288 width=384></td>
+<td><img src=./results/building/1.1-0.5-0.3-grad-y.jpg height=288 width=384></td>
+<td><img src=./results/building/1.1-0.5-0.3.jpg height=288 width=384></td>
+</tr>
+<tr>
+<td colspan=3>
+Sigma: 1.1&nbsp;
+Start: 0.6&nbsp;
+Continue: 0.1&nbsp;
+</td>
+</tr>
+<tr>
+<td>X Derivative</td><td>Y Derivative</td><td>Final Result</td>
+</tr>
+<tr>
+<td><img src=./results/building/1.1-0.6-0.1-grad-x.jpg height=288 width=384></td>
+<td><img src=./results/building/1.1-0.6-0.1-grad-y.jpg height=288 width=384></td>
+<td><img src=./results/building/1.1-0.6-0.1.jpg height=288 width=384></td>
+</tr>
+<tr>
+<td colspan=3>
+Sigma: 1.1&nbsp;
+Start: 0.6&nbsp;
+Continue: 0.2&nbsp;
+</td>
+</tr>
+<tr>
+<td>X Derivative</td><td>Y Derivative</td><td>Final Result</td>
+</tr>
+<tr>
+<td><img src=./results/building/1.1-0.6-0.2-grad-x.jpg height=288 width=384></td>
+<td><img src=./results/building/1.1-0.6-0.2-grad-y.jpg height=288 width=384></td>
+<td><img src=./results/building/1.1-0.6-0.2.jpg height=288 width=384></td>
+</tr>
+<tr>
+<td colspan=3>
+Sigma: 1.1&nbsp;
+Start: 0.6&nbsp;
+Continue: 0.3&nbsp;
+</td>
+</tr>
+<tr>
+<td>X Derivative</td><td>Y Derivative</td><td>Final Result</td>
+</tr>
+<tr>
+<td><img src=./results/building/1.1-0.6-0.3-grad-x.jpg height=288 width=384></td>
+<td><img src=./results/building/1.1-0.6-0.3-grad-y.jpg height=288 width=384></td>
+<td><img src=./results/building/1.1-0.6-0.3.jpg height=288 width=384></td>
+</tr>
+<tr>
+<td colspan=3>
+Sigma: 1.2&nbsp;
+Start: 0.4&nbsp;
+Continue: 0.1&nbsp;
+</td>
+</tr>
+<tr>
+<td>X Derivative</td><td>Y Derivative</td><td>Final Result</td>
+</tr>
+<tr>
+<td><img src=./results/building/1.2-0.4-0.1-grad-x.jpg height=288 width=384></td>
+<td><img src=./results/building/1.2-0.4-0.1-grad-y.jpg height=288 width=384></td>
+<td><img src=./results/building/1.2-0.4-0.1.jpg height=288 width=384></td>
+</tr>
+<tr>
+<td colspan=3>
+Sigma: 1.2&nbsp;
+Start: 0.4&nbsp;
+Continue: 0.2&nbsp;
+</td>
+</tr>
+<tr>
+<td>X Derivative</td><td>Y Derivative</td><td>Final Result</td>
+</tr>
+<tr>
+<td><img src=./results/building/1.2-0.4-0.2-grad-x.jpg height=288 width=384></td>
+<td><img src=./results/building/1.2-0.4-0.2-grad-y.jpg height=288 width=384></td>
+<td><img src=./results/building/1.2-0.4-0.2.jpg height=288 width=384></td>
+</tr>
+<tr>
+<td colspan=3>
+Sigma: 1.2&nbsp;
+Start: 0.4&nbsp;
+Continue: 0.3&nbsp;
+</td>
+</tr>
+<tr>
+<td>X Derivative</td><td>Y Derivative</td><td>Final Result</td>
+</tr>
+<tr>
+<td><img src=./results/building/1.2-0.4-0.3-grad-x.jpg height=288 width=384></td>
+<td><img src=./results/building/1.2-0.4-0.3-grad-y.jpg height=288 width=384></td>
+<td><img src=./results/building/1.2-0.4-0.3.jpg height=288 width=384></td>
+</tr>
+<tr>
+<td colspan=3>
+Sigma: 1.2&nbsp;
+Start: 0.5&nbsp;
+Continue: 0.1&nbsp;
+</td>
+</tr>
+<tr>
+<td>X Derivative</td><td>Y Derivative</td><td>Final Result</td>
+</tr>
+<tr>
+<td><img src=./results/building/1.2-0.5-0.1-grad-x.jpg height=288 width=384></td>
+<td><img src=./results/building/1.2-0.5-0.1-grad-y.jpg height=288 width=384></td>
+<td><img src=./results/building/1.2-0.5-0.1.jpg height=288 width=384></td>
+</tr>
+<tr>
+<td colspan=3>
+Sigma: 1.2&nbsp;
+Start: 0.5&nbsp;
+Continue: 0.2&nbsp;
+</td>
+</tr>
+<tr>
+<td>X Derivative</td><td>Y Derivative</td><td>Final Result</td>
+</tr>
+<tr>
+<td><img src=./results/building/1.2-0.5-0.2-grad-x.jpg height=288 width=384></td>
+<td><img src=./results/building/1.2-0.5-0.2-grad-y.jpg height=288 width=384></td>
+<td><img src=./results/building/1.2-0.5-0.2.jpg height=288 width=384></td>
+</tr>
+<tr>
+<td colspan=3>
+Sigma: 1.2&nbsp;
+Start: 0.5&nbsp;
+Continue: 0.3&nbsp;
+</td>
+</tr>
+<tr>
+<td>X Derivative</td><td>Y Derivative</td><td>Final Result</td>
+</tr>
+<tr>
+<td><img src=./results/building/1.2-0.5-0.3-grad-x.jpg height=288 width=384></td>
+<td><img src=./results/building/1.2-0.5-0.3-grad-y.jpg height=288 width=384></td>
+<td><img src=./results/building/1.2-0.5-0.3.jpg height=288 width=384></td>
+</tr>
+<tr>
+<td colspan=3>
+Sigma: 1.2&nbsp;
+Start: 0.6&nbsp;
+Continue: 0.1&nbsp;
+</td>
+</tr>
+<tr>
+<td>X Derivative</td><td>Y Derivative</td><td>Final Result</td>
+</tr>
+<tr>
+<td><img src=./results/building/1.2-0.6-0.1-grad-x.jpg height=288 width=384></td>
+<td><img src=./results/building/1.2-0.6-0.1-grad-y.jpg height=288 width=384></td>
+<td><img src=./results/building/1.2-0.6-0.1.jpg height=288 width=384></td>
+</tr>
+<tr>
+<td colspan=3>
+Sigma: 1.2&nbsp;
+Start: 0.6&nbsp;
+Continue: 0.2&nbsp;
+</td>
+</tr>
+<tr>
+<td>X Derivative</td><td>Y Derivative</td><td>Final Result</td>
+</tr>
+<tr>
+<td><img src=./results/building/1.2-0.6-0.2-grad-x.jpg height=288 width=384></td>
+<td><img src=./results/building/1.2-0.6-0.2-grad-y.jpg height=288 width=384></td>
+<td><img src=./results/building/1.2-0.6-0.2.jpg height=288 width=384></td>
+</tr>
+<tr>
+<td colspan=3>
+Sigma: 1.2&nbsp;
+Start: 0.6&nbsp;
+Continue: 0.3&nbsp;
+</td>
+</tr>
+<tr>
+<td>X Derivative</td><td>Y Derivative</td><td>Final Result</td>
+</tr>
+<tr>
+<td><img src=./results/building/1.2-0.6-0.3-grad-x.jpg height=288 width=384></td>
+<td><img src=./results/building/1.2-0.6-0.3-grad-y.jpg height=288 width=384></td>
+<td><img src=./results/building/1.2-0.6-0.3.jpg height=288 width=384></td>
+</tr>
+<tr>
+<td colspan=3>
+Sigma: 1.3&nbsp;
+Start: 0.4&nbsp;
+Continue: 0.1&nbsp;
+</td>
+</tr>
+<tr>
+<td>X Derivative</td><td>Y Derivative</td><td>Final Result</td>
+</tr>
+<tr>
+<td><img src=./results/building/1.3-0.4-0.1-grad-x.jpg height=288 width=384></td>
+<td><img src=./results/building/1.3-0.4-0.1-grad-y.jpg height=288 width=384></td>
+<td><img src=./results/building/1.3-0.4-0.1.jpg height=288 width=384></td>
+</tr>
+<tr>
+<td colspan=3>
+Sigma: 1.3&nbsp;
+Start: 0.4&nbsp;
+Continue: 0.2&nbsp;
+</td>
+</tr>
+<tr>
+<td>X Derivative</td><td>Y Derivative</td><td>Final Result</td>
+</tr>
+<tr>
+<td><img src=./results/building/1.3-0.4-0.2-grad-x.jpg height=288 width=384></td>
+<td><img src=./results/building/1.3-0.4-0.2-grad-y.jpg height=288 width=384></td>
+<td><img src=./results/building/1.3-0.4-0.2.jpg height=288 width=384></td>
+</tr>
+<tr>
+<td colspan=3>
+Sigma: 1.3&nbsp;
+Start: 0.4&nbsp;
+Continue: 0.3&nbsp;
+</td>
+</tr>
+<tr>
+<td>X Derivative</td><td>Y Derivative</td><td>Final Result</td>
+</tr>
+<tr>
+<td><img src=./results/building/1.3-0.4-0.3-grad-x.jpg height=288 width=384></td>
+<td><img src=./results/building/1.3-0.4-0.3-grad-y.jpg height=288 width=384></td>
+<td><img src=./results/building/1.3-0.4-0.3.jpg height=288 width=384></td>
+</tr>
+<tr>
+<td colspan=3>
+Sigma: 1.3&nbsp;
+Start: 0.5&nbsp;
+Continue: 0.1&nbsp;
+</td>
+</tr>
+<tr>
+<td>X Derivative</td><td>Y Derivative</td><td>Final Result</td>
+</tr>
+<tr>
+<td><img src=./results/building/1.3-0.5-0.1-grad-x.jpg height=288 width=384></td>
+<td><img src=./results/building/1.3-0.5-0.1-grad-y.jpg height=288 width=384></td>
+<td><img src=./results/building/1.3-0.5-0.1.jpg height=288 width=384></td>
+</tr>
+<tr>
+<td colspan=3>
+Sigma: 1.3&nbsp;
+Start: 0.5&nbsp;
+Continue: 0.2&nbsp;
+</td>
+</tr>
+<tr>
+<td>X Derivative</td><td>Y Derivative</td><td>Final Result</td>
+</tr>
+<tr>
+<td><img src=./results/building/1.3-0.5-0.2-grad-x.jpg height=288 width=384></td>
+<td><img src=./results/building/1.3-0.5-0.2-grad-y.jpg height=288 width=384></td>
+<td><img src=./results/building/1.3-0.5-0.2.jpg height=288 width=384></td>
+</tr>
+<tr>
+<td colspan=3>
+Sigma: 1.3&nbsp;
+Start: 0.5&nbsp;
+Continue: 0.3&nbsp;
+</td>
+</tr>
+<tr>
+<td>X Derivative</td><td>Y Derivative</td><td>Final Result</td>
+</tr>
+<tr>
+<td><img src=./results/building/1.3-0.5-0.3-grad-x.jpg height=288 width=384></td>
+<td><img src=./results/building/1.3-0.5-0.3-grad-y.jpg height=288 width=384></td>
+<td><img src=./results/building/1.3-0.5-0.3.jpg height=288 width=384></td>
+</tr>
+<tr>
+<td colspan=3>
+Sigma: 1.3&nbsp;
+Start: 0.6&nbsp;
+Continue: 0.1&nbsp;
+</td>
+</tr>
+<tr>
+<td>X Derivative</td><td>Y Derivative</td><td>Final Result</td>
+</tr>
+<tr>
+<td><img src=./results/building/1.3-0.6-0.1-grad-x.jpg height=288 width=384></td>
+<td><img src=./results/building/1.3-0.6-0.1-grad-y.jpg height=288 width=384></td>
+<td><img src=./results/building/1.3-0.6-0.1.jpg height=288 width=384></td>
+</tr>
+<tr>
+<td colspan=3>
+Sigma: 1.3&nbsp;
+Start: 0.6&nbsp;
+Continue: 0.2&nbsp;
+</td>
+</tr>
+<tr>
+<td>X Derivative</td><td>Y Derivative</td><td>Final Result</td>
+</tr>
+<tr>
+<td><img src=./results/building/1.3-0.6-0.2-grad-x.jpg height=288 width=384></td>
+<td><img src=./results/building/1.3-0.6-0.2-grad-y.jpg height=288 width=384></td>
+<td><img src=./results/building/1.3-0.6-0.2.jpg height=288 width=384></td>
+</tr>
+<tr>
+<td colspan=3>
+Sigma: 1.3&nbsp;
+Start: 0.6&nbsp;
+Continue: 0.3&nbsp;
+</td>
+</tr>
+<tr>
+<td>X Derivative</td><td>Y Derivative</td><td>Final Result</td>
+</tr>
+<tr>
+<td><img src=./results/building/1.3-0.6-0.3-grad-x.jpg height=288 width=384></td>
+<td><img src=./results/building/1.3-0.6-0.3-grad-y.jpg height=288 width=384></td>
+<td><img src=./results/building/1.3-0.6-0.3.jpg height=288 width=384></td>
+</tr>
+<tr>
+<td colspan=3>
+Sigma: 1.4&nbsp;
+Start: 0.4&nbsp;
+Continue: 0.1&nbsp;
+</td>
+</tr>
+<tr>
+<td>X Derivative</td><td>Y Derivative</td><td>Final Result</td>
+</tr>
+<tr>
+<td><img src=./results/building/1.4-0.4-0.1-grad-x.jpg height=288 width=384></td>
+<td><img src=./results/building/1.4-0.4-0.1-grad-y.jpg height=288 width=384></td>
+<td><img src=./results/building/1.4-0.4-0.1.jpg height=288 width=384></td>
+</tr>
+<tr>
+<td colspan=3>
+Sigma: 1.4&nbsp;
+Start: 0.4&nbsp;
+Continue: 0.2&nbsp;
+</td>
+</tr>
+<tr>
+<td>X Derivative</td><td>Y Derivative</td><td>Final Result</td>
+</tr>
+<tr>
+<td><img src=./results/building/1.4-0.4-0.2-grad-x.jpg height=288 width=384></td>
+<td><img src=./results/building/1.4-0.4-0.2-grad-y.jpg height=288 width=384></td>
+<td><img src=./results/building/1.4-0.4-0.2.jpg height=288 width=384></td>
+</tr>
+<tr>
+<td colspan=3>
+Sigma: 1.4&nbsp;
+Start: 0.4&nbsp;
+Continue: 0.3&nbsp;
+</td>
+</tr>
+<tr>
+<td>X Derivative</td><td>Y Derivative</td><td>Final Result</td>
+</tr>
+<tr>
+<td><img src=./results/building/1.4-0.4-0.3-grad-x.jpg height=288 width=384></td>
+<td><img src=./results/building/1.4-0.4-0.3-grad-y.jpg height=288 width=384></td>
+<td><img src=./results/building/1.4-0.4-0.3.jpg height=288 width=384></td>
+</tr>
+<tr>
+<td colspan=3>
+Sigma: 1.4&nbsp;
+Start: 0.5&nbsp;
+Continue: 0.1&nbsp;
+</td>
+</tr>
+<tr>
+<td>X Derivative</td><td>Y Derivative</td><td>Final Result</td>
+</tr>
+<tr>
+<td><img src=./results/building/1.4-0.5-0.1-grad-x.jpg height=288 width=384></td>
+<td><img src=./results/building/1.4-0.5-0.1-grad-y.jpg height=288 width=384></td>
+<td><img src=./results/building/1.4-0.5-0.1.jpg height=288 width=384></td>
+</tr>
+<tr>
+<td colspan=3>
+Sigma: 1.4&nbsp;
+Start: 0.5&nbsp;
+Continue: 0.2&nbsp;
+</td>
+</tr>
+<tr>
+<td>X Derivative</td><td>Y Derivative</td><td>Final Result</td>
+</tr>
+<tr>
+<td><img src=./results/building/1.4-0.5-0.2-grad-x.jpg height=288 width=384></td>
+<td><img src=./results/building/1.4-0.5-0.2-grad-y.jpg height=288 width=384></td>
+<td><img src=./results/building/1.4-0.5-0.2.jpg height=288 width=384></td>
+</tr>
+<tr>
+<td colspan=3>
+Sigma: 1.4&nbsp;
+Start: 0.5&nbsp;
+Continue: 0.3&nbsp;
+</td>
+</tr>
+<tr>
+<td>X Derivative</td><td>Y Derivative</td><td>Final Result</td>
+</tr>
+<tr>
+<td><img src=./results/building/1.4-0.5-0.3-grad-x.jpg height=288 width=384></td>
+<td><img src=./results/building/1.4-0.5-0.3-grad-y.jpg height=288 width=384></td>
+<td><img src=./results/building/1.4-0.5-0.3.jpg height=288 width=384></td>
+</tr>
+<tr>
+<td colspan=3>
+Sigma: 1.4&nbsp;
+Start: 0.6&nbsp;
+Continue: 0.1&nbsp;
+</td>
+</tr>
+<tr>
+<td>X Derivative</td><td>Y Derivative</td><td>Final Result</td>
+</tr>
+<tr>
+<td><img src=./results/building/1.4-0.6-0.1-grad-x.jpg height=288 width=384></td>
+<td><img src=./results/building/1.4-0.6-0.1-grad-y.jpg height=288 width=384></td>
+<td><img src=./results/building/1.4-0.6-0.1.jpg height=288 width=384></td>
+</tr>
+<tr>
+<td colspan=3>
+Sigma: 1.4&nbsp;
+Start: 0.6&nbsp;
+Continue: 0.2&nbsp;
+</td>
+</tr>
+<tr>
+<td>X Derivative</td><td>Y Derivative</td><td>Final Result</td>
+</tr>
+<tr>
+<td><img src=./results/building/1.4-0.6-0.2-grad-x.jpg height=288 width=384></td>
+<td><img src=./results/building/1.4-0.6-0.2-grad-y.jpg height=288 width=384></td>
+<td><img src=./results/building/1.4-0.6-0.2.jpg height=288 width=384></td>
+</tr>
+<tr>
+<td colspan=3>
+Sigma: 1.4&nbsp;
+Start: 0.6&nbsp;
+Continue: 0.3&nbsp;
+</td>
+</tr>
+<tr>
+<td>X Derivative</td><td>Y Derivative</td><td>Final Result</td>
+</tr>
+<tr>
+<td><img src=./results/building/1.4-0.6-0.3-grad-x.jpg height=288 width=384></td>
+<td><img src=./results/building/1.4-0.6-0.3-grad-y.jpg height=288 width=384></td>
+<td><img src=./results/building/1.4-0.6-0.3.jpg height=288 width=384></td>
+</tr>
+<tr>
+<td colspan=3>
+Sigma: 1.5&nbsp;
+Start: 0.4&nbsp;
+Continue: 0.1&nbsp;
+</td>
+</tr>
+<tr>
+<td>X Derivative</td><td>Y Derivative</td><td>Final Result</td>
+</tr>
+<tr>
+<td><img src=./results/building/1.5-0.4-0.1-grad-x.jpg height=288 width=384></td>
+<td><img src=./results/building/1.5-0.4-0.1-grad-y.jpg height=288 width=384></td>
+<td><img src=./results/building/1.5-0.4-0.1.jpg height=288 width=384></td>
+</tr>
+<tr>
+<td colspan=3>
+Sigma: 1.5&nbsp;
+Start: 0.4&nbsp;
+Continue: 0.2&nbsp;
+</td>
+</tr>
+<tr>
+<td>X Derivative</td><td>Y Derivative</td><td>Final Result</td>
+</tr>
+<tr>
+<td><img src=./results/building/1.5-0.4-0.2-grad-x.jpg height=288 width=384></td>
+<td><img src=./results/building/1.5-0.4-0.2-grad-y.jpg height=288 width=384></td>
+<td><img src=./results/building/1.5-0.4-0.2.jpg height=288 width=384></td>
+</tr>
+<tr>
+<td colspan=3>
+Sigma: 1.5&nbsp;
+Start: 0.4&nbsp;
+Continue: 0.3&nbsp;
+</td>
+</tr>
+<tr>
+<td>X Derivative</td><td>Y Derivative</td><td>Final Result</td>
+</tr>
+<tr>
+<td><img src=./results/building/1.5-0.4-0.3-grad-x.jpg height=288 width=384></td>
+<td><img src=./results/building/1.5-0.4-0.3-grad-y.jpg height=288 width=384></td>
+<td><img src=./results/building/1.5-0.4-0.3.jpg height=288 width=384></td>
+</tr>
+<tr>
+<td colspan=3>
+Sigma: 1.5&nbsp;
+Start: 0.5&nbsp;
+Continue: 0.1&nbsp;
+</td>
+</tr>
+<tr>
+<td>X Derivative</td><td>Y Derivative</td><td>Final Result</td>
+</tr>
+<tr>
+<td><img src=./results/building/1.5-0.5-0.1-grad-x.jpg height=288 width=384></td>
+<td><img src=./results/building/1.5-0.5-0.1-grad-y.jpg height=288 width=384></td>
+<td><img src=./results/building/1.5-0.5-0.1.jpg height=288 width=384></td>
+</tr>
+<tr>
+<td colspan=3>
+Sigma: 1.5&nbsp;
+Start: 0.5&nbsp;
+Continue: 0.2&nbsp;
+</td>
+</tr>
+<tr>
+<td>X Derivative</td><td>Y Derivative</td><td>Final Result</td>
+</tr>
+<tr>
+<td><img src=./results/building/1.5-0.5-0.2-grad-x.jpg height=288 width=384></td>
+<td><img src=./results/building/1.5-0.5-0.2-grad-y.jpg height=288 width=384></td>
+<td><img src=./results/building/1.5-0.5-0.2.jpg height=288 width=384></td>
+</tr>
+<tr>
+<td colspan=3>
+Sigma: 1.5&nbsp;
+Start: 0.5&nbsp;
+Continue: 0.3&nbsp;
+</td>
+</tr>
+<tr>
+<td>X Derivative</td><td>Y Derivative</td><td>Final Result</td>
+</tr>
+<tr>
+<td><img src=./results/building/1.5-0.5-0.3-grad-x.jpg height=288 width=384></td>
+<td><img src=./results/building/1.5-0.5-0.3-grad-y.jpg height=288 width=384></td>
+<td><img src=./results/building/1.5-0.5-0.3.jpg height=288 width=384></td>
+</tr>
+<tr>
+<td colspan=3>
+Sigma: 1.5&nbsp;
+Start: 0.6&nbsp;
+Continue: 0.1&nbsp;
+</td>
+</tr>
+<tr>
+<td>X Derivative</td><td>Y Derivative</td><td>Final Result</td>
+</tr>
+<tr>
+<td><img src=./results/building/1.5-0.6-0.1-grad-x.jpg height=288 width=384></td>
+<td><img src=./results/building/1.5-0.6-0.1-grad-y.jpg height=288 width=384></td>
+<td><img src=./results/building/1.5-0.6-0.1.jpg height=288 width=384></td>
+</tr>
+<tr>
+<td colspan=3>
+Sigma: 1.5&nbsp;
+Start: 0.6&nbsp;
+Continue: 0.2&nbsp;
+</td>
+</tr>
+<tr>
+<td>X Derivative</td><td>Y Derivative</td><td>Final Result</td>
+</tr>
+<tr>
+<td><img src=./results/building/1.5-0.6-0.2-grad-x.jpg height=288 width=384></td>
+<td><img src=./results/building/1.5-0.6-0.2-grad-y.jpg height=288 width=384></td>
+<td><img src=./results/building/1.5-0.6-0.2.jpg height=288 width=384></td>
+</tr>
+<tr>
+<td colspan=3>
+Sigma: 1.5&nbsp;
+Start: 0.6&nbsp;
+Continue: 0.3&nbsp;
+</td>
+</tr>
+<tr>
+<td>X Derivative</td><td>Y Derivative</td><td>Final Result</td>
+</tr>
+<tr>
+<td><img src=./results/building/1.5-0.6-0.3-grad-x.jpg height=288 width=384></td>
+<td><img src=./results/building/1.5-0.6-0.3-grad-y.jpg height=288 width=384></td>
+<td><img src=./results/building/1.5-0.6-0.3.jpg height=288 width=384></td>
+</tr>
+<tr>
+<td colspan=3>
+Sigma: 1.6&nbsp;
+Start: 0.4&nbsp;
+Continue: 0.1&nbsp;
+</td>
+</tr>
+<tr>
+<td>X Derivative</td><td>Y Derivative</td><td>Final Result</td>
+</tr>
+<tr>
+<td><img src=./results/building/1.6-0.4-0.1-grad-x.jpg height=288 width=384></td>
+<td><img src=./results/building/1.6-0.4-0.1-grad-y.jpg height=288 width=384></td>
+<td><img src=./results/building/1.6-0.4-0.1.jpg height=288 width=384></td>
+</tr>
+<tr>
+<td colspan=3>
+Sigma: 1.6&nbsp;
+Start: 0.4&nbsp;
+Continue: 0.2&nbsp;
+</td>
+</tr>
+<tr>
+<td>X Derivative</td><td>Y Derivative</td><td>Final Result</td>
+</tr>
+<tr>
+<td><img src=./results/building/1.6-0.4-0.2-grad-x.jpg height=288 width=384></td>
+<td><img src=./results/building/1.6-0.4-0.2-grad-y.jpg height=288 width=384></td>
+<td><img src=./results/building/1.6-0.4-0.2.jpg height=288 width=384></td>
+</tr>
+<tr>
+<td colspan=3>
+Sigma: 1.6&nbsp;
+Start: 0.4&nbsp;
+Continue: 0.3&nbsp;
+</td>
+</tr>
+<tr>
+<td>X Derivative</td><td>Y Derivative</td><td>Final Result</td>
+</tr>
+<tr>
+<td><img src=./results/building/1.6-0.4-0.3-grad-x.jpg height=288 width=384></td>
+<td><img src=./results/building/1.6-0.4-0.3-grad-y.jpg height=288 width=384></td>
+<td><img src=./results/building/1.6-0.4-0.3.jpg height=288 width=384></td>
+</tr>
+<tr>
+<td colspan=3>
+Sigma: 1.6&nbsp;
+Start: 0.5&nbsp;
+Continue: 0.1&nbsp;
+</td>
+</tr>
+<tr>
+<td>X Derivative</td><td>Y Derivative</td><td>Final Result</td>
+</tr>
+<tr>
+<td><img src=./results/building/1.6-0.5-0.1-grad-x.jpg height=288 width=384></td>
+<td><img src=./results/building/1.6-0.5-0.1-grad-y.jpg height=288 width=384></td>
+<td><img src=./results/building/1.6-0.5-0.1.jpg height=288 width=384></td>
+</tr>
+<tr>
+<td colspan=3>
+Sigma: 1.6&nbsp;
+Start: 0.5&nbsp;
+Continue: 0.2&nbsp;
+</td>
+</tr>
+<tr>
+<td>X Derivative</td><td>Y Derivative</td><td>Final Result</td>
+</tr>
+<tr>
+<td><img src=./results/building/1.6-0.5-0.2-grad-x.jpg height=288 width=384></td>
+<td><img src=./results/building/1.6-0.5-0.2-grad-y.jpg height=288 width=384></td>
+<td><img src=./results/building/1.6-0.5-0.2.jpg height=288 width=384></td>
+</tr>
+<tr>
+<td colspan=3>
+Sigma: 1.6&nbsp;
+Start: 0.5&nbsp;
+Continue: 0.3&nbsp;
+</td>
+</tr>
+<tr>
+<td>X Derivative</td><td>Y Derivative</td><td>Final Result</td>
+</tr>
+<tr>
+<td><img src=./results/building/1.6-0.5-0.3-grad-x.jpg height=288 width=384></td>
+<td><img src=./results/building/1.6-0.5-0.3-grad-y.jpg height=288 width=384></td>
+<td><img src=./results/building/1.6-0.5-0.3.jpg height=288 width=384></td>
+</tr>
+<tr>
+<td colspan=3>
+Sigma: 1.6&nbsp;
+Start: 0.6&nbsp;
+Continue: 0.1&nbsp;
+</td>
+</tr>
+<tr>
+<td>X Derivative</td><td>Y Derivative</td><td>Final Result</td>
+</tr>
+<tr>
+<td><img src=./results/building/1.6-0.6-0.1-grad-x.jpg height=288 width=384></td>
+<td><img src=./results/building/1.6-0.6-0.1-grad-y.jpg height=288 width=384></td>
+<td><img src=./results/building/1.6-0.6-0.1.jpg height=288 width=384></td>
+</tr>
+<tr>
+<td colspan=3>
+Sigma: 1.6&nbsp;
+Start: 0.6&nbsp;
+Continue: 0.2&nbsp;
+</td>
+</tr>
+<tr>
+<td>X Derivative</td><td>Y Derivative</td><td>Final Result</td>
+</tr>
+<tr>
+<td><img src=./results/building/1.6-0.6-0.2-grad-x.jpg height=288 width=384></td>
+<td><img src=./results/building/1.6-0.6-0.2-grad-y.jpg height=288 width=384></td>
+<td><img src=./results/building/1.6-0.6-0.2.jpg height=288 width=384></td>
+</tr>
+<tr>
+<td colspan=3>
+Sigma: 1.6&nbsp;
+Start: 0.6&nbsp;
+Continue: 0.3&nbsp;
+</td>
+</tr>
+<tr>
+<td>X Derivative</td><td>Y Derivative</td><td>Final Result</td>
+</tr>
+<tr>
+<td><img src=./results/building/1.6-0.6-0.3-grad-x.jpg height=288 width=384></td>
+<td><img src=./results/building/1.6-0.6-0.3-grad-y.jpg height=288 width=384></td>
+<td><img src=./results/building/1.6-0.6-0.3.jpg height=288 width=384></td>
+</tr>
+<tr>
+<td colspan=3>
+Sigma: 1.7&nbsp;
+Start: 0.4&nbsp;
+Continue: 0.1&nbsp;
+</td>
+</tr>
+<tr>
+<td>X Derivative</td><td>Y Derivative</td><td>Final Result</td>
+</tr>
+<tr>
+<td><img src=./results/building/1.7-0.4-0.1-grad-x.jpg height=288 width=384></td>
+<td><img src=./results/building/1.7-0.4-0.1-grad-y.jpg height=288 width=384></td>
+<td><img src=./results/building/1.7-0.4-0.1.jpg height=288 width=384></td>
+</tr>
+<tr>
+<td colspan=3>
+Sigma: 1.7&nbsp;
+Start: 0.4&nbsp;
+Continue: 0.2&nbsp;
+</td>
+</tr>
+<tr>
+<td>X Derivative</td><td>Y Derivative</td><td>Final Result</td>
+</tr>
+<tr>
+<td><img src=./results/building/1.7-0.4-0.2-grad-x.jpg height=288 width=384></td>
+<td><img src=./results/building/1.7-0.4-0.2-grad-y.jpg height=288 width=384></td>
+<td><img src=./results/building/1.7-0.4-0.2.jpg height=288 width=384></td>
+</tr>
+<tr>
+<td colspan=3>
+Sigma: 1.7&nbsp;
+Start: 0.4&nbsp;
+Continue: 0.3&nbsp;
+</td>
+</tr>
+<tr>
+<td>X Derivative</td><td>Y Derivative</td><td>Final Result</td>
+</tr>
+<tr>
+<td><img src=./results/building/1.7-0.4-0.3-grad-x.jpg height=288 width=384></td>
+<td><img src=./results/building/1.7-0.4-0.3-grad-y.jpg height=288 width=384></td>
+<td><img src=./results/building/1.7-0.4-0.3.jpg height=288 width=384></td>
+</tr>
+<tr>
+<td colspan=3>
+Sigma: 1.7&nbsp;
+Start: 0.5&nbsp;
+Continue: 0.1&nbsp;
+</td>
+</tr>
+<tr>
+<td>X Derivative</td><td>Y Derivative</td><td>Final Result</td>
+</tr>
+<tr>
+<td><img src=./results/building/1.7-0.5-0.1-grad-x.jpg height=288 width=384></td>
+<td><img src=./results/building/1.7-0.5-0.1-grad-y.jpg height=288 width=384></td>
+<td><img src=./results/building/1.7-0.5-0.1.jpg height=288 width=384></td>
+</tr>
+<tr>
+<td colspan=3>
+Sigma: 1.7&nbsp;
+Start: 0.5&nbsp;
+Continue: 0.2&nbsp;
+</td>
+</tr>
+<tr>
+<td>X Derivative</td><td>Y Derivative</td><td>Final Result</td>
+</tr>
+<tr>
+<td><img src=./results/building/1.7-0.5-0.2-grad-x.jpg height=288 width=384></td>
+<td><img src=./results/building/1.7-0.5-0.2-grad-y.jpg height=288 width=384></td>
+<td><img src=./results/building/1.7-0.5-0.2.jpg height=288 width=384></td>
+</tr>
+<tr>
+<td colspan=3>
+Sigma: 1.7&nbsp;
+Start: 0.5&nbsp;
+Continue: 0.3&nbsp;
+</td>
+</tr>
+<tr>
+<td>X Derivative</td><td>Y Derivative</td><td>Final Result</td>
+</tr>
+<tr>
+<td><img src=./results/building/1.7-0.5-0.3-grad-x.jpg height=288 width=384></td>
+<td><img src=./results/building/1.7-0.5-0.3-grad-y.jpg height=288 width=384></td>
+<td><img src=./results/building/1.7-0.5-0.3.jpg height=288 width=384></td>
+</tr>
+<tr>
+<td colspan=3>
+Sigma: 1.7&nbsp;
+Start: 0.6&nbsp;
+Continue: 0.1&nbsp;
+</td>
+</tr>
+<tr>
+<td>X Derivative</td><td>Y Derivative</td><td>Final Result</td>
+</tr>
+<tr>
+<td><img src=./results/building/1.7-0.6-0.1-grad-x.jpg height=288 width=384></td>
+<td><img src=./results/building/1.7-0.6-0.1-grad-y.jpg height=288 width=384></td>
+<td><img src=./results/building/1.7-0.6-0.1.jpg height=288 width=384></td>
+</tr>
+<tr>
+<td colspan=3>
+Sigma: 1.7&nbsp;
+Start: 0.6&nbsp;
+Continue: 0.2&nbsp;
+</td>
+</tr>
+<tr>
+<td>X Derivative</td><td>Y Derivative</td><td>Final Result</td>
+</tr>
+<tr>
+<td><img src=./results/building/1.7-0.6-0.2-grad-x.jpg height=288 width=384></td>
+<td><img src=./results/building/1.7-0.6-0.2-grad-y.jpg height=288 width=384></td>
+<td><img src=./results/building/1.7-0.6-0.2.jpg height=288 width=384></td>
+</tr>
+<tr>
+<td colspan=3>
+Sigma: 1.7&nbsp;
+Start: 0.6&nbsp;
+Continue: 0.3&nbsp;
+</td>
+</tr>
+<tr>
+<td>X Derivative</td><td>Y Derivative</td><td>Final Result</td>
+</tr>
+<tr>
+<td><img src=./results/building/1.7-0.6-0.3-grad-x.jpg height=288 width=384></td>
+<td><img src=./results/building/1.7-0.6-0.3-grad-y.jpg height=288 width=384></td>
+<td><img src=./results/building/1.7-0.6-0.3.jpg height=288 width=384></td>
+</tr>
+<tr>
+<td colspan=3>
+Sigma: 1.8&nbsp;
+Start: 0.4&nbsp;
+Continue: 0.1&nbsp;
+</td>
+</tr>
+<tr>
+<td>X Derivative</td><td>Y Derivative</td><td>Final Result</td>
+</tr>
+<tr>
+<td><img src=./results/building/1.8-0.4-0.1-grad-x.jpg height=288 width=384></td>
+<td><img src=./results/building/1.8-0.4-0.1-grad-y.jpg height=288 width=384></td>
+<td><img src=./results/building/1.8-0.4-0.1.jpg height=288 width=384></td>
+</tr>
+<tr>
+<td colspan=3>
+Sigma: 1.8&nbsp;
+Start: 0.4&nbsp;
+Continue: 0.2&nbsp;
+</td>
+</tr>
+<tr>
+<td>X Derivative</td><td>Y Derivative</td><td>Final Result</td>
+</tr>
+<tr>
+<td><img src=./results/building/1.8-0.4-0.2-grad-x.jpg height=288 width=384></td>
+<td><img src=./results/building/1.8-0.4-0.2-grad-y.jpg height=288 width=384></td>
+<td><img src=./results/building/1.8-0.4-0.2.jpg height=288 width=384></td>
+</tr>
+<tr>
+<td colspan=3>
+Sigma: 1.8&nbsp;
+Start: 0.4&nbsp;
+Continue: 0.3&nbsp;
+</td>
+</tr>
+<tr>
+<td>X Derivative</td><td>Y Derivative</td><td>Final Result</td>
+</tr>
+<tr>
+<td><img src=./results/building/1.8-0.4-0.3-grad-x.jpg height=288 width=384></td>
+<td><img src=./results/building/1.8-0.4-0.3-grad-y.jpg height=288 width=384></td>
+<td><img src=./results/building/1.8-0.4-0.3.jpg height=288 width=384></td>
+</tr>
+<tr>
+<td colspan=3>
+Sigma: 1.8&nbsp;
+Start: 0.5&nbsp;
+Continue: 0.1&nbsp;
+</td>
+</tr>
+<tr>
+<td>X Derivative</td><td>Y Derivative</td><td>Final Result</td>
+</tr>
+<tr>
+<td><img src=./results/building/1.8-0.5-0.1-grad-x.jpg height=288 width=384></td>
+<td><img src=./results/building/1.8-0.5-0.1-grad-y.jpg height=288 width=384></td>
+<td><img src=./results/building/1.8-0.5-0.1.jpg height=288 width=384></td>
+</tr>
+<tr>
+<td colspan=3>
+Sigma: 1.8&nbsp;
+Start: 0.5&nbsp;
+Continue: 0.2&nbsp;
+</td>
+</tr>
+<tr>
+<td>X Derivative</td><td>Y Derivative</td><td>Final Result</td>
+</tr>
+<tr>
+<td><img src=./results/building/1.8-0.5-0.2-grad-x.jpg height=288 width=384></td>
+<td><img src=./results/building/1.8-0.5-0.2-grad-y.jpg height=288 width=384></td>
+<td><img src=./results/building/1.8-0.5-0.2.jpg height=288 width=384></td>
+</tr>
+<tr>
+<td colspan=3>
+Sigma: 1.8&nbsp;
+Start: 0.5&nbsp;
+Continue: 0.3&nbsp;
+</td>
+</tr>
+<tr>
+<td>X Derivative</td><td>Y Derivative</td><td>Final Result</td>
+</tr>
+<tr>
+<td><img src=./results/building/1.8-0.5-0.3-grad-x.jpg height=288 width=384></td>
+<td><img src=./results/building/1.8-0.5-0.3-grad-y.jpg height=288 width=384></td>
+<td><img src=./results/building/1.8-0.5-0.3.jpg height=288 width=384></td>
+</tr>
+<tr>
+<td colspan=3>
+Sigma: 1.8&nbsp;
+Start: 0.6&nbsp;
+Continue: 0.1&nbsp;
+</td>
+</tr>
+<tr>
+<td>X Derivative</td><td>Y Derivative</td><td>Final Result</td>
+</tr>
+<tr>
+<td><img src=./results/building/1.8-0.6-0.1-grad-x.jpg height=288 width=384></td>
+<td><img src=./results/building/1.8-0.6-0.1-grad-y.jpg height=288 width=384></td>
+<td><img src=./results/building/1.8-0.6-0.1.jpg height=288 width=384></td>
+</tr>
+<tr>
+<td colspan=3>
+Sigma: 1.8&nbsp;
+Start: 0.6&nbsp;
+Continue: 0.2&nbsp;
+</td>
+</tr>
+<tr>
+<td>X Derivative</td><td>Y Derivative</td><td>Final Result</td>
+</tr>
+<tr>
+<td><img src=./results/building/1.8-0.6-0.2-grad-x.jpg height=288 width=384></td>
+<td><img src=./results/building/1.8-0.6-0.2-grad-y.jpg height=288 width=384></td>
+<td><img src=./results/building/1.8-0.6-0.2.jpg height=288 width=384></td>
+</tr>
+<tr>
+<td colspan=3>
+Sigma: 1.8&nbsp;
+Start: 0.6&nbsp;
+Continue: 0.3&nbsp;
+</td>
+</tr>
+<tr>
+<td>X Derivative</td><td>Y Derivative</td><td>Final Result</td>
+</tr>
+<tr>
+<td><img src=./results/building/1.8-0.6-0.3-grad-x.jpg height=288 width=384></td>
+<td><img src=./results/building/1.8-0.6-0.3-grad-y.jpg height=288 width=384></td>
+<td><img src=./results/building/1.8-0.6-0.3.jpg height=288 width=384></td>
+</tr>
+<tr>
+<td colspan=3>
+Sigma: 1.9&nbsp;
+Start: 0.4&nbsp;
+Continue: 0.1&nbsp;
+</td>
+</tr>
+<tr>
+<td>X Derivative</td><td>Y Derivative</td><td>Final Result</td>
+</tr>
+<tr>
+<td><img src=./results/building/1.9-0.4-0.1-grad-x.jpg height=288 width=384></td>
+<td><img src=./results/building/1.9-0.4-0.1-grad-y.jpg height=288 width=384></td>
+<td><img src=./results/building/1.9-0.4-0.1.jpg height=288 width=384></td>
+</tr>
+<tr>
+<td colspan=3>
+Sigma: 1.9&nbsp;
+Start: 0.4&nbsp;
+Continue: 0.2&nbsp;
+</td>
+</tr>
+<tr>
+<td>X Derivative</td><td>Y Derivative</td><td>Final Result</td>
+</tr>
+<tr>
+<td><img src=./results/building/1.9-0.4-0.2-grad-x.jpg height=288 width=384></td>
+<td><img src=./results/building/1.9-0.4-0.2-grad-y.jpg height=288 width=384></td>
+<td><img src=./results/building/1.9-0.4-0.2.jpg height=288 width=384></td>
+</tr>
+<tr>
+<td colspan=3>
+Sigma: 1.9&nbsp;
+Start: 0.4&nbsp;
+Continue: 0.3&nbsp;
+</td>
+</tr>
+<tr>
+<td>X Derivative</td><td>Y Derivative</td><td>Final Result</td>
+</tr>
+<tr>
+<td><img src=./results/building/1.9-0.4-0.3-grad-x.jpg height=288 width=384></td>
+<td><img src=./results/building/1.9-0.4-0.3-grad-y.jpg height=288 width=384></td>
+<td><img src=./results/building/1.9-0.4-0.3.jpg height=288 width=384></td>
+</tr>
+<tr>
+<td colspan=3>
+Sigma: 1.9&nbsp;
+Start: 0.5&nbsp;
+Continue: 0.1&nbsp;
+</td>
+</tr>
+<tr>
+<td>X Derivative</td><td>Y Derivative</td><td>Final Result</td>
+</tr>
+<tr>
+<td><img src=./results/building/1.9-0.5-0.1-grad-x.jpg height=288 width=384></td>
+<td><img src=./results/building/1.9-0.5-0.1-grad-y.jpg height=288 width=384></td>
+<td><img src=./results/building/1.9-0.5-0.1.jpg height=288 width=384></td>
+</tr>
+<tr>
+<td colspan=3>
+Sigma: 1.9&nbsp;
+Start: 0.5&nbsp;
+Continue: 0.2&nbsp;
+</td>
+</tr>
+<tr>
+<td>X Derivative</td><td>Y Derivative</td><td>Final Result</td>
+</tr>
+<tr>
+<td><img src=./results/building/1.9-0.5-0.2-grad-x.jpg height=288 width=384></td>
+<td><img src=./results/building/1.9-0.5-0.2-grad-y.jpg height=288 width=384></td>
+<td><img src=./results/building/1.9-0.5-0.2.jpg height=288 width=384></td>
+</tr>
+<tr>
+<td colspan=3>
+Sigma: 1.9&nbsp;
+Start: 0.5&nbsp;
+Continue: 0.3&nbsp;
+</td>
+</tr>
+<tr>
+<td>X Derivative</td><td>Y Derivative</td><td>Final Result</td>
+</tr>
+<tr>
+<td><img src=./results/building/1.9-0.5-0.3-grad-x.jpg height=288 width=384></td>
+<td><img src=./results/building/1.9-0.5-0.3-grad-y.jpg height=288 width=384></td>
+<td><img src=./results/building/1.9-0.5-0.3.jpg height=288 width=384></td>
+</tr>
+<tr>
+<td colspan=3>
+Sigma: 1.9&nbsp;
+Start: 0.6&nbsp;
+Continue: 0.1&nbsp;
+</td>
+</tr>
+<tr>
+<td>X Derivative</td><td>Y Derivative</td><td>Final Result</td>
+</tr>
+<tr>
+<td><img src=./results/building/1.9-0.6-0.1-grad-x.jpg height=288 width=384></td>
+<td><img src=./results/building/1.9-0.6-0.1-grad-y.jpg height=288 width=384></td>
+<td><img src=./results/building/1.9-0.6-0.1.jpg height=288 width=384></td>
+</tr>
+<tr>
+<td colspan=3>
+Sigma: 1.9&nbsp;
+Start: 0.6&nbsp;
+Continue: 0.2&nbsp;
+</td>
+</tr>
+<tr>
+<td>X Derivative</td><td>Y Derivative</td><td>Final Result</td>
+</tr>
+<tr>
+<td><img src=./results/building/1.9-0.6-0.2-grad-x.jpg height=288 width=384></td>
+<td><img src=./results/building/1.9-0.6-0.2-grad-y.jpg height=288 width=384></td>
+<td><img src=./results/building/1.9-0.6-0.2.jpg height=288 width=384></td>
+</tr>
+<tr>
+<td colspan=3>
+Sigma: 1.9&nbsp;
+Start: 0.6&nbsp;
+Continue: 0.3&nbsp;
+</td>
+</tr>
+<tr>
+<td>X Derivative</td><td>Y Derivative</td><td>Final Result</td>
+</tr>
+<tr>
+<td><img src=./results/building/1.9-0.6-0.3-grad-x.jpg height=288 width=384></td>
+<td><img src=./results/building/1.9-0.6-0.3-grad-y.jpg height=288 width=384></td>
+<td><img src=./results/building/1.9-0.6-0.3.jpg height=288 width=384></td>
+</tr>
+<tr>
+<td colspan=3>
+Sigma: 2.0&nbsp;
+Start: 0.4&nbsp;
+Continue: 0.1&nbsp;
+</td>
+</tr>
+<tr>
+<td>X Derivative</td><td>Y Derivative</td><td>Final Result</td>
+</tr>
+<tr>
+<td><img src=./results/building/2.0-0.4-0.1-grad-x.jpg height=288 width=384></td>
+<td><img src=./results/building/2.0-0.4-0.1-grad-y.jpg height=288 width=384></td>
+<td><img src=./results/building/2.0-0.4-0.1.jpg height=288 width=384></td>
+</tr>
+<tr>
+<td colspan=3>
+Sigma: 2.0&nbsp;
+Start: 0.4&nbsp;
+Continue: 0.2&nbsp;
+</td>
+</tr>
+<tr>
+<td>X Derivative</td><td>Y Derivative</td><td>Final Result</td>
+</tr>
+<tr>
+<td><img src=./results/building/2.0-0.4-0.2-grad-x.jpg height=288 width=384></td>
+<td><img src=./results/building/2.0-0.4-0.2-grad-y.jpg height=288 width=384></td>
+<td><img src=./results/building/2.0-0.4-0.2.jpg height=288 width=384></td>
+</tr>
+<tr>
+<td colspan=3>
+Sigma: 2.0&nbsp;
+Start: 0.4&nbsp;
+Continue: 0.3&nbsp;
+</td>
+</tr>
+<tr>
+<td>X Derivative</td><td>Y Derivative</td><td>Final Result</td>
+</tr>
+<tr>
+<td><img src=./results/building/2.0-0.4-0.3-grad-x.jpg height=288 width=384></td>
+<td><img src=./results/building/2.0-0.4-0.3-grad-y.jpg height=288 width=384></td>
+<td><img src=./results/building/2.0-0.4-0.3.jpg height=288 width=384></td>
+</tr>
+<tr>
+<td colspan=3>
+Sigma: 2.0&nbsp;
+Start: 0.5&nbsp;
+Continue: 0.1&nbsp;
+</td>
+</tr>
+<tr>
+<td>X Derivative</td><td>Y Derivative</td><td>Final Result</td>
+</tr>
+<tr>
+<td><img src=./results/building/2.0-0.5-0.1-grad-x.jpg height=288 width=384></td>
+<td><img src=./results/building/2.0-0.5-0.1-grad-y.jpg height=288 width=384></td>
+<td><img src=./results/building/2.0-0.5-0.1.jpg height=288 width=384></td>
+</tr>
+<tr>
+<td colspan=3>
+Sigma: 2.0&nbsp;
+Start: 0.5&nbsp;
+Continue: 0.2&nbsp;
+</td>
+</tr>
+<tr>
+<td>X Derivative</td><td>Y Derivative</td><td>Final Result</td>
+</tr>
+<tr>
+<td><img src=./results/building/2.0-0.5-0.2-grad-x.jpg height=288 width=384></td>
+<td><img src=./results/building/2.0-0.5-0.2-grad-y.jpg height=288 width=384></td>
+<td><img src=./results/building/2.0-0.5-0.2.jpg height=288 width=384></td>
+</tr>
+<tr>
+<td colspan=3>
+Sigma: 2.0&nbsp;
+Start: 0.5&nbsp;
+Continue: 0.3&nbsp;
+</td>
+</tr>
+<tr>
+<td>X Derivative</td><td>Y Derivative</td><td>Final Result</td>
+</tr>
+<tr>
+<td><img src=./results/building/2.0-0.5-0.3-grad-x.jpg height=288 width=384></td>
+<td><img src=./results/building/2.0-0.5-0.3-grad-y.jpg height=288 width=384></td>
+<td><img src=./results/building/2.0-0.5-0.3.jpg height=288 width=384></td>
+</tr>
+<tr>
+<td colspan=3>
+Sigma: 2.0&nbsp;
+Start: 0.6&nbsp;
+Continue: 0.1&nbsp;
+</td>
+</tr>
+<tr>
+<td>X Derivative</td><td>Y Derivative</td><td>Final Result</td>
+</tr>
+<tr>
+<td><img src=./results/building/2.0-0.6-0.1-grad-x.jpg height=288 width=384></td>
+<td><img src=./results/building/2.0-0.6-0.1-grad-y.jpg height=288 width=384></td>
+<td><img src=./results/building/2.0-0.6-0.1.jpg height=288 width=384></td>
+</tr>
+<tr>
+<td colspan=3>
+Sigma: 2.0&nbsp;
+Start: 0.6&nbsp;
+Continue: 0.2&nbsp;
+</td>
+</tr>
+<tr>
+<td>X Derivative</td><td>Y Derivative</td><td>Final Result</td>
+</tr>
+<tr>
+<td><img src=./results/building/2.0-0.6-0.2-grad-x.jpg height=288 width=384></td>
+<td><img src=./results/building/2.0-0.6-0.2-grad-y.jpg height=288 width=384></td>
+<td><img src=./results/building/2.0-0.6-0.2.jpg height=288 width=384></td>
+</tr>
+<tr>
+<td colspan=3>
+Sigma: 2.0&nbsp;
+Start: 0.6&nbsp;
+Continue: 0.3&nbsp;
+</td>
+</tr>
+<tr>
+<td>X Derivative</td><td>Y Derivative</td><td>Final Result</td>
+</tr>
+<tr>
+<td><img src=./results/building/2.0-0.6-0.3-grad-x.jpg height=288 width=384></td>
+<td><img src=./results/building/2.0-0.6-0.3-grad-y.jpg height=288 width=384></td>
+<td><img src=./results/building/2.0-0.6-0.3.jpg height=288 width=384></td>
+</tr>
+</table>
+</div>
+<div onclick="showhide('mandrill');" style="text-decoration:underline;">Show/hide full Mandrill results</div><br>
+<div id=mandrill style="display:none">
+<table>
+<tr>
+<td colspan=3>
+Sigma: 1.0&nbsp;
+Start: 0.4&nbsp;
+Continue: 0.1&nbsp;
+</td>
+</tr>
+<tr>
+<td>X Derivative</td><td>Y Derivative</td><td>Final Result</td>
+</tr>
+<tr>
+<td><img src=./results/mandrill/1.0-0.4-0.1-grad-x.jpg height=256 width=256></td>
+<td><img src=./results/mandrill/1.0-0.4-0.1-grad-y.jpg height=256 width=256></td>
+<td><img src=./results/mandrill/1.0-0.4-0.1.jpg height=256 width=256></td>
+</tr>
+<tr>
+<td colspan=3>
+Sigma: 1.0&nbsp;
+Start: 0.4&nbsp;
+Continue: 0.2&nbsp;
+</td>
+</tr>
+<tr>
+<td>X Derivative</td><td>Y Derivative</td><td>Final Result</td>
+</tr>
+<tr>
+<td><img src=./results/mandrill/1.0-0.4-0.2-grad-x.jpg height=256 width=256></td>
+<td><img src=./results/mandrill/1.0-0.4-0.2-grad-y.jpg height=256 width=256></td>
+<td><img src=./results/mandrill/1.0-0.4-0.2.jpg height=256 width=256></td>
+</tr>
+<tr>
+<td colspan=3>
+Sigma: 1.0&nbsp;
+Start: 0.4&nbsp;
+Continue: 0.3&nbsp;
+</td>
+</tr>
+<tr>
+<td>X Derivative</td><td>Y Derivative</td><td>Final Result</td>
+</tr>
+<tr>
+<td><img src=./results/mandrill/1.0-0.4-0.3-grad-x.jpg height=256 width=256></td>
+<td><img src=./results/mandrill/1.0-0.4-0.3-grad-y.jpg height=256 width=256></td>
+<td><img src=./results/mandrill/1.0-0.4-0.3.jpg height=256 width=256></td>
+</tr>
+<tr>
+<td colspan=3>
+Sigma: 1.0&nbsp;
+Start: 0.5&nbsp;
+Continue: 0.1&nbsp;
+</td>
+</tr>
+<tr>
+<td>X Derivative</td><td>Y Derivative</td><td>Final Result</td>
+</tr>
+<tr>
+<td><img src=./results/mandrill/1.0-0.5-0.1-grad-x.jpg height=256 width=256></td>
+<td><img src=./results/mandrill/1.0-0.5-0.1-grad-y.jpg height=256 width=256></td>
+<td><img src=./results/mandrill/1.0-0.5-0.1.jpg height=256 width=256></td>
+</tr>
+<tr>
+<td colspan=3>
+Sigma: 1.0&nbsp;
+Start: 0.5&nbsp;
+Continue: 0.2&nbsp;
+</td>
+</tr>
+<tr>
+<td>X Derivative</td><td>Y Derivative</td><td>Final Result</td>
+</tr>
+<tr>
+<td><img src=./results/mandrill/1.0-0.5-0.2-grad-x.jpg height=256 width=256></td>
+<td><img src=./results/mandrill/1.0-0.5-0.2-grad-y.jpg height=256 width=256></td>
+<td><img src=./results/mandrill/1.0-0.5-0.2.jpg height=256 width=256></td>
+</tr>
+<tr>
+<td colspan=3>
+Sigma: 1.0&nbsp;
+Start: 0.5&nbsp;
+Continue: 0.3&nbsp;
+</td>
+</tr>
+<tr>
+<td>X Derivative</td><td>Y Derivative</td><td>Final Result</td>
+</tr>
+<tr>
+<td><img src=./results/mandrill/1.0-0.5-0.3-grad-x.jpg height=256 width=256></td>
+<td><img src=./results/mandrill/1.0-0.5-0.3-grad-y.jpg height=256 width=256></td>
+<td><img src=./results/mandrill/1.0-0.5-0.3.jpg height=256 width=256></td>
+</tr>
+<tr>
+<td colspan=3>
+Sigma: 1.0&nbsp;
+Start: 0.6&nbsp;
+Continue: 0.1&nbsp;
+</td>
+</tr>
+<tr>
+<td>X Derivative</td><td>Y Derivative</td><td>Final Result</td>
+</tr>
+<tr>
+<td><img src=./results/mandrill/1.0-0.6-0.1-grad-x.jpg height=256 width=256></td>
+<td><img src=./results/mandrill/1.0-0.6-0.1-grad-y.jpg height=256 width=256></td>
+<td><img src=./results/mandrill/1.0-0.6-0.1.jpg height=256 width=256></td>
+</tr>
+<tr>
+<td colspan=3>
+Sigma: 1.0&nbsp;
+Start: 0.6&nbsp;
+Continue: 0.2&nbsp;
+</td>
+</tr>
+<tr>
+<td>X Derivative</td><td>Y Derivative</td><td>Final Result</td>
+</tr>
+<tr>
+<td><img src=./results/mandrill/1.0-0.6-0.2-grad-x.jpg height=256 width=256></td>
+<td><img src=./results/mandrill/1.0-0.6-0.2-grad-y.jpg height=256 width=256></td>
+<td><img src=./results/mandrill/1.0-0.6-0.2.jpg height=256 width=256></td>
+</tr>
+<tr>
+<td colspan=3>
+Sigma: 1.0&nbsp;
+Start: 0.6&nbsp;
+Continue: 0.3&nbsp;
+</td>
+</tr>
+<tr>
+<td>X Derivative</td><td>Y Derivative</td><td>Final Result</td>
+</tr>
+<tr>
+<td><img src=./results/mandrill/1.0-0.6-0.3-grad-x.jpg height=256 width=256></td>
+<td><img src=./results/mandrill/1.0-0.6-0.3-grad-y.jpg height=256 width=256></td>
+<td><img src=./results/mandrill/1.0-0.6-0.3.jpg height=256 width=256></td>
+</tr>
+<tr>
+<td colspan=3>
+Sigma: 1.1&nbsp;
+Start: 0.4&nbsp;
+Continue: 0.1&nbsp;
+</td>
+</tr>
+<tr>
+<td>X Derivative</td><td>Y Derivative</td><td>Final Result</td>
+</tr>
+<tr>
+<td><img src=./results/mandrill/1.1-0.4-0.1-grad-x.jpg height=256 width=256></td>
+<td><img src=./results/mandrill/1.1-0.4-0.1-grad-y.jpg height=256 width=256></td>
+<td><img src=./results/mandrill/1.1-0.4-0.1.jpg height=256 width=256></td>
+</tr>
+<tr>
+<td colspan=3>
+Sigma: 1.1&nbsp;
+Start: 0.4&nbsp;
+Continue: 0.2&nbsp;
+</td>
+</tr>
+<tr>
+<td>X Derivative</td><td>Y Derivative</td><td>Final Result</td>
+</tr>
+<tr>
+<td><img src=./results/mandrill/1.1-0.4-0.2-grad-x.jpg height=256 width=256></td>
+<td><img src=./results/mandrill/1.1-0.4-0.2-grad-y.jpg height=256 width=256></td>
+<td><img src=./results/mandrill/1.1-0.4-0.2.jpg height=256 width=256></td>
+</tr>
+<tr>
+<td colspan=3>
+Sigma: 1.1&nbsp;
+Start: 0.4&nbsp;
+Continue: 0.3&nbsp;
+</td>
+</tr>
+<tr>
+<td>X Derivative</td><td>Y Derivative</td><td>Final Result</td>
+</tr>
+<tr>
+<td><img src=./results/mandrill/1.1-0.4-0.3-grad-x.jpg height=256 width=256></td>
+<td><img src=./results/mandrill/1.1-0.4-0.3-grad-y.jpg height=256 width=256></td>
+<td><img src=./results/mandrill/1.1-0.4-0.3.jpg height=256 width=256></td>
+</tr>
+<tr>
+<td colspan=3>
+Sigma: 1.1&nbsp;
+Start: 0.5&nbsp;
+Continue: 0.1&nbsp;
+</td>
+</tr>
+<tr>
+<td>X Derivative</td><td>Y Derivative</td><td>Final Result</td>
+</tr>
+<tr>
+<td><img src=./results/mandrill/1.1-0.5-0.1-grad-x.jpg height=256 width=256></td>
+<td><img src=./results/mandrill/1.1-0.5-0.1-grad-y.jpg height=256 width=256></td>
+<td><img src=./results/mandrill/1.1-0.5-0.1.jpg height=256 width=256></td>
+</tr>
+<tr>
+<td colspan=3>
+Sigma: 1.1&nbsp;
+Start: 0.5&nbsp;
+Continue: 0.2&nbsp;
+</td>
+</tr>
+<tr>
+<td>X Derivative</td><td>Y Derivative</td><td>Final Result</td>
+</tr>
+<tr>
+<td><img src=./results/mandrill/1.1-0.5-0.2-grad-x.jpg height=256 width=256></td>
+<td><img src=./results/mandrill/1.1-0.5-0.2-grad-y.jpg height=256 width=256></td>
+<td><img src=./results/mandrill/1.1-0.5-0.2.jpg height=256 width=256></td>
+</tr>
+<tr>
+<td colspan=3>
+Sigma: 1.1&nbsp;
+Start: 0.5&nbsp;
+Continue: 0.3&nbsp;
+</td>
+</tr>
+<tr>
+<td>X Derivative</td><td>Y Derivative</td><td>Final Result</td>
+</tr>
+<tr>
+<td><img src=./results/mandrill/1.1-0.5-0.3-grad-x.jpg height=256 width=256></td>
+<td><img src=./results/mandrill/1.1-0.5-0.3-grad-y.jpg height=256 width=256></td>
+<td><img src=./results/mandrill/1.1-0.5-0.3.jpg height=256 width=256></td>
+</tr>
+<tr>
+<td colspan=3>
+Sigma: 1.1&nbsp;
+Start: 0.6&nbsp;
+Continue: 0.1&nbsp;
+</td>
+</tr>
+<tr>
+<td>X Derivative</td><td>Y Derivative</td><td>Final Result</td>
+</tr>
+<tr>
+<td><img src=./results/mandrill/1.1-0.6-0.1-grad-x.jpg height=256 width=256></td>
+<td><img src=./results/mandrill/1.1-0.6-0.1-grad-y.jpg height=256 width=256></td>
+<td><img src=./results/mandrill/1.1-0.6-0.1.jpg height=256 width=256></td>
+</tr>
+<tr>
+<td colspan=3>
+Sigma: 1.1&nbsp;
+Start: 0.6&nbsp;
+Continue: 0.2&nbsp;
+</td>
+</tr>
+<tr>
+<td>X Derivative</td><td>Y Derivative</td><td>Final Result</td>
+</tr>
+<tr>
+<td><img src=./results/mandrill/1.1-0.6-0.2-grad-x.jpg height=256 width=256></td>
+<td><img src=./results/mandrill/1.1-0.6-0.2-grad-y.jpg height=256 width=256></td>
+<td><img src=./results/mandrill/1.1-0.6-0.2.jpg height=256 width=256></td>
+</tr>
+<tr>
+<td colspan=3>
+Sigma: 1.1&nbsp;
+Start: 0.6&nbsp;
+Continue: 0.3&nbsp;
+</td>
+</tr>
+<tr>
+<td>X Derivative</td><td>Y Derivative</td><td>Final Result</td>
+</tr>
+<tr>
+<td><img src=./results/mandrill/1.1-0.6-0.3-grad-x.jpg height=256 width=256></td>
+<td><img src=./results/mandrill/1.1-0.6-0.3-grad-y.jpg height=256 width=256></td>
+<td><img src=./results/mandrill/1.1-0.6-0.3.jpg height=256 width=256></td>
+</tr>
+<tr>
+<td colspan=3>
+Sigma: 1.2&nbsp;
+Start: 0.4&nbsp;
+Continue: 0.1&nbsp;
+</td>
+</tr>
+<tr>
+<td>X Derivative</td><td>Y Derivative</td><td>Final Result</td>
+</tr>
+<tr>
+<td><img src=./results/mandrill/1.2-0.4-0.1-grad-x.jpg height=256 width=256></td>
+<td><img src=./results/mandrill/1.2-0.4-0.1-grad-y.jpg height=256 width=256></td>
+<td><img src=./results/mandrill/1.2-0.4-0.1.jpg height=256 width=256></td>
+</tr>
+<tr>
+<td colspan=3>
+Sigma: 1.2&nbsp;
+Start: 0.4&nbsp;
+Continue: 0.2&nbsp;
+</td>
+</tr>
+<tr>
+<td>X Derivative</td><td>Y Derivative</td><td>Final Result</td>
+</tr>
+<tr>
+<td><img src=./results/mandrill/1.2-0.4-0.2-grad-x.jpg height=256 width=256></td>
+<td><img src=./results/mandrill/1.2-0.4-0.2-grad-y.jpg height=256 width=256></td>
+<td><img src=./results/mandrill/1.2-0.4-0.2.jpg height=256 width=256></td>
+</tr>
+<tr>
+<td colspan=3>
+Sigma: 1.2&nbsp;
+Start: 0.4&nbsp;
+Continue: 0.3&nbsp;
+</td>
+</tr>
+<tr>
+<td>X Derivative</td><td>Y Derivative</td><td>Final Result</td>
+</tr>
+<tr>
+<td><img src=./results/mandrill/1.2-0.4-0.3-grad-x.jpg height=256 width=256></td>
+<td><img src=./results/mandrill/1.2-0.4-0.3-grad-y.jpg height=256 width=256></td>
+<td><img src=./results/mandrill/1.2-0.4-0.3.jpg height=256 width=256></td>
+</tr>
+<tr>
+<td colspan=3>
+Sigma: 1.2&nbsp;
+Start: 0.5&nbsp;
+Continue: 0.1&nbsp;
+</td>
+</tr>
+<tr>
+<td>X Derivative</td><td>Y Derivative</td><td>Final Result</td>
+</tr>
+<tr>
+<td><img src=./results/mandrill/1.2-0.5-0.1-grad-x.jpg height=256 width=256></td>
+<td><img src=./results/mandrill/1.2-0.5-0.1-grad-y.jpg height=256 width=256></td>
+<td><img src=./results/mandrill/1.2-0.5-0.1.jpg height=256 width=256></td>
+</tr>
+<tr>
+<td colspan=3>
+Sigma: 1.2&nbsp;
+Start: 0.5&nbsp;
+Continue: 0.2&nbsp;
+</td>
+</tr>
+<tr>
+<td>X Derivative</td><td>Y Derivative</td><td>Final Result</td>
+</tr>
+<tr>
+<td><img src=./results/mandrill/1.2-0.5-0.2-grad-x.jpg height=256 width=256></td>
+<td><img src=./results/mandrill/1.2-0.5-0.2-grad-y.jpg height=256 width=256></td>
+<td><img src=./results/mandrill/1.2-0.5-0.2.jpg height=256 width=256></td>
+</tr>
+<tr>
+<td colspan=3>
+Sigma: 1.2&nbsp;
+Start: 0.5&nbsp;
+Continue: 0.3&nbsp;
+</td>
+</tr>
+<tr>
+<td>X Derivative</td><td>Y Derivative</td><td>Final Result</td>
+</tr>
+<tr>
+<td><img src=./results/mandrill/1.2-0.5-0.3-grad-x.jpg height=256 width=256></td>
+<td><img src=./results/mandrill/1.2-0.5-0.3-grad-y.jpg height=256 width=256></td>
+<td><img src=./results/mandrill/1.2-0.5-0.3.jpg height=256 width=256></td>
+</tr>
+<tr>
+<td colspan=3>
+Sigma: 1.2&nbsp;
+Start: 0.6&nbsp;
+Continue: 0.1&nbsp;
+</td>
+</tr>
+<tr>
+<td>X Derivative</td><td>Y Derivative</td><td>Final Result</td>
+</tr>
+<tr>
+<td><img src=./results/mandrill/1.2-0.6-0.1-grad-x.jpg height=256 width=256></td>
+<td><img src=./results/mandrill/1.2-0.6-0.1-grad-y.jpg height=256 width=256></td>
+<td><img src=./results/mandrill/1.2-0.6-0.1.jpg height=256 width=256></td>
+</tr>
+<tr>
+<td colspan=3>
+Sigma: 1.2&nbsp;
+Start: 0.6&nbsp;
+Continue: 0.2&nbsp;
+</td>
+</tr>
+<tr>
+<td>X Derivative</td><td>Y Derivative</td><td>Final Result</td>
+</tr>
+<tr>
+<td><img src=./results/mandrill/1.2-0.6-0.2-grad-x.jpg height=256 width=256></td>
+<td><img src=./results/mandrill/1.2-0.6-0.2-grad-y.jpg height=256 width=256></td>
+<td><img src=./results/mandrill/1.2-0.6-0.2.jpg height=256 width=256></td>
+</tr>
+<tr>
+<td colspan=3>
+Sigma: 1.2&nbsp;
+Start: 0.6&nbsp;
+Continue: 0.3&nbsp;
+</td>
+</tr>
+<tr>
+<td>X Derivative</td><td>Y Derivative</td><td>Final Result</td>
+</tr>
+<tr>
+<td><img src=./results/mandrill/1.2-0.6-0.3-grad-x.jpg height=256 width=256></td>
+<td><img src=./results/mandrill/1.2-0.6-0.3-grad-y.jpg height=256 width=256></td>
+<td><img src=./results/mandrill/1.2-0.6-0.3.jpg height=256 width=256></td>
+</tr>
+<tr>
+<td colspan=3>
+Sigma: 1.3&nbsp;
+Start: 0.4&nbsp;
+Continue: 0.1&nbsp;
+</td>
+</tr>
+<tr>
+<td>X Derivative</td><td>Y Derivative</td><td>Final Result</td>
+</tr>
+<tr>
+<td><img src=./results/mandrill/1.3-0.4-0.1-grad-x.jpg height=256 width=256></td>
+<td><img src=./results/mandrill/1.3-0.4-0.1-grad-y.jpg height=256 width=256></td>
+<td><img src=./results/mandrill/1.3-0.4-0.1.jpg height=256 width=256></td>
+</tr>
+<tr>
+<td colspan=3>
+Sigma: 1.3&nbsp;
+Start: 0.4&nbsp;
+Continue: 0.2&nbsp;
+</td>
+</tr>
+<tr>
+<td>X Derivative</td><td>Y Derivative</td><td>Final Result</td>
+</tr>
+<tr>
+<td><img src=./results/mandrill/1.3-0.4-0.2-grad-x.jpg height=256 width=256></td>
+<td><img src=./results/mandrill/1.3-0.4-0.2-grad-y.jpg height=256 width=256></td>
+<td><img src=./results/mandrill/1.3-0.4-0.2.jpg height=256 width=256></td>
+</tr>
+<tr>
+<td colspan=3>
+Sigma: 1.3&nbsp;
+Start: 0.4&nbsp;
+Continue: 0.3&nbsp;
+</td>
+</tr>
+<tr>
+<td>X Derivative</td><td>Y Derivative</td><td>Final Result</td>
+</tr>
+<tr>
+<td><img src=./results/mandrill/1.3-0.4-0.3-grad-x.jpg height=256 width=256></td>
+<td><img src=./results/mandrill/1.3-0.4-0.3-grad-y.jpg height=256 width=256></td>
+<td><img src=./results/mandrill/1.3-0.4-0.3.jpg height=256 width=256></td>
+</tr>
+<tr>
+<td colspan=3>
+Sigma: 1.3&nbsp;
+Start: 0.5&nbsp;
+Continue: 0.1&nbsp;
+</td>
+</tr>
+<tr>
+<td>X Derivative</td><td>Y Derivative</td><td>Final Result</td>
+</tr>
+<tr>
+<td><img src=./results/mandrill/1.3-0.5-0.1-grad-x.jpg height=256 width=256></td>
+<td><img src=./results/mandrill/1.3-0.5-0.1-grad-y.jpg height=256 width=256></td>
+<td><img src=./results/mandrill/1.3-0.5-0.1.jpg height=256 width=256></td>
+</tr>
+<tr>
+<td colspan=3>
+Sigma: 1.3&nbsp;
+Start: 0.5&nbsp;
+Continue: 0.2&nbsp;
+</td>
+</tr>
+<tr>
+<td>X Derivative</td><td>Y Derivative</td><td>Final Result</td>
+</tr>
+<tr>
+<td><img src=./results/mandrill/1.3-0.5-0.2-grad-x.jpg height=256 width=256></td>
+<td><img src=./results/mandrill/1.3-0.5-0.2-grad-y.jpg height=256 width=256></td>
+<td><img src=./results/mandrill/1.3-0.5-0.2.jpg height=256 width=256></td>
+</tr>
+<tr>
+<td colspan=3>
+Sigma: 1.3&nbsp;
+Start: 0.5&nbsp;
+Continue: 0.3&nbsp;
+</td>
+</tr>
+<tr>
+<td>X Derivative</td><td>Y Derivative</td><td>Final Result</td>
+</tr>
+<tr>
+<td><img src=./results/mandrill/1.3-0.5-0.3-grad-x.jpg height=256 width=256></td>
+<td><img src=./results/mandrill/1.3-0.5-0.3-grad-y.jpg height=256 width=256></td>
+<td><img src=./results/mandrill/1.3-0.5-0.3.jpg height=256 width=256></td>
+</tr>
+<tr>
+<td colspan=3>
+Sigma: 1.3&nbsp;
+Start: 0.6&nbsp;
+Continue: 0.1&nbsp;
+</td>
+</tr>
+<tr>
+<td>X Derivative</td><td>Y Derivative</td><td>Final Result</td>
+</tr>
+<tr>
+<td><img src=./results/mandrill/1.3-0.6-0.1-grad-x.jpg height=256 width=256></td>
+<td><img src=./results/mandrill/1.3-0.6-0.1-grad-y.jpg height=256 width=256></td>
+<td><img src=./results/mandrill/1.3-0.6-0.1.jpg height=256 width=256></td>
+</tr>
+<tr>
+<td colspan=3>
+Sigma: 1.3&nbsp;
+Start: 0.6&nbsp;
+Continue: 0.2&nbsp;
+</td>
+</tr>
+<tr>
+<td>X Derivative</td><td>Y Derivative</td><td>Final Result</td>
+</tr>
+<tr>
+<td><img src=./results/mandrill/1.3-0.6-0.2-grad-x.jpg height=256 width=256></td>
+<td><img src=./results/mandrill/1.3-0.6-0.2-grad-y.jpg height=256 width=256></td>
+<td><img src=./results/mandrill/1.3-0.6-0.2.jpg height=256 width=256></td>
+</tr>
+<tr>
+<td colspan=3>
+Sigma: 1.3&nbsp;
+Start: 0.6&nbsp;
+Continue: 0.3&nbsp;
+</td>
+</tr>
+<tr>
+<td>X Derivative</td><td>Y Derivative</td><td>Final Result</td>
+</tr>
+<tr>
+<td><img src=./results/mandrill/1.3-0.6-0.3-grad-x.jpg height=256 width=256></td>
+<td><img src=./results/mandrill/1.3-0.6-0.3-grad-y.jpg height=256 width=256></td>
+<td><img src=./results/mandrill/1.3-0.6-0.3.jpg height=256 width=256></td>
+</tr>
+<tr>
+<td colspan=3>
+Sigma: 1.4&nbsp;
+Start: 0.4&nbsp;
+Continue: 0.1&nbsp;
+</td>
+</tr>
+<tr>
+<td>X Derivative</td><td>Y Derivative</td><td>Final Result</td>
+</tr>
+<tr>
+<td><img src=./results/mandrill/1.4-0.4-0.1-grad-x.jpg height=256 width=256></td>
+<td><img src=./results/mandrill/1.4-0.4-0.1-grad-y.jpg height=256 width=256></td>
+<td><img src=./results/mandrill/1.4-0.4-0.1.jpg height=256 width=256></td>
+</tr>
+<tr>
+<td colspan=3>
+Sigma: 1.4&nbsp;
+Start: 0.4&nbsp;
+Continue: 0.2&nbsp;
+</td>
+</tr>
+<tr>
+<td>X Derivative</td><td>Y Derivative</td><td>Final Result</td>
+</tr>
+<tr>
+<td><img src=./results/mandrill/1.4-0.4-0.2-grad-x.jpg height=256 width=256></td>
+<td><img src=./results/mandrill/1.4-0.4-0.2-grad-y.jpg height=256 width=256></td>
+<td><img src=./results/mandrill/1.4-0.4-0.2.jpg height=256 width=256></td>
+</tr>
+<tr>
+<td colspan=3>
+Sigma: 1.4&nbsp;
+Start: 0.4&nbsp;
+Continue: 0.3&nbsp;
+</td>
+</tr>
+<tr>
+<td>X Derivative</td><td>Y Derivative</td><td>Final Result</td>
+</tr>
+<tr>
+<td><img src=./results/mandrill/1.4-0.4-0.3-grad-x.jpg height=256 width=256></td>
+<td><img src=./results/mandrill/1.4-0.4-0.3-grad-y.jpg height=256 width=256></td>
+<td><img src=./results/mandrill/1.4-0.4-0.3.jpg height=256 width=256></td>
+</tr>
+<tr>
+<td colspan=3>
+Sigma: 1.4&nbsp;
+Start: 0.5&nbsp;
+Continue: 0.1&nbsp;
+</td>
+</tr>
+<tr>
+<td>X Derivative</td><td>Y Derivative</td><td>Final Result</td>
+</tr>
+<tr>
+<td><img src=./results/mandrill/1.4-0.5-0.1-grad-x.jpg height=256 width=256></td>
+<td><img src=./results/mandrill/1.4-0.5-0.1-grad-y.jpg height=256 width=256></td>
+<td><img src=./results/mandrill/1.4-0.5-0.1.jpg height=256 width=256></td>
+</tr>
+<tr>
+<td colspan=3>
+Sigma: 1.4&nbsp;
+Start: 0.5&nbsp;
+Continue: 0.2&nbsp;
+</td>
+</tr>
+<tr>
+<td>X Derivative</td><td>Y Derivative</td><td>Final Result</td>
+</tr>
+<tr>
+<td><img src=./results/mandrill/1.4-0.5-0.2-grad-x.jpg height=256 width=256></td>
+<td><img src=./results/mandrill/1.4-0.5-0.2-grad-y.jpg height=256 width=256></td>
+<td><img src=./results/mandrill/1.4-0.5-0.2.jpg height=256 width=256></td>
+</tr>
+<tr>
+<td colspan=3>
+Sigma: 1.4&nbsp;
+Start: 0.5&nbsp;
+Continue: 0.3&nbsp;
+</td>
+</tr>
+<tr>
+<td>X Derivative</td><td>Y Derivative</td><td>Final Result</td>
+</tr>
+<tr>
+<td><img src=./results/mandrill/1.4-0.5-0.3-grad-x.jpg height=256 width=256></td>
+<td><img src=./results/mandrill/1.4-0.5-0.3-grad-y.jpg height=256 width=256></td>
+<td><img src=./results/mandrill/1.4-0.5-0.3.jpg height=256 width=256></td>
+</tr>
+<tr>
+<td colspan=3>
+Sigma: 1.4&nbsp;
+Start: 0.6&nbsp;
+Continue: 0.1&nbsp;
+</td>
+</tr>
+<tr>
+<td>X Derivative</td><td>Y Derivative</td><td>Final Result</td>
+</tr>
+<tr>
+<td><img src=./results/mandrill/1.4-0.6-0.1-grad-x.jpg height=256 width=256></td>
+<td><img src=./results/mandrill/1.4-0.6-0.1-grad-y.jpg height=256 width=256></td>
+<td><img src=./results/mandrill/1.4-0.6-0.1.jpg height=256 width=256></td>
+</tr>
+<tr>
+<td colspan=3>
+Sigma: 1.4&nbsp;
+Start: 0.6&nbsp;
+Continue: 0.2&nbsp;
+</td>
+</tr>
+<tr>
+<td>X Derivative</td><td>Y Derivative</td><td>Final Result</td>
+</tr>
+<tr>
+<td><img src=./results/mandrill/1.4-0.6-0.2-grad-x.jpg height=256 width=256></td>
+<td><img src=./results/mandrill/1.4-0.6-0.2-grad-y.jpg height=256 width=256></td>
+<td><img src=./results/mandrill/1.4-0.6-0.2.jpg height=256 width=256></td>
+</tr>
+<tr>
+<td colspan=3>
+Sigma: 1.4&nbsp;
+Start: 0.6&nbsp;
+Continue: 0.3&nbsp;
+</td>
+</tr>
+<tr>
+<td>X Derivative</td><td>Y Derivative</td><td>Final Result</td>
+</tr>
+<tr>
+<td><img src=./results/mandrill/1.4-0.6-0.3-grad-x.jpg height=256 width=256></td>
+<td><img src=./results/mandrill/1.4-0.6-0.3-grad-y.jpg height=256 width=256></td>
+<td><img src=./results/mandrill/1.4-0.6-0.3.jpg height=256 width=256></td>
+</tr>
+<tr>
+<td colspan=3>
+Sigma: 1.5&nbsp;
+Start: 0.4&nbsp;
+Continue: 0.1&nbsp;
+</td>
+</tr>
+<tr>
+<td>X Derivative</td><td>Y Derivative</td><td>Final Result</td>
+</tr>
+<tr>
+<td><img src=./results/mandrill/1.5-0.4-0.1-grad-x.jpg height=256 width=256></td>
+<td><img src=./results/mandrill/1.5-0.4-0.1-grad-y.jpg height=256 width=256></td>
+<td><img src=./results/mandrill/1.5-0.4-0.1.jpg height=256 width=256></td>
+</tr>
+<tr>
+<td colspan=3>
+Sigma: 1.5&nbsp;
+Start: 0.4&nbsp;
+Continue: 0.2&nbsp;
+</td>
+</tr>
+<tr>
+<td>X Derivative</td><td>Y Derivative</td><td>Final Result</td>
+</tr>
+<tr>
+<td><img src=./results/mandrill/1.5-0.4-0.2-grad-x.jpg height=256 width=256></td>
+<td><img src=./results/mandrill/1.5-0.4-0.2-grad-y.jpg height=256 width=256></td>
+<td><img src=./results/mandrill/1.5-0.4-0.2.jpg height=256 width=256></td>
+</tr>
+<tr>
+<td colspan=3>
+Sigma: 1.5&nbsp;
+Start: 0.4&nbsp;
+Continue: 0.3&nbsp;
+</td>
+</tr>
+<tr>
+<td>X Derivative</td><td>Y Derivative</td><td>Final Result</td>
+</tr>
+<tr>
+<td><img src=./results/mandrill/1.5-0.4-0.3-grad-x.jpg height=256 width=256></td>
+<td><img src=./results/mandrill/1.5-0.4-0.3-grad-y.jpg height=256 width=256></td>
+<td><img src=./results/mandrill/1.5-0.4-0.3.jpg height=256 width=256></td>
+</tr>
+<tr>
+<td colspan=3>
+Sigma: 1.5&nbsp;
+Start: 0.5&nbsp;
+Continue: 0.1&nbsp;
+</td>
+</tr>
+<tr>
+<td>X Derivative</td><td>Y Derivative</td><td>Final Result</td>
+</tr>
+<tr>
+<td><img src=./results/mandrill/1.5-0.5-0.1-grad-x.jpg height=256 width=256></td>
+<td><img src=./results/mandrill/1.5-0.5-0.1-grad-y.jpg height=256 width=256></td>
+<td><img src=./results/mandrill/1.5-0.5-0.1.jpg height=256 width=256></td>
+</tr>
+<tr>
+<td colspan=3>
+Sigma: 1.5&nbsp;
+Start: 0.5&nbsp;
+Continue: 0.2&nbsp;
+</td>
+</tr>
+<tr>
+<td>X Derivative</td><td>Y Derivative</td><td>Final Result</td>
+</tr>
+<tr>
+<td><img src=./results/mandrill/1.5-0.5-0.2-grad-x.jpg height=256 width=256></td>
+<td><img src=./results/mandrill/1.5-0.5-0.2-grad-y.jpg height=256 width=256></td>
+<td><img src=./results/mandrill/1.5-0.5-0.2.jpg height=256 width=256></td>
+</tr>
+<tr>
+<td colspan=3>
+Sigma: 1.5&nbsp;
+Start: 0.5&nbsp;
+Continue: 0.3&nbsp;
+</td>
+</tr>
+<tr>
+<td>X Derivative</td><td>Y Derivative</td><td>Final Result</td>
+</tr>
+<tr>
+<td><img src=./results/mandrill/1.5-0.5-0.3-grad-x.jpg height=256 width=256></td>
+<td><img src=./results/mandrill/1.5-0.5-0.3-grad-y.jpg height=256 width=256></td>
+<td><img src=./results/mandrill/1.5-0.5-0.3.jpg height=256 width=256></td>
+</tr>
+<tr>
+<td colspan=3>
+Sigma: 1.5&nbsp;
+Start: 0.6&nbsp;
+Continue: 0.1&nbsp;
+</td>
+</tr>
+<tr>
+<td>X Derivative</td><td>Y Derivative</td><td>Final Result</td>
+</tr>
+<tr>
+<td><img src=./results/mandrill/1.5-0.6-0.1-grad-x.jpg height=256 width=256></td>
+<td><img src=./results/mandrill/1.5-0.6-0.1-grad-y.jpg height=256 width=256></td>
+<td><img src=./results/mandrill/1.5-0.6-0.1.jpg height=256 width=256></td>
+</tr>
+<tr>
+<td colspan=3>
+Sigma: 1.5&nbsp;
+Start: 0.6&nbsp;
+Continue: 0.2&nbsp;
+</td>
+</tr>
+<tr>
+<td>X Derivative</td><td>Y Derivative</td><td>Final Result</td>
+</tr>
+<tr>
+<td><img src=./results/mandrill/1.5-0.6-0.2-grad-x.jpg height=256 width=256></td>
+<td><img src=./results/mandrill/1.5-0.6-0.2-grad-y.jpg height=256 width=256></td>
+<td><img src=./results/mandrill/1.5-0.6-0.2.jpg height=256 width=256></td>
+</tr>
+<tr>
+<td colspan=3>
+Sigma: 1.5&nbsp;
+Start: 0.6&nbsp;
+Continue: 0.3&nbsp;
+</td>
+</tr>
+<tr>
+<td>X Derivative</td><td>Y Derivative</td><td>Final Result</td>
+</tr>
+<tr>
+<td><img src=./results/mandrill/1.5-0.6-0.3-grad-x.jpg height=256 width=256></td>
+<td><img src=./results/mandrill/1.5-0.6-0.3-grad-y.jpg height=256 width=256></td>
+<td><img src=./results/mandrill/1.5-0.6-0.3.jpg height=256 width=256></td>
+</tr>
+<tr>
+<td colspan=3>
+Sigma: 1.6&nbsp;
+Start: 0.4&nbsp;
+Continue: 0.1&nbsp;
+</td>
+</tr>
+<tr>
+<td>X Derivative</td><td>Y Derivative</td><td>Final Result</td>
+</tr>
+<tr>
+<td><img src=./results/mandrill/1.6-0.4-0.1-grad-x.jpg height=256 width=256></td>
+<td><img src=./results/mandrill/1.6-0.4-0.1-grad-y.jpg height=256 width=256></td>
+<td><img src=./results/mandrill/1.6-0.4-0.1.jpg height=256 width=256></td>
+</tr>
+<tr>
+<td colspan=3>
+Sigma: 1.6&nbsp;
+Start: 0.4&nbsp;
+Continue: 0.2&nbsp;
+</td>
+</tr>
+<tr>
+<td>X Derivative</td><td>Y Derivative</td><td>Final Result</td>
+</tr>
+<tr>
+<td><img src=./results/mandrill/1.6-0.4-0.2-grad-x.jpg height=256 width=256></td>
+<td><img src=./results/mandrill/1.6-0.4-0.2-grad-y.jpg height=256 width=256></td>
+<td><img src=./results/mandrill/1.6-0.4-0.2.jpg height=256 width=256></td>
+</tr>
+<tr>
+<td colspan=3>
+Sigma: 1.6&nbsp;
+Start: 0.4&nbsp;
+Continue: 0.3&nbsp;
+</td>
+</tr>
+<tr>
+<td>X Derivative</td><td>Y Derivative</td><td>Final Result</td>
+</tr>
+<tr>
+<td><img src=./results/mandrill/1.6-0.4-0.3-grad-x.jpg height=256 width=256></td>
+<td><img src=./results/mandrill/1.6-0.4-0.3-grad-y.jpg height=256 width=256></td>
+<td><img src=./results/mandrill/1.6-0.4-0.3.jpg height=256 width=256></td>
+</tr>
+<tr>
+<td colspan=3>
+Sigma: 1.6&nbsp;
+Start: 0.5&nbsp;
+Continue: 0.1&nbsp;
+</td>
+</tr>
+<tr>
+<td>X Derivative</td><td>Y Derivative</td><td>Final Result</td>
+</tr>
+<tr>
+<td><img src=./results/mandrill/1.6-0.5-0.1-grad-x.jpg height=256 width=256></td>
+<td><img src=./results/mandrill/1.6-0.5-0.1-grad-y.jpg height=256 width=256></td>
+<td><img src=./results/mandrill/1.6-0.5-0.1.jpg height=256 width=256></td>
+</tr>
+<tr>
+<td colspan=3>
+Sigma: 1.6&nbsp;
+Start: 0.5&nbsp;
+Continue: 0.2&nbsp;
+</td>
+</tr>
+<tr>
+<td>X Derivative</td><td>Y Derivative</td><td>Final Result</td>
+</tr>
+<tr>
+<td><img src=./results/mandrill/1.6-0.5-0.2-grad-x.jpg height=256 width=256></td>
+<td><img src=./results/mandrill/1.6-0.5-0.2-grad-y.jpg height=256 width=256></td>
+<td><img src=./results/mandrill/1.6-0.5-0.2.jpg height=256 width=256></td>
+</tr>
+<tr>
+<td colspan=3>
+Sigma: 1.6&nbsp;
+Start: 0.5&nbsp;
+Continue: 0.3&nbsp;
+</td>
+</tr>
+<tr>
+<td>X Derivative</td><td>Y Derivative</td><td>Final Result</td>
+</tr>
+<tr>
+<td><img src=./results/mandrill/1.6-0.5-0.3-grad-x.jpg height=256 width=256></td>
+<td><img src=./results/mandrill/1.6-0.5-0.3-grad-y.jpg height=256 width=256></td>
+<td><img src=./results/mandrill/1.6-0.5-0.3.jpg height=256 width=256></td>
+</tr>
+<tr>
+<td colspan=3>
+Sigma: 1.6&nbsp;
+Start: 0.6&nbsp;
+Continue: 0.1&nbsp;
+</td>
+</tr>
+<tr>
+<td>X Derivative</td><td>Y Derivative</td><td>Final Result</td>
+</tr>
+<tr>
+<td><img src=./results/mandrill/1.6-0.6-0.1-grad-x.jpg height=256 width=256></td>
+<td><img src=./results/mandrill/1.6-0.6-0.1-grad-y.jpg height=256 width=256></td>
+<td><img src=./results/mandrill/1.6-0.6-0.1.jpg height=256 width=256></td>
+</tr>
+<tr>
+<td colspan=3>
+Sigma: 1.6&nbsp;
+Start: 0.6&nbsp;
+Continue: 0.2&nbsp;
+</td>
+</tr>
+<tr>
+<td>X Derivative</td><td>Y Derivative</td><td>Final Result</td>
+</tr>
+<tr>
+<td><img src=./results/mandrill/1.6-0.6-0.2-grad-x.jpg height=256 width=256></td>
+<td><img src=./results/mandrill/1.6-0.6-0.2-grad-y.jpg height=256 width=256></td>
+<td><img src=./results/mandrill/1.6-0.6-0.2.jpg height=256 width=256></td>
+</tr>
+<tr>
+<td colspan=3>
+Sigma: 1.6&nbsp;
+Start: 0.6&nbsp;
+Continue: 0.3&nbsp;
+</td>
+</tr>
+<tr>
+<td>X Derivative</td><td>Y Derivative</td><td>Final Result</td>
+</tr>
+<tr>
+<td><img src=./results/mandrill/1.6-0.6-0.3-grad-x.jpg height=256 width=256></td>
+<td><img src=./results/mandrill/1.6-0.6-0.3-grad-y.jpg height=256 width=256></td>
+<td><img src=./results/mandrill/1.6-0.6-0.3.jpg height=256 width=256></td>
+</tr>
+<tr>
+<td colspan=3>
+Sigma: 1.7&nbsp;
+Start: 0.4&nbsp;
+Continue: 0.1&nbsp;
+</td>
+</tr>
+<tr>
+<td>X Derivative</td><td>Y Derivative</td><td>Final Result</td>
+</tr>
+<tr>
+<td><img src=./results/mandrill/1.7-0.4-0.1-grad-x.jpg height=256 width=256></td>
+<td><img src=./results/mandrill/1.7-0.4-0.1-grad-y.jpg height=256 width=256></td>
+<td><img src=./results/mandrill/1.7-0.4-0.1.jpg height=256 width=256></td>
+</tr>
+<tr>
+<td colspan=3>
+Sigma: 1.7&nbsp;
+Start: 0.4&nbsp;
+Continue: 0.2&nbsp;
+</td>
+</tr>
+<tr>
+<td>X Derivative</td><td>Y Derivative</td><td>Final Result</td>
+</tr>
+<tr>
+<td><img src=./results/mandrill/1.7-0.4-0.2-grad-x.jpg height=256 width=256></td>
+<td><img src=./results/mandrill/1.7-0.4-0.2-grad-y.jpg height=256 width=256></td>
+<td><img src=./results/mandrill/1.7-0.4-0.2.jpg height=256 width=256></td>
+</tr>
+<tr>
+<td colspan=3>
+Sigma: 1.7&nbsp;
+Start: 0.4&nbsp;
+Continue: 0.3&nbsp;
+</td>
+</tr>
+<tr>
+<td>X Derivative</td><td>Y Derivative</td><td>Final Result</td>
+</tr>
+<tr>
+<td><img src=./results/mandrill/1.7-0.4-0.3-grad-x.jpg height=256 width=256></td>
+<td><img src=./results/mandrill/1.7-0.4-0.3-grad-y.jpg height=256 width=256></td>
+<td><img src=./results/mandrill/1.7-0.4-0.3.jpg height=256 width=256></td>
+</tr>
+<tr>
+<td colspan=3>
+Sigma: 1.7&nbsp;
+Start: 0.5&nbsp;
+Continue: 0.1&nbsp;
+</td>
+</tr>
+<tr>
+<td>X Derivative</td><td>Y Derivative</td><td>Final Result</td>
+</tr>
+<tr>
+<td><img src=./results/mandrill/1.7-0.5-0.1-grad-x.jpg height=256 width=256></td>
+<td><img src=./results/mandrill/1.7-0.5-0.1-grad-y.jpg height=256 width=256></td>
+<td><img src=./results/mandrill/1.7-0.5-0.1.jpg height=256 width=256></td>
+</tr>
+<tr>
+<td colspan=3>
+Sigma: 1.7&nbsp;
+Start: 0.5&nbsp;
+Continue: 0.2&nbsp;
+</td>
+</tr>
+<tr>
+<td>X Derivative</td><td>Y Derivative</td><td>Final Result</td>
+</tr>
+<tr>
+<td><img src=./results/mandrill/1.7-0.5-0.2-grad-x.jpg height=256 width=256></td>
+<td><img src=./results/mandrill/1.7-0.5-0.2-grad-y.jpg height=256 width=256></td>
+<td><img src=./results/mandrill/1.7-0.5-0.2.jpg height=256 width=256></td>
+</tr>
+<tr>
+<td colspan=3>
+Sigma: 1.7&nbsp;
+Start: 0.5&nbsp;
+Continue: 0.3&nbsp;
+</td>
+</tr>
+<tr>
+<td>X Derivative</td><td>Y Derivative</td><td>Final Result</td>
+</tr>
+<tr>
+<td><img src=./results/mandrill/1.7-0.5-0.3-grad-x.jpg height=256 width=256></td>
+<td><img src=./results/mandrill/1.7-0.5-0.3-grad-y.jpg height=256 width=256></td>
+<td><img src=./results/mandrill/1.7-0.5-0.3.jpg height=256 width=256></td>
+</tr>
+<tr>
+<td colspan=3>
+Sigma: 1.7&nbsp;
+Start: 0.6&nbsp;
+Continue: 0.1&nbsp;
+</td>
+</tr>
+<tr>
+<td>X Derivative</td><td>Y Derivative</td><td>Final Result</td>
+</tr>
+<tr>
+<td><img src=./results/mandrill/1.7-0.6-0.1-grad-x.jpg height=256 width=256></td>
+<td><img src=./results/mandrill/1.7-0.6-0.1-grad-y.jpg height=256 width=256></td>
+<td><img src=./results/mandrill/1.7-0.6-0.1.jpg height=256 width=256></td>
+</tr>
+<tr>
+<td colspan=3>
+Sigma: 1.7&nbsp;
+Start: 0.6&nbsp;
+Continue: 0.2&nbsp;
+</td>
+</tr>
+<tr>
+<td>X Derivative</td><td>Y Derivative</td><td>Final Result</td>
+</tr>
+<tr>
+<td><img src=./results/mandrill/1.7-0.6-0.2-grad-x.jpg height=256 width=256></td>
+<td><img src=./results/mandrill/1.7-0.6-0.2-grad-y.jpg height=256 width=256></td>
+<td><img src=./results/mandrill/1.7-0.6-0.2.jpg height=256 width=256></td>
+</tr>
+<tr>
+<td colspan=3>
+Sigma: 1.7&nbsp;
+Start: 0.6&nbsp;
+Continue: 0.3&nbsp;
+</td>
+</tr>
+<tr>
+<td>X Derivative</td><td>Y Derivative</td><td>Final Result</td>
+</tr>
+<tr>
+<td><img src=./results/mandrill/1.7-0.6-0.3-grad-x.jpg height=256 width=256></td>
+<td><img src=./results/mandrill/1.7-0.6-0.3-grad-y.jpg height=256 width=256></td>
+<td><img src=./results/mandrill/1.7-0.6-0.3.jpg height=256 width=256></td>
+</tr>
+<tr>
+<td colspan=3>
+Sigma: 1.8&nbsp;
+Start: 0.4&nbsp;
+Continue: 0.1&nbsp;
+</td>
+</tr>
+<tr>
+<td>X Derivative</td><td>Y Derivative</td><td>Final Result</td>
+</tr>
+<tr>
+<td><img src=./results/mandrill/1.8-0.4-0.1-grad-x.jpg height=256 width=256></td>
+<td><img src=./results/mandrill/1.8-0.4-0.1-grad-y.jpg height=256 width=256></td>
+<td><img src=./results/mandrill/1.8-0.4-0.1.jpg height=256 width=256></td>
+</tr>
+<tr>
+<td colspan=3>
+Sigma: 1.8&nbsp;
+Start: 0.4&nbsp;
+Continue: 0.2&nbsp;
+</td>
+</tr>
+<tr>
+<td>X Derivative</td><td>Y Derivative</td><td>Final Result</td>
+</tr>
+<tr>
+<td><img src=./results/mandrill/1.8-0.4-0.2-grad-x.jpg height=256 width=256></td>
+<td><img src=./results/mandrill/1.8-0.4-0.2-grad-y.jpg height=256 width=256></td>
+<td><img src=./results/mandrill/1.8-0.4-0.2.jpg height=256 width=256></td>
+</tr>
+<tr>
+<td colspan=3>
+Sigma: 1.8&nbsp;
+Start: 0.4&nbsp;
+Continue: 0.3&nbsp;
+</td>
+</tr>
+<tr>
+<td>X Derivative</td><td>Y Derivative</td><td>Final Result</td>
+</tr>
+<tr>
+<td><img src=./results/mandrill/1.8-0.4-0.3-grad-x.jpg height=256 width=256></td>
+<td><img src=./results/mandrill/1.8-0.4-0.3-grad-y.jpg height=256 width=256></td>
+<td><img src=./results/mandrill/1.8-0.4-0.3.jpg height=256 width=256></td>
+</tr>
+<tr>
+<td colspan=3>
+Sigma: 1.8&nbsp;
+Start: 0.5&nbsp;
+Continue: 0.1&nbsp;
+</td>
+</tr>
+<tr>
+<td>X Derivative</td><td>Y Derivative</td><td>Final Result</td>
+</tr>
+<tr>
+<td><img src=./results/mandrill/1.8-0.5-0.1-grad-x.jpg height=256 width=256></td>
+<td><img src=./results/mandrill/1.8-0.5-0.1-grad-y.jpg height=256 width=256></td>
+<td><img src=./results/mandrill/1.8-0.5-0.1.jpg height=256 width=256></td>
+</tr>
+<tr>
+<td colspan=3>
+Sigma: 1.8&nbsp;
+Start: 0.5&nbsp;
+Continue: 0.2&nbsp;
+</td>
+</tr>
+<tr>
+<td>X Derivative</td><td>Y Derivative</td><td>Final Result</td>
+</tr>
+<tr>
+<td><img src=./results/mandrill/1.8-0.5-0.2-grad-x.jpg height=256 width=256></td>
+<td><img src=./results/mandrill/1.8-0.5-0.2-grad-y.jpg height=256 width=256></td>
+<td><img src=./results/mandrill/1.8-0.5-0.2.jpg height=256 width=256></td>
+</tr>
+<tr>
+<td colspan=3>
+Sigma: 1.8&nbsp;
+Start: 0.5&nbsp;
+Continue: 0.3&nbsp;
+</td>
+</tr>
+<tr>
+<td>X Derivative</td><td>Y Derivative</td><td>Final Result</td>
+</tr>
+<tr>
+<td><img src=./results/mandrill/1.8-0.5-0.3-grad-x.jpg height=256 width=256></td>
+<td><img src=./results/mandrill/1.8-0.5-0.3-grad-y.jpg height=256 width=256></td>
+<td><img src=./results/mandrill/1.8-0.5-0.3.jpg height=256 width=256></td>
+</tr>
+<tr>
+<td colspan=3>
+Sigma: 1.8&nbsp;
+Start: 0.6&nbsp;
+Continue: 0.1&nbsp;
+</td>
+</tr>
+<tr>
+<td>X Derivative</td><td>Y Derivative</td><td>Final Result</td>
+</tr>
+<tr>
+<td><img src=./results/mandrill/1.8-0.6-0.1-grad-x.jpg height=256 width=256></td>
+<td><img src=./results/mandrill/1.8-0.6-0.1-grad-y.jpg height=256 width=256></td>
+<td><img src=./results/mandrill/1.8-0.6-0.1.jpg height=256 width=256></td>
+</tr>
+<tr>
+<td colspan=3>
+Sigma: 1.8&nbsp;
+Start: 0.6&nbsp;
+Continue: 0.2&nbsp;
+</td>
+</tr>
+<tr>
+<td>X Derivative</td><td>Y Derivative</td><td>Final Result</td>
+</tr>
+<tr>
+<td><img src=./results/mandrill/1.8-0.6-0.2-grad-x.jpg height=256 width=256></td>
+<td><img src=./results/mandrill/1.8-0.6-0.2-grad-y.jpg height=256 width=256></td>
+<td><img src=./results/mandrill/1.8-0.6-0.2.jpg height=256 width=256></td>
+</tr>
+<tr>
+<td colspan=3>
+Sigma: 1.8&nbsp;
+Start: 0.6&nbsp;
+Continue: 0.3&nbsp;
+</td>
+</tr>
+<tr>
+<td>X Derivative</td><td>Y Derivative</td><td>Final Result</td>
+</tr>
+<tr>
+<td><img src=./results/mandrill/1.8-0.6-0.3-grad-x.jpg height=256 width=256></td>
+<td><img src=./results/mandrill/1.8-0.6-0.3-grad-y.jpg height=256 width=256></td>
+<td><img src=./results/mandrill/1.8-0.6-0.3.jpg height=256 width=256></td>
+</tr>
+<tr>
+<td colspan=3>
+Sigma: 1.9&nbsp;
+Start: 0.4&nbsp;
+Continue: 0.1&nbsp;
+</td>
+</tr>
+<tr>
+<td>X Derivative</td><td>Y Derivative</td><td>Final Result</td>
+</tr>
+<tr>
+<td><img src=./results/mandrill/1.9-0.4-0.1-grad-x.jpg height=256 width=256></td>
+<td><img src=./results/mandrill/1.9-0.4-0.1-grad-y.jpg height=256 width=256></td>
+<td><img src=./results/mandrill/1.9-0.4-0.1.jpg height=256 width=256></td>
+</tr>
+<tr>
+<td colspan=3>
+Sigma: 1.9&nbsp;
+Start: 0.4&nbsp;
+Continue: 0.2&nbsp;
+</td>
+</tr>
+<tr>
+<td>X Derivative</td><td>Y Derivative</td><td>Final Result</td>
+</tr>
+<tr>
+<td><img src=./results/mandrill/1.9-0.4-0.2-grad-x.jpg height=256 width=256></td>
+<td><img src=./results/mandrill/1.9-0.4-0.2-grad-y.jpg height=256 width=256></td>
+<td><img src=./results/mandrill/1.9-0.4-0.2.jpg height=256 width=256></td>
+</tr>
+<tr>
+<td colspan=3>
+Sigma: 1.9&nbsp;
+Start: 0.4&nbsp;
+Continue: 0.3&nbsp;
+</td>
+</tr>
+<tr>
+<td>X Derivative</td><td>Y Derivative</td><td>Final Result</td>
+</tr>
+<tr>
+<td><img src=./results/mandrill/1.9-0.4-0.3-grad-x.jpg height=256 width=256></td>
+<td><img src=./results/mandrill/1.9-0.4-0.3-grad-y.jpg height=256 width=256></td>
+<td><img src=./results/mandrill/1.9-0.4-0.3.jpg height=256 width=256></td>
+</tr>
+<tr>
+<td colspan=3>
+Sigma: 1.9&nbsp;
+Start: 0.5&nbsp;
+Continue: 0.1&nbsp;
+</td>
+</tr>
+<tr>
+<td>X Derivative</td><td>Y Derivative</td><td>Final Result</td>
+</tr>
+<tr>
+<td><img src=./results/mandrill/1.9-0.5-0.1-grad-x.jpg height=256 width=256></td>
+<td><img src=./results/mandrill/1.9-0.5-0.1-grad-y.jpg height=256 width=256></td>
+<td><img src=./results/mandrill/1.9-0.5-0.1.jpg height=256 width=256></td>
+</tr>
+<tr>
+<td colspan=3>
+Sigma: 1.9&nbsp;
+Start: 0.5&nbsp;
+Continue: 0.2&nbsp;
+</td>
+</tr>
+<tr>
+<td>X Derivative</td><td>Y Derivative</td><td>Final Result</td>
+</tr>
+<tr>
+<td><img src=./results/mandrill/1.9-0.5-0.2-grad-x.jpg height=256 width=256></td>
+<td><img src=./results/mandrill/1.9-0.5-0.2-grad-y.jpg height=256 width=256></td>
+<td><img src=./results/mandrill/1.9-0.5-0.2.jpg height=256 width=256></td>
+</tr>
+<tr>
+<td colspan=3>
+Sigma: 1.9&nbsp;
+Start: 0.5&nbsp;
+Continue: 0.3&nbsp;
+</td>
+</tr>
+<tr>
+<td>X Derivative</td><td>Y Derivative</td><td>Final Result</td>
+</tr>
+<tr>
+<td><img src=./results/mandrill/1.9-0.5-0.3-grad-x.jpg height=256 width=256></td>
+<td><img src=./results/mandrill/1.9-0.5-0.3-grad-y.jpg height=256 width=256></td>
+<td><img src=./results/mandrill/1.9-0.5-0.3.jpg height=256 width=256></td>
+</tr>
+<tr>
+<td colspan=3>
+Sigma: 1.9&nbsp;
+Start: 0.6&nbsp;
+Continue: 0.1&nbsp;
+</td>
+</tr>
+<tr>
+<td>X Derivative</td><td>Y Derivative</td><td>Final Result</td>
+</tr>
+<tr>
+<td><img src=./results/mandrill/1.9-0.6-0.1-grad-x.jpg height=256 width=256></td>
+<td><img src=./results/mandrill/1.9-0.6-0.1-grad-y.jpg height=256 width=256></td>
+<td><img src=./results/mandrill/1.9-0.6-0.1.jpg height=256 width=256></td>
+</tr>
+<tr>
+<td colspan=3>
+Sigma: 1.9&nbsp;
+Start: 0.6&nbsp;
+Continue: 0.2&nbsp;
+</td>
+</tr>
+<tr>
+<td>X Derivative</td><td>Y Derivative</td><td>Final Result</td>
+</tr>
+<tr>
+<td><img src=./results/mandrill/1.9-0.6-0.2-grad-x.jpg height=256 width=256></td>
+<td><img src=./results/mandrill/1.9-0.6-0.2-grad-y.jpg height=256 width=256></td>
+<td><img src=./results/mandrill/1.9-0.6-0.2.jpg height=256 width=256></td>
+</tr>
+<tr>
+<td colspan=3>
+Sigma: 1.9&nbsp;
+Start: 0.6&nbsp;
+Continue: 0.3&nbsp;
+</td>
+</tr>
+<tr>
+<td>X Derivative</td><td>Y Derivative</td><td>Final Result</td>
+</tr>
+<tr>
+<td><img src=./results/mandrill/1.9-0.6-0.3-grad-x.jpg height=256 width=256></td>
+<td><img src=./results/mandrill/1.9-0.6-0.3-grad-y.jpg height=256 width=256></td>
+<td><img src=./results/mandrill/1.9-0.6-0.3.jpg height=256 width=256></td>
+</tr>
+<tr>
+<td colspan=3>
+Sigma: 2.0&nbsp;
+Start: 0.4&nbsp;
+Continue: 0.1&nbsp;
+</td>
+</tr>
+<tr>
+<td>X Derivative</td><td>Y Derivative</td><td>Final Result</td>
+</tr>
+<tr>
+<td><img src=./results/mandrill/2.0-0.4-0.1-grad-x.jpg height=256 width=256></td>
+<td><img src=./results/mandrill/2.0-0.4-0.1-grad-y.jpg height=256 width=256></td>
+<td><img src=./results/mandrill/2.0-0.4-0.1.jpg height=256 width=256></td>
+</tr>
+<tr>
+<td colspan=3>
+Sigma: 2.0&nbsp;
+Start: 0.4&nbsp;
+Continue: 0.2&nbsp;
+</td>
+</tr>
+<tr>
+<td>X Derivative</td><td>Y Derivative</td><td>Final Result</td>
+</tr>
+<tr>
+<td><img src=./results/mandrill/2.0-0.4-0.2-grad-x.jpg height=256 width=256></td>
+<td><img src=./results/mandrill/2.0-0.4-0.2-grad-y.jpg height=256 width=256></td>
+<td><img src=./results/mandrill/2.0-0.4-0.2.jpg height=256 width=256></td>
+</tr>
+<tr>
+<td colspan=3>
+Sigma: 2.0&nbsp;
+Start: 0.4&nbsp;
+Continue: 0.3&nbsp;
+</td>
+</tr>
+<tr>
+<td>X Derivative</td><td>Y Derivative</td><td>Final Result</td>
+</tr>
+<tr>
+<td><img src=./results/mandrill/2.0-0.4-0.3-grad-x.jpg height=256 width=256></td>
+<td><img src=./results/mandrill/2.0-0.4-0.3-grad-y.jpg height=256 width=256></td>
+<td><img src=./results/mandrill/2.0-0.4-0.3.jpg height=256 width=256></td>
+</tr>
+<tr>
+<td colspan=3>
+Sigma: 2.0&nbsp;
+Start: 0.5&nbsp;
+Continue: 0.1&nbsp;
+</td>
+</tr>
+<tr>
+<td>X Derivative</td><td>Y Derivative</td><td>Final Result</td>
+</tr>
+<tr>
+<td><img src=./results/mandrill/2.0-0.5-0.1-grad-x.jpg height=256 width=256></td>
+<td><img src=./results/mandrill/2.0-0.5-0.1-grad-y.jpg height=256 width=256></td>
+<td><img src=./results/mandrill/2.0-0.5-0.1.jpg height=256 width=256></td>
+</tr>
+<tr>
+<td colspan=3>
+Sigma: 2.0&nbsp;
+Start: 0.5&nbsp;
+Continue: 0.2&nbsp;
+</td>
+</tr>
+<tr>
+<td>X Derivative</td><td>Y Derivative</td><td>Final Result</td>
+</tr>
+<tr>
+<td><img src=./results/mandrill/2.0-0.5-0.2-grad-x.jpg height=256 width=256></td>
+<td><img src=./results/mandrill/2.0-0.5-0.2-grad-y.jpg height=256 width=256></td>
+<td><img src=./results/mandrill/2.0-0.5-0.2.jpg height=256 width=256></td>
+</tr>
+<tr>
+<td colspan=3>
+Sigma: 2.0&nbsp;
+Start: 0.5&nbsp;
+Continue: 0.3&nbsp;
+</td>
+</tr>
+<tr>
+<td>X Derivative</td><td>Y Derivative</td><td>Final Result</td>
+</tr>
+<tr>
+<td><img src=./results/mandrill/2.0-0.5-0.3-grad-x.jpg height=256 width=256></td>
+<td><img src=./results/mandrill/2.0-0.5-0.3-grad-y.jpg height=256 width=256></td>
+<td><img src=./results/mandrill/2.0-0.5-0.3.jpg height=256 width=256></td>
+</tr>
+<tr>
+<td colspan=3>
+Sigma: 2.0&nbsp;
+Start: 0.6&nbsp;
+Continue: 0.1&nbsp;
+</td>
+</tr>
+<tr>
+<td>X Derivative</td><td>Y Derivative</td><td>Final Result</td>
+</tr>
+<tr>
+<td><img src=./results/mandrill/2.0-0.6-0.1-grad-x.jpg height=256 width=256></td>
+<td><img src=./results/mandrill/2.0-0.6-0.1-grad-y.jpg height=256 width=256></td>
+<td><img src=./results/mandrill/2.0-0.6-0.1.jpg height=256 width=256></td>
+</tr>
+<tr>
+<td colspan=3>
+Sigma: 2.0&nbsp;
+Start: 0.6&nbsp;
+Continue: 0.2&nbsp;
+</td>
+</tr>
+<tr>
+<td>X Derivative</td><td>Y Derivative</td><td>Final Result</td>
+</tr>
+<tr>
+<td><img src=./results/mandrill/2.0-0.6-0.2-grad-x.jpg height=256 width=256></td>
+<td><img src=./results/mandrill/2.0-0.6-0.2-grad-y.jpg height=256 width=256></td>
+<td><img src=./results/mandrill/2.0-0.6-0.2.jpg height=256 width=256></td>
+</tr>
+<tr>
+<td colspan=3>
+Sigma: 2.0&nbsp;
+Start: 0.6&nbsp;
+Continue: 0.3&nbsp;
+</td>
+</tr>
+<tr>
+<td>X Derivative</td><td>Y Derivative</td><td>Final Result</td>
+</tr>
+<tr>
+<td><img src=./results/mandrill/2.0-0.6-0.3-grad-x.jpg height=256 width=256></td>
+<td><img src=./results/mandrill/2.0-0.6-0.3-grad-y.jpg height=256 width=256></td>
+<td><img src=./results/mandrill/2.0-0.6-0.3.jpg height=256 width=256></td>
+</tr>
+</table>
+</div>
+My overall conclusion is that the edges are more pronounced with a high sigma, 
+high start threshold and a low continue threshold.<br>
+Based on those conclusions, I have run the edge detector on several other
+sample images:<br>
+<div id=beams>
+<table>
+<tr>
+<td colspan=3>
+Sigma: 2.0&nbsp;
+Start: 0.6&nbsp;
+Continue: 0.1&nbsp;
+</td>
+</tr>
+<tr>
+<td>Original</td><td>X Derivative</td><td>Y Derivative</td><td>Final Result</td>
+</tr>
+<tr>
+<td><img src=./beams.jpg height=213 width=320></td>
+<td><img src=./results/beams/2.0-0.6-0.1-grad-x.jpg height=213 width=320></td>
+<td><img src=./results/beams/2.0-0.6-0.1-grad-y.jpg height=213 width=320></td>
+<td><img src=./results/beams/2.0-0.6-0.1.jpg height=213 width=320></td>
+</tr>
+</table>
+</div>
+<div id=flower>
+<table>
+<tr>
+<td colspan=3>
+Sigma: 2.0&nbsp;
+Start: 0.6&nbsp;
+Continue: 0.1&nbsp;
+</td>
+</tr>
+<tr>
+<td>Original</td><td>X Derivative</td><td>Y Derivative</td><td>Final Result</td>
+</tr>
+<tr>
+<td><img src=./flower.jpg height=240 width=320></td>
+<td><img src=./results/flower/2.0-0.6-0.1-grad-x.jpg height=240 width=320></td>
+<td><img src=./results/flower/2.0-0.6-0.1-grad-y.jpg height=240 width=320></td>
+<td><img src=./results/flower/2.0-0.6-0.1.jpg height=240 width=320></td>
+</tr>
+</table>
+</div>
+</p>
+<h2>Harris Corner Detector</h2>
+<h3>Implementation</h3>
+<p>
+<ol>
+<li>Covariance computation at each point<br>
+For each (x,y) in the image,
+<ul>
+<li>Calculate the covariance matrix around that point<br>
+Because I implemented the gradient calculation needed for Canny
+in separate dimensions, computing the covariance matrix is a straightforward
+invocation of that functionality. See line 667.
+<li>Compute the Eigenvalue of the covariance matrix<br>
+I use the built-in <code>eig()</code> from <code>numpy.linalg</code> to quickly
+compute this value.
+<li>Compare the smaller eigenvalue with a threshold<br>
+If the smaller of the two eigenvalues exceeds a threshold, I add (x,y)
+to a set of candidate corner points. See line 701.
+</ul>
+<li>Local maximum amplification
+<ul>
+<li>Sort the candidate corner points in descending order according to their eigenvalues.<br>
+See line 719.
+<li>For each candidate corner point, clear nearby candidate corner points if
+their eigenvalues are smaller.<br>
+See line 721.
+</ul>
+<li>Brighten the corners.
+I use the same relativizing technique as above to make it easier to see
+corners. See line 736.
+</ol>
+</p>
+<h3>Results</h3>
+<p>
+To determine the optimal values for sigma, threshold and neighborhood size
+I generated images based on a range of parameters.
+The entire set of images are available for viewing by clicking on the links 
+below. NB: There are lots of them!<br>
+<div onclick="showhide('checkercorners');" style="text-decoration:underline;">Show/hide full Checkerboard results</div><br>
+<div id=checkercorners style="display:none">
+<table>
+<tr>
+<td colspan=1>
+Sigma: 1.0&nbsp;
+Threshold: 0.3&nbsp;
+Neighborhood: 4&nbsp;
+</td>
+</tr>
+<tr>
+<td>Final Result</td>
+</tr>
+<tr>
+<td><img src=./results-corners/checker/1.0-0.3-4.jpg height=240 width=320></td>
+</tr>
+<tr>
+<td colspan=1>
+Sigma: 1.0&nbsp;
+Threshold: 0.3&nbsp;
+Neighborhood: 5&nbsp;
+</td>
+</tr>
+<tr>
+<td>Final Result</td>
+</tr>
+<tr>
+<td><img src=./results-corners/checker/1.0-0.3-5.jpg height=240 width=320></td>
+</tr>
+<tr>
+<td colspan=1>
+Sigma: 1.0&nbsp;
+Threshold: 0.3&nbsp;
+Neighborhood: 6&nbsp;
+</td>
+</tr>
+<tr>
+<td>Final Result</td>
+</tr>
+<tr>
+<td><img src=./results-corners/checker/1.0-0.3-6.jpg height=240 width=320></td>
+</tr>
+<tr>
+<td colspan=1>
+Sigma: 1.0&nbsp;
+Threshold: 0.4&nbsp;
+Neighborhood: 4&nbsp;
+</td>
+</tr>
+<tr>
+<td>Final Result</td>
+</tr>
+<tr>
+<td><img src=./results-corners/checker/1.0-0.4-4.jpg height=240 width=320></td>
+</tr>
+<tr>
+<td colspan=1>
+Sigma: 1.0&nbsp;
+Threshold: 0.4&nbsp;
+Neighborhood: 5&nbsp;
+</td>
+</tr>
+<tr>
+<td>Final Result</td>
+</tr>
+<tr>
+<td><img src=./results-corners/checker/1.0-0.4-5.jpg height=240 width=320></td>
+</tr>
+<tr>
+<td colspan=1>
+Sigma: 1.0&nbsp;
+Threshold: 0.4&nbsp;
+Neighborhood: 6&nbsp;
+</td>
+</tr>
+<tr>
+<td>Final Result</td>
+</tr>
+<tr>
+<td><img src=./results-corners/checker/1.0-0.4-6.jpg height=240 width=320></td>
+</tr>
+<tr>
+<td colspan=1>
+Sigma: 1.0&nbsp;
+Threshold: 0.5&nbsp;
+Neighborhood: 4&nbsp;
+</td>
+</tr>
+<tr>
+<td>Final Result</td>
+</tr>
+<tr>
+<td><img src=./results-corners/checker/1.0-0.5-4.jpg height=240 width=320></td>
+</tr>
+<tr>
+<td colspan=1>
+Sigma: 1.0&nbsp;
+Threshold: 0.5&nbsp;
+Neighborhood: 5&nbsp;
+</td>
+</tr>
+<tr>
+<td>Final Result</td>
+</tr>
+<tr>
+<td><img src=./results-corners/checker/1.0-0.5-5.jpg height=240 width=320></td>
+</tr>
+<tr>
+<td colspan=1>
+Sigma: 1.0&nbsp;
+Threshold: 0.5&nbsp;
+Neighborhood: 6&nbsp;
+</td>
+</tr>
+<tr>
+<td>Final Result</td>
+</tr>
+<tr>
+<td><img src=./results-corners/checker/1.0-0.5-6.jpg height=240 width=320></td>
+</tr>
+<tr>
+<td colspan=1>
+Sigma: 1.0&nbsp;
+Threshold: 0.6&nbsp;
+Neighborhood: 4&nbsp;
+</td>
+</tr>
+<tr>
+<td>Final Result</td>
+</tr>
+<tr>
+<td><img src=./results-corners/checker/1.0-0.6-4.jpg height=240 width=320></td>
+</tr>
+<tr>
+<td colspan=1>
+Sigma: 1.0&nbsp;
+Threshold: 0.6&nbsp;
+Neighborhood: 5&nbsp;
+</td>
+</tr>
+<tr>
+<td>Final Result</td>
+</tr>
+<tr>
+<td><img src=./results-corners/checker/1.0-0.6-5.jpg height=240 width=320></td>
+</tr>
+<tr>
+<td colspan=1>
+Sigma: 1.0&nbsp;
+Threshold: 0.6&nbsp;
+Neighborhood: 6&nbsp;
+</td>
+</tr>
+<tr>
+<td>Final Result</td>
+</tr>
+<tr>
+<td><img src=./results-corners/checker/1.0-0.6-6.jpg height=240 width=320></td>
+</tr>
+<tr>
+<td colspan=1>
+Sigma: 1.1&nbsp;
+Threshold: 0.3&nbsp;
+Neighborhood: 4&nbsp;
+</td>
+</tr>
+<tr>
+<td>Final Result</td>
+</tr>
+<tr>
+<td><img src=./results-corners/checker/1.1-0.3-4.jpg height=240 width=320></td>
+</tr>
+<tr>
+<td colspan=1>
+Sigma: 1.1&nbsp;
+Threshold: 0.3&nbsp;
+Neighborhood: 5&nbsp;
+</td>
+</tr>
+<tr>
+<td>Final Result</td>
+</tr>
+<tr>
+<td><img src=./results-corners/checker/1.1-0.3-5.jpg height=240 width=320></td>
+</tr>
+<tr>
+<td colspan=1>
+Sigma: 1.1&nbsp;
+Threshold: 0.3&nbsp;
+Neighborhood: 6&nbsp;
+</td>
+</tr>
+<tr>
+<td>Final Result</td>
+</tr>
+<tr>
+<td><img src=./results-corners/checker/1.1-0.3-6.jpg height=240 width=320></td>
+</tr>
+<tr>
+<td colspan=1>
+Sigma: 1.1&nbsp;
+Threshold: 0.4&nbsp;
+Neighborhood: 4&nbsp;
+</td>
+</tr>
+<tr>
+<td>Final Result</td>
+</tr>
+<tr>
+<td><img src=./results-corners/checker/1.1-0.4-4.jpg height=240 width=320></td>
+</tr>
+<tr>
+<td colspan=1>
+Sigma: 1.1&nbsp;
+Threshold: 0.4&nbsp;
+Neighborhood: 5&nbsp;
+</td>
+</tr>
+<tr>
+<td>Final Result</td>
+</tr>
+<tr>
+<td><img src=./results-corners/checker/1.1-0.4-5.jpg height=240 width=320></td>
+</tr>
+<tr>
+<td colspan=1>
+Sigma: 1.1&nbsp;
+Threshold: 0.4&nbsp;
+Neighborhood: 6&nbsp;
+</td>
+</tr>
+<tr>
+<td>Final Result</td>
+</tr>
+<tr>
+<td><img src=./results-corners/checker/1.1-0.4-6.jpg height=240 width=320></td>
+</tr>
+<tr>
+<td colspan=1>
+Sigma: 1.1&nbsp;
+Threshold: 0.5&nbsp;
+Neighborhood: 4&nbsp;
+</td>
+</tr>
+<tr>
+<td>Final Result</td>
+</tr>
+<tr>
+<td><img src=./results-corners/checker/1.1-0.5-4.jpg height=240 width=320></td>
+</tr>
+<tr>
+<td colspan=1>
+Sigma: 1.1&nbsp;
+Threshold: 0.5&nbsp;
+Neighborhood: 5&nbsp;
+</td>
+</tr>
+<tr>
+<td>Final Result</td>
+</tr>
+<tr>
+<td><img src=./results-corners/checker/1.1-0.5-5.jpg height=240 width=320></td>
+</tr>
+<tr>
+<td colspan=1>
+Sigma: 1.1&nbsp;
+Threshold: 0.5&nbsp;
+Neighborhood: 6&nbsp;
+</td>
+</tr>
+<tr>
+<td>Final Result</td>
+</tr>
+<tr>
+<td><img src=./results-corners/checker/1.1-0.5-6.jpg height=240 width=320></td>
+</tr>
+</table>
+</div>
+<div onclick="showhide('buildingcorners');" style="text-decoration:underline;">Show/hide full Building results</div><br>
+<div id=buildingcorners style="display:none">
+<table>
+<tr>
+<td colspan=1>
+Sigma: 1.0&nbsp;
+Threshold: 0.3&nbsp;
+Neighborhood: 4&nbsp;
+</td>
+</tr>
+<tr>
+<td>Final Result</td>
+</tr>
+<tr>
+<td><img src=./results-corners/building/1.0-0.3-4.jpg height=288 width=384></td>
+</tr>
+<tr>
+<td colspan=1>
+Sigma: 1.0&nbsp;
+Threshold: 0.3&nbsp;
+Neighborhood: 5&nbsp;
+</td>
+</tr>
+<tr>
+<td>Final Result</td>
+</tr>
+<tr>
+<td><img src=./results-corners/building/1.0-0.3-5.jpg height=288 width=384></td>
+</tr>
+<tr>
+<td colspan=1>
+Sigma: 1.0&nbsp;
+Threshold: 0.3&nbsp;
+Neighborhood: 6&nbsp;
+</td>
+</tr>
+<tr>
+<td>Final Result</td>
+</tr>
+<tr>
+<td><img src=./results-corners/building/1.0-0.3-6.jpg height=288 width=384></td>
+</tr>
+<tr>
+<td colspan=1>
+Sigma: 1.0&nbsp;
+Threshold: 0.4&nbsp;
+Neighborhood: 4&nbsp;
+</td>
+</tr>
+<tr>
+<td>Final Result</td>
+</tr>
+<tr>
+<td><img src=./results-corners/building/1.0-0.4-4.jpg height=288 width=384></td>
+</tr>
+<tr>
+<td colspan=1>
+Sigma: 1.0&nbsp;
+Threshold: 0.4&nbsp;
+Neighborhood: 5&nbsp;
+</td>
+</tr>
+<tr>
+<td>Final Result</td>
+</tr>
+<tr>
+<td><img src=./results-corners/building/1.0-0.4-5.jpg height=288 width=384></td>
+</tr>
+<tr>
+<td colspan=1>
+Sigma: 1.0&nbsp;
+Threshold: 0.4&nbsp;
+Neighborhood: 6&nbsp;
+</td>
+</tr>
+<tr>
+<td>Final Result</td>
+</tr>
+<tr>
+<td><img src=./results-corners/building/1.0-0.4-6.jpg height=288 width=384></td>
+</tr>
+<tr>
+<td colspan=1>
+Sigma: 1.0&nbsp;
+Threshold: 0.5&nbsp;
+Neighborhood: 4&nbsp;
+</td>
+</tr>
+<tr>
+<td>Final Result</td>
+</tr>
+<tr>
+<td><img src=./results-corners/building/1.0-0.5-4.jpg height=288 width=384></td>
+</tr>
+<tr>
+<td colspan=1>
+Sigma: 1.0&nbsp;
+Threshold: 0.5&nbsp;
+Neighborhood: 5&nbsp;
+</td>
+</tr>
+<tr>
+<td>Final Result</td>
+</tr>
+<tr>
+<td><img src=./results-corners/building/1.0-0.5-5.jpg height=288 width=384></td>
+</tr>
+<tr>
+<td colspan=1>
+Sigma: 1.0&nbsp;
+Threshold: 0.5&nbsp;
+Neighborhood: 6&nbsp;
+</td>
+</tr>
+<tr>
+<td>Final Result</td>
+</tr>
+<tr>
+<td><img src=./results-corners/building/1.0-0.5-6.jpg height=288 width=384></td>
+</tr>
+</table>
+</div>
+Looking at the results, I determined that <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>&sigma;</mi></math> of 1.0, threshold
+of 0.3 and neighborhood size of 5 gave good results. Using those parameters,
+I ran the corner detector on two other sample images.<br>
+<div id=flowercorners>
+<table>
+<tr>
+<td colspan=2>
+Sigma: 1.0&nbsp;
+Threshold: 0.3&nbsp;
+Neighborhood: 5&nbsp;
+</td>
+</tr>
+<tr>
+<td>Original image</td>
+<td>Final Result</td>
+</tr>
+<tr>
+<td><img src=./flower.jpg height=240 width=320></td>
+<td><img src=./results-corners/flower/1.0-0.3-5.jpg height=240 width=320></td>
+</tr>
+</table>
+</div>
+<div id=beamscorners>
+<table>
+<tr>
+<td colspan=2>
+Sigma: 1.0&nbsp;
+Threshold: 0.3&nbsp;
+Neighborhood: 5&nbsp;
+</td>
+</tr>
+<tr>
+<td>Original image</td>
+<td>Final Result</td>
+</tr>
+<tr>
+<td><img src=./beams.jpg height=213 width=320></td>
+<td><img src=./results-corners/beams/1.0-0.3-5.jpg height=213 width=320></td>
+</tr>
+</table>
+</div>
+Although my implementation detects a suprisingly small number of corners
+on the flower image, the original does not seem to have many "corners". The
+results for the light beams seem reasonable.
+</p>
+<h2>Scale Invariant Feature Transform (SIFT)</h2>
+<p>
+As Dr. Lowe says in [Lowe 2004], SIFT is a cascading filter. The computationally
+intensive criteria are only applied to points that meet initial criteria.
+The initial candidate points come from the calculation of the difference
+of Gaussians (DoGs). This is described in [Lowe 2004] in Section 3. 
+Those candidate points are filtered based on their location
+relative to an extremum of a 3-dimensional function generated by fitting
+the DoG to the candidate. This is described in [Lowe 2004] in Section 4.<br>
+In my implementation, candidate selection and filtering are intertwined
+as the DoGs in each octave are calculated. However, I will describe my
+implementation as if they are two separate stages.
+</p>
+<h3>Selection of Candidate Extrema (Section 3)</h3>
+<p>
+The DoG function should be a continuous function in three variables: x, y 
+and <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>&sigma;</mi></math>. However, calculating this function is expensive and the 
+values of <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>&sigma;</mi></math> would have to be arbitrarily close together to 
+be able to find all the extrema (as Dr. Lowe points out in Section 3.1).<br>
+Based on empirical results (Section 3.1), Dr. Lowe calculates a value for
+the difference between <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>&sigma;</mi></math>s that generates stable keypoints without too
+much overhead. He calls this value <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>k</mi></math>.<br>
+He also presents an efficient way to calculate the DoG based on octaves and
+scales. An octave is a doubling of the value of <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>&sigma;</mi></math>. Within each octave,
+the initial image is scaled <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>s</mi><mo>+</mo><mn>3</mn></math>* times.
+Each scale is blurred by <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><msup><mi>k</mi> <mi>s</mi></msup><mi>&sigma;</mi></math>. For example, consider <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>k</mi><mo>=</mo><msup><mn>2</mn> <mfrac><mn>1</mn><mn>3</mn></mfrac></msup></math> 
+and <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>s</mi><mo>=</mo><mn>3</mn></math>. 
+<center>
+<table width=50%>
+<tr>
+<td><math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>s</mi><mo>=</mo><mn>5</mn></math></td><td><math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><msup><mi>k</mi> <mn>3</mn></msup><mi>&sigma;</mi></math></td><td><math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><msup><mn>2</mn> <mfrac><mn>5</mn><mn>3</mn></mfrac></msup><mi>&sigma;</mi></math></td>
+</tr>
+<tr>
+<td><math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>s</mi><mo>=</mo><mn>4</mn></math></td><td><math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><msup><mi>k</mi> <mn>3</mn></msup><mi>&sigma;</mi></math></td><td><math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><msup><mn>2</mn> <mfrac><mn>4</mn><mn>3</mn></mfrac></msup><mi>&sigma;</mi></math></td>
+</tr>
+<tr>
+<td><math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>s</mi><mo>=</mo><mn>3</mn></math></td><td><math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><msup><mi>k</mi> <mn>3</mn></msup><mi>&sigma;</mi></math></td><td><math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><msup><mn>2</mn> <mfrac><mn>3</mn><mn>3</mn></mfrac></msup><mi>&sigma;</mi><mo>=</mo><mn>2</mn><mi>&sigma;</mi></math></td>
+</tr>
+<tr>
+<td><math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>s</mi><mo>=</mo><mn>2</mn></math></td><td><math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><msup><mi>k</mi> <mn>2</mn></msup><mi>&sigma;</mi></math></td><td><math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><msup><mn>2</mn> <mfrac><mn>2</mn><mn>3</mn></mfrac></msup><mi>&sigma;</mi></math></td>
+</tr>
+<tr>
+<td><math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>s</mi><mo>=</mo><mn>1</mn></math></td><td><math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><msup><mi>k</mi> <mn>1</mn></msup><mi>&sigma;</mi></math></td><td><math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><msup><mn>2</mn> <mfrac><mn>1</mn><mn>3</mn></mfrac></msup><mi>&sigma;</mi></math></td>
+</tr>
+<tr>
+<td><math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>s</mi><mo>=</mo><mn>0</mn></math></td><td><math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><msup><mi>k</mi> <mn>0</mn></msup><mi>&sigma;</mi></math></td><td><math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>&sigma;</mi></math></td>
+</tr>
+</table>
+</center>
+Those scales are subtracted from one another to calculate the DoGs. To 
+make sure that the entire range of <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>&sigma;</mi></math> are covered for the DoGs, 
+multiple octaves are calculated.
+To move between octaves, the previous octave's <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mn>2</mn><mi>&sigma;</mi></math> image
+is downsampled by 2. That image is used as the starting image for the next
+octave and the process repeats. Because of the selection of the image
+and the downsampling, the base image for the new octave has, essentially, 
+an embedded <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mn>4</mn><mi>&sigma;</mi></math>.<br>
+My implementation of calculation of the scales of an octave and the DoGs 
+is in <code>_octave</code> and <code>_dog</code>.<br>
+To detect extrema, each point (x,y) at each scale <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>&sigma;</mi></math> 
+is compared to its 26 neighbors. Those 
+neighbors are defined as the points in the nearest 3x3 locations at the
+current scale, the previous scale and the next scale. If the value of the
+DoG at (x,y,<math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>&sigma;</mi></math>) is either smallest or largest, that point is a candidate
+keypoint location.<br>
+My implementation of extrema calculation is in 
+<code>_scale_space_extrema</code>.
+</p>
+<h3>Derivation and Implementation of Filtering (Section 4)</h3>
+<p>
+In Section 4 of [Lowe 2004], Dr. Lowe presents a technique for
+subpixel localization that is used to filter out unstable candidate keypoints.
+The technique is based on the Taylor Series
+expansion of the DoG evaluated at the candidate keypoints. Here is the 
+Taylor Series expansion to the second quadratic term:
+<math xmlns='http://www.w3.org/1998/Math/MathML' display='block'><mi>f</mi><mo stretchy="false">(</mo><mi>x</mi><mo stretchy="false">)</mo><mo>=</mo><mi>f</mi><mo stretchy="false">(</mo><mi>a</mi><mo stretchy="false">)</mo><mo>+</mo><mfrac><mrow><mi>f</mi><mo>&prime;</mo><mo stretchy="false">(</mo><mi>a</mi><mo stretchy="false">)</mo></mrow><mrow><mn>1</mn><mo>!</mo></mrow></mfrac><mo stretchy="false">(</mo><mi>x</mi><mo>&minus;</mo><mi>a</mi><mo stretchy="false">)</mo><mo>+</mo><mfrac><mrow><mi>f</mi><mo>&Prime;</mo><mo stretchy="false">(</mo><mi>a</mi><mo stretchy="false">)</mo></mrow><mrow><mn>2</mn><mo>!</mo></mrow></mfrac><mo stretchy="false">(</mo><mi>x</mi><mo>&minus;</mo><mi>a</mi><msup><mo stretchy="false">)</mo> <mn>2</mn></msup></math>
+Taking the derivative of <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>f</mi><mo stretchy="false">(</mo><mi>x</mi><mo stretchy="false">)</mo></math>:
+<math xmlns='http://www.w3.org/1998/Math/MathML' display='block'><mi>f</mi><mo>&prime;</mo><mo stretchy="false">(</mo><mi>x</mi><mo stretchy="false">)</mo><mo>=</mo><mi>f</mi><mo>&prime;</mo><mo stretchy="false">(</mo><mi>a</mi><mo stretchy="false">)</mo><mo>+</mo><mfrac><mn>1</mn><mn>2</mn></mfrac><mi>f</mi><mo>&Prime;</mo><mo stretchy="false">(</mo><mi>a</mi><mo stretchy="false">)</mo><mn>2</mn><mi>x</mi><mo>&minus;</mo><mfrac><mn>1</mn><mn>2</mn></mfrac><mi>f</mi><mo>&Prime;</mo><mo stretchy="false">(</mo><mi>a</mi><mo stretchy="false">)</mo><mn>2</mn><mi>a</mi></math>
+<math xmlns='http://www.w3.org/1998/Math/MathML' display='block'><mi>f</mi><mo>&prime;</mo><mo stretchy="false">(</mo><mi>x</mi><mo stretchy="false">)</mo><mo>=</mo><mi>f</mi><mo>&prime;</mo><mo stretchy="false">(</mo><mi>a</mi><mo stretchy="false">)</mo><mo>+</mo><mi>xf</mi><mo>&Prime;</mo><mo stretchy="false">(</mo><mi>a</mi><mo stretchy="false">)</mo><mo>&minus;</mo><mi>af</mi><mo>&Prime;</mo><mo stretchy="false">(</mo><mi>a</mi><mo stretchy="false">)</mo></math>
+<math xmlns='http://www.w3.org/1998/Math/MathML' display='block'><mi>f</mi><mo>&prime;</mo><mo stretchy="false">(</mo><mi>x</mi><mo stretchy="false">)</mo><mo>=</mo><mi>f</mi><mo>&prime;</mo><mo stretchy="false">(</mo><mi>a</mi><mo stretchy="false">)</mo><mo>+</mo><mi>f</mi><mo>&Prime;</mo><mo stretchy="false">(</mo><mi>a</mi><mo stretchy="false">)</mo><mo stretchy="false">(</mo><mi>x</mi><mo>&minus;</mo><mi>a</mi><mo stretchy="false">)</mo></math>
+and therefore
+<math xmlns='http://www.w3.org/1998/Math/MathML' display='block'><mi>x</mi><mo>&minus;</mo><mi>a</mi><mo>=</mo><mo lspace="verythinmathspace" rspace="0em">&minus;</mo><mi>f</mi><mo>&Prime;</mo><mo stretchy="false">(</mo><mi>a</mi><msup><mo stretchy="false">)</mo> <mrow><mo lspace="verythinmathspace" rspace="0em">&minus;</mo><mn>1</mn></mrow></msup><mi>f</mi><mo>&prime;</mo><mo stretchy="false">(</mo><mi>a</mi><mo stretchy="false">)</mo></math>
+
+This is the equivalent of Dr. Lowe's equation (3) when <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>f</mi><mo stretchy="false">(</mo><mi>a</mi><mo stretchy="false">)</mo></math> is 
+the value of the DoG at the candidate location <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>a</mi></math>.<br>
+
+Solving for <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>x</mi><mo>&minus;</mo><mi>a</mi></math> is possible, as Dr. Lowe points out, using <a href=http://en.wikipedia.org/wiki/Hessian_matrix>Hessian matrixes</a> and approximating the derivatives using <a href=http://en.wikipedia.org/wiki/Finite_difference>finite differences</a>. <br>
+
+Thanks to [1], I was able to determine the Hessian used to take the second derivative of the DoG:
+<math xmlns='http://www.w3.org/1998/Math/MathML' display='block'><mrow><mo>[</mo><mrow><mtable rowspacing="0.5ex"><mtr><mtd><mfrac><mrow><msup><mo>&PartialD;</mo> <mn>2</mn></msup><mi>D</mi></mrow><mrow><mo>&PartialD;</mo><mi>&sigma;</mi><mi>&sigma;</mi></mrow></mfrac></mtd> <mtd><mfrac><mrow><msup><mo>&PartialD;</mo> <mn>2</mn></msup><mi>D</mi></mrow><mrow><mo>&PartialD;</mo><mi>&sigma;</mi><mi>y</mi></mrow></mfrac></mtd> <mtd><mfrac><mrow><msup><mo>&PartialD;</mo> <mn>2</mn></msup><mi>D</mi></mrow><mrow><mo>&PartialD;</mo><mi>&sigma;</mi><mi>x</mi></mrow></mfrac></mtd></mtr> <mtr><mtd><mfrac><mrow><msup><mo>&PartialD;</mo> <mn>2</mn></msup><mi>D</mi></mrow><mrow><mo>&PartialD;</mo><mi>&sigma;</mi><mi>y</mi></mrow></mfrac></mtd> <mtd><mfrac><mrow><msup><mo>&PartialD;</mo> <mn>2</mn></msup><mi>D</mi></mrow><mrow><mo>&PartialD;</mo><mi>y</mi><mi>y</mi></mrow></mfrac></mtd> <mtd><mfrac><mrow><msup><mo>&PartialD;</mo> <mn>2</mn></msup><mi>D</mi></mrow><mrow><mo>&PartialD;</mo><mi>y</mi><mi>x</mi></mrow></mfrac></mtd></mtr> <mtr><mtd><mfrac><mrow><msup><mo>&PartialD;</mo> <mn>2</mn></msup><mi>D</mi></mrow><mrow><mo>&PartialD;</mo><mi>&sigma;</mi><mi>x</mi></mrow></mfrac></mtd> <mtd><mfrac><mrow><msup><mo>&PartialD;</mo> <mn>2</mn></msup><mi>D</mi></mrow><mrow><mo>&PartialD;</mo><mi>y</mi><mi>x</mi></mrow></mfrac></mtd> <mtd><mfrac><mrow><msup><mo>&PartialD;</mo> <mn>2</mn></msup><mi>D</mi></mrow><mrow><mo>&PartialD;</mo><mi>x</mi><mi>x</mi></mrow></mfrac></mtd></mtr></mtable></mrow><mo>]</mo></mrow></math>
+
+To solve for <math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>x</mi><mo>&minus;</mo><mi>a</mi></math>, solve the linear system of equations:
+<math xmlns='http://www.w3.org/1998/Math/MathML' display='block'><mrow><mo>[</mo><mrow><mtable rowspacing="0.5ex"><mtr><mtd><mfrac><mrow><msup><mo>&PartialD;</mo> <mn>2</mn></msup><mi>D</mi></mrow><mrow><mo>&PartialD;</mo><mi>&sigma;</mi><mi>&sigma;</mi></mrow></mfrac></mtd> <mtd><mfrac><mrow><msup><mo>&PartialD;</mo> <mn>2</mn></msup><mi>D</mi></mrow><mrow><mo>&PartialD;</mo><mi>&sigma;</mi><mi>y</mi></mrow></mfrac></mtd> <mtd><mfrac><mrow><msup><mo>&PartialD;</mo> <mn>2</mn></msup><mi>D</mi></mrow><mrow><mo>&PartialD;</mo><mi>&sigma;</mi><mi>x</mi></mrow></mfrac></mtd></mtr> <mtr><mtd><mfrac><mrow><msup><mo>&PartialD;</mo> <mn>2</mn></msup><mi>D</mi></mrow><mrow><mo>&PartialD;</mo><mi>&sigma;</mi><mi>y</mi></mrow></mfrac></mtd> <mtd><mfrac><mrow><msup><mo>&PartialD;</mo> <mn>2</mn></msup><mi>D</mi></mrow><mrow><mo>&PartialD;</mo><mi>y</mi><mi>y</mi></mrow></mfrac></mtd> <mtd><mfrac><mrow><msup><mo>&PartialD;</mo> <mn>2</mn></msup><mi>D</mi></mrow><mrow><mo>&PartialD;</mo><mi>y</mi><mi>x</mi></mrow></mfrac></mtd></mtr> <mtr><mtd><mfrac><mrow><msup><mo>&PartialD;</mo> <mn>2</mn></msup><mi>D</mi></mrow><mrow><mo>&PartialD;</mo><mi>&sigma;</mi><mi>x</mi></mrow></mfrac></mtd> <mtd><mfrac><mrow><msup><mo>&PartialD;</mo> <mn>2</mn></msup><mi>D</mi></mrow><mrow><mo>&PartialD;</mo><mi>y</mi><mi>x</mi></mrow></mfrac></mtd> <mtd><mfrac><mrow><msup><mo>&PartialD;</mo> <mn>2</mn></msup><mi>D</mi></mrow><mrow><mo>&PartialD;</mo><mi>x</mi><mi>x</mi></mrow></mfrac></mtd></mtr></mtable></mrow><mo>]</mo></mrow><mrow><mo>[</mo><mrow><mtable rowspacing="0.5ex"><mtr><mtd><mi>&sigma;</mi></mtd></mtr> <mtr><mtd><mi>y</mi></mtd></mtr> <mtr><mtd><mi>x</mi></mtd></mtr></mtable></mrow><mo>]</mo></mrow><mo>=</mo><mo lspace="verythinmathspace" rspace="0em">&minus;</mo><mrow><mo>[</mo><mrow><mtable rowspacing="0.5ex"><mtr><mtd><mfrac><mrow><mo>&PartialD;</mo><mi>D</mi></mrow><mrow><mo>&PartialD;</mo><mi>&sigma;</mi></mrow></mfrac></mtd></mtr> <mtr><mtd><mfrac><mrow><mo>&PartialD;</mo><mi>D</mi></mrow><mrow><mo>&PartialD;</mo><mi>y</mi></mrow></mfrac></mtd></mtr> <mtr><mtd><mfrac><mrow><mo>&PartialD;</mo><mi>D</mi></mrow><mrow><mo>&PartialD;</mo><mi>x</mi></mrow></mfrac></mtd></mtr></mtable></mrow><mo>]</mo></mrow></math>
+
+Implementing the solver was a battle with details. You can see
+my implementation starting on line 266. On my first 
+attempt, I was able to calculate the differences and move the candidate
+point. However, this did not seem to converge reliably. 
+Taking a hint from a well-known reference implementation [2], I limited the 
+number of attempted interpolations to 5.** After applying this method of
+detecting "flapping" between nearby points, the filtering process started
+to work!<br>
+The result of this process is a point in three-dimensional space that 
+indicates where the keypoint <i>should</i> be if it were a true extremum
+of the fitted function. Based on the difference between the value
+of the DoG at the ideal location and the value of the DoG at the 
+actual location, the candidate keypoints are filtered. Based on
+empirical results, Dr. Lowe suggests a difference of 0.03 for filtering. You
+can see my implementation of this starting on line 343.
+</p>
+<h3>Results</h3>
+<p>
+In the following images, the circles represent the locations
+of the keypoints. The size of the circle represents the scale
+of the keypoint --- the bigger the circle, the higher the scale.<br>
+<div id=buildingsift>
+<table>
+<tr>
+<td>Original</td><td>All</td><td>Filtered</td>
+</tr>
+<tr>
+<td><img src=building.jpg height=288 width=384></td>
+<td><img src=./results-sift/building/all.jpg height=288 width=384></td>
+<td><img src=./results-sift/building/filtered.jpg height=288 width=384></td>
+</tr>
+</table>
+</div>
+<div id=mandrillsift>
+<table>
+<tr>
+<td>Original</td><td>All</td><td>Filtered</td>
+</tr>
+<tr>
+<td><img src=mandrill.jpg height=256 width=256></td>
+<td><img src=./results-sift/mandrill/all.jpg height=256 width=256></td>
+<td><img src=./results-sift/mandrill/filtered.jpg height=256 width=256></td>
+</tr>
+</table>
+</div>
+<div id=flowersift>
+<table>
+<tr>
+<td>Original</td><td>All</td><td>Filtered</td>
+</tr>
+<tr>
+<td><img src=flower.jpg height=240 width=320></td>
+<td><img src=./results-sift/flower/all.jpg height=240 width=320></td>
+<td><img src=./results-sift/flower/filtered.jpg height=240 width=320></td>
+</tr>
+</table>
+</div>
+<div id=beamssift>
+<table>
+<tr>
+<td>Original</td><td>All</td><td>Filtered</td>
+</tr>
+<tr>
+<td><img src=beams.jpg height=213 width=320></td>
+<td><img src=./results-sift/beams/all.jpg height=213 width=320></td>
+<td><img src=./results-sift/beams/filtered.jpg height=213 width=320></td>
+</tr>
+</table>
+</div>
+<p>
+<hr>
+Footnotes:<br>
+*:  The additional three scale calculations per octave make it possible 
+for the entire range of DoGs to be calculated as octaves are combined.
+**: The Sift++ implementation does <i>not</i> recalculate a sigma value; it 
+considers only the x and y coordinates in the current scale.
+<hr>
+References:<br>
+[1]: <a href=http://www.cs.ucf.edu/courses/cap4453/sift/>CAP 4453 Robot Vision Spring 2015 Home Page</a><br>
+[2]: <a href=http://www.robots.ox.ac.uk/~vedaldi/assets/siftpp/>Sift++</a>
+</body>
+</html>

@@ -8,6 +8,7 @@ import math
 import time
 from operator import itemgetter
 from skimage.draw import circle_perimeter
+import cv2
 	
 def resize_half(im):
 	new = np.zeros((im.shape[0]/2, im.shape[1]/2))
@@ -34,7 +35,6 @@ def gradient(im):
 	yGradient = np.array([[-1,-2,-1],[0,0,0],[1,2,1]])
 	dx = ndimage.convolve(im, xGradient)
 	dy = ndimage.convolve(im, yGradient)
-	imshow([im,dx,dy])
 	tot_grad = np.sqrt(np.square(np.absolute(dx)) + np.square(np.absolute(dy)))
 	theta = np.arctan2(dy, dx)
 	return (tot_grad, theta, np.absolute(dx), np.absolute(dy))
@@ -242,7 +242,7 @@ def harris_corner(im, sigma, n_size = 4):
 	threshold = (2 * np.median(eigs) + np.amax(eigs)) / 3
 	candidates, result = filter_by_eig(candidates, result, threshold)
 	candidates.sort(key = itemgetter(0), reverse = True) 
-	for e,x,y in candidates:
+	for e,y,x in candidates:
 		for i in range(-1*n_size, n_size+1):
 			for j in range(-1*n_size, n_size+1):
 				try:
@@ -250,7 +250,7 @@ def harris_corner(im, sigma, n_size = 4):
 						result[x+i][y+j] = 0
 						result[x][y] = 255
 				except:
-					pass
+					print "OOB"
 	return result
 
 def enlarge_points(im, area = 3):
@@ -344,13 +344,28 @@ def sift(img, sigma = 1.6, num_scales = 5, num_octaves = 4, k = math.sqrt(2)):
 		img = draw_circle(img, p, q, r)
 	return img
 
+def draw_corners(corn, img):
+	a,b = corn.shape
+	save(img,"checker_corn1.jpg")
+	for x in range(a):
+		for y in range(b):
+			if corn[x][y] == 255:
+				l_x = x-2
+				r_x = x+2
+				t_y = y-2
+				b_y = y+2
+				cv2.rectangle(img,(l_x,t_y),(r_x,b_y),(256,0,0))
+	save(img, "checker_corn2.jpg")
+
 keystring = 'checker'
 a = Image.open('Images/' + keystring + '.jpg').convert('L')
 b = np.array(a, dtype = 'int64')
-edge = canny_edge(b, 1.25)
-save(edge, keystring + '_edge.jpg')
+c = np.array(Image.open('Images/' + keystring + '.jpg'))
+#edge = canny_edge(b, 1.25)
+#save(edge, keystring + '_edge.jpg')
 corn = harris_corner(b, 2, 3)
-corn = enlarge_points(corn,9)
-save(corn, keystring + '_corn.jpg')
+draw_corners(corn, c)
+#corn = enlarge_points(corn,9)
+#save(corn, keystring + '_corn.jpg')
 #s = sift(b)
 #save(s, keystring + '_sift_nofilter.jpg')

@@ -85,7 +85,7 @@ def detect_circle(img):
 	except:
 		return False
 
-'''
+
 # Question 1
 a = imread("cameraman.tif")
 a = np.int64(a)
@@ -103,7 +103,7 @@ s1 = y1+a
 s2 = y2+a
 imsave(s1, "s1.tif")
 imsave(s2, "s2.tif")
-'''
+
 # Question 2
 for i in range(1,24):
 	a = imread("Test" + str(i) + ".png")

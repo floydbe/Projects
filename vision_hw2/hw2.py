@@ -5,7 +5,7 @@ import Image
 from scipy import misc
 import pylab as plt
 import random
-import time
+import math
 
 testA_im_loc = "test/"
 testA_data_loc = "testA_data.txt"
@@ -119,7 +119,7 @@ for a in range(144):
 		if a < 100 and b < 100:
 			face_cov[a][b] = abs(faces[a].flatten()[b]-face_mean.flatten()[b])
 U, s, V = np.linalg.svd(face_cov)
-tau = 0.00000000001
+tau = 0.00001
 k = 0
 det = 1
 for sv in s:
@@ -133,3 +133,12 @@ s = np.diag(s)
 e = np.dot(u, np.dot(s,u_t))
 s_inv = np.linalg.inv(s)
 e_inv = np.dot(u, np.dot(s_inv,u_t))
+
+print e_inv,k
+
+x = faces[0]
+diff = np.abs(x.flatten()-face_mean.flatten())
+print diff
+face_score = np.exp((-1.0/2.0)*np.dot(diff,np.dot(e_inv,np.transpose(diff))))/(math.sqrt(((2*math.pi)**k)*det))
+
+print face_score
