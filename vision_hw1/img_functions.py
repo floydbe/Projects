@@ -215,7 +215,7 @@ def filter_by_eig(l, result, thresh):
 			result[el[1]][el[2]] = el[0]
 	return new_l, result		
 
-def harris_corner(im, sigma, n_size = 4):
+def harris_corner(im, sigma, n_size = 16):
 	candidates = []
 	blurred = gaussian(im, sigma)
 	grad, theta, dx, dy = gradient(blurred)
@@ -340,8 +340,8 @@ def sift(img, sigma = 1.6, num_scales = 5, num_octaves = 4, k = math.sqrt(2)):
 		im = resize_half(im)
 	harris = enlarge_points(harris_corner(img, sigma),9)
 	for p,q,r in keypoints:
-	#	if harris[p][q] == 255:
-		img = draw_circle(img, p, q, r)
+		if harris[p][q] == 255:
+			img = draw_circle(img, p, q, r)
 	return img
 
 def draw_corners(corn, img):
@@ -363,9 +363,9 @@ b = np.array(a, dtype = 'int64')
 c = np.array(Image.open('Images/' + keystring + '.jpg'))
 #edge = canny_edge(b, 1.25)
 #save(edge, keystring + '_edge.jpg')
-corn = harris_corner(b, 2, 3)
-draw_corners(corn, c)
+#corn = harris_corner(b, 2, 3)
+#draw_corners(corn, c)
 #corn = enlarge_points(corn,9)
 #save(corn, keystring + '_corn.jpg')
-#s = sift(b)
-#save(s, keystring + '_sift_nofilter.jpg')
+s = sift(b)
+save(s, keystring + '_sift.jpg')

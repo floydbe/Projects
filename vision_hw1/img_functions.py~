@@ -215,7 +215,7 @@ def filter_by_eig(l, result, thresh):
 			result[el[1]][el[2]] = el[0]
 	return new_l, result		
 
-def harris_corner(im, sigma, n_size = 4):
+def harris_corner(im, sigma, n_size = 16):
 	candidates = []
 	blurred = gaussian(im, sigma)
 	grad, theta, dx, dy = gradient(blurred)
@@ -356,7 +356,6 @@ def draw_corners(corn, img):
 				b_y = y+2
 				cv2.rectangle(img,(l_x,t_y),(r_x,b_y),(256,0,0))
 	save(img, "checker_corn2.jpg")
-				
 
 keystring = 'checker'
 a = Image.open('Images/' + keystring + '.jpg').convert('L')

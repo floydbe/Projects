@@ -112,33 +112,36 @@ imsave(not_face_mean,"notface.jpg")
 
 create_collage(faces,not_faces)
 
-face_cov = np.zeros((144,144))
+def score(patch,t_set,mean):
+	cov = np.zeros((144,144))
 
-for a in range(144):
-	for b in range(144):
-		if a < 100 and b < 100:
-			face_cov[a][b] = abs(faces[a].flatten()[b]-face_mean.flatten()[b])
-U, s, V = np.linalg.svd(face_cov)
-tau = 0.00001
-k = 0
-det = 1
-for sv in s:
-	if sv > tau:
-		det *= sv
-		k += 1
-u = U[:,:k]
-s = s[:k]
-u_t = np.transpose(u)
-s = np.diag(s)
-e = np.dot(u, np.dot(s,u_t))
-s_inv = np.linalg.inv(s)
-e_inv = np.dot(u, np.dot(s_inv,u_t))
+	for a in range(144):
+		for b in range(144):
+			if a < 100 and b < 100:
+				cov[a][b] = abs(t_set[a].flatten()[b]-mean.flatten()[b])
+	U, s, V = np.linalg.svd(cov)
+	tau = 200.0
+	k = 0
+	det = 1
+	for sv in s:
+		if sv > tau:
+			det *= sv
+			k += 1
+	u = U[:,:k]
+	s = s[:k]
+	u_t = np.transpose(u)
+	s = np.diag(s)
+	e = np.dot(u, np.dot(s,u_t))
+	s_inv = np.linalg.inv(s)
+	e_inv = np.dot(u, np.dot(s_inv,u_t))
 
-print e_inv,k
+	diff = patch.flatten()-mean.flatten()
+	return np.exp((-1.0/2.0)*np.dot(diff,np.dot(e_inv,np.transpose(diff))))/(math.sqrt(((2*math.pi)**k)*det))
 
-x = faces[0]
-diff = np.abs(x.flatten()-face_mean.flatten())
-print diff
-face_score = np.exp((-1.0/2.0)*np.dot(diff,np.dot(e_inv,np.transpose(diff))))/(math.sqrt(((2*math.pi)**k)*det))
-
-print face_score
+for x in faces:
+	f_s = score(x, faces, face_mean)
+	nf_s = score(x, not_faces, not_face_mean)
+	if f_s > nf_s:
+		print "face"
+	else:
+		print "not face"
