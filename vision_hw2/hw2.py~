@@ -11,7 +11,7 @@ testA_im_loc = "test/"
 testA_data_loc = "testA_data.txt"
 
 def imread(filename):
-	return np.array(Image.open(filename).convert('L'))
+	return np.array(Image.open(filename).convert('L')),np.array(Image.open(filename))
 	
 def imsave(im, filename):
 	misc.imsave(filename, im)
@@ -85,7 +85,7 @@ for im in imlist:
 			ex_perc = 0.2
 			y_scale = int(ex_perc * y_ran)
 			x_scale = int(ex_perc * x_ran)
-			i = imread(im)
+			i,ci = imread(im)
 			cropped = i[miny-y_scale:maxy+y_scale,minx-x_scale:maxx+x_scale]
 			cropped = imresize(cropped, (12,12))
 			faces.append(cropped)
@@ -96,7 +96,7 @@ imsave(face_mean,"face.jpg")
 not_faces = []
 while len(not_faces) < 100:
 	for im in imlist:
-		i = imread(im)
+		i,ci = imread(im)
 		r1 = random.randint(0,i.shape[0]-1)
 		r2 = random.randint(0,i.shape[1]-1)
 		try:
@@ -112,33 +112,54 @@ imsave(not_face_mean,"notface.jpg")
 
 create_collage(faces,not_faces)
 
-def score(patch,t_set,mean):
-	cov = np.zeros((144,144))
+def create_gaussian(t_set,mean):
+	cov = np.zeros((100,144))
 
-	for a in range(144):
+	for a in range(100):
 		for b in range(144):
-			if a < 100 and b < 100:
-				cov[a][b] = abs(t_set[a].flatten()[b]-mean.flatten()[b])
-	U, s, V = np.linalg.svd(cov)
-	tau = 200.0
+			cov[a][b] = t_set[a].flatten()[b]-mean.flatten()[b]
+	cov = np.matrix(cov)
+	cov_t = np.matrix.transpose(cov)
+	A = ( cov_t * cov ) / 144.0
+	U, s, V = np.linalg.svd(A)
+	tau = 10.0
 	k = 0
 	det = 1
 	for sv in s:
 		if sv > tau:
 			det *= sv
 			k += 1
-	u = U[:,:k]
+	u = np.matrix(U[:,:k])
 	s = s[:k]
-	u_t = np.transpose(u)
-	s = np.diag(s)
-	e = np.dot(u, np.dot(s,u_t))
+	u_t = np.matrix.transpose(u)
+	s = np.matrix(np.diag(s))
+	e = u*s*u_t
 	s_inv = np.linalg.inv(s)
-	e_inv = np.dot(u, np.dot(s_inv,u_t))
+	e_inv = u*s_inv*u_t
+	return e_inv,k,det
+	
+def score(patch,mean,e_inv,k,det):
+	x = np.matrix(patch.reshape((144,1))) - np.matrix(mean.reshape((144,1)))
+	return np.exp((-1.0/2.0)*np.matrix.transpose(x) * e_inv * x) * 1.0e300 / (math.sqrt(((2*math.pi)**k)*det))
 
-	diff = patch.flatten()-mean.flatten()
-	return np.exp((-1.0/2.0)*np.dot(diff,np.dot(e_inv,np.transpose(diff))))/(math.sqrt(((2*math.pi)**k)*det))
+def normalize(l, new_min=0.0, new_max=1.0):
+	l_min = min(l)
+	l_max = max(l)
+	new_l = map(lambda x: ((new_max-new_min)*(x-l_min))/(l_max-l_min) - new_min, l)
+	return new_l
 
-x = faces[0]
-f_s = score(x, faces, face_mean)
-nf_s = score(x, not_faces, not_face_mean)
-print f_s, nf_s
+def scan_for_faces(img,cimg,pi):
+	face_gaussian = create_gaussian(faces, face_mean)
+	not_face_gaussian = create_gaussian(not_faces, not_face_mean)
+	a,b = img.shape
+	for y in range(a-12):
+		for x in range(b-12):
+			patch = img[x:x+12,y:y+12]
+			f = pi * score(patch, face_mean, face_gaussian[0], face_gaussian[1], face_gaussian[2])
+			nf = (1-pi) * score(patch, not_face_mean, not_face_gaussian[0], not_face_gaussian[1], not_face_gaussian[2])
+			if f > nf:
+				cv2.rectangle(cimg, (x,y), (x+12,y+12), (0,0,255))
+	imsave(cimg, "face_detect.jpg")
+
+im,cim = imread("test_input/solidbg.jpg")
+scan_for_faces(im,cim,0.001)
