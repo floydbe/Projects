@@ -140,26 +140,44 @@ def create_gaussian(t_set,mean):
 	
 def score(patch,mean,e_inv,k,det):
 	x = np.matrix(patch.reshape((144,1))) - np.matrix(mean.reshape((144,1)))
-	return np.exp((-1.0/2.0)*np.matrix.transpose(x) * e_inv * x) * 1.0e300 / (math.sqrt(((2*math.pi)**k)*det))
+	return np.exp((-1.0/2.0)*np.matrix.transpose(x) * e_inv * x) * 1.0e100 / (math.sqrt(((2*math.pi)**k)*det))
 
-def normalize(l, new_min=0.0, new_max=1.0):
-	l_min = min(l)
-	l_max = max(l)
-	new_l = map(lambda x: ((new_max-new_min)*(x-l_min))/(l_max-l_min) - new_min, l)
-	return new_l
 
-def scan_for_faces(img,cimg,pi):
+def scan_for_faces(img,pi):
+	a,b = img.shape
+	result = np.zeros((a,b))
 	face_gaussian = create_gaussian(faces, face_mean)
 	not_face_gaussian = create_gaussian(not_faces, not_face_mean)
-	a,b = img.shape
+
 	for y in range(a-12):
 		for x in range(b-12):
 			patch = img[x:x+12,y:y+12]
 			f = pi * score(patch, face_mean, face_gaussian[0], face_gaussian[1], face_gaussian[2])
 			nf = (1-pi) * score(patch, not_face_mean, not_face_gaussian[0], not_face_gaussian[1], not_face_gaussian[2])
-			if f > nf:
-				cv2.rectangle(cimg, (x,y), (x+12,y+12), (0,0,255))
-	imsave(cimg, "face_detect.jpg")
+			if f[0][0] > nf[0][0]:
+				print f, nf
+				result[x][y] = f
+	return result
 
+def non_max_suppression(result,m=3):
+	a,b = result.shape
+	for y in range(1,a-m):
+		for x in range(1,b-m):
+			for yy in range(-m,m+1):
+				for xx in range(-m,m+1):
+					if result[x+xx][y+yy] > result[x][y]:
+						result[x][y] = 0
+	return result
+
+def draw_boxes(suppressed, cimg):
+	a,b = suppressed.shape
+	for y in range(a-12):
+		for x in range(b-12):
+			if suppressed[x][y] != 0:
+				cv2.rectangle(cimg,(y,x),(y+12,x+12),(0,0,255))
+	return cimg
 im,cim = imread("test_input/solidbg.jpg")
-scan_for_faces(im,cim,0.001)
+result = scan_for_faces(im,0.1)
+suppressed = non_max_suppression(result,18)
+result_img = draw_boxes(suppressed, cim)
+imsave(result_img, "face_detect.jpg")
