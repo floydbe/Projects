@@ -1,0 +1,498 @@
+++ initial_cwd_='/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23'
+++ fail=0
++++ testdir_prefix_
++++ printf gt
+++ pfx_=gt
++++ mktempd_ '/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23' gt-sort-spinlock-abuse.sh.XXXX
++++ case $# in
++++ destdir_='/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23'
++++ template_=gt-sort-spinlock-abuse.sh.XXXX
++++ MAX_TRIES_=4
++++ case $destdir_ in
++++ case $template_ in
+++++ unset TMPDIR
++++ d='/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/gt-sort-spinlock-abuse.sh.zxKF'
++++ case $d in
++++ test -d '/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/gt-sort-spinlock-abuse.sh.zxKF'
+++++ ls -dgo '/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/gt-sort-spinlock-abuse.sh.zxKF'
+++++ tr S -
++++ perms='drwx------ 2 4096 Mar  6 11:57 /home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/gt-sort-spinlock-abuse.sh.zxKF'
++++ case $perms in
++++ test 0 = 0
++++ echo '/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/gt-sort-spinlock-abuse.sh.zxKF'
++++ return
+++ test_dir_='/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/gt-sort-spinlock-abuse.sh.zxKF'
+++ cd '/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/gt-sort-spinlock-abuse.sh.zxKF'
+++ gl_init_sh_nl_='
+'
+++ IFS=' 	
+'
+++ for sig_ in 1 2 3 13 15
++++ expr 1 + 128
+++ eval 'trap '\''Exit 129'\'' 1'
++++ trap 'Exit 129' 1
+++ for sig_ in 1 2 3 13 15
++++ expr 2 + 128
+++ eval 'trap '\''Exit 130'\'' 2'
++++ trap 'Exit 130' 2
+++ for sig_ in 1 2 3 13 15
++++ expr 3 + 128
+++ eval 'trap '\''Exit 131'\'' 3'
++++ trap 'Exit 131' 3
+++ for sig_ in 1 2 3 13 15
++++ expr 13 + 128
+++ eval 'trap '\''Exit 141'\'' 13'
++++ trap 'Exit 141' 13
+++ for sig_ in 1 2 3 13 15
++++ expr 15 + 128
+++ eval 'trap '\''Exit 143'\'' 15'
++++ trap 'Exit 143' 15
+++ trap remove_tmp_ 0
++ path_prepend_ ./src
++ test 1 '!=' 0
++ path_dir_=./src
++ case $path_dir_ in
++ abs_path_dir_='/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/./src'
++ case $abs_path_dir_ in
++ PATH='/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/./src:/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/src:/home/jfloyd/.opam/system/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games'
++ create_exe_shims_ '/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/./src'
++ case $EXEEXT in
++ return 0
++ shift
++ test 0 '!=' 0
++ export PATH
++ print_ver_ sort
++ test yes = yes
++ local i
++ for i in '$*'
++ env sort --version
+sort (GNU coreutils) 8.23
+Copyright (C) 2014 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>.
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.
+
+Written by Mike Haertel and Paul Eggert.
++ very_expensive_
++ test yes '!=' yes
++ grep '^#define HAVE_PTHREAD_T 1' '/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/lib/config.h'
++ seq 100000
++ mkfifo_or_skip_ fifo
++ test 1 = 1
++ mkfifo fifo
++ ulimit -t 7
++ sort --parallel=2 in
+++ seq 80
++ for i in '$(seq 80)'
++ read line
++ echo 1
+1
++ sleep .1
++ for i in '$(seq 80)'
++ read line
++ echo 2
+2
++ sleep .1
++ for i in '$(seq 80)'
++ read line
++ echo 3
+3
++ sleep .1
++ for i in '$(seq 80)'
++ read line
++ echo 4
+4
++ sleep .1
++ for i in '$(seq 80)'
++ read line
++ echo 5
+5
++ sleep .1
++ for i in '$(seq 80)'
++ read line
++ echo 6
+6
++ sleep .1
++ for i in '$(seq 80)'
++ read line
++ echo 7
+7
++ sleep .1
++ for i in '$(seq 80)'
++ read line
++ echo 8
+8
++ sleep .1
++ for i in '$(seq 80)'
++ read line
++ echo 9
+9
++ sleep .1
++ for i in '$(seq 80)'
++ read line
++ echo 10
+10
++ sleep .1
++ for i in '$(seq 80)'
++ read line
++ echo 11
+11
++ sleep .1
++ for i in '$(seq 80)'
++ read line
++ echo 12
+12
++ sleep .1
++ for i in '$(seq 80)'
++ read line
++ echo 13
+13
++ sleep .1
++ for i in '$(seq 80)'
++ read line
++ echo 14
+14
++ sleep .1
++ for i in '$(seq 80)'
++ read line
++ echo 15
+15
++ sleep .1
++ for i in '$(seq 80)'
++ read line
++ echo 16
+16
++ sleep .1
++ for i in '$(seq 80)'
++ read line
++ echo 17
+17
++ sleep .1
++ for i in '$(seq 80)'
++ read line
++ echo 18
+18
++ sleep .1
++ for i in '$(seq 80)'
++ read line
++ echo 19
+19
++ sleep .1
++ for i in '$(seq 80)'
++ read line
++ echo 20
+20
++ sleep .1
++ for i in '$(seq 80)'
++ read line
++ echo 21
+21
++ sleep .1
++ for i in '$(seq 80)'
++ read line
++ echo 22
+22
++ sleep .1
++ for i in '$(seq 80)'
++ read line
++ echo 23
+23
++ sleep .1
++ for i in '$(seq 80)'
++ read line
++ echo 24
+24
++ sleep .1
++ for i in '$(seq 80)'
++ read line
++ echo 25
+25
++ sleep .1
++ for i in '$(seq 80)'
++ read line
++ echo 26
+26
++ sleep .1
++ for i in '$(seq 80)'
++ read line
++ echo 27
+27
++ sleep .1
++ for i in '$(seq 80)'
++ read line
++ echo 28
+28
++ sleep .1
++ for i in '$(seq 80)'
++ read line
++ echo 29
+29
++ sleep .1
++ for i in '$(seq 80)'
++ read line
++ echo 30
+30
++ sleep .1
++ for i in '$(seq 80)'
++ read line
++ echo 31
+31
++ sleep .1
++ for i in '$(seq 80)'
++ read line
++ echo 32
+32
++ sleep .1
++ for i in '$(seq 80)'
++ read line
++ echo 33
+33
++ sleep .1
++ for i in '$(seq 80)'
++ read line
++ echo 34
+34
++ sleep .1
++ for i in '$(seq 80)'
++ read line
++ echo 35
+35
++ sleep .1
++ for i in '$(seq 80)'
++ read line
++ echo 36
+36
++ sleep .1
++ for i in '$(seq 80)'
++ read line
++ echo 37
+37
++ sleep .1
++ for i in '$(seq 80)'
++ read line
++ echo 38
+38
++ sleep .1
++ for i in '$(seq 80)'
++ read line
++ echo 39
+39
++ sleep .1
++ for i in '$(seq 80)'
++ read line
++ echo 40
+40
++ sleep .1
++ for i in '$(seq 80)'
++ read line
++ echo 41
+41
++ sleep .1
++ for i in '$(seq 80)'
++ read line
++ echo 42
+42
++ sleep .1
++ for i in '$(seq 80)'
++ read line
++ echo 43
+43
++ sleep .1
++ for i in '$(seq 80)'
++ read line
++ echo 44
+44
++ sleep .1
++ for i in '$(seq 80)'
++ read line
++ echo 45
+45
++ sleep .1
++ for i in '$(seq 80)'
++ read line
++ echo 46
+46
++ sleep .1
++ for i in '$(seq 80)'
++ read line
++ echo 47
+47
++ sleep .1
++ for i in '$(seq 80)'
++ read line
++ echo 48
+48
++ sleep .1
++ for i in '$(seq 80)'
++ read line
++ echo 49
+49
++ sleep .1
++ for i in '$(seq 80)'
++ read line
++ echo 50
+50
++ sleep .1
++ for i in '$(seq 80)'
++ read line
++ echo 51
+51
++ sleep .1
++ for i in '$(seq 80)'
++ read line
++ echo 52
+52
++ sleep .1
++ for i in '$(seq 80)'
++ read line
++ echo 53
+53
++ sleep .1
++ for i in '$(seq 80)'
++ read line
++ echo 54
+54
++ sleep .1
++ for i in '$(seq 80)'
++ read line
++ echo 55
+55
++ sleep .1
++ for i in '$(seq 80)'
++ read line
++ echo 56
+56
++ sleep .1
++ for i in '$(seq 80)'
++ read line
++ echo 57
+57
++ sleep .1
++ for i in '$(seq 80)'
++ read line
++ echo 58
+58
++ sleep .1
++ for i in '$(seq 80)'
++ read line
++ echo 59
+59
++ sleep .1
++ for i in '$(seq 80)'
++ read line
++ echo 60
+60
++ sleep .1
++ for i in '$(seq 80)'
++ read line
++ echo 61
+61
++ sleep .1
++ for i in '$(seq 80)'
++ read line
++ echo 62
+62
++ sleep .1
++ for i in '$(seq 80)'
++ read line
++ echo 63
+63
++ sleep .1
++ for i in '$(seq 80)'
++ read line
++ echo 64
+64
++ sleep .1
++ for i in '$(seq 80)'
++ read line
++ echo 65
+65
++ sleep .1
++ for i in '$(seq 80)'
++ read line
++ echo 66
+66
++ sleep .1
++ for i in '$(seq 80)'
++ read line
++ echo 67
+67
++ sleep .1
++ for i in '$(seq 80)'
++ read line
++ echo 68
+68
++ sleep .1
++ for i in '$(seq 80)'
++ read line
++ echo 69
+69
++ sleep .1
++ for i in '$(seq 80)'
++ read line
++ echo 70
+70
++ sleep .1
++ for i in '$(seq 80)'
++ read line
++ echo 71
+71
++ sleep .1
++ for i in '$(seq 80)'
++ read line
++ echo 72
+72
++ sleep .1
++ for i in '$(seq 80)'
++ read line
++ echo 73
+73
++ sleep .1
++ for i in '$(seq 80)'
++ read line
++ echo 74
+74
++ sleep .1
++ for i in '$(seq 80)'
++ read line
++ echo 75
+75
++ sleep .1
++ for i in '$(seq 80)'
++ read line
++ echo 76
+76
++ sleep .1
++ for i in '$(seq 80)'
++ read line
++ echo 77
+77
++ sleep .1
++ for i in '$(seq 80)'
++ read line
++ echo 78
+78
++ sleep .1
++ for i in '$(seq 80)'
++ read line
++ echo 79
+79
++ sleep .1
++ for i in '$(seq 80)'
++ read line
++ echo 80
+80
++ sleep .1
++ cat
++ Exit 0
++ set +e
++ exit 0
++ exit 0
++ remove_tmp_
++ __st=0
++ cleanup_
++ :
++ cd '/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23'
++ chmod -R u+rwx '/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/gt-sort-spinlock-abuse.sh.zxKF'
++ rm -rf '/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/gt-sort-spinlock-abuse.sh.zxKF'
++ exit 0

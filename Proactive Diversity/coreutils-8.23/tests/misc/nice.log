@@ -1,0 +1,589 @@
+++ initial_cwd_='/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23'
+++ fail=0
++++ testdir_prefix_
++++ printf gt
+++ pfx_=gt
++++ mktempd_ '/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23' gt-nice.sh.XXXX
++++ case $# in
++++ destdir_='/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23'
++++ template_=gt-nice.sh.XXXX
++++ MAX_TRIES_=4
++++ case $destdir_ in
++++ case $template_ in
+++++ unset TMPDIR
++++ d='/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/gt-nice.sh.Rl4b'
++++ case $d in
++++ test -d '/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/gt-nice.sh.Rl4b'
+++++ ls -dgo '/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/gt-nice.sh.Rl4b'
+++++ tr S -
++++ perms='drwx------ 2 4096 Mar  6 11:56 /home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/gt-nice.sh.Rl4b'
++++ case $perms in
++++ test 0 = 0
++++ echo '/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/gt-nice.sh.Rl4b'
++++ return
+++ test_dir_='/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/gt-nice.sh.Rl4b'
+++ cd '/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/gt-nice.sh.Rl4b'
+++ gl_init_sh_nl_='
+'
+++ IFS=' 	
+'
+++ for sig_ in 1 2 3 13 15
++++ expr 1 + 128
+++ eval 'trap '\''Exit 129'\'' 1'
++++ trap 'Exit 129' 1
+++ for sig_ in 1 2 3 13 15
++++ expr 2 + 128
+++ eval 'trap '\''Exit 130'\'' 2'
++++ trap 'Exit 130' 2
+++ for sig_ in 1 2 3 13 15
++++ expr 3 + 128
+++ eval 'trap '\''Exit 131'\'' 3'
++++ trap 'Exit 131' 3
+++ for sig_ in 1 2 3 13 15
++++ expr 13 + 128
+++ eval 'trap '\''Exit 141'\'' 13'
++++ trap 'Exit 141' 13
+++ for sig_ in 1 2 3 13 15
++++ expr 15 + 128
+++ eval 'trap '\''Exit 143'\'' 15'
++++ trap 'Exit 143' 15
+++ trap remove_tmp_ 0
++ path_prepend_ ./src
++ test 1 '!=' 0
++ path_dir_=./src
++ case $path_dir_ in
++ abs_path_dir_='/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/./src'
++ case $abs_path_dir_ in
++ PATH='/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/./src:/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/src:/home/jfloyd/.opam/system/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games'
++ create_exe_shims_ '/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/./src'
++ case $EXEEXT in
++ return 0
++ shift
++ test 0 '!=' 0
++ export PATH
++ print_ver_ nice
++ test yes = yes
++ local i
++ for i in '$*'
++ env nice --version
+nice (GNU coreutils) 8.23
+Copyright (C) 2014 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>.
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.
+
+Written by David MacKenzie.
++ tests='
+0 empty 10
+1 -1 1
+2 -12 12
+3 -1:-2 2
+4 -n:1 1
+5 -n:1:-2 2
+6 -n:1:-+12 12
+7 -2:-n:1 1
+8 -2:-n:12 12
+9 -+1 1
+10 -+12 12
+11 -+1:-+12 12
+12 -n:+1 1
+13 --1:-2 2
+14 --1:-2:-13 13
+15 --1:-n:2 2
+16 --1:-n:2:-3 3
+17 --1:-n:2:-13 13
+18 -n:-1:-12 12
+19 --1:-12 12
+NA LAST NA
+'
++ set 0 empty 10 1 -1 1 2 -12 12 3 -1:-2 2 4 -n:1 1 5 -n:1:-2 2 6 -n:1:-+12 12 7 -2:-n:1 1 8 -2:-n:12 12 9 -+1 1 10 -+12 12 11 -+1:-+12 12 12 -n:+1 1 13 --1:-2 2 14 --1:-2:-13 13 15 --1:-n:2 2 16 --1:-n:2:-3 3 17 --1:-n:2:-13 13 18 -n:-1:-12 12 19 --1:-12 12 NA LAST NA
+++ nice
++ niceness=0
++ test 0 = 0
++ : ok
++ :
++ test_name=0
++ args=empty
++ expected_result=10
++ test empty = empty
++ args=
++ test x = xLAST
+++ echo x
+++ tr : ' '
+++ sed 's/^x//'
++ args=
++ test yes = yes
++ echo 'test 0... '
++ tr -d '\n'
+test 0... ++ nice nice
++ test x10 = x10
++ ok=ok
++ test yes = yes
++ echo ok
+ok
++ shift
++ shift
++ shift
++ :
++ test_name=1
++ args=-1
++ expected_result=1
++ test -1 = empty
++ test x-1 = xLAST
+++ echo x-1
+++ tr : ' '
+++ sed 's/^x//'
++ args=-1
++ test yes = yes
++ echo 'test 1... '
++ tr -d '\n'
+test 1... ++ nice -1 nice
++ test x1 = x1
++ ok=ok
++ test yes = yes
++ echo ok
+ok
++ shift
++ shift
++ shift
++ :
++ test_name=2
++ args=-12
++ expected_result=12
++ test -12 = empty
++ test x-12 = xLAST
+++ echo x-12
+++ tr : ' '
+++ sed 's/^x//'
++ args=-12
++ test yes = yes
++ echo 'test 2... '
++ tr -d '\n'
+test 2... ++ nice -12 nice
++ test x12 = x12
++ ok=ok
++ test yes = yes
++ echo ok
+ok
++ shift
++ shift
++ shift
++ :
++ test_name=3
++ args=-1:-2
++ expected_result=2
++ test -1:-2 = empty
++ test x-1:-2 = xLAST
+++ echo x-1:-2
+++ tr : ' '
+++ sed 's/^x//'
++ args='-1 -2'
++ test yes = yes
++ echo 'test 3... '
++ tr -d '\n'
+test 3... ++ nice -1 -2 nice
++ test x2 = x2
++ ok=ok
++ test yes = yes
++ echo ok
+ok
++ shift
++ shift
++ shift
++ :
++ test_name=4
++ args=-n:1
++ expected_result=1
++ test -n:1 = empty
++ test x-n:1 = xLAST
+++ echo x-n:1
+++ tr : ' '
+++ sed 's/^x//'
++ args='-n 1'
++ test yes = yes
++ echo 'test 4... '
++ tr -d '\n'
+test 4... ++ nice -n 1 nice
++ test x1 = x1
++ ok=ok
++ test yes = yes
++ echo ok
+ok
++ shift
++ shift
++ shift
++ :
++ test_name=5
++ args=-n:1:-2
++ expected_result=2
++ test -n:1:-2 = empty
++ test x-n:1:-2 = xLAST
+++ echo x-n:1:-2
+++ tr : ' '
+++ sed 's/^x//'
++ args='-n 1 -2'
++ test yes = yes
++ echo 'test 5... '
++ tr -d '\n'
+test 5... ++ nice -n 1 -2 nice
++ test x2 = x2
++ ok=ok
++ test yes = yes
++ echo ok
+ok
++ shift
++ shift
++ shift
++ :
++ test_name=6
++ args=-n:1:-+12
++ expected_result=12
++ test -n:1:-+12 = empty
++ test x-n:1:-+12 = xLAST
+++ echo x-n:1:-+12
+++ tr : ' '
+++ sed 's/^x//'
++ args='-n 1 -+12'
++ test yes = yes
++ echo 'test 6... '
++ tr -d '\n'
+test 6... ++ nice -n 1 -+12 nice
++ test x12 = x12
++ ok=ok
++ test yes = yes
++ echo ok
+ok
++ shift
++ shift
++ shift
++ :
++ test_name=7
++ args=-2:-n:1
++ expected_result=1
++ test -2:-n:1 = empty
++ test x-2:-n:1 = xLAST
+++ echo x-2:-n:1
+++ tr : ' '
+++ sed 's/^x//'
++ args='-2 -n 1'
++ test yes = yes
++ echo 'test 7... '
++ tr -d '\n'
+test 7... ++ nice -2 -n 1 nice
++ test x1 = x1
++ ok=ok
++ test yes = yes
++ echo ok
+ok
++ shift
++ shift
++ shift
++ :
++ test_name=8
++ args=-2:-n:12
++ expected_result=12
++ test -2:-n:12 = empty
++ test x-2:-n:12 = xLAST
+++ echo x-2:-n:12
+++ tr : ' '
+++ sed 's/^x//'
++ args='-2 -n 12'
++ test yes = yes
++ echo 'test 8... '
++ tr -d '\n'
+test 8... ++ nice -2 -n 12 nice
++ test x12 = x12
++ ok=ok
++ test yes = yes
++ echo ok
+ok
++ shift
++ shift
++ shift
++ :
++ test_name=9
++ args=-+1
++ expected_result=1
++ test -+1 = empty
++ test x-+1 = xLAST
+++ echo x-+1
+++ tr : ' '
+++ sed 's/^x//'
++ args=-+1
++ test yes = yes
++ echo 'test 9... '
++ tr -d '\n'
+test 9... ++ nice -+1 nice
++ test x1 = x1
++ ok=ok
++ test yes = yes
++ echo ok
+ok
++ shift
++ shift
++ shift
++ :
++ test_name=10
++ args=-+12
++ expected_result=12
++ test -+12 = empty
++ test x-+12 = xLAST
+++ echo x-+12
+++ sed 's/^x//'
+++ tr : ' '
++ args=-+12
++ test yes = yes
++ echo 'test 10... '
++ tr -d '\n'
+test 10... ++ nice -+12 nice
++ test x12 = x12
++ ok=ok
++ test yes = yes
++ echo ok
+ok
++ shift
++ shift
++ shift
++ :
++ test_name=11
++ args=-+1:-+12
++ expected_result=12
++ test -+1:-+12 = empty
++ test x-+1:-+12 = xLAST
+++ echo x-+1:-+12
+++ tr : ' '
+++ sed 's/^x//'
++ args='-+1 -+12'
++ test yes = yes
++ echo 'test 11... '
++ tr -d '\n'
+test 11... ++ nice -+1 -+12 nice
++ test x12 = x12
++ ok=ok
++ test yes = yes
++ echo ok
+ok
++ shift
++ shift
++ shift
++ :
++ test_name=12
++ args=-n:+1
++ expected_result=1
++ test -n:+1 = empty
++ test x-n:+1 = xLAST
+++ echo x-n:+1
+++ tr : ' '
+++ sed 's/^x//'
++ args='-n +1'
++ test yes = yes
++ echo 'test 12... '
++ tr -d '\n'
+test 12... ++ nice -n +1 nice
++ test x1 = x1
++ ok=ok
++ test yes = yes
++ echo ok
+ok
++ shift
++ shift
++ shift
++ :
++ test_name=13
++ args=--1:-2
++ expected_result=2
++ test --1:-2 = empty
++ test x--1:-2 = xLAST
+++ echo x--1:-2
+++ tr : ' '
+++ sed 's/^x//'
++ args='--1 -2'
++ test yes = yes
++ echo 'test 13... '
++ tr -d '\n'
+test 13... ++ nice --1 -2 nice
++ test x2 = x2
++ ok=ok
++ test yes = yes
++ echo ok
+ok
++ shift
++ shift
++ shift
++ :
++ test_name=14
++ args=--1:-2:-13
++ expected_result=13
++ test --1:-2:-13 = empty
++ test x--1:-2:-13 = xLAST
+++ echo x--1:-2:-13
+++ tr : ' '
+++ sed 's/^x//'
++ args='--1 -2 -13'
++ test yes = yes
++ echo 'test 14... '
++ tr -d '\n'
+test 14... ++ nice --1 -2 -13 nice
++ test x13 = x13
++ ok=ok
++ test yes = yes
++ echo ok
+ok
++ shift
++ shift
++ shift
++ :
++ test_name=15
++ args=--1:-n:2
++ expected_result=2
++ test --1:-n:2 = empty
++ test x--1:-n:2 = xLAST
+++ echo x--1:-n:2
+++ tr : ' '
+++ sed 's/^x//'
++ args='--1 -n 2'
++ test yes = yes
++ echo 'test 15... '
++ tr -d '\n'
+test 15... ++ nice --1 -n 2 nice
++ test x2 = x2
++ ok=ok
++ test yes = yes
++ echo ok
+ok
++ shift
++ shift
++ shift
++ :
++ test_name=16
++ args=--1:-n:2:-3
++ expected_result=3
++ test --1:-n:2:-3 = empty
++ test x--1:-n:2:-3 = xLAST
+++ echo x--1:-n:2:-3
+++ tr : ' '
+++ sed 's/^x//'
++ args='--1 -n 2 -3'
++ test yes = yes
++ echo 'test 16... '
++ tr -d '\n'
+test 16... ++ nice --1 -n 2 -3 nice
++ test x3 = x3
++ ok=ok
++ test yes = yes
++ echo ok
+ok
++ shift
++ shift
++ shift
++ :
++ test_name=17
++ args=--1:-n:2:-13
++ expected_result=13
++ test --1:-n:2:-13 = empty
++ test x--1:-n:2:-13 = xLAST
+++ echo x--1:-n:2:-13
+++ tr : ' '
+++ sed 's/^x//'
++ args='--1 -n 2 -13'
++ test yes = yes
++ echo 'test 17... '
++ tr -d '\n'
+test 17... ++ nice --1 -n 2 -13 nice
++ test x13 = x13
++ ok=ok
++ test yes = yes
++ echo ok
+ok
++ shift
++ shift
++ shift
++ :
++ test_name=18
++ args=-n:-1:-12
++ expected_result=12
++ test -n:-1:-12 = empty
++ test x-n:-1:-12 = xLAST
+++ echo x-n:-1:-12
+++ tr : ' '
+++ sed 's/^x//'
++ args='-n -1 -12'
++ test yes = yes
++ echo 'test 18... '
++ tr -d '\n'
+test 18... ++ nice -n -1 -12 nice
++ test x12 = x12
++ ok=ok
++ test yes = yes
++ echo ok
+ok
++ shift
++ shift
++ shift
++ :
++ test_name=19
++ args=--1:-12
++ expected_result=12
++ test --1:-12 = empty
++ test x--1:-12 = xLAST
+++ echo x--1:-12
+++ tr : ' '
+++ sed 's/^x//'
++ args='--1 -12'
++ test yes = yes
++ echo 'test 19... '
++ tr -d '\n'
+test 19... ++ nice --1 -12 nice
++ test x12 = x12
++ ok=ok
++ test yes = yes
++ echo ok
+ok
++ shift
++ shift
++ shift
++ :
++ test_name=NA
++ args=LAST
++ expected_result=NA
++ test LAST = empty
++ test xLAST = xLAST
++ break
+++ nice -n -1 nice
++ test x0 = x0
++ nice -n -1 true
++ test -s err
++ mv err exp
++ nice --1 true
++ compare exp err
++ compare_dev_null_ exp err
++ test 2 = 2
++ test xexp = x/dev/null
++ test xerr = x/dev/null
++ return 2
++ case $? in
++ compare_ exp err
++ diff -u exp err
++ test -w /dev/full
++ test -c /dev/full
++ nice -n -1 nice
++ test 125 = 125
++ compare /dev/null out
++ compare_dev_null_ /dev/null out
++ test 2 = 2
++ test x/dev/null = x/dev/null
++ test -s out
++ return 0
++ return 0
++ Exit 0
++ set +e
++ exit 0
++ exit 0
++ remove_tmp_
++ __st=0
++ cleanup_
++ :
++ cd '/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23'
++ chmod -R u+rwx '/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/gt-nice.sh.Rl4b'
++ rm -rf '/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/gt-nice.sh.Rl4b'
++ exit 0

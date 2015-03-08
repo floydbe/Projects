@@ -1,0 +1,1760 @@
+++ initial_cwd_='/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23'
+++ fail=0
++++ testdir_prefix_
++++ printf gt
+++ pfx_=gt
++++ mktempd_ '/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23' gt-abmon-align.sh.XXXX
++++ case $# in
++++ destdir_='/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23'
++++ template_=gt-abmon-align.sh.XXXX
++++ MAX_TRIES_=4
++++ case $destdir_ in
++++ case $template_ in
+++++ unset TMPDIR
++++ d='/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/gt-abmon-align.sh.Fmtn'
++++ case $d in
++++ test -d '/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/gt-abmon-align.sh.Fmtn'
+++++ ls -dgo '/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/gt-abmon-align.sh.Fmtn'
+++++ tr S -
++++ perms='drwx------ 2 4096 Mar  6 11:59 /home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/gt-abmon-align.sh.Fmtn'
++++ case $perms in
++++ test 0 = 0
++++ echo '/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/gt-abmon-align.sh.Fmtn'
++++ return
+++ test_dir_='/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/gt-abmon-align.sh.Fmtn'
+++ cd '/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/gt-abmon-align.sh.Fmtn'
+++ gl_init_sh_nl_='
+'
+++ IFS=' 	
+'
+++ for sig_ in 1 2 3 13 15
++++ expr 1 + 128
+++ eval 'trap '\''Exit 129'\'' 1'
++++ trap 'Exit 129' 1
+++ for sig_ in 1 2 3 13 15
++++ expr 2 + 128
+++ eval 'trap '\''Exit 130'\'' 2'
++++ trap 'Exit 130' 2
+++ for sig_ in 1 2 3 13 15
++++ expr 3 + 128
+++ eval 'trap '\''Exit 131'\'' 3'
++++ trap 'Exit 131' 3
+++ for sig_ in 1 2 3 13 15
++++ expr 13 + 128
+++ eval 'trap '\''Exit 141'\'' 13'
++++ trap 'Exit 141' 13
+++ for sig_ in 1 2 3 13 15
++++ expr 15 + 128
+++ eval 'trap '\''Exit 143'\'' 15'
++++ trap 'Exit 143' 15
+++ trap remove_tmp_ 0
++ path_prepend_ ./src
++ test 1 '!=' 0
++ path_dir_=./src
++ case $path_dir_ in
++ abs_path_dir_='/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/./src'
++ case $abs_path_dir_ in
++ PATH='/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/./src:/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/src:/home/jfloyd/.opam/system/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games'
++ create_exe_shims_ '/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/./src'
++ case $EXEEXT in
++ return 0
++ shift
++ test 0 '!=' 0
++ export PATH
++ print_ver_ ls
++ test yes = yes
++ local i
++ for i in '$*'
++ env ls --version
+ls (GNU coreutils) 8.23
+Copyright (C) 2014 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>.
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.
+
+Written by Richard M. Stallman and David MacKenzie.
+++ seq -w 12
++ for mon in '$(seq -w 12)'
++ touch '-d+01 month' 01.ts
++ for mon in '$(seq -w 12)'
++ touch '-d+02 month' 02.ts
++ for mon in '$(seq -w 12)'
++ touch '-d+03 month' 03.ts
++ for mon in '$(seq -w 12)'
++ touch '-d+04 month' 04.ts
++ for mon in '$(seq -w 12)'
++ touch '-d+05 month' 05.ts
++ for mon in '$(seq -w 12)'
++ touch '-d+06 month' 06.ts
++ for mon in '$(seq -w 12)'
++ touch '-d+07 month' 07.ts
++ for mon in '$(seq -w 12)'
++ touch '-d+08 month' 08.ts
++ for mon in '$(seq -w 12)'
++ touch '-d+09 month' 09.ts
++ for mon in '$(seq -w 12)'
++ touch '-d+10 month' 10.ts
++ for mon in '$(seq -w 12)'
++ touch '-d+11 month' 11.ts
++ for mon in '$(seq -w 12)'
++ touch '-d+12 month' 12.ts
++ for format in '"%b"' '"[%b"' '"%b]"' '"[%b]"'
++ for LOC in C gv_GB ga_IE fi_FI.utf8 zh_CN ar_SY '$LOCALE_FR_UTF8'
+++ LC_ALL=C
+++ sed 's/.\{15\}//;s/ ..\.ts$//;s/ /./g'
+++ LC_ALL=C
+++ TIME_STYLE=+%b
+++ ls -lgG 01.ts 02.ts 03.ts 04.ts 05.ts 06.ts 07.ts 08.ts 09.ts 10.ts 11.ts 12.ts
+++ read mon
+++ wc -l
+++ uniq
+++ echo Apr
+++ LC_ALL=C
+++ wc -L
+++ read mon
+++ echo May
+++ LC_ALL=C
+++ wc -L
+++ read mon
+++ echo Jun
+++ LC_ALL=C
+++ wc -L
+++ read mon
+++ echo Jul
+++ LC_ALL=C
+++ wc -L
+++ read mon
+++ echo Aug
+++ LC_ALL=C
+++ wc -L
+++ read mon
+++ echo Sep
+++ LC_ALL=C
+++ wc -L
+++ read mon
+++ echo Oct
+++ LC_ALL=C
+++ wc -L
+++ read mon
+++ echo Nov
+++ LC_ALL=C
+++ wc -L
+++ read mon
+++ echo Dec
+++ LC_ALL=C
+++ wc -L
+++ read mon
+++ echo Jan
+++ LC_ALL=C
+++ wc -L
+++ read mon
+++ echo Feb
+++ LC_ALL=C
+++ wc -L
+++ read mon
+++ echo Mar
+++ LC_ALL=C
+++ wc -L
+++ read mon
++ n_widths=1
++ test 1 = 1
++ for LOC in C gv_GB ga_IE fi_FI.utf8 zh_CN ar_SY '$LOCALE_FR_UTF8'
+++ LC_ALL=gv_GB
+++ TIME_STYLE=+%b
+++ LC_ALL=C
+++ sed 's/.\{15\}//;s/ ..\.ts$//;s/ /./g'
+++ wc -l
+++ read mon
+++ uniq
+++ echo Apr
+++ LC_ALL=gv_GB
+++ wc -L
+++ read mon
+++ echo May
+++ LC_ALL=gv_GB
+++ wc -L
+++ read mon
+++ echo Jun
+++ LC_ALL=gv_GB
+++ wc -L
+++ read mon
+++ echo Jul
+++ LC_ALL=gv_GB
+++ wc -L
+++ read mon
+++ echo Aug
+++ LC_ALL=gv_GB
+++ wc -L
+++ read mon
+++ echo Sep
+++ LC_ALL=gv_GB
+++ wc -L
+++ read mon
+++ echo Oct
+++ LC_ALL=gv_GB
+++ wc -L
+++ read mon
+++ echo Nov
+++ LC_ALL=gv_GB
+++ wc -L
+++ read mon
+++ echo Dec
+++ LC_ALL=gv_GB
+++ wc -L
+++ read mon
+++ echo Jan
+++ LC_ALL=gv_GB
+++ wc -L
+++ read mon
+++ echo Feb
+++ LC_ALL=gv_GB
+++ wc -L
+++ read mon
+++ echo Mar
+++ LC_ALL=gv_GB
+++ wc -L
+++ read mon
++ n_widths=1
++ test 1 = 1
++ for LOC in C gv_GB ga_IE fi_FI.utf8 zh_CN ar_SY '$LOCALE_FR_UTF8'
+++ LC_ALL=ga_IE
+++ TIME_STYLE=+%b
+++ ls -lgG 01.ts 02.ts 03.ts 04.ts 05.ts 06.ts 07.ts 08.ts 09.ts 10.ts 11.ts 12.ts
+++ LC_ALL=C
+++ sed 's/.\{15\}//;s/ ..\.ts$//;s/ /./g'
+++ wc -l
+++ read mon
+++ uniq
+++ echo Apr
+++ LC_ALL=ga_IE
+++ wc -L
+++ read mon
+++ echo May
+++ LC_ALL=ga_IE
+++ wc -L
+++ read mon
+++ echo Jun
+++ LC_ALL=ga_IE
+++ wc -L
+++ read mon
+++ echo Jul
+++ LC_ALL=ga_IE
+++ wc -L
+++ read mon
+++ echo Aug
+++ LC_ALL=ga_IE
+++ wc -L
+++ read mon
+++ echo Sep
+++ LC_ALL=ga_IE
+++ wc -L
+++ read mon
+++ echo Oct
+++ LC_ALL=ga_IE
+++ wc -L
+++ read mon
+++ echo Nov
+++ LC_ALL=ga_IE
+++ wc -L
+++ read mon
+++ echo Dec
+++ LC_ALL=ga_IE
+++ wc -L
+++ read mon
+++ echo Jan
+++ LC_ALL=ga_IE
+++ wc -L
+++ read mon
+++ echo Feb
+++ LC_ALL=ga_IE
+++ wc -L
+++ read mon
+++ echo Mar
+++ LC_ALL=ga_IE
+++ wc -L
+++ read mon
++ n_widths=1
++ test 1 = 1
++ for LOC in C gv_GB ga_IE fi_FI.utf8 zh_CN ar_SY '$LOCALE_FR_UTF8'
+++ LC_ALL=C
+++ sed 's/.\{15\}//;s/ ..\.ts$//;s/ /./g'
+++ LC_ALL=fi_FI.utf8
+++ TIME_STYLE=+%b
+++ ls -lgG 01.ts 02.ts 03.ts 04.ts 05.ts 06.ts 07.ts 08.ts 09.ts 10.ts 11.ts 12.ts
+++ read mon
+++ uniq
+++ wc -l
+++ echo Apr
+++ LC_ALL=fi_FI.utf8
+++ wc -L
+++ read mon
+++ echo May
+++ LC_ALL=fi_FI.utf8
+++ wc -L
+++ read mon
+++ echo Jun
+++ LC_ALL=fi_FI.utf8
+++ wc -L
+++ read mon
+++ echo Jul
+++ LC_ALL=fi_FI.utf8
+++ wc -L
+++ read mon
+++ echo Aug
+++ LC_ALL=fi_FI.utf8
+++ wc -L
+++ read mon
+++ echo Sep
+++ LC_ALL=fi_FI.utf8
+++ wc -L
+++ read mon
+++ echo Oct
+++ LC_ALL=fi_FI.utf8
+++ wc -L
+++ read mon
+++ echo Nov
+++ LC_ALL=fi_FI.utf8
+++ wc -L
+++ read mon
+++ echo Dec
+++ LC_ALL=fi_FI.utf8
+++ wc -L
+++ read mon
+++ echo Jan
+++ LC_ALL=fi_FI.utf8
+++ wc -L
+++ read mon
+++ echo Feb
+++ LC_ALL=fi_FI.utf8
+++ wc -L
+++ read mon
+++ echo Mar
+++ LC_ALL=fi_FI.utf8
+++ wc -L
+++ read mon
++ n_widths=1
++ test 1 = 1
++ for LOC in C gv_GB ga_IE fi_FI.utf8 zh_CN ar_SY '$LOCALE_FR_UTF8'
+++ LC_ALL=C
+++ sed 's/.\{15\}//;s/ ..\.ts$//;s/ /./g'
+++ LC_ALL=zh_CN
+++ TIME_STYLE=+%b
+++ ls -lgG 01.ts 02.ts 03.ts 04.ts 05.ts 06.ts 07.ts 08.ts 09.ts 10.ts 11.ts 12.ts
+++ uniq
+++ wc -l
+++ read mon
+++ echo Apr
+++ LC_ALL=zh_CN
+++ wc -L
+++ read mon
+++ echo May
+++ LC_ALL=zh_CN
+++ wc -L
+++ read mon
+++ echo Jun
+++ LC_ALL=zh_CN
+++ wc -L
+++ read mon
+++ echo Jul
+++ LC_ALL=zh_CN
+++ wc -L
+++ read mon
+++ echo Aug
+++ LC_ALL=zh_CN
+++ wc -L
+++ read mon
+++ echo Sep
+++ LC_ALL=zh_CN
+++ wc -L
+++ read mon
+++ echo Oct
+++ LC_ALL=zh_CN
+++ wc -L
+++ read mon
+++ echo Nov
+++ LC_ALL=zh_CN
+++ wc -L
+++ read mon
+++ echo Dec
+++ LC_ALL=zh_CN
+++ wc -L
+++ read mon
+++ echo Jan
+++ LC_ALL=zh_CN
+++ wc -L
+++ read mon
+++ echo Feb
+++ LC_ALL=zh_CN
+++ wc -L
+++ read mon
+++ echo Mar
+++ LC_ALL=zh_CN
+++ wc -L
+++ read mon
++ n_widths=1
++ test 1 = 1
++ for LOC in C gv_GB ga_IE fi_FI.utf8 zh_CN ar_SY '$LOCALE_FR_UTF8'
+++ LC_ALL=C
+++ sed 's/.\{15\}//;s/ ..\.ts$//;s/ /./g'
+++ LC_ALL=ar_SY
+++ TIME_STYLE=+%b
+++ ls -lgG 01.ts 02.ts 03.ts 04.ts 05.ts 06.ts 07.ts 08.ts 09.ts 10.ts 11.ts 12.ts
+++ read mon
+++ uniq
+++ wc -l
+++ echo Apr
+++ LC_ALL=ar_SY
+++ wc -L
+++ read mon
+++ echo May
+++ LC_ALL=ar_SY
+++ wc -L
+++ read mon
+++ echo Jun
+++ LC_ALL=ar_SY
+++ wc -L
+++ read mon
+++ echo Jul
+++ LC_ALL=ar_SY
+++ wc -L
+++ read mon
+++ echo Aug
+++ LC_ALL=ar_SY
+++ wc -L
+++ read mon
+++ echo Sep
+++ LC_ALL=ar_SY
+++ wc -L
+++ read mon
+++ echo Oct
+++ LC_ALL=ar_SY
+++ wc -L
+++ read mon
+++ echo Nov
+++ LC_ALL=ar_SY
+++ wc -L
+++ read mon
+++ echo Dec
+++ LC_ALL=ar_SY
+++ wc -L
+++ read mon
+++ echo Jan
+++ LC_ALL=ar_SY
+++ wc -L
+++ read mon
+++ echo Feb
+++ LC_ALL=ar_SY
+++ wc -L
+++ read mon
+++ echo Mar
+++ LC_ALL=ar_SY
+++ wc -L
+++ read mon
++ n_widths=1
++ test 1 = 1
++ for LOC in C gv_GB ga_IE fi_FI.utf8 zh_CN ar_SY '$LOCALE_FR_UTF8'
+++ LC_ALL=C
+++ sed 's/.\{15\}//;s/ ..\.ts$//;s/ /./g'
+++ LC_ALL=none
+++ TIME_STYLE=+%b
+++ ls -lgG 01.ts 02.ts 03.ts 04.ts 05.ts 06.ts 07.ts 08.ts 09.ts 10.ts 11.ts 12.ts
+++ uniq
+++ wc -l
+++ read mon
+++ echo Apr
+++ LC_ALL=none
+++ wc -L
+++ read mon
+++ echo May
+++ LC_ALL=none
+++ wc -L
+++ read mon
+++ echo Jun
+++ LC_ALL=none
+++ wc -L
+++ read mon
+++ echo Jul
+++ LC_ALL=none
+++ wc -L
+++ read mon
+++ echo Aug
+++ LC_ALL=none
+++ wc -L
+++ read mon
+++ echo Sep
+++ LC_ALL=none
+++ wc -L
+++ read mon
+++ echo Oct
+++ LC_ALL=none
+++ wc -L
+++ read mon
+++ echo Nov
+++ LC_ALL=none
+++ wc -L
+++ read mon
+++ echo Dec
+++ LC_ALL=none
+++ wc -L
+++ read mon
+++ echo Jan
+++ LC_ALL=none
+++ wc -L
+++ read mon
+++ echo Feb
+++ LC_ALL=none
+++ wc -L
+++ read mon
+++ echo Mar
+++ LC_ALL=none
+++ wc -L
+++ read mon
++ n_widths=1
++ test 1 = 1
++ for format in '"%b"' '"[%b"' '"%b]"' '"[%b]"'
++ for LOC in C gv_GB ga_IE fi_FI.utf8 zh_CN ar_SY '$LOCALE_FR_UTF8'
+++ LC_ALL=C
+++ LC_ALL=C
+++ ls -lgG 01.ts 02.ts 03.ts 04.ts 05.ts 06.ts 07.ts 08.ts 09.ts 10.ts 11.ts 12.ts
+++ sed 's/.\{15\}//;s/ ..\.ts$//;s/ /./g'
+++ read mon
+++ uniq
+++ wc -l
+++ echo '[Apr'
+++ LC_ALL=C
+++ wc -L
+++ read mon
+++ echo '[May'
+++ LC_ALL=C
+++ wc -L
+++ read mon
+++ echo '[Jun'
+++ LC_ALL=C
+++ wc -L
+++ read mon
+++ echo '[Jul'
+++ LC_ALL=C
+++ wc -L
+++ read mon
+++ echo '[Aug'
+++ LC_ALL=C
+++ wc -L
+++ read mon
+++ echo '[Sep'
+++ LC_ALL=C
+++ wc -L
+++ read mon
+++ echo '[Oct'
+++ LC_ALL=C
+++ wc -L
+++ read mon
+++ echo '[Nov'
+++ LC_ALL=C
+++ wc -L
+++ read mon
+++ echo '[Dec'
+++ LC_ALL=C
+++ wc -L
+++ read mon
+++ echo '[Jan'
+++ LC_ALL=C
+++ wc -L
+++ read mon
+++ echo '[Feb'
+++ LC_ALL=C
+++ wc -L
+++ read mon
+++ echo '[Mar'
+++ LC_ALL=C
+++ wc -L
+++ read mon
++ n_widths=1
++ test 1 = 1
++ for LOC in C gv_GB ga_IE fi_FI.utf8 zh_CN ar_SY '$LOCALE_FR_UTF8'
+++ LC_ALL=C
+++ sed 's/.\{15\}//;s/ ..\.ts$//;s/ /./g'
+++ LC_ALL=gv_GB
+++ TIME_STYLE='+[%b'
+++ ls -lgG 01.ts 02.ts 03.ts 04.ts 05.ts 06.ts 07.ts 08.ts 09.ts 10.ts 11.ts 12.ts
+++ uniq
+++ wc -l
+++ read mon
+++ echo '[Apr'
+++ LC_ALL=gv_GB
+++ wc -L
+++ read mon
+++ echo '[May'
+++ LC_ALL=gv_GB
+++ wc -L
+++ read mon
+++ echo '[Jun'
+++ LC_ALL=gv_GB
+++ wc -L
+++ read mon
+++ echo '[Jul'
+++ LC_ALL=gv_GB
+++ wc -L
+++ read mon
+++ echo '[Aug'
+++ LC_ALL=gv_GB
+++ wc -L
+++ read mon
+++ echo '[Sep'
+++ LC_ALL=gv_GB
+++ wc -L
+++ read mon
+++ echo '[Oct'
+++ LC_ALL=gv_GB
+++ wc -L
+++ read mon
+++ echo '[Nov'
+++ LC_ALL=gv_GB
+++ wc -L
+++ read mon
+++ echo '[Dec'
+++ LC_ALL=gv_GB
+++ wc -L
+++ read mon
+++ echo '[Jan'
+++ LC_ALL=gv_GB
+++ wc -L
+++ read mon
+++ echo '[Feb'
+++ LC_ALL=gv_GB
+++ wc -L
+++ read mon
+++ echo '[Mar'
+++ LC_ALL=gv_GB
+++ wc -L
+++ read mon
++ n_widths=1
++ test 1 = 1
++ for LOC in C gv_GB ga_IE fi_FI.utf8 zh_CN ar_SY '$LOCALE_FR_UTF8'
+++ LC_ALL=C
+++ sed 's/.\{15\}//;s/ ..\.ts$//;s/ /./g'
+++ LC_ALL=ga_IE
+++ TIME_STYLE='+[%b'
+++ ls -lgG 01.ts 02.ts 03.ts 04.ts 05.ts 06.ts 07.ts 08.ts 09.ts 10.ts 11.ts 12.ts
+++ uniq
+++ wc -l
+++ read mon
+++ echo '[Apr'
+++ LC_ALL=ga_IE
+++ wc -L
+++ read mon
+++ echo '[May'
+++ LC_ALL=ga_IE
+++ wc -L
+++ read mon
+++ echo '[Jun'
+++ LC_ALL=ga_IE
+++ wc -L
+++ read mon
+++ echo '[Jul'
+++ LC_ALL=ga_IE
+++ wc -L
+++ read mon
+++ echo '[Aug'
+++ LC_ALL=ga_IE
+++ wc -L
+++ read mon
+++ echo '[Sep'
+++ LC_ALL=ga_IE
+++ wc -L
+++ read mon
+++ echo '[Oct'
+++ LC_ALL=ga_IE
+++ wc -L
+++ read mon
+++ echo '[Nov'
+++ LC_ALL=ga_IE
+++ wc -L
+++ read mon
+++ echo '[Dec'
+++ LC_ALL=ga_IE
+++ wc -L
+++ read mon
+++ echo '[Jan'
+++ LC_ALL=ga_IE
+++ wc -L
+++ read mon
+++ echo '[Feb'
+++ LC_ALL=ga_IE
+++ wc -L
+++ read mon
+++ echo '[Mar'
+++ LC_ALL=ga_IE
+++ wc -L
+++ read mon
++ n_widths=1
++ test 1 = 1
++ for LOC in C gv_GB ga_IE fi_FI.utf8 zh_CN ar_SY '$LOCALE_FR_UTF8'
+++ LC_ALL=C
+++ LC_ALL=fi_FI.utf8
+++ TIME_STYLE='+[%b'
+++ ls -lgG 01.ts 02.ts 03.ts 04.ts 05.ts 06.ts 07.ts 08.ts 09.ts 10.ts 11.ts 12.ts
+++ uniq
+++ wc -l
+++ read mon
+++ echo '[Apr'
+++ LC_ALL=fi_FI.utf8
+++ wc -L
+++ read mon
+++ echo '[May'
+++ LC_ALL=fi_FI.utf8
+++ wc -L
+++ read mon
+++ echo '[Jun'
+++ LC_ALL=fi_FI.utf8
+++ wc -L
+++ read mon
+++ echo '[Jul'
+++ LC_ALL=fi_FI.utf8
+++ wc -L
+++ read mon
+++ echo '[Aug'
+++ LC_ALL=fi_FI.utf8
+++ wc -L
+++ read mon
+++ echo '[Sep'
+++ LC_ALL=fi_FI.utf8
+++ wc -L
+++ read mon
+++ echo '[Oct'
+++ LC_ALL=fi_FI.utf8
+++ wc -L
+++ read mon
+++ echo '[Nov'
+++ LC_ALL=fi_FI.utf8
+++ wc -L
+++ read mon
+++ echo '[Dec'
+++ LC_ALL=fi_FI.utf8
+++ wc -L
+++ read mon
+++ echo '[Jan'
+++ LC_ALL=fi_FI.utf8
+++ wc -L
+++ read mon
+++ echo '[Feb'
+++ LC_ALL=fi_FI.utf8
+++ wc -L
+++ read mon
+++ echo '[Mar'
+++ LC_ALL=fi_FI.utf8
+++ wc -L
+++ read mon
++ n_widths=1
++ test 1 = 1
++ for LOC in C gv_GB ga_IE fi_FI.utf8 zh_CN ar_SY '$LOCALE_FR_UTF8'
+++ LC_ALL=C
+++ sed 's/.\{15\}//;s/ ..\.ts$//;s/ /./g'
+++ TIME_STYLE='+[%b'
+++ ls -lgG 01.ts 02.ts 03.ts 04.ts 05.ts 06.ts 07.ts 08.ts 09.ts 10.ts 11.ts 12.ts
+++ read mon
+++ uniq
+++ wc -l
+++ echo '[Apr'
+++ LC_ALL=zh_CN
+++ wc -L
+++ read mon
+++ echo '[May'
+++ LC_ALL=zh_CN
+++ wc -L
+++ read mon
+++ echo '[Jun'
+++ LC_ALL=zh_CN
+++ wc -L
+++ read mon
+++ echo '[Jul'
+++ LC_ALL=zh_CN
+++ wc -L
+++ read mon
+++ echo '[Aug'
+++ LC_ALL=zh_CN
+++ wc -L
+++ read mon
+++ echo '[Sep'
+++ LC_ALL=zh_CN
+++ wc -L
+++ read mon
+++ echo '[Oct'
+++ LC_ALL=zh_CN
+++ wc -L
+++ read mon
+++ echo '[Nov'
+++ LC_ALL=zh_CN
+++ wc -L
+++ read mon
+++ echo '[Dec'
+++ LC_ALL=zh_CN
+++ wc -L
+++ read mon
+++ echo '[Jan'
+++ LC_ALL=zh_CN
+++ wc -L
+++ read mon
+++ echo '[Feb'
+++ LC_ALL=zh_CN
+++ wc -L
+++ read mon
+++ echo '[Mar'
+++ LC_ALL=zh_CN
+++ wc -L
+++ read mon
++ n_widths=1
++ test 1 = 1
++ for LOC in C gv_GB ga_IE fi_FI.utf8 zh_CN ar_SY '$LOCALE_FR_UTF8'
+++ LC_ALL=C
+++ sed 's/.\{15\}//;s/ ..\.ts$//;s/ /./g'
+++ LC_ALL=ar_SY
+++ TIME_STYLE='+[%b'
+++ ls -lgG 01.ts 02.ts 03.ts 04.ts 05.ts 06.ts 07.ts 08.ts 09.ts 10.ts 11.ts 12.ts
+++ read mon
+++ wc -l
+++ uniq
+++ echo '[Apr'
+++ LC_ALL=ar_SY
+++ wc -L
+++ read mon
+++ echo '[May'
+++ LC_ALL=ar_SY
+++ wc -L
+++ read mon
+++ echo '[Jun'
+++ LC_ALL=ar_SY
+++ wc -L
+++ read mon
+++ echo '[Jul'
+++ LC_ALL=ar_SY
+++ wc -L
+++ read mon
+++ echo '[Aug'
+++ LC_ALL=ar_SY
+++ wc -L
+++ read mon
+++ echo '[Sep'
+++ LC_ALL=ar_SY
+++ wc -L
+++ read mon
+++ echo '[Oct'
+++ LC_ALL=ar_SY
+++ wc -L
+++ read mon
+++ echo '[Nov'
+++ LC_ALL=ar_SY
+++ wc -L
+++ read mon
+++ echo '[Dec'
+++ LC_ALL=ar_SY
+++ wc -L
+++ read mon
+++ echo '[Jan'
+++ LC_ALL=ar_SY
+++ wc -L
+++ read mon
+++ echo '[Feb'
+++ LC_ALL=ar_SY
+++ wc -L
+++ read mon
+++ echo '[Mar'
+++ LC_ALL=ar_SY
+++ wc -L
+++ read mon
++ n_widths=1
++ test 1 = 1
++ for LOC in C gv_GB ga_IE fi_FI.utf8 zh_CN ar_SY '$LOCALE_FR_UTF8'
+++ LC_ALL=none
+++ LC_ALL=C
+++ TIME_STYLE='+[%b'
+++ sed 's/.\{15\}//;s/ ..\.ts$//;s/ /./g'
+++ ls -lgG 01.ts 02.ts 03.ts 04.ts 05.ts 06.ts 07.ts 08.ts 09.ts 10.ts 11.ts 12.ts
+++ read mon
+++ wc -l
+++ uniq
+++ LC_ALL=none
+++ wc -L
+++ read mon
+++ echo '[May'
+++ LC_ALL=none
+++ wc -L
+++ read mon
+++ echo '[Jun'
+++ LC_ALL=none
+++ wc -L
+++ read mon
+++ echo '[Jul'
+++ LC_ALL=none
+++ wc -L
+++ read mon
+++ echo '[Aug'
+++ LC_ALL=none
+++ wc -L
+++ read mon
+++ echo '[Sep'
+++ LC_ALL=none
+++ wc -L
+++ read mon
+++ echo '[Oct'
+++ LC_ALL=none
+++ wc -L
+++ read mon
+++ echo '[Nov'
+++ LC_ALL=none
+++ wc -L
+++ read mon
+++ echo '[Dec'
+++ LC_ALL=none
+++ wc -L
+++ read mon
+++ echo '[Jan'
+++ LC_ALL=none
+++ wc -L
+++ read mon
+++ echo '[Feb'
+++ LC_ALL=none
+++ wc -L
+++ read mon
+++ echo '[Mar'
+++ LC_ALL=none
+++ wc -L
+++ read mon
++ n_widths=1
++ test 1 = 1
++ for format in '"%b"' '"[%b"' '"%b]"' '"[%b]"'
++ for LOC in C gv_GB ga_IE fi_FI.utf8 zh_CN ar_SY '$LOCALE_FR_UTF8'
+++ LC_ALL=C
+++ sed 's/.\{15\}//;s/ ..\.ts$//;s/ /./g'
+++ LC_ALL=C
+++ TIME_STYLE='+%b]'
+++ ls -lgG 01.ts 02.ts 03.ts 04.ts 05.ts 06.ts 07.ts 08.ts 09.ts 10.ts 11.ts 12.ts
+++ read mon
+++ wc -l
+++ uniq
+++ echo 'Apr]'
+++ LC_ALL=C
+++ wc -L
+++ read mon
+++ echo 'May]'
+++ LC_ALL=C
+++ wc -L
+++ read mon
+++ echo 'Jun]'
+++ LC_ALL=C
+++ wc -L
+++ read mon
+++ echo 'Jul]'
+++ LC_ALL=C
+++ wc -L
+++ read mon
+++ echo 'Aug]'
+++ LC_ALL=C
+++ wc -L
+++ read mon
+++ echo 'Sep]'
+++ LC_ALL=C
+++ wc -L
+++ read mon
+++ echo 'Oct]'
+++ LC_ALL=C
+++ wc -L
+++ read mon
+++ echo 'Nov]'
+++ LC_ALL=C
+++ wc -L
+++ read mon
+++ echo 'Dec]'
+++ LC_ALL=C
+++ wc -L
+++ read mon
+++ echo 'Jan]'
+++ LC_ALL=C
+++ wc -L
+++ read mon
+++ echo 'Feb]'
+++ LC_ALL=C
+++ wc -L
+++ read mon
+++ echo 'Mar]'
+++ LC_ALL=C
+++ wc -L
+++ read mon
++ n_widths=1
++ test 1 = 1
++ for LOC in C gv_GB ga_IE fi_FI.utf8 zh_CN ar_SY '$LOCALE_FR_UTF8'
+++ LC_ALL=C
+++ sed 's/.\{15\}//;s/ ..\.ts$//;s/ /./g'
+++ LC_ALL=gv_GB
+++ TIME_STYLE='+%b]'
+++ ls -lgG 01.ts 02.ts 03.ts 04.ts 05.ts 06.ts 07.ts 08.ts 09.ts 10.ts 11.ts 12.ts
+++ uniq
+++ read mon
+++ wc -l
+++ echo 'Apr]'
+++ LC_ALL=gv_GB
+++ wc -L
+++ read mon
+++ echo 'May]'
+++ LC_ALL=gv_GB
+++ wc -L
+++ read mon
+++ echo 'Jun]'
+++ LC_ALL=gv_GB
+++ wc -L
+++ read mon
+++ echo 'Jul]'
+++ LC_ALL=gv_GB
+++ wc -L
+++ read mon
+++ echo 'Aug]'
+++ LC_ALL=gv_GB
+++ wc -L
+++ read mon
+++ echo 'Sep]'
+++ LC_ALL=gv_GB
+++ wc -L
+++ read mon
+++ echo 'Oct]'
+++ LC_ALL=gv_GB
+++ wc -L
+++ read mon
+++ echo 'Nov]'
+++ LC_ALL=gv_GB
+++ wc -L
+++ read mon
+++ echo 'Dec]'
+++ LC_ALL=gv_GB
+++ wc -L
+++ read mon
+++ echo 'Jan]'
+++ LC_ALL=gv_GB
+++ wc -L
+++ read mon
+++ echo 'Feb]'
+++ LC_ALL=gv_GB
+++ wc -L
+++ read mon
+++ echo 'Mar]'
+++ LC_ALL=gv_GB
+++ wc -L
+++ read mon
++ n_widths=1
++ test 1 = 1
++ for LOC in C gv_GB ga_IE fi_FI.utf8 zh_CN ar_SY '$LOCALE_FR_UTF8'
+++ LC_ALL=C
+++ LC_ALL=ga_IE
+++ uniq
+++ read mon
+++ TIME_STYLE='+%b]'
+++ ls -lgG 01.ts 02.ts 03.ts 04.ts 05.ts 06.ts 07.ts 08.ts 09.ts 10.ts 11.ts 12.ts
+++ wc -l
+++ echo 'Apr]'
+++ LC_ALL=ga_IE
+++ wc -L
+++ read mon
+++ echo 'May]'
+++ LC_ALL=ga_IE
+++ wc -L
+++ read mon
+++ echo 'Jun]'
+++ LC_ALL=ga_IE
+++ wc -L
+++ read mon
+++ echo 'Jul]'
+++ LC_ALL=ga_IE
+++ wc -L
+++ read mon
+++ echo 'Aug]'
+++ LC_ALL=ga_IE
+++ wc -L
+++ read mon
+++ echo 'Sep]'
+++ LC_ALL=ga_IE
+++ wc -L
+++ read mon
+++ echo 'Oct]'
+++ LC_ALL=ga_IE
+++ wc -L
+++ read mon
+++ echo 'Nov]'
+++ LC_ALL=ga_IE
+++ wc -L
+++ read mon
+++ echo 'Dec]'
+++ LC_ALL=ga_IE
+++ wc -L
+++ read mon
+++ echo 'Jan]'
+++ LC_ALL=ga_IE
+++ wc -L
+++ read mon
+++ echo 'Feb]'
+++ LC_ALL=ga_IE
+++ wc -L
+++ read mon
+++ echo 'Mar]'
+++ LC_ALL=ga_IE
+++ wc -L
+++ read mon
++ n_widths=1
++ test 1 = 1
++ for LOC in C gv_GB ga_IE fi_FI.utf8 zh_CN ar_SY '$LOCALE_FR_UTF8'
+++ LC_ALL=C
+++ sed 's/.\{15\}//;s/ ..\.ts$//;s/ /./g'
+++ LC_ALL=fi_FI.utf8
+++ TIME_STYLE='+%b]'
+++ ls -lgG 01.ts 02.ts 03.ts 04.ts 05.ts 06.ts 07.ts 08.ts 09.ts 10.ts 11.ts 12.ts
+++ read mon
+++ wc -l
+++ uniq
+++ echo 'Apr]'
+++ LC_ALL=fi_FI.utf8
+++ wc -L
+++ read mon
+++ echo 'May]'
+++ LC_ALL=fi_FI.utf8
+++ wc -L
+++ read mon
+++ echo 'Jun]'
+++ LC_ALL=fi_FI.utf8
+++ wc -L
+++ read mon
+++ echo 'Jul]'
+++ LC_ALL=fi_FI.utf8
+++ wc -L
+++ read mon
+++ echo 'Aug]'
+++ LC_ALL=fi_FI.utf8
+++ wc -L
+++ read mon
+++ echo 'Sep]'
+++ LC_ALL=fi_FI.utf8
+++ wc -L
+++ read mon
+++ echo 'Oct]'
+++ LC_ALL=fi_FI.utf8
+++ wc -L
+++ read mon
+++ echo 'Nov]'
+++ LC_ALL=fi_FI.utf8
+++ wc -L
+++ read mon
+++ echo 'Dec]'
+++ LC_ALL=fi_FI.utf8
+++ wc -L
+++ read mon
+++ echo 'Jan]'
+++ LC_ALL=fi_FI.utf8
+++ wc -L
+++ read mon
+++ echo 'Feb]'
+++ LC_ALL=fi_FI.utf8
+++ wc -L
+++ read mon
+++ echo 'Mar]'
+++ LC_ALL=fi_FI.utf8
+++ wc -L
+++ read mon
++ n_widths=1
++ test 1 = 1
++ for LOC in C gv_GB ga_IE fi_FI.utf8 zh_CN ar_SY '$LOCALE_FR_UTF8'
+++ LC_ALL=C
+++ sed 's/.\{15\}//;s/ ..\.ts$//;s/ /./g'
+++ LC_ALL=zh_CN
+++ TIME_STYLE='+%b]'
+++ ls -lgG 01.ts 02.ts 03.ts 04.ts 05.ts 06.ts 07.ts 08.ts 09.ts 10.ts 11.ts 12.ts
+++ uniq
+++ wc -l
+++ read mon
+++ echo 'Apr]'
+++ LC_ALL=zh_CN
+++ wc -L
+++ read mon
+++ echo 'May]'
+++ LC_ALL=zh_CN
+++ wc -L
+++ read mon
+++ echo 'Jun]'
+++ LC_ALL=zh_CN
+++ wc -L
+++ read mon
+++ echo 'Jul]'
+++ LC_ALL=zh_CN
+++ wc -L
+++ read mon
+++ echo 'Aug]'
+++ LC_ALL=zh_CN
+++ wc -L
+++ read mon
+++ echo 'Sep]'
+++ LC_ALL=zh_CN
+++ wc -L
+++ read mon
+++ echo 'Oct]'
+++ LC_ALL=zh_CN
+++ wc -L
+++ read mon
+++ echo 'Nov]'
+++ LC_ALL=zh_CN
+++ wc -L
+++ read mon
+++ echo 'Dec]'
+++ LC_ALL=zh_CN
+++ wc -L
+++ read mon
+++ echo 'Jan]'
+++ LC_ALL=zh_CN
+++ wc -L
+++ read mon
+++ echo 'Feb]'
+++ LC_ALL=zh_CN
+++ wc -L
+++ read mon
+++ echo 'Mar]'
+++ LC_ALL=zh_CN
+++ wc -L
+++ read mon
++ n_widths=1
++ test 1 = 1
++ for LOC in C gv_GB ga_IE fi_FI.utf8 zh_CN ar_SY '$LOCALE_FR_UTF8'
+++ LC_ALL=C
+++ sed 's/.\{15\}//;s/ ..\.ts$//;s/ /./g'
+++ LC_ALL=ar_SY
+++ TIME_STYLE='+%b]'
+++ ls -lgG 01.ts 02.ts 03.ts 04.ts 05.ts 06.ts 07.ts 08.ts 09.ts 10.ts 11.ts 12.ts
+++ read mon
+++ uniq
+++ wc -l
+++ echo 'Apr]'
+++ LC_ALL=ar_SY
+++ wc -L
+++ read mon
+++ echo 'May]'
+++ LC_ALL=ar_SY
+++ wc -L
+++ read mon
+++ echo 'Jun]'
+++ LC_ALL=ar_SY
+++ wc -L
+++ read mon
+++ echo 'Jul]'
+++ LC_ALL=ar_SY
+++ wc -L
+++ read mon
+++ echo 'Aug]'
+++ LC_ALL=ar_SY
+++ wc -L
+++ read mon
+++ echo 'Sep]'
+++ LC_ALL=ar_SY
+++ wc -L
+++ read mon
+++ echo 'Oct]'
+++ LC_ALL=ar_SY
+++ wc -L
+++ read mon
+++ echo 'Nov]'
+++ LC_ALL=ar_SY
+++ wc -L
+++ read mon
+++ echo 'Dec]'
+++ LC_ALL=ar_SY
+++ wc -L
+++ read mon
+++ echo 'Jan]'
+++ LC_ALL=ar_SY
+++ wc -L
+++ read mon
+++ echo 'Feb]'
+++ LC_ALL=ar_SY
+++ wc -L
+++ read mon
+++ echo 'Mar]'
+++ LC_ALL=ar_SY
+++ wc -L
+++ read mon
++ n_widths=1
++ test 1 = 1
++ for LOC in C gv_GB ga_IE fi_FI.utf8 zh_CN ar_SY '$LOCALE_FR_UTF8'
+++ LC_ALL=C
+++ sed 's/.\{15\}//;s/ ..\.ts$//;s/ /./g'
+++ LC_ALL=none
+++ TIME_STYLE='+%b]'
+++ ls -lgG 01.ts 02.ts 03.ts 04.ts 05.ts 06.ts 07.ts 08.ts 09.ts 10.ts 11.ts 12.ts
+++ uniq
+++ read mon
+++ wc -l
+++ echo 'Apr]'
+++ LC_ALL=none
+++ wc -L
+++ read mon
+++ echo 'May]'
+++ LC_ALL=none
+++ wc -L
+++ read mon
+++ echo 'Jun]'
+++ LC_ALL=none
+++ wc -L
+++ read mon
+++ echo 'Jul]'
+++ LC_ALL=none
+++ wc -L
+++ read mon
+++ echo 'Aug]'
+++ LC_ALL=none
+++ wc -L
+++ read mon
+++ echo 'Sep]'
+++ LC_ALL=none
+++ wc -L
+++ read mon
+++ echo 'Oct]'
+++ LC_ALL=none
+++ wc -L
+++ read mon
+++ echo 'Nov]'
+++ LC_ALL=none
+++ wc -L
+++ read mon
+++ echo 'Dec]'
+++ LC_ALL=none
+++ wc -L
+++ read mon
+++ echo 'Jan]'
+++ LC_ALL=none
+++ wc -L
+++ read mon
+++ echo 'Feb]'
+++ LC_ALL=none
+++ wc -L
+++ read mon
+++ echo 'Mar]'
+++ LC_ALL=none
+++ wc -L
+++ read mon
++ n_widths=1
++ test 1 = 1
++ for format in '"%b"' '"[%b"' '"%b]"' '"[%b]"'
++ for LOC in C gv_GB ga_IE fi_FI.utf8 zh_CN ar_SY '$LOCALE_FR_UTF8'
+++ LC_ALL=C
+++ sed 's/.\{15\}//;s/ ..\.ts$//;s/ /./g'
+++ LC_ALL=C
+++ TIME_STYLE='+[%b]'
+++ ls -lgG 01.ts 02.ts 03.ts 04.ts 05.ts 06.ts 07.ts 08.ts 09.ts 10.ts 11.ts 12.ts
+++ read mon
+++ wc -l
+++ uniq
+++ echo '[Apr]'
+++ LC_ALL=C
+++ wc -L
+++ read mon
+++ echo '[May]'
+++ LC_ALL=C
+++ wc -L
+++ read mon
+++ echo '[Jun]'
+++ LC_ALL=C
+++ wc -L
+++ read mon
+++ echo '[Jul]'
+++ LC_ALL=C
+++ wc -L
+++ read mon
+++ echo '[Aug]'
+++ LC_ALL=C
+++ wc -L
+++ read mon
+++ echo '[Sep]'
+++ LC_ALL=C
+++ wc -L
+++ read mon
+++ echo '[Oct]'
+++ LC_ALL=C
+++ wc -L
+++ read mon
+++ echo '[Nov]'
+++ LC_ALL=C
+++ wc -L
+++ read mon
+++ echo '[Dec]'
+++ LC_ALL=C
+++ wc -L
+++ read mon
+++ echo '[Jan]'
+++ LC_ALL=C
+++ wc -L
+++ read mon
+++ echo '[Feb]'
+++ LC_ALL=C
+++ wc -L
+++ read mon
+++ echo '[Mar]'
+++ LC_ALL=C
+++ wc -L
+++ read mon
++ n_widths=1
++ test 1 = 1
++ for LOC in C gv_GB ga_IE fi_FI.utf8 zh_CN ar_SY '$LOCALE_FR_UTF8'
+++ LC_ALL=C
+++ sed 's/.\{15\}//;s/ ..\.ts$//;s/ /./g'
+++ LC_ALL=gv_GB
+++ TIME_STYLE='+[%b]'
+++ ls -lgG 01.ts 02.ts 03.ts 04.ts 05.ts 06.ts 07.ts 08.ts 09.ts 10.ts 11.ts 12.ts
+++ read mon
+++ uniq
+++ wc -l
+++ echo '[Apr]'
+++ LC_ALL=gv_GB
+++ wc -L
+++ read mon
+++ echo '[May]'
+++ LC_ALL=gv_GB
+++ wc -L
+++ read mon
+++ echo '[Jun]'
+++ LC_ALL=gv_GB
+++ wc -L
+++ read mon
+++ echo '[Jul]'
+++ LC_ALL=gv_GB
+++ wc -L
+++ read mon
+++ echo '[Aug]'
+++ LC_ALL=gv_GB
+++ wc -L
+++ read mon
+++ echo '[Sep]'
+++ LC_ALL=gv_GB
+++ wc -L
+++ read mon
+++ echo '[Oct]'
+++ LC_ALL=gv_GB
+++ wc -L
+++ read mon
+++ echo '[Nov]'
+++ LC_ALL=gv_GB
+++ wc -L
+++ read mon
+++ echo '[Dec]'
+++ LC_ALL=gv_GB
+++ wc -L
+++ read mon
+++ echo '[Jan]'
+++ LC_ALL=gv_GB
+++ wc -L
+++ read mon
+++ echo '[Feb]'
+++ LC_ALL=gv_GB
+++ wc -L
+++ read mon
+++ echo '[Mar]'
+++ LC_ALL=gv_GB
+++ wc -L
+++ read mon
++ n_widths=1
++ test 1 = 1
++ for LOC in C gv_GB ga_IE fi_FI.utf8 zh_CN ar_SY '$LOCALE_FR_UTF8'
+++ LC_ALL=C
+++ sed 's/.\{15\}//;s/ ..\.ts$//;s/ /./g'
+++ LC_ALL=ga_IE
+++ TIME_STYLE='+[%b]'
+++ ls -lgG 01.ts 02.ts 03.ts 04.ts 05.ts 06.ts 07.ts 08.ts 09.ts 10.ts 11.ts 12.ts
+++ read mon
+++ wc -l
+++ uniq
+++ echo '[Apr]'
+++ LC_ALL=ga_IE
+++ wc -L
+++ read mon
+++ echo '[May]'
+++ LC_ALL=ga_IE
+++ wc -L
+++ read mon
+++ echo '[Jun]'
+++ LC_ALL=ga_IE
+++ wc -L
+++ read mon
+++ echo '[Jul]'
+++ LC_ALL=ga_IE
+++ wc -L
+++ read mon
+++ echo '[Aug]'
+++ LC_ALL=ga_IE
+++ wc -L
+++ read mon
+++ echo '[Sep]'
+++ LC_ALL=ga_IE
+++ wc -L
+++ read mon
+++ echo '[Oct]'
+++ LC_ALL=ga_IE
+++ wc -L
+++ read mon
+++ echo '[Nov]'
+++ LC_ALL=ga_IE
+++ wc -L
+++ read mon
+++ echo '[Dec]'
+++ LC_ALL=ga_IE
+++ wc -L
+++ read mon
+++ echo '[Jan]'
+++ LC_ALL=ga_IE
+++ wc -L
+++ read mon
+++ echo '[Feb]'
+++ LC_ALL=ga_IE
+++ wc -L
+++ read mon
+++ echo '[Mar]'
+++ LC_ALL=ga_IE
+++ wc -L
+++ read mon
++ n_widths=1
++ test 1 = 1
++ for LOC in C gv_GB ga_IE fi_FI.utf8 zh_CN ar_SY '$LOCALE_FR_UTF8'
+++ LC_ALL=C
+++ sed 's/.\{15\}//;s/ ..\.ts$//;s/ /./g'
+++ LC_ALL=fi_FI.utf8
+++ TIME_STYLE='+[%b]'
+++ ls -lgG 01.ts 02.ts 03.ts 04.ts 05.ts 06.ts 07.ts 08.ts 09.ts 10.ts 11.ts 12.ts
+++ read mon
+++ uniq
+++ wc -l
+++ echo '[Apr]'
+++ LC_ALL=fi_FI.utf8
+++ wc -L
+++ read mon
+++ echo '[May]'
+++ LC_ALL=fi_FI.utf8
+++ wc -L
+++ read mon
+++ echo '[Jun]'
+++ LC_ALL=fi_FI.utf8
+++ wc -L
+++ read mon
+++ echo '[Jul]'
+++ LC_ALL=fi_FI.utf8
+++ wc -L
+++ read mon
+++ echo '[Aug]'
+++ LC_ALL=fi_FI.utf8
+++ wc -L
+++ read mon
+++ echo '[Sep]'
+++ LC_ALL=fi_FI.utf8
+++ wc -L
+++ read mon
+++ echo '[Oct]'
+++ LC_ALL=fi_FI.utf8
+++ wc -L
+++ read mon
+++ echo '[Nov]'
+++ LC_ALL=fi_FI.utf8
+++ wc -L
+++ read mon
+++ echo '[Dec]'
+++ LC_ALL=fi_FI.utf8
+++ wc -L
+++ read mon
+++ echo '[Jan]'
+++ LC_ALL=fi_FI.utf8
+++ wc -L
+++ read mon
+++ echo '[Feb]'
+++ LC_ALL=fi_FI.utf8
+++ wc -L
+++ read mon
+++ echo '[Mar]'
+++ LC_ALL=fi_FI.utf8
+++ wc -L
+++ read mon
++ n_widths=1
++ test 1 = 1
++ for LOC in C gv_GB ga_IE fi_FI.utf8 zh_CN ar_SY '$LOCALE_FR_UTF8'
+++ LC_ALL=zh_CN
+++ LC_ALL=C
+++ ls -lgG 01.ts 02.ts 03.ts 04.ts 05.ts 06.ts 07.ts 08.ts 09.ts 10.ts 11.ts 12.ts
+++ sed 's/.\{15\}//;s/ ..\.ts$//;s/ /./g'
+++ read mon
+++ uniq
+++ wc -l
+++ echo '[Apr]'
+++ LC_ALL=zh_CN
+++ wc -L
+++ read mon
+++ echo '[May]'
+++ LC_ALL=zh_CN
+++ wc -L
+++ read mon
+++ echo '[Jun]'
+++ LC_ALL=zh_CN
+++ wc -L
+++ read mon
+++ echo '[Jul]'
+++ LC_ALL=zh_CN
+++ wc -L
+++ read mon
+++ echo '[Aug]'
+++ LC_ALL=zh_CN
+++ wc -L
+++ read mon
+++ echo '[Sep]'
+++ LC_ALL=zh_CN
+++ wc -L
+++ read mon
+++ echo '[Oct]'
+++ LC_ALL=zh_CN
+++ wc -L
+++ read mon
+++ echo '[Nov]'
+++ LC_ALL=zh_CN
+++ wc -L
+++ read mon
+++ echo '[Dec]'
+++ LC_ALL=zh_CN
+++ wc -L
+++ read mon
+++ echo '[Jan]'
+++ LC_ALL=zh_CN
+++ wc -L
+++ read mon
+++ echo '[Feb]'
+++ LC_ALL=zh_CN
+++ wc -L
+++ read mon
+++ echo '[Mar]'
+++ LC_ALL=zh_CN
+++ wc -L
+++ read mon
++ n_widths=1
++ test 1 = 1
++ for LOC in C gv_GB ga_IE fi_FI.utf8 zh_CN ar_SY '$LOCALE_FR_UTF8'
+++ LC_ALL=C
+++ sed 's/.\{15\}//;s/ ..\.ts$//;s/ /./g'
+++ LC_ALL=ar_SY
+++ TIME_STYLE='+[%b]'
+++ ls -lgG 01.ts 02.ts 03.ts 04.ts 05.ts 06.ts 07.ts 08.ts 09.ts 10.ts 11.ts 12.ts
+++ read mon
+++ uniq
+++ wc -l
+++ echo '[Apr]'
+++ LC_ALL=ar_SY
+++ wc -L
+++ read mon
+++ echo '[May]'
+++ LC_ALL=ar_SY
+++ wc -L
+++ read mon
+++ echo '[Jun]'
+++ LC_ALL=ar_SY
+++ wc -L
+++ read mon
+++ echo '[Jul]'
+++ LC_ALL=ar_SY
+++ wc -L
+++ read mon
+++ echo '[Aug]'
+++ LC_ALL=ar_SY
+++ wc -L
+++ read mon
+++ echo '[Sep]'
+++ LC_ALL=ar_SY
+++ wc -L
+++ read mon
+++ echo '[Oct]'
+++ LC_ALL=ar_SY
+++ wc -L
+++ read mon
+++ echo '[Nov]'
+++ LC_ALL=ar_SY
+++ wc -L
+++ read mon
+++ echo '[Dec]'
+++ LC_ALL=ar_SY
+++ wc -L
+++ read mon
+++ echo '[Jan]'
+++ LC_ALL=ar_SY
+++ wc -L
+++ read mon
+++ echo '[Feb]'
+++ LC_ALL=ar_SY
+++ wc -L
+++ read mon
+++ echo '[Mar]'
+++ LC_ALL=ar_SY
+++ wc -L
+++ read mon
++ n_widths=1
++ test 1 = 1
++ for LOC in C gv_GB ga_IE fi_FI.utf8 zh_CN ar_SY '$LOCALE_FR_UTF8'
+++ LC_ALL=C
+++ TIME_STYLE='+[%b]'
+++ ls -lgG 01.ts 02.ts 03.ts 04.ts 05.ts 06.ts 07.ts 08.ts 09.ts 10.ts 11.ts 12.ts
+++ read mon
+++ uniq
+++ wc -l
+++ echo '[Apr]'
+++ LC_ALL=none
+++ wc -L
+++ read mon
+++ echo '[May]'
+++ LC_ALL=none
+++ wc -L
+++ read mon
+++ echo '[Jun]'
+++ LC_ALL=none
+++ wc -L
+++ read mon
+++ echo '[Jul]'
+++ LC_ALL=none
+++ wc -L
+++ read mon
+++ echo '[Aug]'
+++ LC_ALL=none
+++ wc -L
+++ read mon
+++ echo '[Sep]'
+++ LC_ALL=none
+++ wc -L
+++ read mon
+++ echo '[Oct]'
+++ LC_ALL=none
+++ wc -L
+++ read mon
+++ echo '[Nov]'
+++ LC_ALL=none
+++ wc -L
+++ read mon
+++ echo '[Dec]'
+++ LC_ALL=none
+++ wc -L
+++ read mon
+++ echo '[Jan]'
+++ LC_ALL=none
+++ wc -L
+++ read mon
+++ echo '[Feb]'
+++ LC_ALL=none
+++ wc -L
+++ read mon
+++ echo '[Mar]'
+++ LC_ALL=none
+++ wc -L
+++ read mon
++ n_widths=1
++ test 1 = 1
++ test 0 = 1
++ Exit 0
++ set +e
++ exit 0
++ exit 0
++ remove_tmp_
++ __st=0
++ cleanup_
++ :
++ cd '/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23'
++ chmod -R u+rwx '/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/gt-abmon-align.sh.Fmtn'
++ rm -rf '/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/gt-abmon-align.sh.Fmtn'
++ exit 0

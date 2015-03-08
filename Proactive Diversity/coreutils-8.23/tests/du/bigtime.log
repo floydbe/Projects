@@ -1,0 +1,108 @@
+++ initial_cwd_='/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23'
+++ fail=0
++++ testdir_prefix_
++++ printf gt
+++ pfx_=gt
++++ mktempd_ '/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23' gt-bigtime.sh.XXXX
++++ case $# in
++++ destdir_='/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23'
++++ template_=gt-bigtime.sh.XXXX
++++ MAX_TRIES_=4
++++ case $destdir_ in
++++ case $template_ in
+++++ unset TMPDIR
++++ d='/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/gt-bigtime.sh.sCP4'
++++ case $d in
++++ test -d '/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/gt-bigtime.sh.sCP4'
+++++ ls -dgo '/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/gt-bigtime.sh.sCP4'
+++++ tr S -
++++ perms='drwx------ 2 4096 Mar  6 11:59 /home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/gt-bigtime.sh.sCP4'
++++ case $perms in
++++ test 0 = 0
++++ echo '/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/gt-bigtime.sh.sCP4'
++++ return
+++ test_dir_='/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/gt-bigtime.sh.sCP4'
+++ cd '/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/gt-bigtime.sh.sCP4'
+++ gl_init_sh_nl_='
+'
+++ IFS=' 	
+'
+++ for sig_ in 1 2 3 13 15
++++ expr 1 + 128
+++ eval 'trap '\''Exit 129'\'' 1'
++++ trap 'Exit 129' 1
+++ for sig_ in 1 2 3 13 15
++++ expr 2 + 128
+++ eval 'trap '\''Exit 130'\'' 2'
++++ trap 'Exit 130' 2
+++ for sig_ in 1 2 3 13 15
++++ expr 3 + 128
+++ eval 'trap '\''Exit 131'\'' 3'
++++ trap 'Exit 131' 3
+++ for sig_ in 1 2 3 13 15
++++ expr 13 + 128
+++ eval 'trap '\''Exit 141'\'' 13'
++++ trap 'Exit 141' 13
+++ for sig_ in 1 2 3 13 15
++++ expr 15 + 128
+++ eval 'trap '\''Exit 143'\'' 15'
++++ trap 'Exit 143' 15
+++ trap remove_tmp_ 0
++ path_prepend_ ./src
++ test 1 '!=' 0
++ path_dir_=./src
++ case $path_dir_ in
++ abs_path_dir_='/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/./src'
++ case $abs_path_dir_ in
++ PATH='/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/./src:/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/src:/home/jfloyd/.opam/system/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games'
++ create_exe_shims_ '/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/./src'
++ case $EXEEXT in
++ return 0
++ shift
++ test 0 '!=' 0
++ export PATH
++ export LC_ALL=C
++ LC_ALL=C
++ export TZ=UTC0
++ TZ=UTC0
++ bignum=9223372036854775807
++ touch -d @9223372036854775807 future
+++ ls -l future
++ future_time='-rw-rw-r-- 1 jfloyd jfloyd 0 9223372036854775807 future'
++ case "$future_time" in
++ :
++ printf '0\t9223372036854775807\tfuture\n'
++ printf 'du: time 9223372036854775807 is out of range\n'
++ du --time future
++ sed 's/^[0-9][0-9]*/0/' out
++ mv k out
++ compare exp out
++ compare_dev_null_ exp out
++ test 2 = 2
++ test xexp = x/dev/null
++ test xout = x/dev/null
++ return 2
++ case $? in
++ compare_ exp out
++ diff -u exp out
++ compare err err_ok
++ compare_dev_null_ err err_ok
++ test 2 = 2
++ test xerr = x/dev/null
++ test xerr_ok = x/dev/null
++ return 2
++ case $? in
++ compare_ err err_ok
++ diff -u err err_ok
++ Exit 0
++ set +e
++ exit 0
++ exit 0
++ remove_tmp_
++ __st=0
++ cleanup_
++ :
++ cd '/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23'
++ chmod -R u+rwx '/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/gt-bigtime.sh.sCP4'
++ rm -rf '/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/gt-bigtime.sh.sCP4'
++ exit 0

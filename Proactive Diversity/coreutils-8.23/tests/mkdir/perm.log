@@ -1,0 +1,615 @@
+++ initial_cwd_='/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23'
+++ fail=0
++++ testdir_prefix_
++++ printf gt
+++ pfx_=gt
++++ mktempd_ '/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23' gt-perm.sh.XXXX
++++ case $# in
++++ destdir_='/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23'
++++ template_=gt-perm.sh.XXXX
++++ MAX_TRIES_=4
++++ case $destdir_ in
++++ case $template_ in
+++++ unset TMPDIR
++++ d='/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/gt-perm.sh.Du18'
++++ case $d in
++++ test -d '/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/gt-perm.sh.Du18'
+++++ ls -dgo '/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/gt-perm.sh.Du18'
+++++ tr S -
++++ perms='drwx------ 2 4096 Mar  6 11:59 /home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/gt-perm.sh.Du18'
++++ case $perms in
++++ test 0 = 0
++++ echo '/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/gt-perm.sh.Du18'
++++ return
+++ test_dir_='/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/gt-perm.sh.Du18'
+++ cd '/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/gt-perm.sh.Du18'
+++ gl_init_sh_nl_='
+'
+++ IFS=' 	
+'
+++ for sig_ in 1 2 3 13 15
++++ expr 1 + 128
+++ eval 'trap '\''Exit 129'\'' 1'
++++ trap 'Exit 129' 1
+++ for sig_ in 1 2 3 13 15
++++ expr 2 + 128
+++ eval 'trap '\''Exit 130'\'' 2'
++++ trap 'Exit 130' 2
+++ for sig_ in 1 2 3 13 15
++++ expr 3 + 128
+++ eval 'trap '\''Exit 131'\'' 3'
++++ trap 'Exit 131' 3
+++ for sig_ in 1 2 3 13 15
++++ expr 13 + 128
+++ eval 'trap '\''Exit 141'\'' 13'
++++ trap 'Exit 141' 13
+++ for sig_ in 1 2 3 13 15
++++ expr 15 + 128
+++ eval 'trap '\''Exit 143'\'' 15'
++++ trap 'Exit 143' 15
+++ trap remove_tmp_ 0
++ path_prepend_ ./src
++ test 1 '!=' 0
++ path_dir_=./src
++ case $path_dir_ in
++ abs_path_dir_='/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/./src'
++ case $abs_path_dir_ in
++ PATH='/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/./src:/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/src:/home/jfloyd/.opam/system/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games'
++ create_exe_shims_ '/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/./src'
++ case $EXEEXT in
++ return 0
++ shift
++ test 0 '!=' 0
++ export PATH
++ print_ver_ mkdir
++ test yes = yes
++ local i
++ for i in '$*'
++ env mkdir --version
+mkdir (GNU coreutils) 8.23
+Copyright (C) 2014 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>.
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.
+
+Written by David MacKenzie.
++ skip_if_setgid_
++ setgid_tmpdir=setgid-32186
++ umask 77
++ mkdir setgid-32186
+++ stat --printf %A setgid-32186
++ perms=drwx------
++ rmdir setgid-32186
++ case $perms in
++ working_umask_or_skip_
++ umask 022
++ touch file1 file2
++ chmod 644 file2
+++ ls -l file1 file2
+++ sed 's/ .*//'
+++ uniq
++ perms=-rw-r--r--
++ rm -f file1 file2
++ case $perms in
++ tests='
+    000  :   empty    : drwxrwxrwx : drwxrwxrwx :
+    000  :   -m 016   : drwxrwxrwx : d-----xrw- :
+    077  :   empty    : drwx------ : drwx------ :
+    050  :   empty    : drwx-w-rwx : drwx-w-rwx :
+    050  :   -m 312   : drwx-w-rwx : d-wx--x-w- :
+    160  :   empty    : drwx--xrwx : drw---xrwx :
+    160  :   -m 743   : drwx--xrwx : drwxr---wx :
+    027  :   -m =+x   : drwxr-x--- : d--x--x--- :
+    027  :   -m =+X   : drwxr-x--- : d--x--x--- :
+    -    :   -        : last       : last       :
+    '
+++ sed 's/^ *//; s/ *: */:/g'
+++ echo 000 : empty : drwxrwxrwx : drwxrwxrwx : 000 : -m 016 : drwxrwxrwx : d-----xrw- : 077 : empty : drwx------ : drwx------ : 050 : empty : drwx-w-rwx : drwx-w-rwx : 050 : -m 312 : drwx-w-rwx : d-wx--x-w- : 160 : empty : drwx--xrwx : drw---xrwx : 160 : -m 743 : drwx--xrwx : drwxr---wx : 027 : -m =+x : drwxr-x--- : d--x--x--- : 027 : -m =+X : drwxr-x--- : d--x--x--- : - : - : last : last :
++ colon_tests='000:empty:drwxrwxrwx:drwxrwxrwx:000:-m 016:drwxrwxrwx:d-----xrw-:077:empty:drwx------:drwx------:050:empty:drwx-w-rwx:drwx-w-rwx:050:-m 312:drwx-w-rwx:d-wx--x-w-:160:empty:drwx--xrwx:drw---xrwx:160:-m 743:drwx--xrwx:drwxr---wx:027:-m =+x:drwxr-x---:d--x--x---:027:-m =+X:drwxr-x---:d--x--x---:-:-:last:last:'
++ for p in empty -p
++ test _empty = _empty
++ p=
++ old_IFS=' 	
+'
++ IFS=:
++ set 000 empty drwxrwxrwx drwxrwxrwx 000 '-m 016' drwxrwxrwx d-----xrw- 077 empty drwx------ drwx------ 050 empty drwx-w-rwx drwx-w-rwx 050 '-m 312' drwx-w-rwx d-wx--x-w- 160 empty drwx--xrwx drw---xrwx 160 '-m 743' drwx--xrwx drwxr---wx 027 '-m =+x' drwxr-x--- d--x--x--- 027 '-m =+X' drwxr-x--- d--x--x--- - - last last
++ IFS=' 	
+'
++ :
++ test yes = yes
++ set -x
++ umask=000
++ mode=empty
++ parent_perms=drwxrwxrwx
++ sub_perms=drwxrwxrwx
++ test _empty = _empty
++ mode=
++ test drwxrwxrwx = last
++ shift
++ shift
++ shift
++ shift
++ umask 000
++ test x = x
++ mkdir -m =,u=rwx parent
++ parent_perms=drwx------
++ mkdir parent/sub
+++ stat --printf %A parent
++ perms=drwx------
++ test drwx------ = drwx------
+++ stat --printf %A parent/sub
++ perms=drwxrwxrwx
++ test drwxrwxrwx = drwxrwxrwx
++ chmod -R u+rwx parent
++ rm -rf parent
++ :
++ test yes = yes
++ set -x
++ umask=000
++ mode='-m 016'
++ parent_perms=drwxrwxrwx
++ sub_perms=d-----xrw-
++ test '_-m 016' = _empty
++ test d-----xrw- = last
++ shift
++ shift
++ shift
++ shift
++ umask 000
++ test x = x
++ mkdir -m =,u=rwx parent
++ parent_perms=drwx------
++ mkdir -m 016 parent/sub
+++ stat --printf %A parent
++ perms=drwx------
++ test drwx------ = drwx------
+++ stat --printf %A parent/sub
++ perms=d-----xrw-
++ test d-----xrw- = d-----xrw-
++ chmod -R u+rwx parent
++ rm -rf parent
++ :
++ test yes = yes
++ set -x
++ umask=077
++ mode=empty
++ parent_perms=drwx------
++ sub_perms=drwx------
++ test _empty = _empty
++ mode=
++ test drwx------ = last
++ shift
++ shift
++ shift
++ shift
++ umask 077
++ test x = x
++ mkdir -m =,u=rwx parent
++ parent_perms=drwx------
++ mkdir parent/sub
+++ stat --printf %A parent
++ perms=drwx------
++ test drwx------ = drwx------
+++ stat --printf %A parent/sub
++ perms=drwx------
++ test drwx------ = drwx------
++ chmod -R u+rwx parent
++ rm -rf parent
++ :
++ test yes = yes
++ set -x
++ umask=050
++ mode=empty
++ parent_perms=drwx-w-rwx
++ sub_perms=drwx-w-rwx
++ test _empty = _empty
++ mode=
++ test drwx-w-rwx = last
++ shift
++ shift
++ shift
++ shift
++ umask 050
++ test x = x
++ mkdir -m =,u=rwx parent
++ parent_perms=drwx------
++ mkdir parent/sub
+++ stat --printf %A parent
++ perms=drwx------
++ test drwx------ = drwx------
+++ stat --printf %A parent/sub
++ perms=drwx-w-rwx
++ test drwx-w-rwx = drwx-w-rwx
++ chmod -R u+rwx parent
++ rm -rf parent
++ :
++ test yes = yes
++ set -x
++ umask=050
++ mode='-m 312'
++ parent_perms=drwx-w-rwx
++ sub_perms=d-wx--x-w-
++ test '_-m 312' = _empty
++ test d-wx--x-w- = last
++ shift
++ shift
++ shift
++ shift
++ umask 050
++ test x = x
++ mkdir -m =,u=rwx parent
++ parent_perms=drwx------
++ mkdir -m 312 parent/sub
+++ stat --printf %A parent
++ perms=drwx------
++ test drwx------ = drwx------
+++ stat --printf %A parent/sub
++ perms=d-wx--x-w-
++ test d-wx--x-w- = d-wx--x-w-
++ chmod -R u+rwx parent
++ rm -rf parent
++ :
++ test yes = yes
++ set -x
++ umask=160
++ mode=empty
++ parent_perms=drwx--xrwx
++ sub_perms=drw---xrwx
++ test _empty = _empty
++ mode=
++ test drw---xrwx = last
++ shift
++ shift
++ shift
++ shift
++ umask 160
++ test x = x
++ mkdir -m =,u=rwx parent
++ parent_perms=drwx------
++ mkdir parent/sub
+++ stat --printf %A parent
++ perms=drwx------
++ test drwx------ = drwx------
+++ stat --printf %A parent/sub
++ perms=drw---xrwx
++ test drw---xrwx = drw---xrwx
++ chmod -R u+rwx parent
++ rm -rf parent
++ :
++ test yes = yes
++ set -x
++ umask=160
++ mode='-m 743'
++ parent_perms=drwx--xrwx
++ sub_perms=drwxr---wx
++ test '_-m 743' = _empty
++ test drwxr---wx = last
++ shift
++ shift
++ shift
++ shift
++ umask 160
++ test x = x
++ mkdir -m =,u=rwx parent
++ parent_perms=drwx------
++ mkdir -m 743 parent/sub
+++ stat --printf %A parent
++ perms=drwx------
++ test drwx------ = drwx------
+++ stat --printf %A parent/sub
++ perms=drwxr---wx
++ test drwxr---wx = drwxr---wx
++ chmod -R u+rwx parent
++ rm -rf parent
++ :
++ test yes = yes
++ set -x
++ umask=027
++ mode='-m =+x'
++ parent_perms=drwxr-x---
++ sub_perms=d--x--x---
++ test '_-m =+x' = _empty
++ test d--x--x--- = last
++ shift
++ shift
++ shift
++ shift
++ umask 027
++ test x = x
++ mkdir -m =,u=rwx parent
++ parent_perms=drwx------
++ mkdir -m =+x parent/sub
+++ stat --printf %A parent
++ perms=drwx------
++ test drwx------ = drwx------
+++ stat --printf %A parent/sub
++ perms=d--x--x---
++ test d--x--x--- = d--x--x---
++ chmod -R u+rwx parent
++ rm -rf parent
++ :
++ test yes = yes
++ set -x
++ umask=027
++ mode='-m =+X'
++ parent_perms=drwxr-x---
++ sub_perms=d--x--x---
++ test '_-m =+X' = _empty
++ test d--x--x--- = last
++ shift
++ shift
++ shift
++ shift
++ umask 027
++ test x = x
++ mkdir -m =,u=rwx parent
++ parent_perms=drwx------
++ mkdir -m =+X parent/sub
+++ stat --printf %A parent
++ perms=drwx------
++ test drwx------ = drwx------
+++ stat --printf %A parent/sub
++ perms=d--x--x---
++ test d--x--x--- = d--x--x---
++ chmod -R u+rwx parent
++ rm -rf parent
++ :
++ test yes = yes
++ set -x
++ umask=-
++ mode=-
++ parent_perms=last
++ sub_perms=last
++ test _- = _empty
++ test last = last
++ break
++ for p in empty -p
++ test _-p = _empty
++ old_IFS=' 	
+'
++ IFS=:
++ set 000 empty drwxrwxrwx drwxrwxrwx 000 '-m 016' drwxrwxrwx d-----xrw- 077 empty drwx------ drwx------ 050 empty drwx-w-rwx drwx-w-rwx 050 '-m 312' drwx-w-rwx d-wx--x-w- 160 empty drwx--xrwx drw---xrwx 160 '-m 743' drwx--xrwx drwxr---wx 027 '-m =+x' drwxr-x--- d--x--x--- 027 '-m =+X' drwxr-x--- d--x--x--- - - last last
++ IFS=' 	
+'
++ :
++ test yes = yes
++ set -x
++ umask=000
++ mode=empty
++ parent_perms=drwxrwxrwx
++ sub_perms=drwxrwxrwx
++ test _empty = _empty
++ mode=
++ test drwxrwxrwx = last
++ shift
++ shift
++ shift
++ shift
++ umask 000
++ test x-p = x
++ mkdir -p parent/sub
+++ stat --printf %A parent
++ perms=drwxrwxrwx
++ test drwxrwxrwx = drwxrwxrwx
+++ stat --printf %A parent/sub
++ perms=drwxrwxrwx
++ test drwxrwxrwx = drwxrwxrwx
++ chmod -R u+rwx parent
++ rm -rf parent
++ :
++ test yes = yes
++ set -x
++ umask=000
++ mode='-m 016'
++ parent_perms=drwxrwxrwx
++ sub_perms=d-----xrw-
++ test '_-m 016' = _empty
++ test d-----xrw- = last
++ shift
++ shift
++ shift
++ shift
++ umask 000
++ test x-p = x
++ mkdir -p -m 016 parent/sub
+++ stat --printf %A parent
++ perms=drwxrwxrwx
++ test drwxrwxrwx = drwxrwxrwx
+++ stat --printf %A parent/sub
++ perms=d-----xrw-
++ test d-----xrw- = d-----xrw-
++ chmod -R u+rwx parent
++ rm -rf parent
++ :
++ test yes = yes
++ set -x
++ umask=077
++ mode=empty
++ parent_perms=drwx------
++ sub_perms=drwx------
++ test _empty = _empty
++ mode=
++ test drwx------ = last
++ shift
++ shift
++ shift
++ shift
++ umask 077
++ test x-p = x
++ mkdir -p parent/sub
+++ stat --printf %A parent
++ perms=drwx------
++ test drwx------ = drwx------
+++ stat --printf %A parent/sub
++ perms=drwx------
++ test drwx------ = drwx------
++ chmod -R u+rwx parent
++ rm -rf parent
++ :
++ test yes = yes
++ set -x
++ umask=050
++ mode=empty
++ parent_perms=drwx-w-rwx
++ sub_perms=drwx-w-rwx
++ test _empty = _empty
++ mode=
++ test drwx-w-rwx = last
++ shift
++ shift
++ shift
++ shift
++ umask 050
++ test x-p = x
++ mkdir -p parent/sub
+++ stat --printf %A parent
++ perms=drwx-w-rwx
++ test drwx-w-rwx = drwx-w-rwx
+++ stat --printf %A parent/sub
++ perms=drwx-w-rwx
++ test drwx-w-rwx = drwx-w-rwx
++ chmod -R u+rwx parent
++ rm -rf parent
++ :
++ test yes = yes
++ set -x
++ umask=050
++ mode='-m 312'
++ parent_perms=drwx-w-rwx
++ sub_perms=d-wx--x-w-
++ test '_-m 312' = _empty
++ test d-wx--x-w- = last
++ shift
++ shift
++ shift
++ shift
++ umask 050
++ test x-p = x
++ mkdir -p -m 312 parent/sub
+++ stat --printf %A parent
++ perms=drwx-w-rwx
++ test drwx-w-rwx = drwx-w-rwx
+++ stat --printf %A parent/sub
++ perms=d-wx--x-w-
++ test d-wx--x-w- = d-wx--x-w-
++ chmod -R u+rwx parent
++ rm -rf parent
++ :
++ test yes = yes
++ set -x
++ umask=160
++ mode=empty
++ parent_perms=drwx--xrwx
++ sub_perms=drw---xrwx
++ test _empty = _empty
++ mode=
++ test drw---xrwx = last
++ shift
++ shift
++ shift
++ shift
++ umask 160
++ test x-p = x
++ mkdir -p parent/sub
+++ stat --printf %A parent
++ perms=drwx--xrwx
++ test drwx--xrwx = drwx--xrwx
+++ stat --printf %A parent/sub
++ perms=drw---xrwx
++ test drw---xrwx = drw---xrwx
++ chmod -R u+rwx parent
++ rm -rf parent
++ :
++ test yes = yes
++ set -x
++ umask=160
++ mode='-m 743'
++ parent_perms=drwx--xrwx
++ sub_perms=drwxr---wx
++ test '_-m 743' = _empty
++ test drwxr---wx = last
++ shift
++ shift
++ shift
++ shift
++ umask 160
++ test x-p = x
++ mkdir -p -m 743 parent/sub
+++ stat --printf %A parent
++ perms=drwx--xrwx
++ test drwx--xrwx = drwx--xrwx
+++ stat --printf %A parent/sub
++ perms=drwxr---wx
++ test drwxr---wx = drwxr---wx
++ chmod -R u+rwx parent
++ rm -rf parent
++ :
++ test yes = yes
++ set -x
++ umask=027
++ mode='-m =+x'
++ parent_perms=drwxr-x---
++ sub_perms=d--x--x---
++ test '_-m =+x' = _empty
++ test d--x--x--- = last
++ shift
++ shift
++ shift
++ shift
++ umask 027
++ test x-p = x
++ mkdir -p -m =+x parent/sub
+++ stat --printf %A parent
++ perms=drwxr-x---
++ test drwxr-x--- = drwxr-x---
+++ stat --printf %A parent/sub
++ perms=d--x--x---
++ test d--x--x--- = d--x--x---
++ chmod -R u+rwx parent
++ rm -rf parent
++ :
++ test yes = yes
++ set -x
++ umask=027
++ mode='-m =+X'
++ parent_perms=drwxr-x---
++ sub_perms=d--x--x---
++ test '_-m =+X' = _empty
++ test d--x--x--- = last
++ shift
++ shift
++ shift
++ shift
++ umask 027
++ test x-p = x
++ mkdir -p -m =+X parent/sub
+++ stat --printf %A parent
++ perms=drwxr-x---
++ test drwxr-x--- = drwxr-x---
+++ stat --printf %A parent/sub
++ perms=d--x--x---
++ test d--x--x--- = d--x--x---
++ chmod -R u+rwx parent
++ rm -rf parent
++ :
++ test yes = yes
++ set -x
++ umask=-
++ mode=-
++ parent_perms=last
++ sub_perms=last
++ test _- = _empty
++ test last = last
++ break
++ Exit 0
++ set +e
++ exit 0
++ exit 0
++ remove_tmp_
++ __st=0
++ cleanup_
++ :
++ cd '/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23'
++ chmod -R u+rwx '/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/gt-perm.sh.Du18'
++ rm -rf '/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/gt-perm.sh.Du18'
++ exit 0

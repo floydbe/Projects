@@ -1,0 +1,211 @@
+++ initial_cwd_='/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23'
+++ fail=0
++++ testdir_prefix_
++++ printf gt
+++ pfx_=gt
++++ mktempd_ '/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23' gt-stat-vs-dirent.sh.XXXX
++++ case $# in
++++ destdir_='/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23'
++++ template_=gt-stat-vs-dirent.sh.XXXX
++++ MAX_TRIES_=4
++++ case $destdir_ in
++++ case $template_ in
+++++ unset TMPDIR
++++ d='/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/gt-stat-vs-dirent.sh.b7cX'
++++ case $d in
++++ test -d '/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/gt-stat-vs-dirent.sh.b7cX'
+++++ ls -dgo '/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/gt-stat-vs-dirent.sh.b7cX'
+++++ tr S -
++++ perms='drwx------ 2 4096 Mar  6 11:59 /home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/gt-stat-vs-dirent.sh.b7cX'
++++ case $perms in
++++ test 0 = 0
++++ echo '/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/gt-stat-vs-dirent.sh.b7cX'
++++ return
+++ test_dir_='/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/gt-stat-vs-dirent.sh.b7cX'
+++ cd '/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/gt-stat-vs-dirent.sh.b7cX'
+++ gl_init_sh_nl_='
+'
+++ IFS=' 	
+'
+++ for sig_ in 1 2 3 13 15
++++ expr 1 + 128
+++ eval 'trap '\''Exit 129'\'' 1'
++++ trap 'Exit 129' 1
+++ for sig_ in 1 2 3 13 15
++++ expr 2 + 128
+++ eval 'trap '\''Exit 130'\'' 2'
++++ trap 'Exit 130' 2
+++ for sig_ in 1 2 3 13 15
++++ expr 3 + 128
+++ eval 'trap '\''Exit 131'\'' 3'
++++ trap 'Exit 131' 3
+++ for sig_ in 1 2 3 13 15
++++ expr 13 + 128
+++ eval 'trap '\''Exit 141'\'' 13'
++++ trap 'Exit 141' 13
+++ for sig_ in 1 2 3 13 15
++++ expr 15 + 128
+++ eval 'trap '\''Exit 143'\'' 15'
++++ trap 'Exit 143' 15
+++ trap remove_tmp_ 0
++ path_prepend_ ./src
++ test 1 '!=' 0
++ path_dir_=./src
++ case $path_dir_ in
++ abs_path_dir_='/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/./src'
++ case $abs_path_dir_ in
++ PATH='/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/./src:/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/src:/home/jfloyd/.opam/system/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games'
++ create_exe_shims_ '/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/./src'
++ case $EXEEXT in
++ return 0
++ shift
++ test 0 '!=' 0
++ export PATH
++ print_ver_ ls
++ test yes = yes
++ local i
++ for i in '$*'
++ env ls --version
+ls (GNU coreutils) 8.23
+Copyright (C) 2014 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>.
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.
+
+Written by Richard M. Stallman and David MacKenzie.
+++ stat --format=%d-%i /
++ root_dev_ino=2049-2
+++ pwd
++ t='/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/gt-stat-vs-dirent.sh.b7cX'
++ :
++ ls -i1 '/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/gt-stat-vs-dirent.sh.b7cX'
++ test 0 = 0
+++ sed -n '1s/^ *\([0-9][0-9]*\) .*/\1/p;q' tmp
++ d_ino=14160225
+++ sed -n '1s/^ *[0-9][0-9]* //p;q' tmp
++ file=tmp
+++ stat --format=%i '/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/gt-stat-vs-dirent.sh.b7cX/tmp'
++ st_ino=14160225
++ test -n 14160225
++ test 14160225 '!=' 14160225
+++ cd '/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/gt-stat-vs-dirent.sh.b7cX/..'
+++ pwd
++ t='/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23'
+++ stat --format=%d-%i '/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23'
++ dev_ino=2049-14159096
++ test 2049-14159096 = 2049-2
++ :
++ ls -i1 '/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23'
++ test 0 = 0
+++ sed -n '1s/^ *\([0-9][0-9]*\) .*/\1/p;q' tmp
++ d_ino=14159613
+++ sed -n '1s/^ *[0-9][0-9]* //p;q' tmp
++ file=ABOUT-NLS
+++ stat --format=%i '/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/ABOUT-NLS'
++ st_ino=14159613
++ test -n 14159613
++ test 14159613 '!=' 14159613
+++ cd '/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/..'
+++ pwd
++ t='/home/jfloyd/Documents/Projects/Proactive Diversity'
+++ stat --format=%d-%i '/home/jfloyd/Documents/Projects/Proactive Diversity'
++ dev_ino=2049-13780491
++ test 2049-13780491 = 2049-2
++ :
++ ls -i1 '/home/jfloyd/Documents/Projects/Proactive Diversity'
++ test 0 = 0
+++ sed -n '1s/^ *\([0-9][0-9]*\) .*/\1/p;q' tmp
++ d_ino=14159096
+++ sed -n '1s/^ *[0-9][0-9]* //p;q' tmp
++ file=coreutils-8.23
+++ stat --format=%i '/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23'
++ st_ino=14159096
++ test -n 14159096
++ test 14159096 '!=' 14159096
+++ cd '/home/jfloyd/Documents/Projects/Proactive Diversity/..'
+++ pwd
++ t=/home/jfloyd/Documents/Projects
+++ stat --format=%d-%i /home/jfloyd/Documents/Projects
++ dev_ino=2049-13780395
++ test 2049-13780395 = 2049-2
++ :
++ ls -i1 /home/jfloyd/Documents/Projects
++ test 0 = 0
+++ sed -n '1s/^ *\([0-9][0-9]*\) .*/\1/p;q' tmp
++ d_ino=13777269
+++ sed -n '1s/^ *[0-9][0-9]* //p;q' tmp
++ file=Image.py
+++ stat --format=%i /home/jfloyd/Documents/Projects/Image.py
++ st_ino=13777269
++ test -n 13777269
++ test 13777269 '!=' 13777269
+++ cd /home/jfloyd/Documents/Projects/..
+++ pwd
++ t=/home/jfloyd/Documents
+++ stat --format=%d-%i /home/jfloyd/Documents
++ dev_ino=2049-13762574
++ test 2049-13762574 = 2049-2
++ :
++ ls -i1 /home/jfloyd/Documents
++ test 0 = 0
+++ sed -n '1s/^ *\([0-9][0-9]*\) .*/\1/p;q' tmp
++ d_ino=13771466
+++ sed -n '1s/^ *[0-9][0-9]* //p;q' tmp
++ file=HW2.aux
+++ stat --format=%i /home/jfloyd/Documents/HW2.aux
++ st_ino=13771466
++ test -n 13771466
++ test 13771466 '!=' 13771466
+++ cd /home/jfloyd/Documents/..
+++ pwd
++ t=/home/jfloyd
+++ stat --format=%d-%i /home/jfloyd
++ dev_ino=2049-13762562
++ test 2049-13762562 = 2049-2
++ :
++ ls -i1 /home/jfloyd
++ test 0 = 0
+++ sed -n '1s/^ *\([0-9][0-9]*\) .*/\1/p;q' tmp
++ d_ino=13762570
+++ sed -n '1s/^ *[0-9][0-9]* //p;q' tmp
++ file=Desktop
+++ stat --format=%i /home/jfloyd/Desktop
++ st_ino=13762570
++ test -n 13762570
++ test 13762570 '!=' 13762570
+++ cd /home/jfloyd/..
+++ pwd
++ t=/home
+++ stat --format=%d-%i /home
++ dev_ino=2049-13762561
++ test 2049-13762561 = 2049-2
++ :
++ ls -i1 /home
++ test 0 = 0
+++ sed -n '1s/^ *\([0-9][0-9]*\) .*/\1/p;q' tmp
++ d_ino=13762562
+++ sed -n '1s/^ *[0-9][0-9]* //p;q' tmp
++ file=jfloyd
+++ stat --format=%i /home/jfloyd
++ st_ino=13762562
++ test -n 13762562
++ test 13762562 '!=' 13762562
+++ cd /home/..
+++ pwd
++ t=/
+++ stat --format=%d-%i /
++ dev_ino=2049-2
++ test 2049-2 = 2049-2
++ break
++ Exit 0
++ set +e
++ exit 0
++ exit 0
++ remove_tmp_
++ __st=0
++ cleanup_
++ :
++ cd '/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23'
++ chmod -R u+rwx '/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/gt-stat-vs-dirent.sh.b7cX'
++ rm -rf '/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/gt-stat-vs-dirent.sh.b7cX'
++ exit 0

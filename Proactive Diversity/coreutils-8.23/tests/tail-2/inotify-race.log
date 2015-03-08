@@ -1,0 +1,114 @@
+++ initial_cwd_='/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23'
+++ fail=0
++++ testdir_prefix_
++++ printf gt
+++ pfx_=gt
++++ mktempd_ '/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23' gt-inotify-race.sh.XXXX
++++ case $# in
++++ destdir_='/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23'
++++ template_=gt-inotify-race.sh.XXXX
++++ MAX_TRIES_=4
++++ case $destdir_ in
++++ case $template_ in
+++++ unset TMPDIR
++++ d='/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/gt-inotify-race.sh.nhK5'
++++ case $d in
++++ test -d '/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/gt-inotify-race.sh.nhK5'
+++++ ls -dgo '/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/gt-inotify-race.sh.nhK5'
+++++ tr S -
++++ perms='drwx------ 2 4096 Mar  6 11:54 /home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/gt-inotify-race.sh.nhK5'
++++ case $perms in
++++ test 0 = 0
++++ echo '/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/gt-inotify-race.sh.nhK5'
++++ return
+++ test_dir_='/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/gt-inotify-race.sh.nhK5'
+++ cd '/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/gt-inotify-race.sh.nhK5'
+++ gl_init_sh_nl_='
+'
+++ IFS=' 	
+'
+++ for sig_ in 1 2 3 13 15
++++ expr 1 + 128
+++ eval 'trap '\''Exit 129'\'' 1'
++++ trap 'Exit 129' 1
+++ for sig_ in 1 2 3 13 15
++++ expr 2 + 128
+++ eval 'trap '\''Exit 130'\'' 2'
++++ trap 'Exit 130' 2
+++ for sig_ in 1 2 3 13 15
++++ expr 3 + 128
+++ eval 'trap '\''Exit 131'\'' 3'
++++ trap 'Exit 131' 3
+++ for sig_ in 1 2 3 13 15
++++ expr 13 + 128
+++ eval 'trap '\''Exit 141'\'' 13'
++++ trap 'Exit 141' 13
+++ for sig_ in 1 2 3 13 15
++++ expr 15 + 128
+++ eval 'trap '\''Exit 143'\'' 15'
++++ trap 'Exit 143' 15
+++ trap remove_tmp_ 0
++ path_prepend_ ./src
++ test 1 '!=' 0
++ path_dir_=./src
++ case $path_dir_ in
++ abs_path_dir_='/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/./src'
++ case $abs_path_dir_ in
++ PATH='/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/./src:/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/src:/home/jfloyd/.opam/system/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games'
++ create_exe_shims_ '/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/./src'
++ case $EXEEXT in
++ return 0
++ shift
++ test 0 '!=' 0
++ export PATH
++ print_ver_ tail
++ test yes = yes
++ local i
++ for i in '$*'
++ env tail --version
+tail (GNU coreutils) 8.23
+Copyright (C) 2014 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>.
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.
+
+Written by Paul Rubin, David MacKenzie, Ian Lance Taylor,
+and Jim Meyering.
++ very_expensive_
++ test yes '!=' yes
++ touch file
++ touch tail.out
++ case $(cat gdb.out) in
+++ cat gdb.out
++ break_src='/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/src/tail.c'
+++ grep -n '^tail_forever_inotify' '/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/src/tail.c'
++ break_line='1369:tail_forever_inotify (int wd, struct File_spec *f, size_t n_files,'
+++ echo '1369:tail_forever_inotify (int wd, struct File_spec *f, size_t n_files,'
+++ cut -d: -f1
++ break_line=1369
++ timeout 10s gdb -nx --batch-silent '--eval-command=break 1369' '--eval-command=run -f file' --eval-command=quit tail
++ compare /dev/null gdb.out
++ compare_dev_null_ /dev/null gdb.out
++ test 2 = 2
++ test x/dev/null = x/dev/null
++ test -s gdb.out
++ return 0
++ return 0
++ pid=29309
++ timeout 10s gdb -nx --batch-silent '--eval-command=break 1369' '--eval-command=run -f file >> tail.out' '--eval-command=shell echo never-seen-with-tail-7.5 >> file' --eval-command=continue --eval-command=quit tail
++ tail --pid=29309 -f tail.out
++ read
++ kill 29309
++ test -s tail.out
++ Exit 0
++ set +e
++ exit 0
++ exit 0
++ remove_tmp_
++ __st=0
++ cleanup_
++ :
++ cd '/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23'
++ chmod -R u+rwx '/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/gt-inotify-race.sh.nhK5'
++ rm -rf '/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/gt-inotify-race.sh.nhK5'
++ exit 0

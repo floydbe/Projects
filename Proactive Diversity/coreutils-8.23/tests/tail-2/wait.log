@@ -1,0 +1,214 @@
+++ initial_cwd_='/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23'
+++ fail=0
++++ testdir_prefix_
++++ printf gt
+++ pfx_=gt
++++ mktempd_ '/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23' gt-wait.sh.XXXX
++++ case $# in
++++ destdir_='/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23'
++++ template_=gt-wait.sh.XXXX
++++ MAX_TRIES_=4
++++ case $destdir_ in
++++ case $template_ in
+++++ unset TMPDIR
++++ d='/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/gt-wait.sh.o5SN'
++++ case $d in
++++ test -d '/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/gt-wait.sh.o5SN'
+++++ ls -dgo '/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/gt-wait.sh.o5SN'
+++++ tr S -
++++ perms='drwx------ 2 4096 Mar  6 11:58 /home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/gt-wait.sh.o5-N'
++++ case $perms in
++++ test 0 = 0
++++ echo '/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/gt-wait.sh.o5SN'
++++ return
+++ test_dir_='/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/gt-wait.sh.o5SN'
+++ cd '/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/gt-wait.sh.o5SN'
+++ gl_init_sh_nl_='
+'
+++ IFS=' 	
+'
+++ for sig_ in 1 2 3 13 15
++++ expr 1 + 128
+++ eval 'trap '\''Exit 129'\'' 1'
++++ trap 'Exit 129' 1
+++ for sig_ in 1 2 3 13 15
++++ expr 2 + 128
+++ eval 'trap '\''Exit 130'\'' 2'
++++ trap 'Exit 130' 2
+++ for sig_ in 1 2 3 13 15
++++ expr 3 + 128
+++ eval 'trap '\''Exit 131'\'' 3'
++++ trap 'Exit 131' 3
+++ for sig_ in 1 2 3 13 15
++++ expr 13 + 128
+++ eval 'trap '\''Exit 141'\'' 13'
++++ trap 'Exit 141' 13
+++ for sig_ in 1 2 3 13 15
++++ expr 15 + 128
+++ eval 'trap '\''Exit 143'\'' 15'
++++ trap 'Exit 143' 15
+++ trap remove_tmp_ 0
++ path_prepend_ ./src
++ test 1 '!=' 0
++ path_dir_=./src
++ case $path_dir_ in
++ abs_path_dir_='/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/./src'
++ case $abs_path_dir_ in
++ PATH='/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/./src:/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/src:/home/jfloyd/.opam/system/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games'
++ create_exe_shims_ '/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/./src'
++ case $EXEEXT in
++ return 0
++ shift
++ test 0 '!=' 0
++ export PATH
++ print_ver_ tail
++ test yes = yes
++ local i
++ for i in '$*'
++ env tail --version
+tail (GNU coreutils) 8.23
+Copyright (C) 2014 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>.
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.
+
+Written by Paul Rubin, David MacKenzie, Ian Lance Taylor,
+and Jim Meyering.
++ touch here
++ touch unreadable
++ chmod a-r unreadable
++ for inotify in ---disable-inotify ''\'''\'''
++ timeout 10 tail -s0.1 -f ---disable-inotify not_here
+tail: cannot open 'not_here' for reading: No such file or directory
+tail: no files remaining
++ test 1 = 124
++ test '!' -r unreadable
++ timeout 10 tail -s0.1 -f ---disable-inotify unreadable
+tail: cannot open 'unreadable' for reading: Permission denied
+tail: no files remaining
++ test 1 = 124
++ timeout 1 tail -s0.1 -f ---disable-inotify here
++ test 124 = 124
++ timeout 1 tail -s0.1 -F ---disable-inotify here
++ test 124 = 124
++ test '!' -r unreadable
++ timeout 1 tail -s0.1 -F ---disable-inotify unreadable
+tail: cannot open 'unreadable' for reading: Permission denied
++ test 124 = 124
++ timeout 1 tail -s0.1 -F ---disable-inotify not_here
+tail: cannot open 'not_here' for reading: No such file or directory
++ test 124 = 124
++ grep -Ev 'inotify (resources exhausted|cannot be used)' tail.err
++ mv x tail.err
++ compare /dev/null tail.err
++ compare_dev_null_ /dev/null tail.err
++ test 2 = 2
++ test x/dev/null = x/dev/null
++ test -s tail.err
++ return 0
++ return 0
++ retry_delay_ tail_F .1 4
++ local test_func=tail_F
++ local init_delay=.1
++ local max_n_tries=4
++ shift 3
++ local attempt=1
++ local num_sleeps=1
++ local time_fail
++ test 1 -le 4
+++ mawk -v n=1 -v s=.1 'BEGIN { print s * n }'
++ local delay=0.1
++ tail_F 0.1
++ local delay=0.1
++ touch k
++ pid=6104
++ sleep 0.1
++ tail -s.1 --max-unchanged-stats=2 -F ---disable-inotify k
++ mv k l
++ sleep 0.1
+tail: 'k' has become inaccessible: No such file or directory
++ touch k
++ mv k l
++ sleep 0.1
++ echo NO
++ sleep 0.1
++ kill 6104
++ rm -f k l
++ test '!' -s tail.out
++ time_fail=0
++ break
++ test 0 = 0
++ for inotify in ---disable-inotify ''\'''\'''
++ timeout 10 tail -s0.1 -f not_here
+tail: cannot open 'not_here' for reading: No such file or directory
+tail: no files remaining
++ test 1 = 124
++ test '!' -r unreadable
++ timeout 10 tail -s0.1 -f unreadable
+tail: cannot open 'unreadable' for reading: Permission denied
+tail: no files remaining
++ test 1 = 124
++ timeout 1 tail -s0.1 -f here
++ test 124 = 124
++ timeout 1 tail -s0.1 -F here
++ test 124 = 124
++ test '!' -r unreadable
++ timeout 1 tail -s0.1 -F unreadable
+tail: cannot open 'unreadable' for reading: Permission denied
++ test 124 = 124
++ timeout 1 tail -s0.1 -F not_here
+tail: cannot open 'not_here' for reading: No such file or directory
++ test 124 = 124
++ grep -Ev 'inotify (resources exhausted|cannot be used)' tail.err
++ mv x tail.err
++ compare /dev/null tail.err
++ compare_dev_null_ /dev/null tail.err
++ test 2 = 2
++ test x/dev/null = x/dev/null
++ test -s tail.err
++ return 0
++ return 0
++ retry_delay_ tail_F .1 4
++ local test_func=tail_F
++ local init_delay=.1
++ local max_n_tries=4
++ shift 3
++ local attempt=1
++ local num_sleeps=1
++ local time_fail
++ test 1 -le 4
+++ mawk -v n=1 -v s=.1 'BEGIN { print s * n }'
++ local delay=0.1
++ tail_F 0.1
++ local delay=0.1
++ touch k
++ pid=6129
++ sleep 0.1
++ tail -s.1 --max-unchanged-stats=2 -F k
++ mv k l
+tail: 'k' has become inaccessible: No such file or directory
++ touch k
+tail: 'k' has appeared;  following end of new file
++ mv k l
+tail: 'k' has become inaccessible: No such file or directory
++ sleep 0.1
++ echo NO
++ sleep 0.1
++ kill 6129
++ rm -f k l
++ test '!' -s tail.out
++ time_fail=0
++ break
++ test 0 = 0
++ Exit 0
++ set +e
++ exit 0
++ exit 0
++ remove_tmp_
++ __st=0
++ cleanup_
++ :
++ cd '/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23'
++ chmod -R u+rwx '/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/gt-wait.sh.o5SN'
++ rm -rf '/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/gt-wait.sh.o5SN'
++ exit 0

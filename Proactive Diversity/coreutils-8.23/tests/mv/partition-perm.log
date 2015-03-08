@@ -1,0 +1,125 @@
+++ initial_cwd_='/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23'
+++ fail=0
++++ testdir_prefix_
++++ printf gt
+++ pfx_=gt
++++ mktempd_ '/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23' gt-partition-perm.sh.XXXX
++++ case $# in
++++ destdir_='/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23'
++++ template_=gt-partition-perm.sh.XXXX
++++ MAX_TRIES_=4
++++ case $destdir_ in
++++ case $template_ in
+++++ unset TMPDIR
++++ d='/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/gt-partition-perm.sh.XvUs'
++++ case $d in
++++ test -d '/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/gt-partition-perm.sh.XvUs'
+++++ ls -dgo '/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/gt-partition-perm.sh.XvUs'
+++++ tr S -
++++ perms='drwx------ 2 4096 Mar  6 11:59 /home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/gt-partition-perm.sh.XvUs'
++++ case $perms in
++++ test 0 = 0
++++ echo '/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/gt-partition-perm.sh.XvUs'
++++ return
+++ test_dir_='/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/gt-partition-perm.sh.XvUs'
+++ cd '/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/gt-partition-perm.sh.XvUs'
+++ gl_init_sh_nl_='
+'
+++ IFS=' 	
+'
+++ for sig_ in 1 2 3 13 15
++++ expr 1 + 128
+++ eval 'trap '\''Exit 129'\'' 1'
++++ trap 'Exit 129' 1
+++ for sig_ in 1 2 3 13 15
++++ expr 2 + 128
+++ eval 'trap '\''Exit 130'\'' 2'
++++ trap 'Exit 130' 2
+++ for sig_ in 1 2 3 13 15
++++ expr 3 + 128
+++ eval 'trap '\''Exit 131'\'' 3'
++++ trap 'Exit 131' 3
+++ for sig_ in 1 2 3 13 15
++++ expr 13 + 128
+++ eval 'trap '\''Exit 141'\'' 13'
++++ trap 'Exit 141' 13
+++ for sig_ in 1 2 3 13 15
++++ expr 15 + 128
+++ eval 'trap '\''Exit 143'\'' 15'
++++ trap 'Exit 143' 15
+++ trap remove_tmp_ 0
++ path_prepend_ ./src
++ test 1 '!=' 0
++ path_dir_=./src
++ case $path_dir_ in
++ abs_path_dir_='/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/./src'
++ case $abs_path_dir_ in
++ PATH='/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/./src:/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/src:/home/jfloyd/.opam/system/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games'
++ create_exe_shims_ '/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/./src'
++ case $EXEEXT in
++ return 0
++ shift
++ test 0 '!=' 0
++ export PATH
++ print_ver_ mv
++ test yes = yes
++ local i
++ for i in '$*'
++ env mv --version
+mv (GNU coreutils) 8.23
+Copyright (C) 2014 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>.
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.
+
+Written by Mike Parker, David MacKenzie, and Jim Meyering.
++ . '/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/tests/other-fs-tmpdir'
+++ test '' = set
+++ CANDIDATE_TMP_DIRS='/tmp /tmp /dev/shm /var/tmp /usr/tmp /home/jfloyd'
+++ other_partition_tmpdir=
++++ stat -c %d .
+++ dot_mount_point=2049
+++ for d in '$CANDIDATE_TMP_DIRS'
+++ test -d /tmp
++++ stat -L -c %d /tmp
+++ d_mount_point=2049
+++ test x2049 = x2049
+++ continue
+++ for d in '$CANDIDATE_TMP_DIRS'
+++ test -d /tmp
++++ stat -L -c %d /tmp
+++ d_mount_point=2049
+++ test x2049 = x2049
+++ continue
+++ for d in '$CANDIDATE_TMP_DIRS'
+++ test -d /dev/shm
++++ stat -L -c %d /dev/shm
+++ d_mount_point=20
+++ test x20 = x2049
+++ mkdir /dev/shm/tmp3729
+++ other_partition_tmpdir=/dev/shm/tmp3729
+++ break
+++ test -z /dev/shm/tmp3729
+++ test yes = yes
+++ set -x
++ chmod a=rwx file
++ umask 077
++ mv file /dev/shm/tmp3729
++ test -f file
++ test -f /dev/shm/tmp3729/file
+++ ls -l /dev/shm/tmp3729/file
+++ cut -b-10
++ mode=-rwxrwxrwx
++ test -rwxrwxrwx = -rwxrwxrwx
++ Exit 0
++ set +e
++ exit 0
++ exit 0
++ remove_tmp_
++ __st=0
++ cleanup_
++ rm -rf /dev/shm/tmp3729
++ cd '/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23'
++ chmod -R u+rwx '/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/gt-partition-perm.sh.XvUs'
++ rm -rf '/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/gt-partition-perm.sh.XvUs'
++ exit 0

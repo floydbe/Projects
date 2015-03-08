@@ -1,0 +1,487 @@
+++ initial_cwd_='/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23'
+++ fail=0
++++ testdir_prefix_
++++ printf gt
+++ pfx_=gt
++++ mktempd_ '/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23' gt-stty.sh.XXXX
++++ case $# in
++++ destdir_='/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23'
++++ template_=gt-stty.sh.XXXX
++++ MAX_TRIES_=4
++++ case $destdir_ in
++++ case $template_ in
+++++ unset TMPDIR
++++ d='/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/gt-stty.sh.PPC3'
++++ case $d in
++++ test -d '/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/gt-stty.sh.PPC3'
+++++ ls -dgo '/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/gt-stty.sh.PPC3'
+++++ tr S -
++++ perms='drwx------ 2 4096 Mar  6 11:58 /home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/gt-stty.sh.PPC3'
++++ case $perms in
++++ test 0 = 0
++++ echo '/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/gt-stty.sh.PPC3'
++++ return
+++ test_dir_='/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/gt-stty.sh.PPC3'
+++ cd '/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/gt-stty.sh.PPC3'
+++ gl_init_sh_nl_='
+'
+++ IFS=' 	
+'
+++ for sig_ in 1 2 3 13 15
++++ expr 1 + 128
+++ eval 'trap '\''Exit 129'\'' 1'
++++ trap 'Exit 129' 1
+++ for sig_ in 1 2 3 13 15
++++ expr 2 + 128
+++ eval 'trap '\''Exit 130'\'' 2'
++++ trap 'Exit 130' 2
+++ for sig_ in 1 2 3 13 15
++++ expr 3 + 128
+++ eval 'trap '\''Exit 131'\'' 3'
++++ trap 'Exit 131' 3
+++ for sig_ in 1 2 3 13 15
++++ expr 13 + 128
+++ eval 'trap '\''Exit 141'\'' 13'
++++ trap 'Exit 141' 13
+++ for sig_ in 1 2 3 13 15
++++ expr 15 + 128
+++ eval 'trap '\''Exit 143'\'' 15'
++++ trap 'Exit 143' 15
+++ trap remove_tmp_ 0
++ path_prepend_ ./src
++ test 1 '!=' 0
++ path_dir_=./src
++ case $path_dir_ in
++ abs_path_dir_='/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/./src'
++ case $abs_path_dir_ in
++ PATH='/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/./src:/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/src:/home/jfloyd/.opam/system/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games'
++ create_exe_shims_ '/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/./src'
++ case $EXEEXT in
++ return 0
++ shift
++ test 0 '!=' 0
++ export PATH
++ print_ver_ stty
++ test yes = yes
++ local i
++ for i in '$*'
++ env stty --version
+stty (GNU coreutils) 8.23
+Copyright (C) 2014 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>.
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.
+
+Written by David MacKenzie.
++ require_controlling_input_terminal_
++ tty -s
++ test -t 0
++ test '' = no
++ trap '' TTOU
++ stty_reversible_init_
+++ perl -lne '/^ *{"(.*?)",.*\bREV\b/ and print $1' '/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/src/stty.c'
+++ tr '\n' ' '
++ stty_reversible_=' parenb parodd cmspar hupcl hup cstopb cread clocal crtscts cdtrdsr ignbrk brkint ignpar parmrk inpck istrip inlcr igncr icrnl ixon ixoff tandem iuclc ixany imaxbel iutf8 opost olcuc ocrnl onlcr onocr onlret ofill ofdel isig icanon iexten echo echoe crterase echok echonl noflsh xcase tostop echoprt prterase echoctl ctlecho echoke crtkill evenp parity oddp nl cooked raw pass8 litout cbreak decctlq tabs lcase LCASE '
+++ echo ' parenb parodd cmspar hupcl hup cstopb cread clocal crtscts cdtrdsr ignbrk brkint ignpar parmrk inpck istrip inlcr igncr icrnl ixon ixoff tandem iuclc ixany imaxbel iutf8 opost olcuc ocrnl onlcr onocr onlret ofill ofdel isig icanon iexten echo echoe crterase echok echonl noflsh xcase tostop echoprt prterase echoctl ctlecho echoke crtkill evenp parity oddp nl cooked raw pass8 litout cbreak decctlq tabs lcase LCASE '
+++ wc -w
++ test 62 -le 64
++ saved_state=.saved-state
++ stty --save
+++ cat .saved-state
++ stty 6d02:5:4bf:8a3b:3:1c:7f:15:4:0:1:ff:11:13:1a:ff:12:f:17:16:ff:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0
++ stty erase -
++ stty -F
++ stty -raw -F no/such/file
++ stty -raw -a
++ sed_del='/^speed/d;/^rows/d;/^columns/d;/ = /d'
+++ stty -a
+++ tr -s ';' '\n'
+++ sed 's/^ //;/^speed/d;/^rows/d;/^columns/d;/ = /d;s/-//g'
++ options='parenb parodd cmspar cs8 hupcl cstopb cread clocal crtscts
+ignbrk brkint ignpar parmrk inpck istrip inlcr igncr icrnl ixon ixoff
+iuclc ixany imaxbel iutf8
+opost olcuc ocrnl onlcr onocr onlret ofill ofdel nl0 cr0 tab0 bs0 vt0 ff0
+isig icanon iexten echo echoe echok echonl noflsh xcase tostop echoprt
+echoctl echoke'
++ for opt in '$options'
++ case $opt in
++ continue
++ for opt in '$options'
++ case $opt in
++ continue
++ for opt in '$options'
++ case $opt in
++ continue
++ for opt in '$options'
++ case $opt in
++ stty cs8
++ test cs8 = cread
++ stty_reversible_query_ cs8
++ case $stty_reversible_ in
++ return 1
++ for opt in '$options'
++ case $opt in
++ stty hupcl
++ test hupcl = cread
++ stty_reversible_query_ hupcl
++ case $stty_reversible_ in
++ return 0
++ stty -hupcl
++ for opt in '$options'
++ case $opt in
++ continue
++ for opt in '$options'
++ case $opt in
++ stty cread
++ test cread = cread
++ continue
++ for opt in '$options'
++ case $opt in
++ stty clocal
++ test clocal = cread
++ stty_reversible_query_ clocal
++ case $stty_reversible_ in
++ return 0
++ stty -clocal
++ for opt in '$options'
++ case $opt in
++ continue
++ for opt in '$options'
++ case $opt in
++ stty ignbrk
++ test ignbrk = cread
++ stty_reversible_query_ ignbrk
++ case $stty_reversible_ in
++ return 0
++ stty -ignbrk
++ for opt in '$options'
++ case $opt in
++ stty brkint
++ test brkint = cread
++ stty_reversible_query_ brkint
++ case $stty_reversible_ in
++ return 0
++ stty -brkint
++ for opt in '$options'
++ case $opt in
++ stty ignpar
++ test ignpar = cread
++ stty_reversible_query_ ignpar
++ case $stty_reversible_ in
++ return 0
++ stty -ignpar
++ for opt in '$options'
++ case $opt in
++ stty parmrk
++ test parmrk = cread
++ stty_reversible_query_ parmrk
++ case $stty_reversible_ in
++ return 0
++ stty -parmrk
++ for opt in '$options'
++ case $opt in
++ stty inpck
++ test inpck = cread
++ stty_reversible_query_ inpck
++ case $stty_reversible_ in
++ return 0
++ stty -inpck
++ for opt in '$options'
++ case $opt in
++ stty istrip
++ test istrip = cread
++ stty_reversible_query_ istrip
++ case $stty_reversible_ in
++ return 0
++ stty -istrip
++ for opt in '$options'
++ case $opt in
++ stty inlcr
++ test inlcr = cread
++ stty_reversible_query_ inlcr
++ case $stty_reversible_ in
++ return 0
++ stty -inlcr
++ for opt in '$options'
++ case $opt in
++ stty igncr
++ test igncr = cread
++ stty_reversible_query_ igncr
++ case $stty_reversible_ in
++ return 0
++ stty -igncr
++ for opt in '$options'
++ case $opt in
++ stty icrnl
++ test icrnl = cread
++ stty_reversible_query_ icrnl
++ case $stty_reversible_ in
++ return 0
++ stty -icrnl
++ for opt in '$options'
++ case $opt in
++ stty ixon
++ test ixon = cread
++ stty_reversible_query_ ixon
++ case $stty_reversible_ in
++ return 0
++ stty -ixon
++ for opt in '$options'
++ case $opt in
++ stty ixoff
++ test ixoff = cread
++ stty_reversible_query_ ixoff
++ case $stty_reversible_ in
++ return 0
++ stty -ixoff
++ for opt in '$options'
++ case $opt in
++ stty iuclc
++ test iuclc = cread
++ stty_reversible_query_ iuclc
++ case $stty_reversible_ in
++ return 0
++ stty -iuclc
++ for opt in '$options'
++ case $opt in
++ stty ixany
++ test ixany = cread
++ stty_reversible_query_ ixany
++ case $stty_reversible_ in
++ return 0
++ stty -ixany
++ for opt in '$options'
++ case $opt in
++ stty imaxbel
++ test imaxbel = cread
++ stty_reversible_query_ imaxbel
++ case $stty_reversible_ in
++ return 0
++ stty -imaxbel
++ for opt in '$options'
++ case $opt in
++ stty iutf8
++ test iutf8 = cread
++ stty_reversible_query_ iutf8
++ case $stty_reversible_ in
++ return 0
++ stty -iutf8
++ for opt in '$options'
++ case $opt in
++ stty opost
++ test opost = cread
++ stty_reversible_query_ opost
++ case $stty_reversible_ in
++ return 0
++ stty -opost
++ for opt in '$options'
++ case $opt in
++ stty olcuc
++ test olcuc = cread
++ stty_reversible_query_ olcuc
++ case $stty_reversible_ in
++ return 0
++ stty -olcuc
++ for opt in '$options'
++ case $opt in
++ stty ocrnl
++ test ocrnl = cread
++ stty_reversible_query_ ocrnl
++ case $stty_reversible_ in
++ return 0
++ stty -ocrnl
++ for opt in '$options'
++ case $opt in
++ stty onlcr
++ test onlcr = cread
++ stty_reversible_query_ onlcr
++ case $stty_reversible_ in
++ return 0
++ stty -onlcr
++ for opt in '$options'
++ case $opt in
++ stty onocr
++ test onocr = cread
++ stty_reversible_query_ onocr
++ case $stty_reversible_ in
++ return 0
++ stty -onocr
++ for opt in '$options'
++ case $opt in
++ stty onlret
++ test onlret = cread
++ stty_reversible_query_ onlret
++ case $stty_reversible_ in
++ return 0
++ stty -onlret
++ for opt in '$options'
++ case $opt in
++ stty ofill
++ test ofill = cread
++ stty_reversible_query_ ofill
++ case $stty_reversible_ in
++ return 0
++ stty -ofill
++ for opt in '$options'
++ case $opt in
++ stty ofdel
++ test ofdel = cread
++ stty_reversible_query_ ofdel
++ case $stty_reversible_ in
++ return 0
++ stty -ofdel
++ for opt in '$options'
++ case $opt in
++ stty nl0
++ test nl0 = cread
++ stty_reversible_query_ nl0
++ case $stty_reversible_ in
++ return 1
++ for opt in '$options'
++ case $opt in
++ stty cr0
++ test cr0 = cread
++ stty_reversible_query_ cr0
++ case $stty_reversible_ in
++ return 1
++ for opt in '$options'
++ case $opt in
++ stty tab0
++ test tab0 = cread
++ stty_reversible_query_ tab0
++ case $stty_reversible_ in
++ return 1
++ for opt in '$options'
++ case $opt in
++ stty bs0
++ test bs0 = cread
++ stty_reversible_query_ bs0
++ case $stty_reversible_ in
++ return 1
++ for opt in '$options'
++ case $opt in
++ stty vt0
++ test vt0 = cread
++ stty_reversible_query_ vt0
++ case $stty_reversible_ in
++ return 1
++ for opt in '$options'
++ case $opt in
++ stty ff0
++ test ff0 = cread
++ stty_reversible_query_ ff0
++ case $stty_reversible_ in
++ return 1
++ for opt in '$options'
++ case $opt in
++ stty isig
++ test isig = cread
++ stty_reversible_query_ isig
++ case $stty_reversible_ in
++ return 0
++ stty -isig
++ for opt in '$options'
++ case $opt in
++ continue
++ for opt in '$options'
++ case $opt in
++ stty iexten
++ test iexten = cread
++ stty_reversible_query_ iexten
++ case $stty_reversible_ in
++ return 0
++ stty -iexten
++ for opt in '$options'
++ case $opt in
++ stty echo
++ test echo = cread
++ stty_reversible_query_ echo
++ case $stty_reversible_ in
++ return 0
++ stty -echo
++ for opt in '$options'
++ case $opt in
++ stty echoe
++ test echoe = cread
++ stty_reversible_query_ echoe
++ case $stty_reversible_ in
++ return 0
++ stty -echoe
++ for opt in '$options'
++ case $opt in
++ stty echok
++ test echok = cread
++ stty_reversible_query_ echok
++ case $stty_reversible_ in
++ return 0
++ stty -echok
++ for opt in '$options'
++ case $opt in
++ stty echonl
++ test echonl = cread
++ stty_reversible_query_ echonl
++ case $stty_reversible_ in
++ return 0
++ stty -echonl
++ for opt in '$options'
++ case $opt in
++ stty noflsh
++ test noflsh = cread
++ stty_reversible_query_ noflsh
++ case $stty_reversible_ in
++ return 0
++ stty -noflsh
++ for opt in '$options'
++ case $opt in
++ stty xcase
++ test xcase = cread
++ stty_reversible_query_ xcase
++ case $stty_reversible_ in
++ return 0
++ stty -xcase
++ for opt in '$options'
++ case $opt in
++ stty tostop
++ test tostop = cread
++ stty_reversible_query_ tostop
++ case $stty_reversible_ in
++ return 0
++ stty -tostop
++ for opt in '$options'
++ case $opt in
++ stty echoprt
++ test echoprt = cread
++ stty_reversible_query_ echoprt
++ case $stty_reversible_ in
++ return 0
++ stty -echoprt
++ for opt in '$options'
++ case $opt in
++ stty echoctl
++ test echoctl = cread
++ stty_reversible_query_ echoctl
++ case $stty_reversible_ in
++ return 0
++ stty -echoctl
++ for opt in '$options'
++ case $opt in
++ stty echoke
++ test echoke = cread
++ stty_reversible_query_ echoke
++ case $stty_reversible_ in
++ return 0
++ stty -echoke
+++ cat .saved-state
++ stty 6d02:5:4bf:8a3b:3:1c:7f:15:4:0:1:ff:11:13:1a:ff:12:f:17:16:ff:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0
++ Exit 0
++ set +e
++ exit 0
++ exit 0
++ remove_tmp_
++ __st=0
++ cleanup_
++ :
++ cd '/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23'
++ chmod -R u+rwx '/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/gt-stty.sh.PPC3'
++ rm -rf '/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/gt-stty.sh.PPC3'
++ exit 0

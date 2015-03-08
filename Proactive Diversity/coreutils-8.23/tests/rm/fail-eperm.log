@@ -1,0 +1,1 @@
+./tests/rm/fail-eperm.xpl: skipping test: unsafe working directory name: '/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/tests/rm/fail-eperm.xpl'

@@ -1,0 +1,2010 @@
++ tail --version
+tail (GNU coreutils) 8.23
+Copyright (C) 2014 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>.
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.
+
+Written by Paul Rubin, David MacKenzie, Ian Lance Taylor,
+and Jim Meyering.
++ . ./tests/init.sh
++++ expr ././tests/tail-2/inotify-rotate.sh : '.*/\(.*\)$'
+++ ME_=inotify-rotate.sh
+++ : 2
+++ DUALCASE=1
+++ export DUALCASE
+++ test -n ''
+++ case `(set -o) 2>/dev/null` in
+++ set -o posix
+++ gl_shell_test_script_='
+test $(echo y) = y || exit 1
+score_=10
+if test "$VERBOSE" = yes; then
+  test -n "$( (exec 3>&1; set -x; P=1 true 2>&3) 2> /dev/null)" && score_=9
+fi
+test -z "$EXEEXT" && exit $score_
+shopt -s expand_aliases
+alias a-b="echo zoo"
+v=abx
+     test ${v%x} = ab \
+  && test ${v#a} = bx \
+  && test $(a-b) = zoo \
+  && exit $score_
+'
+++ test x = x--no-reexec
+++ gl_set_x_corrupts_stderr_=false
+++ export gl_set_x_corrupts_stderr_
+++ marginal_=
+++ for re_shell_ in __current__ '"${CONFIG_SHELL:-no_shell}"' /bin/sh bash dash zsh pdksh fail
+++ test __current__ = no_shell
+++ test __current__ = fail
+++ test __current__ = __current__
+++ st_=10
+++ test 10 = 10
+++ gl_set_x_corrupts_stderr_=false
+++ break
+++ test __current__ '!=' __current__
+++ test -n '4.3.11(1)-release'
+++ unalias -a
+++ test -n ''
+++ : 87
+++ export MALLOC_PERTURB_
++++ exec
+++ diff_out_=
+++ diff -u Makefile ./tests/tail-2/inotify-rotate.sh
+++ grep '^[+]#!'
+++ test -z ''
+++ test -f ./init.cfg
+++ . ./init.cfg
++++ stderr_fileno_=9
++++ sanitize_path_
++++ local 'saved_IFS= 	
+'
++++ IFS=:
++++ set -- '/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/src' /home/jfloyd/.opam/system/bin /usr/local/sbin /usr/local/bin /usr/sbin /usr/bin /sbin /bin /usr/games /usr/local/games
++++ IFS=' 	
+'
++++ local d d1
++++ local colon=
++++ local new_path=
++++ for d in '"$@"'
++++ test -z '/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/src'
++++ d1='/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/src'
++++ ls -d '/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/src/.'
++++ new_path='/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/src'
++++ colon=:
++++ for d in '"$@"'
++++ test -z /home/jfloyd/.opam/system/bin
++++ d1=/home/jfloyd/.opam/system/bin
++++ ls -d /home/jfloyd/.opam/system/bin/.
++++ new_path='/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/src:/home/jfloyd/.opam/system/bin'
++++ colon=:
++++ for d in '"$@"'
++++ test -z /usr/local/sbin
++++ d1=/usr/local/sbin
++++ ls -d /usr/local/sbin/.
++++ new_path='/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/src:/home/jfloyd/.opam/system/bin:/usr/local/sbin'
++++ colon=:
++++ for d in '"$@"'
++++ test -z /usr/local/bin
++++ d1=/usr/local/bin
++++ ls -d /usr/local/bin/.
++++ new_path='/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/src:/home/jfloyd/.opam/system/bin:/usr/local/sbin:/usr/local/bin'
++++ colon=:
++++ for d in '"$@"'
++++ test -z /usr/sbin
++++ d1=/usr/sbin
++++ ls -d /usr/sbin/.
++++ new_path='/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/src:/home/jfloyd/.opam/system/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin'
++++ colon=:
++++ for d in '"$@"'
++++ test -z /usr/bin
++++ d1=/usr/bin
++++ ls -d /usr/bin/.
++++ new_path='/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/src:/home/jfloyd/.opam/system/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin'
++++ colon=:
++++ for d in '"$@"'
++++ test -z /sbin
++++ d1=/sbin
++++ ls -d /sbin/.
++++ new_path='/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/src:/home/jfloyd/.opam/system/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin'
++++ colon=:
++++ for d in '"$@"'
++++ test -z /bin
++++ d1=/bin
++++ ls -d /bin/.
++++ new_path='/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/src:/home/jfloyd/.opam/system/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'
++++ colon=:
++++ for d in '"$@"'
++++ test -z /usr/games
++++ d1=/usr/games
++++ ls -d /usr/games/.
++++ new_path='/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/src:/home/jfloyd/.opam/system/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games'
++++ colon=:
++++ for d in '"$@"'
++++ test -z /usr/local/games
++++ d1=/usr/local/games
++++ ls -d /usr/local/games/.
++++ new_path='/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/src:/home/jfloyd/.opam/system/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games'
++++ colon=:
++++ for d in /sbin /usr/sbin
++++ case ":$new_path:" in
++++ for d in /sbin /usr/sbin
++++ case ":$new_path:" in
++++ PATH='/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/src:/home/jfloyd/.opam/system/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games'
++++ export PATH
+++ setup_
+++ test yes = yes
+++ false
+++ set -x
+++ initial_cwd_='/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23'
+++ fail=0
++++ testdir_prefix_
++++ printf gt
+++ pfx_=gt
++++ mktempd_ '/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23' gt-inotify-rotate.sh.XXXX
++++ case $# in
++++ destdir_='/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23'
++++ template_=gt-inotify-rotate.sh.XXXX
++++ MAX_TRIES_=4
++++ case $destdir_ in
++++ case $template_ in
+++++ unset TMPDIR
++++ d='/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/gt-inotify-rotate.sh.7Vu6'
++++ case $d in
++++ test -d '/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/gt-inotify-rotate.sh.7Vu6'
+++++ ls -dgo '/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/gt-inotify-rotate.sh.7Vu6'
+++++ tr S -
++++ perms='drwx------ 2 4096 Mar  6 11:55 /home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/gt-inotify-rotate.sh.7Vu6'
++++ case $perms in
++++ test 0 = 0
++++ echo '/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/gt-inotify-rotate.sh.7Vu6'
++++ return
+++ test_dir_='/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/gt-inotify-rotate.sh.7Vu6'
+++ cd '/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/gt-inotify-rotate.sh.7Vu6'
+++ gl_init_sh_nl_='
+'
+++ IFS=' 	
+'
+++ for sig_ in 1 2 3 13 15
++++ expr 1 + 128
+++ eval 'trap '\''Exit 129'\'' 1'
++++ trap 'Exit 129' 1
+++ for sig_ in 1 2 3 13 15
++++ expr 2 + 128
+++ eval 'trap '\''Exit 130'\'' 2'
++++ trap 'Exit 130' 2
+++ for sig_ in 1 2 3 13 15
++++ expr 3 + 128
+++ eval 'trap '\''Exit 131'\'' 3'
++++ trap 'Exit 131' 3
+++ for sig_ in 1 2 3 13 15
++++ expr 13 + 128
+++ eval 'trap '\''Exit 141'\'' 13'
++++ trap 'Exit 141' 13
+++ for sig_ in 1 2 3 13 15
++++ expr 15 + 128
+++ eval 'trap '\''Exit 143'\'' 15'
++++ trap 'Exit 143' 15
+++ trap remove_tmp_ 0
++ path_prepend_ ./src
++ test 1 '!=' 0
++ path_dir_=./src
++ case $path_dir_ in
++ abs_path_dir_='/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/./src'
++ case $abs_path_dir_ in
++ PATH='/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/./src:/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/src:/home/jfloyd/.opam/system/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games'
++ create_exe_shims_ '/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/./src'
++ case $EXEEXT in
++ return 0
++ shift
++ test 0 '!=' 0
++ export PATH
++ expensive_
++ test yes '!=' yes
+++ seq 50
++ for i in '$(seq 50)'
++ echo 1
+1
++ rm -rf k x out
++ pid=30396
++ sleep .1
++ timeout 40 tail -F k
++ echo b
++ grep_timeout b out
++ local j
+++ seq 150
++ for j in '$(seq 150)'
++ grep b out
++ return 0
++ :
++ grep b out
++ break
++ mv x k
++ grep_timeout tail: out
++ local j
+++ seq 150
++ for j in '$(seq 150)'
++ grep tail: out
++ return 0
++ echo ok
++ found=0
++ grep_timeout ok out
++ local j
+++ seq 150
++ for j in '$(seq 150)'
++ grep ok out
++ return 0
++ found=1
++ kill 30396
++ test 1 = 0
++ for i in '$(seq 50)'
++ echo 2
+2
++ rm -rf k x out
++ pid=30408
++ sleep .1
++ timeout 40 tail -F k
++ echo b
++ grep_timeout b out
++ local j
+++ seq 150
++ for j in '$(seq 150)'
++ grep b out
++ return 0
++ :
++ grep b out
++ break
++ mv x k
++ grep_timeout tail: out
++ local j
+++ seq 150
++ for j in '$(seq 150)'
++ grep tail: out
++ return 0
++ echo ok
++ found=0
++ grep_timeout ok out
++ local j
+++ seq 150
++ for j in '$(seq 150)'
++ grep ok out
++ return 0
++ found=1
++ kill 30408
++ test 1 = 0
++ for i in '$(seq 50)'
++ echo 3
+3
++ rm -rf k x out
++ pid=30420
++ sleep .1
++ timeout 40 tail -F k
++ echo b
++ grep_timeout b out
++ local j
+++ seq 150
++ for j in '$(seq 150)'
++ grep b out
++ return 0
++ :
++ grep b out
++ break
++ mv x k
++ grep_timeout tail: out
++ local j
+++ seq 150
++ for j in '$(seq 150)'
++ grep tail: out
++ return 0
++ echo ok
++ found=0
++ grep_timeout ok out
++ local j
+++ seq 150
++ for j in '$(seq 150)'
++ grep ok out
++ return 0
++ found=1
++ kill 30420
++ test 1 = 0
++ for i in '$(seq 50)'
++ echo 4
+4
++ rm -rf k x out
++ pid=30432
++ sleep .1
++ timeout 40 tail -F k
++ echo b
++ grep_timeout b out
++ local j
+++ seq 150
++ for j in '$(seq 150)'
++ grep b out
++ return 0
++ :
++ grep b out
++ break
++ mv x k
++ grep_timeout tail: out
++ local j
+++ seq 150
++ for j in '$(seq 150)'
++ grep tail: out
++ return 0
++ echo ok
++ found=0
++ grep_timeout ok out
++ local j
+++ seq 150
++ for j in '$(seq 150)'
++ grep ok out
++ return 0
++ found=1
++ kill 30432
++ test 1 = 0
++ for i in '$(seq 50)'
++ echo 5
+5
++ rm -rf k x out
++ pid=30444
++ sleep .1
++ timeout 40 tail -F k
++ echo b
++ grep_timeout b out
++ local j
+++ seq 150
++ for j in '$(seq 150)'
++ grep b out
++ return 0
++ :
++ grep b out
++ break
++ mv x k
++ grep_timeout tail: out
++ local j
+++ seq 150
++ for j in '$(seq 150)'
++ grep tail: out
++ return 0
++ echo ok
++ found=0
++ grep_timeout ok out
++ local j
+++ seq 150
++ for j in '$(seq 150)'
++ grep ok out
++ return 0
++ found=1
++ kill 30444
++ test 1 = 0
++ for i in '$(seq 50)'
++ echo 6
+6
++ rm -rf k x out
++ pid=30456
++ sleep .1
++ timeout 40 tail -F k
++ echo b
++ grep_timeout b out
++ local j
+++ seq 150
++ for j in '$(seq 150)'
++ grep b out
++ return 0
++ :
++ grep b out
++ break
++ mv x k
++ grep_timeout tail: out
++ local j
+++ seq 150
++ for j in '$(seq 150)'
++ grep tail: out
++ return 0
++ echo ok
++ found=0
++ grep_timeout ok out
++ local j
+++ seq 150
++ for j in '$(seq 150)'
++ grep ok out
++ return 0
++ found=1
++ kill 30456
++ test 1 = 0
++ for i in '$(seq 50)'
++ echo 7
+7
++ rm -rf k x out
++ pid=30468
++ sleep .1
++ timeout 40 tail -F k
++ echo b
++ grep_timeout b out
++ local j
+++ seq 150
++ for j in '$(seq 150)'
++ grep b out
++ return 0
++ :
++ grep b out
++ break
++ mv x k
++ grep_timeout tail: out
++ local j
+++ seq 150
++ for j in '$(seq 150)'
++ grep tail: out
++ return 0
++ echo ok
++ found=0
++ grep_timeout ok out
++ local j
+++ seq 150
++ for j in '$(seq 150)'
++ grep ok out
++ return 0
++ found=1
++ kill 30468
++ test 1 = 0
++ for i in '$(seq 50)'
++ echo 8
+8
++ rm -rf k x out
++ pid=30480
++ sleep .1
++ timeout 40 tail -F k
++ echo b
++ grep_timeout b out
++ local j
+++ seq 150
++ for j in '$(seq 150)'
++ grep b out
++ return 0
++ :
++ grep b out
++ break
++ mv x k
++ grep_timeout tail: out
++ local j
+++ seq 150
++ for j in '$(seq 150)'
++ grep tail: out
++ return 0
++ echo ok
++ found=0
++ grep_timeout ok out
++ local j
+++ seq 150
++ for j in '$(seq 150)'
++ grep ok out
++ return 0
++ found=1
++ kill 30480
++ test 1 = 0
++ for i in '$(seq 50)'
++ echo 9
+9
++ rm -rf k x out
++ pid=30492
++ sleep .1
++ timeout 40 tail -F k
++ echo b
++ grep_timeout b out
++ local j
+++ seq 150
++ for j in '$(seq 150)'
++ grep b out
++ return 0
++ :
++ grep b out
++ break
++ mv x k
++ grep_timeout tail: out
++ local j
+++ seq 150
++ for j in '$(seq 150)'
++ grep tail: out
++ sleep 0.1
++ for j in '$(seq 150)'
++ grep tail: out
++ sleep 0.1
++ for j in '$(seq 150)'
++ grep tail: out
++ return 0
++ echo ok
++ found=0
++ grep_timeout ok out
++ local j
+++ seq 150
++ for j in '$(seq 150)'
++ grep ok out
++ return 0
++ found=1
++ kill 30492
++ test 1 = 0
++ for i in '$(seq 50)'
++ echo 10
+10
++ rm -rf k x out
++ pid=30508
++ sleep .1
++ timeout 40 tail -F k
++ echo b
++ grep_timeout b out
++ local j
+++ seq 150
++ for j in '$(seq 150)'
++ grep b out
++ return 0
++ :
++ grep b out
++ break
++ mv x k
++ grep_timeout tail: out
++ local j
+++ seq 150
++ for j in '$(seq 150)'
++ grep tail: out
++ return 0
++ echo ok
++ found=0
++ grep_timeout ok out
++ local j
+++ seq 150
++ for j in '$(seq 150)'
++ grep ok out
++ return 0
++ found=1
++ kill 30508
++ test 1 = 0
++ for i in '$(seq 50)'
++ echo 11
+11
++ rm -rf k x out
++ pid=30520
++ sleep .1
++ timeout 40 tail -F k
++ echo b
++ grep_timeout b out
++ local j
+++ seq 150
++ for j in '$(seq 150)'
++ grep b out
++ return 0
++ :
++ grep b out
++ break
++ mv x k
++ grep_timeout tail: out
++ local j
+++ seq 150
++ for j in '$(seq 150)'
++ grep tail: out
++ return 0
++ echo ok
++ found=0
++ grep_timeout ok out
++ local j
+++ seq 150
++ for j in '$(seq 150)'
++ grep ok out
++ return 0
++ found=1
++ kill 30520
++ test 1 = 0
++ for i in '$(seq 50)'
++ echo 12
+12
++ rm -rf k x out
++ pid=30532
++ sleep .1
++ timeout 40 tail -F k
++ echo b
++ grep_timeout b out
++ local j
+++ seq 150
++ for j in '$(seq 150)'
++ grep b out
++ return 0
++ :
++ grep b out
++ break
++ mv x k
++ grep_timeout tail: out
++ local j
+++ seq 150
++ for j in '$(seq 150)'
++ grep tail: out
++ return 0
++ echo ok
++ found=0
++ grep_timeout ok out
++ local j
+++ seq 150
++ for j in '$(seq 150)'
++ grep ok out
++ return 0
++ found=1
++ kill 30532
++ test 1 = 0
++ for i in '$(seq 50)'
++ echo 13
+13
++ rm -rf k x out
++ pid=30544
++ sleep .1
++ timeout 40 tail -F k
++ echo b
++ grep_timeout b out
++ local j
+++ seq 150
++ for j in '$(seq 150)'
++ grep b out
++ return 0
++ :
++ grep b out
++ break
++ mv x k
++ grep_timeout tail: out
++ local j
+++ seq 150
++ for j in '$(seq 150)'
++ grep tail: out
++ return 0
++ echo ok
++ found=0
++ grep_timeout ok out
++ local j
+++ seq 150
++ for j in '$(seq 150)'
++ grep ok out
++ return 0
++ found=1
++ kill 30544
++ test 1 = 0
++ for i in '$(seq 50)'
++ echo 14
+14
++ rm -rf k x out
++ pid=30556
++ sleep .1
++ timeout 40 tail -F k
++ echo b
++ grep_timeout b out
++ local j
+++ seq 150
++ for j in '$(seq 150)'
++ grep b out
++ return 0
++ :
++ grep b out
++ break
++ mv x k
++ grep_timeout tail: out
++ local j
+++ seq 150
++ for j in '$(seq 150)'
++ grep tail: out
++ return 0
++ echo ok
++ found=0
++ grep_timeout ok out
++ local j
+++ seq 150
++ for j in '$(seq 150)'
++ grep ok out
++ return 0
++ found=1
++ kill 30556
++ test 1 = 0
++ for i in '$(seq 50)'
++ echo 15
+15
++ rm -rf k x out
++ pid=30568
++ sleep .1
++ timeout 40 tail -F k
++ echo b
++ grep_timeout b out
++ local j
+++ seq 150
++ for j in '$(seq 150)'
++ grep b out
++ return 0
++ :
++ grep b out
++ break
++ mv x k
++ grep_timeout tail: out
++ local j
+++ seq 150
++ for j in '$(seq 150)'
++ grep tail: out
++ return 0
++ echo ok
++ found=0
++ grep_timeout ok out
++ local j
+++ seq 150
++ for j in '$(seq 150)'
++ grep ok out
++ return 0
++ found=1
++ kill 30568
++ test 1 = 0
++ for i in '$(seq 50)'
++ echo 16
+16
++ rm -rf k x out
++ pid=30580
++ sleep .1
++ timeout 40 tail -F k
++ echo b
++ grep_timeout b out
++ local j
+++ seq 150
++ for j in '$(seq 150)'
++ grep b out
++ return 0
++ :
++ grep b out
++ break
++ mv x k
++ grep_timeout tail: out
++ local j
+++ seq 150
++ for j in '$(seq 150)'
++ grep tail: out
++ return 0
++ echo ok
++ found=0
++ grep_timeout ok out
++ local j
+++ seq 150
++ for j in '$(seq 150)'
++ grep ok out
++ return 0
++ found=1
++ kill 30580
++ test 1 = 0
++ for i in '$(seq 50)'
++ echo 17
+17
++ rm -rf k x out
++ pid=30592
++ sleep .1
++ timeout 40 tail -F k
++ echo b
++ grep_timeout b out
++ local j
+++ seq 150
++ for j in '$(seq 150)'
++ grep b out
++ return 0
++ :
++ grep b out
++ break
++ mv x k
++ grep_timeout tail: out
++ local j
+++ seq 150
++ for j in '$(seq 150)'
++ grep tail: out
++ return 0
++ echo ok
++ found=0
++ grep_timeout ok out
++ local j
+++ seq 150
++ for j in '$(seq 150)'
++ grep ok out
++ return 0
++ found=1
++ kill 30592
++ test 1 = 0
++ for i in '$(seq 50)'
++ echo 18
+18
++ rm -rf k x out
++ pid=30604
++ sleep .1
++ timeout 40 tail -F k
++ echo b
++ grep_timeout b out
++ local j
+++ seq 150
++ for j in '$(seq 150)'
++ grep b out
++ return 0
++ :
++ grep b out
++ break
++ mv x k
++ grep_timeout tail: out
++ local j
+++ seq 150
++ for j in '$(seq 150)'
++ grep tail: out
++ return 0
++ echo ok
++ found=0
++ grep_timeout ok out
++ local j
+++ seq 150
++ for j in '$(seq 150)'
++ grep ok out
++ return 0
++ found=1
++ kill 30604
++ test 1 = 0
++ for i in '$(seq 50)'
++ echo 19
+19
++ rm -rf k x out
++ pid=30616
++ sleep .1
++ timeout 40 tail -F k
++ echo b
++ grep_timeout b out
++ local j
+++ seq 150
++ for j in '$(seq 150)'
++ grep b out
++ return 0
++ :
++ grep b out
++ break
++ mv x k
++ grep_timeout tail: out
++ local j
+++ seq 150
++ for j in '$(seq 150)'
++ grep tail: out
++ return 0
++ echo ok
++ found=0
++ grep_timeout ok out
++ local j
+++ seq 150
++ for j in '$(seq 150)'
++ grep ok out
++ return 0
++ found=1
++ kill 30616
++ test 1 = 0
++ for i in '$(seq 50)'
++ echo 20
+20
++ rm -rf k x out
++ pid=30628
++ sleep .1
++ timeout 40 tail -F k
++ echo b
++ grep_timeout b out
++ local j
+++ seq 150
++ for j in '$(seq 150)'
++ grep b out
++ return 0
++ :
++ grep b out
++ break
++ mv x k
++ grep_timeout tail: out
++ local j
+++ seq 150
++ for j in '$(seq 150)'
++ grep tail: out
++ sleep 0.1
++ for j in '$(seq 150)'
++ grep tail: out
++ sleep 0.1
++ for j in '$(seq 150)'
++ grep tail: out
++ sleep 0.1
++ for j in '$(seq 150)'
++ grep tail: out
++ sleep 0.1
++ for j in '$(seq 150)'
++ grep tail: out
++ sleep 0.1
++ for j in '$(seq 150)'
++ grep tail: out
++ sleep 0.1
++ for j in '$(seq 150)'
++ grep tail: out
++ sleep 0.1
++ for j in '$(seq 150)'
++ grep tail: out
++ return 0
++ echo ok
++ found=0
++ grep_timeout ok out
++ local j
+++ seq 150
++ for j in '$(seq 150)'
++ grep ok out
++ return 0
++ found=1
++ kill 30628
++ test 1 = 0
++ for i in '$(seq 50)'
++ echo 21
+21
++ rm -rf k x out
++ pid=30654
++ sleep .1
++ timeout 40 tail -F k
++ echo b
++ grep_timeout b out
++ local j
+++ seq 150
++ for j in '$(seq 150)'
++ grep b out
++ return 0
++ :
++ grep b out
++ break
++ mv x k
++ grep_timeout tail: out
++ local j
+++ seq 150
++ for j in '$(seq 150)'
++ grep tail: out
++ sleep 0.1
++ for j in '$(seq 150)'
++ grep tail: out
++ sleep 0.1
++ for j in '$(seq 150)'
++ grep tail: out
++ sleep 0.1
++ for j in '$(seq 150)'
++ grep tail: out
++ sleep 0.1
++ for j in '$(seq 150)'
++ grep tail: out
++ sleep 0.1
++ for j in '$(seq 150)'
++ grep tail: out
++ return 0
++ echo ok
++ found=0
++ grep_timeout ok out
++ local j
+++ seq 150
++ for j in '$(seq 150)'
++ grep ok out
++ return 0
++ found=1
++ kill 30654
++ test 1 = 0
++ for i in '$(seq 50)'
++ echo 22
+22
++ rm -rf k x out
++ pid=30676
++ sleep .1
++ timeout 40 tail -F k
++ echo b
++ grep_timeout b out
++ local j
+++ seq 150
++ for j in '$(seq 150)'
++ grep b out
++ return 0
++ :
++ grep b out
++ break
++ mv x k
++ grep_timeout tail: out
++ local j
+++ seq 150
++ for j in '$(seq 150)'
++ grep tail: out
++ return 0
++ echo ok
++ found=0
++ grep_timeout ok out
++ local j
+++ seq 150
++ for j in '$(seq 150)'
++ grep ok out
++ return 0
++ found=1
++ kill 30676
++ test 1 = 0
++ for i in '$(seq 50)'
++ echo 23
+23
++ rm -rf k x out
++ pid=30688
++ sleep .1
++ timeout 40 tail -F k
++ echo b
++ grep_timeout b out
++ local j
+++ seq 150
++ for j in '$(seq 150)'
++ grep b out
++ return 0
++ :
++ grep b out
++ break
++ mv x k
++ grep_timeout tail: out
++ local j
+++ seq 150
++ for j in '$(seq 150)'
++ grep tail: out
++ return 0
++ echo ok
++ found=0
++ grep_timeout ok out
++ local j
+++ seq 150
++ for j in '$(seq 150)'
++ grep ok out
++ return 0
++ found=1
++ kill 30688
++ test 1 = 0
++ for i in '$(seq 50)'
++ echo 24
+24
++ rm -rf k x out
++ pid=30700
++ sleep .1
++ timeout 40 tail -F k
++ echo b
++ grep_timeout b out
++ local j
+++ seq 150
++ for j in '$(seq 150)'
++ grep b out
++ return 0
++ :
++ grep b out
++ break
++ mv x k
++ grep_timeout tail: out
++ local j
+++ seq 150
++ for j in '$(seq 150)'
++ grep tail: out
++ return 0
++ echo ok
++ found=0
++ grep_timeout ok out
++ local j
+++ seq 150
++ for j in '$(seq 150)'
++ grep ok out
++ return 0
++ found=1
++ kill 30700
++ test 1 = 0
++ for i in '$(seq 50)'
++ echo 25
+25
++ rm -rf k x out
++ pid=30712
++ sleep .1
++ timeout 40 tail -F k
++ echo b
++ grep_timeout b out
++ local j
+++ seq 150
++ for j in '$(seq 150)'
++ grep b out
++ return 0
++ :
++ grep b out
++ break
++ mv x k
++ grep_timeout tail: out
++ local j
+++ seq 150
++ for j in '$(seq 150)'
++ grep tail: out
++ return 0
++ echo ok
++ found=0
++ grep_timeout ok out
++ local j
+++ seq 150
++ for j in '$(seq 150)'
++ grep ok out
++ return 0
++ found=1
++ kill 30712
++ test 1 = 0
++ for i in '$(seq 50)'
++ echo 26
+26
++ rm -rf k x out
++ pid=30724
++ sleep .1
++ timeout 40 tail -F k
++ echo b
++ grep_timeout b out
++ local j
+++ seq 150
++ for j in '$(seq 150)'
++ grep b out
++ return 0
++ :
++ grep b out
++ break
++ mv x k
++ grep_timeout tail: out
++ local j
+++ seq 150
++ for j in '$(seq 150)'
++ grep tail: out
++ return 0
++ echo ok
++ found=0
++ grep_timeout ok out
++ local j
+++ seq 150
++ for j in '$(seq 150)'
++ grep ok out
++ return 0
++ found=1
++ kill 30724
++ test 1 = 0
++ for i in '$(seq 50)'
++ echo 27
+27
++ rm -rf k x out
++ pid=30736
++ sleep .1
++ timeout 40 tail -F k
++ echo b
++ grep_timeout b out
++ local j
+++ seq 150
++ for j in '$(seq 150)'
++ grep b out
++ return 0
++ :
++ grep b out
++ break
++ mv x k
++ grep_timeout tail: out
++ local j
+++ seq 150
++ for j in '$(seq 150)'
++ grep tail: out
++ return 0
++ echo ok
++ found=0
++ grep_timeout ok out
++ local j
+++ seq 150
++ for j in '$(seq 150)'
++ grep ok out
++ return 0
++ found=1
++ kill 30736
++ test 1 = 0
++ for i in '$(seq 50)'
++ echo 28
+28
++ rm -rf k x out
++ pid=30748
++ sleep .1
++ timeout 40 tail -F k
++ echo b
++ grep_timeout b out
++ local j
+++ seq 150
++ for j in '$(seq 150)'
++ grep b out
++ return 0
++ :
++ grep b out
++ break
++ mv x k
++ grep_timeout tail: out
++ local j
+++ seq 150
++ for j in '$(seq 150)'
++ grep tail: out
++ return 0
++ echo ok
++ found=0
++ grep_timeout ok out
++ local j
+++ seq 150
++ for j in '$(seq 150)'
++ grep ok out
++ return 0
++ found=1
++ kill 30748
++ test 1 = 0
++ for i in '$(seq 50)'
++ echo 29
+29
++ rm -rf k x out
++ pid=30760
++ sleep .1
++ timeout 40 tail -F k
++ echo b
++ grep_timeout b out
++ local j
+++ seq 150
++ for j in '$(seq 150)'
++ grep b out
++ return 0
++ :
++ grep b out
++ break
++ mv x k
++ grep_timeout tail: out
++ local j
+++ seq 150
++ for j in '$(seq 150)'
++ grep tail: out
++ return 0
++ echo ok
++ found=0
++ grep_timeout ok out
++ local j
+++ seq 150
++ for j in '$(seq 150)'
++ grep ok out
++ return 0
++ found=1
++ kill 30760
++ test 1 = 0
++ for i in '$(seq 50)'
++ echo 30
+30
++ rm -rf k x out
++ pid=30772
++ sleep .1
++ timeout 40 tail -F k
++ echo b
++ grep_timeout b out
++ local j
+++ seq 150
++ for j in '$(seq 150)'
++ grep b out
++ return 0
++ :
++ grep b out
++ break
++ mv x k
++ grep_timeout tail: out
++ local j
+++ seq 150
++ for j in '$(seq 150)'
++ grep tail: out
++ return 0
++ echo ok
++ found=0
++ grep_timeout ok out
++ local j
+++ seq 150
++ for j in '$(seq 150)'
++ grep ok out
++ return 0
++ found=1
++ kill 30772
++ test 1 = 0
++ for i in '$(seq 50)'
++ echo 31
+31
++ rm -rf k x out
++ pid=30784
++ sleep .1
++ timeout 40 tail -F k
++ echo b
++ grep_timeout b out
++ local j
+++ seq 150
++ for j in '$(seq 150)'
++ grep b out
++ return 0
++ :
++ grep b out
++ break
++ mv x k
++ grep_timeout tail: out
++ local j
+++ seq 150
++ for j in '$(seq 150)'
++ grep tail: out
++ return 0
++ echo ok
++ found=0
++ grep_timeout ok out
++ local j
+++ seq 150
++ for j in '$(seq 150)'
++ grep ok out
++ return 0
++ found=1
++ kill 30784
++ test 1 = 0
++ for i in '$(seq 50)'
++ echo 32
+32
++ rm -rf k x out
++ pid=30796
++ sleep .1
++ timeout 40 tail -F k
++ echo b
++ grep_timeout b out
++ local j
+++ seq 150
++ for j in '$(seq 150)'
++ grep b out
++ return 0
++ :
++ grep b out
++ break
++ mv x k
++ grep_timeout tail: out
++ local j
+++ seq 150
++ for j in '$(seq 150)'
++ grep tail: out
++ return 0
++ echo ok
++ found=0
++ grep_timeout ok out
++ local j
+++ seq 150
++ for j in '$(seq 150)'
++ grep ok out
++ return 0
++ found=1
++ kill 30796
++ test 1 = 0
++ for i in '$(seq 50)'
++ echo 33
+33
++ rm -rf k x out
++ pid=30808
++ sleep .1
++ timeout 40 tail -F k
++ echo b
++ grep_timeout b out
++ local j
+++ seq 150
++ for j in '$(seq 150)'
++ grep b out
++ return 0
++ :
++ grep b out
++ break
++ mv x k
++ grep_timeout tail: out
++ local j
+++ seq 150
++ for j in '$(seq 150)'
++ grep tail: out
++ return 0
++ echo ok
++ found=0
++ grep_timeout ok out
++ local j
+++ seq 150
++ for j in '$(seq 150)'
++ grep ok out
++ return 0
++ found=1
++ kill 30808
++ test 1 = 0
++ for i in '$(seq 50)'
++ echo 34
+34
++ rm -rf k x out
++ pid=30820
++ sleep .1
++ timeout 40 tail -F k
++ echo b
++ grep_timeout b out
++ local j
+++ seq 150
++ for j in '$(seq 150)'
++ grep b out
++ return 0
++ :
++ grep b out
++ break
++ mv x k
++ grep_timeout tail: out
++ local j
+++ seq 150
++ for j in '$(seq 150)'
++ grep tail: out
++ return 0
++ echo ok
++ found=0
++ grep_timeout ok out
++ local j
+++ seq 150
++ for j in '$(seq 150)'
++ grep ok out
++ return 0
++ found=1
++ kill 30820
++ test 1 = 0
++ for i in '$(seq 50)'
++ echo 35
+35
++ rm -rf k x out
++ pid=30832
++ sleep .1
++ timeout 40 tail -F k
++ echo b
++ grep_timeout b out
++ local j
+++ seq 150
++ for j in '$(seq 150)'
++ grep b out
++ return 0
++ :
++ grep b out
++ break
++ mv x k
++ grep_timeout tail: out
++ local j
+++ seq 150
++ for j in '$(seq 150)'
++ grep tail: out
++ return 0
++ echo ok
++ found=0
++ grep_timeout ok out
++ local j
+++ seq 150
++ for j in '$(seq 150)'
++ grep ok out
++ return 0
++ found=1
++ kill 30832
++ test 1 = 0
++ for i in '$(seq 50)'
++ echo 36
+36
++ rm -rf k x out
++ pid=30844
++ sleep .1
++ timeout 40 tail -F k
++ echo b
++ grep_timeout b out
++ local j
+++ seq 150
++ for j in '$(seq 150)'
++ grep b out
++ return 0
++ :
++ grep b out
++ break
++ mv x k
++ grep_timeout tail: out
++ local j
+++ seq 150
++ for j in '$(seq 150)'
++ grep tail: out
++ return 0
++ echo ok
++ found=0
++ grep_timeout ok out
++ local j
+++ seq 150
++ for j in '$(seq 150)'
++ grep ok out
++ return 0
++ found=1
++ kill 30844
++ test 1 = 0
++ for i in '$(seq 50)'
++ echo 37
+37
++ rm -rf k x out
++ pid=30856
++ sleep .1
++ timeout 40 tail -F k
++ echo b
++ grep_timeout b out
++ local j
+++ seq 150
++ for j in '$(seq 150)'
++ grep b out
++ return 0
++ :
++ grep b out
++ break
++ mv x k
++ grep_timeout tail: out
++ local j
+++ seq 150
++ for j in '$(seq 150)'
++ grep tail: out
++ return 0
++ echo ok
++ found=0
++ grep_timeout ok out
++ local j
+++ seq 150
++ for j in '$(seq 150)'
++ grep ok out
++ return 0
++ found=1
++ kill 30856
++ test 1 = 0
++ for i in '$(seq 50)'
++ echo 38
+38
++ rm -rf k x out
++ pid=30868
++ sleep .1
++ timeout 40 tail -F k
++ echo b
++ grep_timeout b out
++ local j
+++ seq 150
++ for j in '$(seq 150)'
++ grep b out
++ return 0
++ :
++ grep b out
++ break
++ mv x k
++ grep_timeout tail: out
++ local j
+++ seq 150
++ for j in '$(seq 150)'
++ grep tail: out
++ return 0
++ echo ok
++ found=0
++ grep_timeout ok out
++ local j
+++ seq 150
++ for j in '$(seq 150)'
++ grep ok out
++ return 0
++ found=1
++ kill 30868
++ test 1 = 0
++ for i in '$(seq 50)'
++ echo 39
+39
++ rm -rf k x out
++ pid=30880
++ sleep .1
++ timeout 40 tail -F k
++ echo b
++ grep_timeout b out
++ local j
+++ seq 150
++ for j in '$(seq 150)'
++ grep b out
++ return 0
++ :
++ grep b out
++ break
++ mv x k
++ grep_timeout tail: out
++ local j
+++ seq 150
++ for j in '$(seq 150)'
++ grep tail: out
++ return 0
++ echo ok
++ found=0
++ grep_timeout ok out
++ local j
+++ seq 150
++ for j in '$(seq 150)'
++ grep ok out
++ return 0
++ found=1
++ kill 30880
++ test 1 = 0
++ for i in '$(seq 50)'
++ echo 40
+40
++ rm -rf k x out
++ pid=30892
++ sleep .1
++ timeout 40 tail -F k
++ echo b
++ grep_timeout b out
++ local j
+++ seq 150
++ for j in '$(seq 150)'
++ grep b out
++ return 0
++ :
++ grep b out
++ break
++ mv x k
++ grep_timeout tail: out
++ local j
+++ seq 150
++ for j in '$(seq 150)'
++ grep tail: out
++ return 0
++ echo ok
++ found=0
++ grep_timeout ok out
++ local j
+++ seq 150
++ for j in '$(seq 150)'
++ grep ok out
++ return 0
++ found=1
++ kill 30892
++ test 1 = 0
++ for i in '$(seq 50)'
++ echo 41
+41
++ rm -rf k x out
++ pid=30904
++ sleep .1
++ timeout 40 tail -F k
++ echo b
++ grep_timeout b out
++ local j
+++ seq 150
++ for j in '$(seq 150)'
++ grep b out
++ return 0
++ :
++ grep b out
++ break
++ mv x k
++ grep_timeout tail: out
++ local j
+++ seq 150
++ for j in '$(seq 150)'
++ grep tail: out
++ return 0
++ echo ok
++ found=0
++ grep_timeout ok out
++ local j
+++ seq 150
++ for j in '$(seq 150)'
++ grep ok out
++ return 0
++ found=1
++ kill 30904
++ test 1 = 0
++ for i in '$(seq 50)'
++ echo 42
+42
++ rm -rf k x out
++ pid=30916
++ sleep .1
++ timeout 40 tail -F k
++ echo b
++ grep_timeout b out
++ local j
+++ seq 150
++ for j in '$(seq 150)'
++ grep b out
++ return 0
++ :
++ grep b out
++ break
++ mv x k
++ grep_timeout tail: out
++ local j
+++ seq 150
++ for j in '$(seq 150)'
++ grep tail: out
++ return 0
++ echo ok
++ found=0
++ grep_timeout ok out
++ local j
+++ seq 150
++ for j in '$(seq 150)'
++ grep ok out
++ return 0
++ found=1
++ kill 30916
++ test 1 = 0
++ for i in '$(seq 50)'
++ echo 43
+43
++ rm -rf k x out
++ pid=30928
++ sleep .1
++ timeout 40 tail -F k
++ echo b
++ grep_timeout b out
++ local j
+++ seq 150
++ for j in '$(seq 150)'
++ grep b out
++ return 0
++ :
++ grep b out
++ break
++ mv x k
++ grep_timeout tail: out
++ local j
+++ seq 150
++ for j in '$(seq 150)'
++ grep tail: out
++ return 0
++ echo ok
++ found=0
++ grep_timeout ok out
++ local j
+++ seq 150
++ for j in '$(seq 150)'
++ grep ok out
++ return 0
++ found=1
++ kill 30928
++ test 1 = 0
++ for i in '$(seq 50)'
++ echo 44
+44
++ rm -rf k x out
++ pid=30940
++ sleep .1
++ timeout 40 tail -F k
++ echo b
++ grep_timeout b out
++ local j
+++ seq 150
++ for j in '$(seq 150)'
++ grep b out
++ return 0
++ :
++ grep b out
++ break
++ mv x k
++ grep_timeout tail: out
++ local j
+++ seq 150
++ for j in '$(seq 150)'
++ grep tail: out
++ return 0
++ echo ok
++ found=0
++ grep_timeout ok out
++ local j
+++ seq 150
++ for j in '$(seq 150)'
++ grep ok out
++ return 0
++ found=1
++ kill 30940
++ test 1 = 0
++ for i in '$(seq 50)'
++ echo 45
+45
++ rm -rf k x out
++ pid=30952
++ sleep .1
++ timeout 40 tail -F k
++ echo b
++ grep_timeout b out
++ local j
+++ seq 150
++ for j in '$(seq 150)'
++ grep b out
++ return 0
++ :
++ grep b out
++ break
++ mv x k
++ grep_timeout tail: out
++ local j
+++ seq 150
++ for j in '$(seq 150)'
++ grep tail: out
++ return 0
++ echo ok
++ found=0
++ grep_timeout ok out
++ local j
+++ seq 150
++ for j in '$(seq 150)'
++ grep ok out
++ return 0
++ found=1
++ kill 30952
++ test 1 = 0
++ for i in '$(seq 50)'
++ echo 46
+46
++ rm -rf k x out
++ pid=30964
++ sleep .1
++ timeout 40 tail -F k
++ echo b
++ grep_timeout b out
++ local j
+++ seq 150
++ for j in '$(seq 150)'
++ grep b out
++ return 0
++ :
++ grep b out
++ break
++ mv x k
++ grep_timeout tail: out
++ local j
+++ seq 150
++ for j in '$(seq 150)'
++ grep tail: out
++ return 0
++ echo ok
++ found=0
++ grep_timeout ok out
++ local j
+++ seq 150
++ for j in '$(seq 150)'
++ grep ok out
++ return 0
++ found=1
++ kill 30964
++ test 1 = 0
++ for i in '$(seq 50)'
++ echo 47
+47
++ rm -rf k x out
++ pid=30976
++ sleep .1
++ timeout 40 tail -F k
++ echo b
++ grep_timeout b out
++ local j
+++ seq 150
++ for j in '$(seq 150)'
++ grep b out
++ return 0
++ :
++ grep b out
++ break
++ mv x k
++ grep_timeout tail: out
++ local j
+++ seq 150
++ for j in '$(seq 150)'
++ grep tail: out
++ return 0
++ echo ok
++ found=0
++ grep_timeout ok out
++ local j
+++ seq 150
++ for j in '$(seq 150)'
++ grep ok out
++ return 0
++ found=1
++ kill 30976
++ test 1 = 0
++ for i in '$(seq 50)'
++ echo 48
+48
++ rm -rf k x out
++ pid=30988
++ sleep .1
++ timeout 40 tail -F k
++ echo b
++ grep_timeout b out
++ local j
+++ seq 150
++ for j in '$(seq 150)'
++ grep b out
++ return 0
++ :
++ grep b out
++ break
++ mv x k
++ grep_timeout tail: out
++ local j
+++ seq 150
++ for j in '$(seq 150)'
++ grep tail: out
++ return 0
++ echo ok
++ found=0
++ grep_timeout ok out
++ local j
+++ seq 150
++ for j in '$(seq 150)'
++ grep ok out
++ return 0
++ found=1
++ kill 30988
++ test 1 = 0
++ for i in '$(seq 50)'
++ echo 49
+49
++ rm -rf k x out
++ pid=31000
++ sleep .1
++ timeout 40 tail -F k
++ echo b
++ grep_timeout b out
++ local j
+++ seq 150
++ for j in '$(seq 150)'
++ grep b out
++ return 0
++ :
++ grep b out
++ break
++ mv x k
++ grep_timeout tail: out
++ local j
+++ seq 150
++ for j in '$(seq 150)'
++ grep tail: out
++ return 0
++ echo ok
++ found=0
++ grep_timeout ok out
++ local j
+++ seq 150
++ for j in '$(seq 150)'
++ grep ok out
++ return 0
++ found=1
++ kill 31000
++ test 1 = 0
++ for i in '$(seq 50)'
++ echo 50
+50
++ rm -rf k x out
++ pid=31012
++ sleep .1
++ timeout 40 tail -F k
++ echo b
++ grep_timeout b out
++ local j
+++ seq 150
++ for j in '$(seq 150)'
++ grep b out
++ return 0
++ :
++ grep b out
++ break
++ mv x k
++ grep_timeout tail: out
++ local j
+++ seq 150
++ for j in '$(seq 150)'
++ grep tail: out
++ return 0
++ echo ok
++ found=0
++ grep_timeout ok out
++ local j
+++ seq 150
++ for j in '$(seq 150)'
++ grep ok out
++ return 0
++ found=1
++ kill 31012
++ test 1 = 0
++ wait
++ Exit 0
++ set +e
++ exit 0
++ exit 0
++ remove_tmp_
++ __st=0
++ cleanup_
++ :
++ cd '/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23'
++ chmod -R u+rwx '/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/gt-inotify-rotate.sh.7Vu6'
++ rm -rf '/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/gt-inotify-rotate.sh.7Vu6'
++ exit 0

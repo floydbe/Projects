@@ -1,0 +1,305 @@
+++ initial_cwd_='/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23'
+++ fail=0
++++ testdir_prefix_
++++ printf gt
+++ pfx_=gt
++++ mktempd_ '/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23' gt-tail-n0f.sh.XXXX
++++ case $# in
++++ destdir_='/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23'
++++ template_=gt-tail-n0f.sh.XXXX
++++ MAX_TRIES_=4
++++ case $destdir_ in
++++ case $template_ in
+++++ unset TMPDIR
++++ d='/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/gt-tail-n0f.sh.xx36'
++++ case $d in
++++ test -d '/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/gt-tail-n0f.sh.xx36'
+++++ ls -dgo '/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/gt-tail-n0f.sh.xx36'
+++++ tr S -
++++ perms='drwx------ 2 4096 Mar  6 11:56 /home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/gt-tail-n0f.sh.xx36'
++++ case $perms in
++++ test 0 = 0
++++ echo '/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/gt-tail-n0f.sh.xx36'
++++ return
+++ test_dir_='/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/gt-tail-n0f.sh.xx36'
+++ cd '/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/gt-tail-n0f.sh.xx36'
+++ gl_init_sh_nl_='
+'
+++ IFS=' 	
+'
+++ for sig_ in 1 2 3 13 15
++++ expr 1 + 128
+++ eval 'trap '\''Exit 129'\'' 1'
++++ trap 'Exit 129' 1
+++ for sig_ in 1 2 3 13 15
++++ expr 2 + 128
+++ eval 'trap '\''Exit 130'\'' 2'
++++ trap 'Exit 130' 2
+++ for sig_ in 1 2 3 13 15
++++ expr 3 + 128
+++ eval 'trap '\''Exit 131'\'' 3'
++++ trap 'Exit 131' 3
+++ for sig_ in 1 2 3 13 15
++++ expr 13 + 128
+++ eval 'trap '\''Exit 141'\'' 13'
++++ trap 'Exit 141' 13
+++ for sig_ in 1 2 3 13 15
++++ expr 15 + 128
+++ eval 'trap '\''Exit 143'\'' 15'
++++ trap 'Exit 143' 15
+++ trap remove_tmp_ 0
++ path_prepend_ ./src
++ test 1 '!=' 0
++ path_dir_=./src
++ case $path_dir_ in
++ abs_path_dir_='/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/./src'
++ case $abs_path_dir_ in
++ PATH='/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/./src:/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/src:/home/jfloyd/.opam/system/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games'
++ create_exe_shims_ '/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/./src'
++ case $EXEEXT in
++ return 0
++ shift
++ test 0 '!=' 0
++ export PATH
++ print_ver_ tail
++ test yes = yes
++ local i
++ for i in '$*'
++ env tail --version
+tail (GNU coreutils) 8.23
+Copyright (C) 2014 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>.
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.
+
+Written by Paul Rubin, David MacKenzie, Ian Lance Taylor,
+and Jim Meyering.
++ require_proc_pid_status_
++ local pid=3376
++ sleep .5
++ sleep 2
++ grep '^State:[	 ]*[S]' /proc/3376/status
++ kill 3376
++ touch empty
++ echo anything
++ touch unreadable
++ chmod 0 unreadable
++ tail -c0 unreadable
++ tail -n0 unreadable
++ for inotify in ---disable-inotify ''\'''\'''
++ for file in empty nonempty
++ for c_or_n in c n
++ pid=3384
++ retry_delay_ tail_sleeping .1 4
++ tail --sleep=4 -c 0 -f ---disable-inotify empty
++ local test_func=tail_sleeping
++ local init_delay=.1
++ local max_n_tries=4
++ shift 3
++ local attempt=1
++ local num_sleeps=1
++ local time_fail
++ test 1 -le 4
+++ mawk -v n=1 -v s=.1 'BEGIN { print s * n }'
++ local delay=0.1
++ tail_sleeping 0.1
++ local delay=0.1
++ sleep 0.1
+++ get_process_status_ 3384
+++ sed -n '/^State:[	 ]*\([[:alpha:]]\).*/s//\1/p' /proc/3384/status
++ state=S
++ case $state in
++ time_fail=0
++ break
++ test 0 = 0
++ kill 3384
++ for c_or_n in c n
++ pid=3389
++ retry_delay_ tail_sleeping .1 4
++ tail --sleep=4 -n 0 -f ---disable-inotify empty
++ local test_func=tail_sleeping
++ local init_delay=.1
++ local max_n_tries=4
++ shift 3
++ local attempt=1
++ local num_sleeps=1
++ local time_fail
++ test 1 -le 4
+++ mawk -v n=1 -v s=.1 'BEGIN { print s * n }'
++ local delay=0.1
++ tail_sleeping 0.1
++ local delay=0.1
++ sleep 0.1
+++ get_process_status_ 3389
+++ sed -n '/^State:[	 ]*\([[:alpha:]]\).*/s//\1/p' /proc/3389/status
++ state=S
++ case $state in
++ time_fail=0
++ break
++ test 0 = 0
++ kill 3389
++ for file in empty nonempty
++ for c_or_n in c n
++ pid=3394
++ retry_delay_ tail_sleeping .1 4
++ tail --sleep=4 -c 0 -f ---disable-inotify nonempty
++ local test_func=tail_sleeping
++ local init_delay=.1
++ local max_n_tries=4
++ shift 3
++ local attempt=1
++ local num_sleeps=1
++ local time_fail
++ test 1 -le 4
+++ mawk -v n=1 -v s=.1 'BEGIN { print s * n }'
++ local delay=0.1
++ tail_sleeping 0.1
++ local delay=0.1
++ sleep 0.1
+++ get_process_status_ 3394
+++ sed -n '/^State:[	 ]*\([[:alpha:]]\).*/s//\1/p' /proc/3394/status
++ state=S
++ case $state in
++ time_fail=0
++ break
++ test 0 = 0
++ kill 3394
++ for c_or_n in c n
++ pid=3399
++ retry_delay_ tail_sleeping .1 4
++ local test_func=tail_sleeping
++ tail --sleep=4 -n 0 -f ---disable-inotify nonempty
++ local init_delay=.1
++ local max_n_tries=4
++ shift 3
++ local attempt=1
++ local num_sleeps=1
++ local time_fail
++ test 1 -le 4
+++ mawk -v n=1 -v s=.1 'BEGIN { print s * n }'
++ local delay=0.1
++ tail_sleeping 0.1
++ local delay=0.1
++ sleep 0.1
+++ get_process_status_ 3399
+++ sed -n '/^State:[	 ]*\([[:alpha:]]\).*/s//\1/p' /proc/3399/status
++ state=S
++ case $state in
++ time_fail=0
++ break
++ test 0 = 0
++ kill 3399
++ for inotify in ---disable-inotify ''\'''\'''
++ for file in empty nonempty
++ for c_or_n in c n
++ pid=3404
++ retry_delay_ tail_sleeping .1 4
++ tail --sleep=4 -c 0 -f empty
++ local init_delay=.1
++ local max_n_tries=4
++ shift 3
++ local attempt=1
++ local num_sleeps=1
++ local time_fail
++ test 1 -le 4
+++ mawk -v n=1 -v s=.1 'BEGIN { print s * n }'
++ local delay=0.1
++ tail_sleeping 0.1
++ local delay=0.1
++ sleep 0.1
+++ get_process_status_ 3404
+++ sed -n '/^State:[	 ]*\([[:alpha:]]\).*/s//\1/p' /proc/3404/status
++ state=S
++ case $state in
++ time_fail=0
++ break
++ test 0 = 0
++ kill 3404
++ for c_or_n in c n
++ pid=3409
++ retry_delay_ tail_sleeping .1 4
++ local test_func=tail_sleeping
++ tail --sleep=4 -n 0 -f empty
++ local init_delay=.1
++ local max_n_tries=4
++ shift 3
++ local attempt=1
++ local num_sleeps=1
++ local time_fail
++ test 1 -le 4
+++ mawk -v n=1 -v s=.1 'BEGIN { print s * n }'
++ local delay=0.1
++ tail_sleeping 0.1
++ local delay=0.1
++ sleep 0.1
+++ get_process_status_ 3409
+++ sed -n '/^State:[	 ]*\([[:alpha:]]\).*/s//\1/p' /proc/3409/status
++ state=S
++ case $state in
++ time_fail=0
++ break
++ test 0 = 0
++ kill 3409
++ for file in empty nonempty
++ for c_or_n in c n
++ pid=3414
++ tail --sleep=4 -c 0 -f nonempty
++ retry_delay_ tail_sleeping .1 4
++ local test_func=tail_sleeping
++ local init_delay=.1
++ local max_n_tries=4
++ shift 3
++ local attempt=1
++ local num_sleeps=1
++ local time_fail
++ test 1 -le 4
+++ mawk -v n=1 -v s=.1 'BEGIN { print s * n }'
++ local delay=0.1
++ tail_sleeping 0.1
++ local delay=0.1
++ sleep 0.1
+++ get_process_status_ 3414
+++ sed -n '/^State:[	 ]*\([[:alpha:]]\).*/s//\1/p' /proc/3414/status
++ state=S
++ case $state in
++ time_fail=0
++ break
++ test 0 = 0
++ kill 3414
++ for c_or_n in c n
++ pid=3419
++ retry_delay_ tail_sleeping .1 4
++ tail --sleep=4 -n 0 -f nonempty
++ local test_func=tail_sleeping
++ local init_delay=.1
++ local max_n_tries=4
++ shift 3
++ local attempt=1
++ local num_sleeps=1
++ local time_fail
++ test 1 -le 4
+++ mawk -v n=1 -v s=.1 'BEGIN { print s * n }'
++ local delay=0.1
++ tail_sleeping 0.1
++ local delay=0.1
++ sleep 0.1
+++ get_process_status_ 3419
+++ sed -n '/^State:[	 ]*\([[:alpha:]]\).*/s//\1/p' /proc/3419/status
++ state=S
++ case $state in
++ time_fail=0
++ break
++ test 0 = 0
++ kill 3419
++ Exit 0
++ set +e
++ exit 0
++ exit 0
++ remove_tmp_
++ __st=0
++ cleanup_
++ :
++ cd '/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23'
++ chmod -R u+rwx '/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/gt-tail-n0f.sh.xx36'
++ rm -rf '/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/gt-tail-n0f.sh.xx36'
++ exit 0

@@ -1,0 +1,171 @@
+++ initial_cwd_='/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23'
+++ fail=0
++++ testdir_prefix_
++++ printf gt
+++ pfx_=gt
++++ mktempd_ '/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23' gt-sparse.sh.XXXX
++++ case $# in
++++ destdir_='/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23'
++++ template_=gt-sparse.sh.XXXX
++++ MAX_TRIES_=4
++++ case $destdir_ in
++++ case $template_ in
+++++ unset TMPDIR
++++ d='/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/gt-sparse.sh.uSe8'
++++ case $d in
++++ test -d '/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/gt-sparse.sh.uSe8'
+++++ ls -dgo '/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/gt-sparse.sh.uSe8'
+++++ tr S -
++++ perms='drwx------ 2 4096 Mar  6 11:59 /home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/gt-sparse.sh.u-e8'
++++ case $perms in
++++ test 0 = 0
++++ echo '/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/gt-sparse.sh.uSe8'
++++ return
+++ test_dir_='/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/gt-sparse.sh.uSe8'
+++ cd '/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/gt-sparse.sh.uSe8'
+++ gl_init_sh_nl_='
+'
+++ IFS=' 	
+'
+++ for sig_ in 1 2 3 13 15
++++ expr 1 + 128
+++ eval 'trap '\''Exit 129'\'' 1'
++++ trap 'Exit 129' 1
+++ for sig_ in 1 2 3 13 15
++++ expr 2 + 128
+++ eval 'trap '\''Exit 130'\'' 2'
++++ trap 'Exit 130' 2
+++ for sig_ in 1 2 3 13 15
++++ expr 3 + 128
+++ eval 'trap '\''Exit 131'\'' 3'
++++ trap 'Exit 131' 3
+++ for sig_ in 1 2 3 13 15
++++ expr 13 + 128
+++ eval 'trap '\''Exit 141'\'' 13'
++++ trap 'Exit 141' 13
+++ for sig_ in 1 2 3 13 15
++++ expr 15 + 128
+++ eval 'trap '\''Exit 143'\'' 15'
++++ trap 'Exit 143' 15
+++ trap remove_tmp_ 0
++ path_prepend_ ./src
++ test 1 '!=' 0
++ path_dir_=./src
++ case $path_dir_ in
++ abs_path_dir_='/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/./src'
++ case $abs_path_dir_ in
++ PATH='/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/./src:/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/src:/home/jfloyd/.opam/system/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games'
++ create_exe_shims_ '/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/./src'
++ case $EXEEXT in
++ return 0
++ shift
++ test 0 '!=' 0
++ export PATH
++ print_ver_ dd
++ test yes = yes
++ local i
++ for i in '$*'
++ env dd --version
+dd (coreutils) 8.23
+Copyright (C) 2014 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>.
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.
+
+Written by Paul Rubin, David MacKenzie, and Stuart Kemp.
++ require_sparse_support_
++ test 0 = 0
++ t=sparse.23073
++ dd bs=1 seek=128K of=sparse.23073
+++ du -sk sparse.23073
++ set x 0 sparse.23073
++ kb_size=0
++ rm -f sparse.23073
++ test 0 -ge 128
++ truncate -s1M sparse
++ dd bs=32K if=sparse of=sparse.dd conv=sparse
+32+0 records in
+32+0 records out
+1048576 bytes (1.0 MB) copied, 0.00126431 s, 829 MB/s
+++ stat -c %s sparse
+++ stat -c %s sparse.dd
++ test 1048576 = 1048576
++ printf 'a\000\000b'
++ printf ab
++ dd if=file.in bs=1 conv=sparse oflag=append
+4+0 records in
+4+0 records out
+4 bytes (4 B) copied, 0.000148341 s, 27.0 kB/s
++ compare exp out
++ compare_dev_null_ exp out
++ test 2 = 2
++ test xexp = x/dev/null
++ test xout = x/dev/null
++ return 2
++ case $? in
++ compare_ exp out
++ diff -u exp out
++ printf ____
++ printf a__b
++ dd if=file.in bs=1 conv=sparse,notrunc of=out
+4+0 records in
+4+0 records out
+4 bytes (4 B) copied, 8.8072e-05 s, 45.4 kB/s
++ compare exp out
++ compare_dev_null_ exp out
++ test 2 = 2
++ test xexp = x/dev/null
++ test xout = x/dev/null
++ return 2
++ case $? in
++ compare_ exp out
++ diff -u exp out
++ dd if=file.in bs=1 conv=sparse
++ cat
+4+0 records in
+4+0 records out
+4 bytes (4 B) copied, 8.9209e-05 s, 44.8 kB/s
++ cmp file.in file.out
++ rm -f file.in
++ dd if=/dev/urandom of=file.in bs=1M count=3 iflag=fullblock
+3+0 records in
+3+0 records out
+3145728 bytes (3.1 MB) copied, 0.208055 s, 15.1 MB/s
++ dd if=/dev/zero of=file.in bs=1M count=1 seek=1 conv=notrunc
+1+0 records in
+1+0 records out
+1048576 bytes (1.0 MB) copied, 0.000675574 s, 1.6 GB/s
+++ kb_alloc file.in
+++ du -k file.in
+++ cut -f1
++ test 3072 -gt 3000
++ dd if=file.in of=file.out bs=2M conv=sparse
+1+1 records in
+1+1 records out
+3145728 bytes (3.1 MB) copied, 0.00597263 s, 527 MB/s
+++ kb_alloc file.out
+++ du -k file.out
+++ cut -f1
++ test 2500 -lt 3072
++ rm -f file.out
++ truncate --size=3M file.out
++ dd if=file.in of=file.out bs=1M conv=sparse,notrunc
+3+0 records in
+3+0 records out
+3145728 bytes (3.1 MB) copied, 0.00637207 s, 494 MB/s
+++ kb_alloc file.out
+++ du -k file.out
+++ cut -f1
++ test 2048 -lt 2500
++ Exit 0
++ set +e
++ exit 0
++ exit 0
++ remove_tmp_
++ __st=0
++ cleanup_
++ :
++ cd '/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23'
++ chmod -R u+rwx '/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/gt-sparse.sh.uSe8'
++ rm -rf '/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/gt-sparse.sh.uSe8'
++ exit 0

@@ -1,0 +1,860 @@
+++ initial_cwd_='/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23'
+++ fail=0
++++ testdir_prefix_
++++ printf gt
+++ pfx_=gt
++++ mktempd_ '/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23' gt-od-endian.sh.XXXX
++++ case $# in
++++ destdir_='/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23'
++++ template_=gt-od-endian.sh.XXXX
++++ MAX_TRIES_=4
++++ case $destdir_ in
++++ case $template_ in
+++++ unset TMPDIR
++++ d='/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/gt-od-endian.sh.sFGt'
++++ case $d in
++++ test -d '/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/gt-od-endian.sh.sFGt'
+++++ ls -dgo '/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/gt-od-endian.sh.sFGt'
+++++ tr S -
++++ perms='drwx------ 2 4096 Mar  6 11:56 /home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/gt-od-endian.sh.sFGt'
++++ case $perms in
++++ test 0 = 0
++++ echo '/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/gt-od-endian.sh.sFGt'
++++ return
+++ test_dir_='/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/gt-od-endian.sh.sFGt'
+++ cd '/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/gt-od-endian.sh.sFGt'
+++ gl_init_sh_nl_='
+'
+++ IFS=' 	
+'
+++ for sig_ in 1 2 3 13 15
++++ expr 1 + 128
+++ eval 'trap '\''Exit 129'\'' 1'
++++ trap 'Exit 129' 1
+++ for sig_ in 1 2 3 13 15
++++ expr 2 + 128
+++ eval 'trap '\''Exit 130'\'' 2'
++++ trap 'Exit 130' 2
+++ for sig_ in 1 2 3 13 15
++++ expr 3 + 128
+++ eval 'trap '\''Exit 131'\'' 3'
++++ trap 'Exit 131' 3
+++ for sig_ in 1 2 3 13 15
++++ expr 13 + 128
+++ eval 'trap '\''Exit 141'\'' 13'
++++ trap 'Exit 141' 13
+++ for sig_ in 1 2 3 13 15
++++ expr 15 + 128
+++ eval 'trap '\''Exit 143'\'' 15'
++++ trap 'Exit 143' 15
+++ trap remove_tmp_ 0
++ path_prepend_ ./src
++ test 1 '!=' 0
++ path_dir_=./src
++ case $path_dir_ in
++ abs_path_dir_='/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/./src'
++ case $abs_path_dir_ in
++ PATH='/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/./src:/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/src:/home/jfloyd/.opam/system/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games'
++ create_exe_shims_ '/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/./src'
++ case $EXEEXT in
++ return 0
++ shift
++ test 0 '!=' 0
++ export PATH
++ print_ver_ od
++ test yes = yes
++ local i
++ for i in '$*'
++ env od --version
+od (GNU coreutils) 8.23
+Copyright (C) 2014 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>.
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.
+
+Written by Jim Meyering.
++ in=0123456789abcdef
++ NL='
+'
++ for e in little big
++ test little = little
++ eo=big
++ for s in 1 2 4 8 16
++ for t in x f
++ od -t x1 --endian=little /dev/null
++ printf %s 0123456789abcdef
++ od -An -t x1 --endian=little
++ in_swapped 1
++ od -An -t x1 --endian=big
++ sed 's/.\{1\}/&\
+/g'
++ tr -d '\n'
++ rev
++ read line
++ printf %s 0123456789abcdef
++ printf %s 0
++ sed 's/./&\
+/g'
++ tac
++ paste -s -d ''
++ read line
++ printf %s 1
++ sed 's/./&\
+/g'
++ tac
++ paste -s -d ''
++ read line
++ printf %s 2
++ sed 's/./&\
+/g'
++ tac
++ paste -s -d ''
++ read line
++ printf %s 3
++ sed 's/./&\
+/g'
++ tac
++ paste -s -d ''
++ read line
++ printf %s 4
++ sed 's/./&\
+/g'
++ tac
++ paste -s -d ''
++ read line
++ printf %s 5
++ sed 's/./&\
+/g'
++ paste -s -d ''
++ tac
++ read line
++ printf %s 6
++ sed 's/./&\
+/g'
++ tac
++ paste -s -d ''
++ read line
++ printf %s 7
++ sed 's/./&\
+/g'
++ tac
++ paste -s -d ''
++ read line
++ printf %s 8
++ sed 's/./&\
+/g'
++ tac
++ paste -s -d ''
++ read line
++ printf %s 9
++ sed 's/./&\
+/g'
++ tac
++ paste -s -d ''
++ read line
++ printf %s a
++ sed 's/./&\
+/g'
++ tac
++ paste -s -d ''
++ read line
++ printf %s b
++ sed 's/./&\
+/g'
++ tac
++ paste -s -d ''
++ read line
++ printf %s c
++ sed 's/./&\
+/g'
++ tac
++ paste -s -d ''
++ read line
++ printf %s d
++ sed 's/./&\
+/g'
++ tac
++ paste -s -d ''
++ read line
++ printf %s e
++ sed 's/./&\
+/g'
++ tac
++ paste -s -d ''
++ read line
++ printf %s f
++ sed 's/./&\
+/g'
++ tac
++ paste -s -d ''
++ read line
++ compare out1 out2
++ compare_dev_null_ out1 out2
++ test 2 = 2
++ test xout1 = x/dev/null
++ test xout2 = x/dev/null
++ return 2
++ case $? in
++ compare_ out1 out2
++ diff -u out1 out2
++ for t in x f
++ od -t f1 --endian=little /dev/null
++ continue
++ for s in 1 2 4 8 16
++ for t in x f
++ od -t x2 --endian=little /dev/null
++ printf %s 0123456789abcdef
++ od -An -t x2 --endian=little
++ in_swapped 2
++ od -An -t x2 --endian=big
++ printf %s 0123456789abcdef
++ sed 's/.\{2\}/&\
+/g'
++ rev
++ read line
++ tr -d '\n'
++ printf %s 01
++ sed 's/./&\
+/g'
++ tac
++ paste -s -d ''
++ read line
++ printf %s 23
++ sed 's/./&\
+/g'
++ tac
++ paste -s -d ''
++ read line
++ printf %s 45
++ sed 's/./&\
+/g'
++ tac
++ paste -s -d ''
++ read line
++ printf %s 67
++ sed 's/./&\
+/g'
++ tac
++ paste -s -d ''
++ read line
++ printf %s 89
++ sed 's/./&\
+/g'
++ tac
++ paste -s -d ''
++ read line
++ printf %s ab
++ sed 's/./&\
+/g'
++ tac
++ paste -s -d ''
++ read line
++ printf %s cd
++ sed 's/./&\
+/g'
++ paste -s -d ''
++ read line
++ printf %s ef
++ sed 's/./&\
+/g'
++ paste -s -d ''
++ tac
++ read line
++ compare out1 out2
++ compare_dev_null_ out1 out2
++ test 2 = 2
++ test xout1 = x/dev/null
++ test xout2 = x/dev/null
++ return 2
++ case $? in
++ compare_ out1 out2
++ diff -u out1 out2
++ for t in x f
++ od -t f2 --endian=little /dev/null
++ continue
++ for s in 1 2 4 8 16
++ for t in x f
++ od -t x4 --endian=little /dev/null
++ printf %s 0123456789abcdef
++ od -An -t x4 --endian=little
++ in_swapped 4
++ od -An -t x4 --endian=big
++ printf %s 0123456789abcdef
++ tr -d '\n'
++ sed 's/.\{4\}/&\
+/g'
++ rev
++ read line
++ printf %s 0123
++ sed 's/./&\
+/g'
++ tac
++ paste -s -d ''
++ read line
++ printf %s 4567
++ sed 's/./&\
+/g'
++ tac
++ paste -s -d ''
++ read line
++ printf %s 89ab
++ sed 's/./&\
+/g'
++ tac
++ paste -s -d ''
++ read line
++ printf %s cdef
++ sed 's/./&\
+/g'
++ tac
++ paste -s -d ''
++ read line
++ compare out1 out2
++ compare_dev_null_ out1 out2
++ test 2 = 2
++ test xout1 = x/dev/null
++ test xout2 = x/dev/null
++ return 2
++ case $? in
++ compare_ out1 out2
++ diff -u out1 out2
++ for t in x f
++ od -t f4 --endian=little /dev/null
++ printf %s 0123456789abcdef
++ od -An -t f4 --endian=little
++ in_swapped 4
++ od -An -t f4 --endian=big
++ printf %s 0123456789abcdef
++ sed 's/.\{4\}/&\
+/g'
++ tr -d '\n'
++ rev
++ read line
++ printf %s 0123
++ sed 's/./&\
+/g'
++ tac
++ paste -s -d ''
++ read line
++ printf %s 4567
++ sed 's/./&\
+/g'
++ tac
++ paste -s -d ''
++ read line
++ printf %s 89ab
++ sed 's/./&\
+/g'
++ tac
++ paste -s -d ''
++ read line
++ printf %s cdef
++ sed 's/./&\
+/g'
++ tac
++ paste -s -d ''
++ read line
++ compare out1 out2
++ compare_dev_null_ out1 out2
++ test 2 = 2
++ test xout1 = x/dev/null
++ test xout2 = x/dev/null
++ return 2
++ case $? in
++ compare_ out1 out2
++ diff -u out1 out2
++ for s in 1 2 4 8 16
++ for t in x f
++ od -t x8 --endian=little /dev/null
++ printf %s 0123456789abcdef
++ od -An -t x8 --endian=little
++ in_swapped 8
++ od -An -t x8 --endian=big
++ printf %s 0123456789abcdef
++ tr -d '\n'
++ rev
++ sed 's/.\{8\}/&\
+/g'
++ read line
++ printf %s 01234567
++ sed 's/./&\
+/g'
++ tac
++ paste -s -d ''
++ read line
++ printf %s 89abcdef
++ sed 's/./&\
+/g'
++ tac
++ paste -s -d ''
++ read line
++ compare out1 out2
++ compare_dev_null_ out1 out2
++ test 2 = 2
++ test xout1 = x/dev/null
++ test xout2 = x/dev/null
++ return 2
++ case $? in
++ compare_ out1 out2
++ diff -u out1 out2
++ for t in x f
++ od -t f8 --endian=little /dev/null
++ printf %s 0123456789abcdef
++ od -An -t f8 --endian=little
++ in_swapped 8
++ od -An -t f8 --endian=big
++ printf %s 0123456789abcdef
++ sed 's/.\{8\}/&\
+/g'
++ rev
++ tr -d '\n'
++ read line
++ printf %s 01234567
++ sed 's/./&\
+/g'
++ tac
++ paste -s -d ''
++ read line
++ printf %s 89abcdef
++ sed 's/./&\
+/g'
++ tac
++ paste -s -d ''
++ read line
++ compare out1 out2
++ compare_dev_null_ out1 out2
++ test 2 = 2
++ test xout1 = x/dev/null
++ test xout2 = x/dev/null
++ return 2
++ case $? in
++ compare_ out1 out2
++ diff -u out1 out2
++ for s in 1 2 4 8 16
++ for t in x f
++ od -t x16 --endian=little /dev/null
++ continue
++ for t in x f
++ od -t f16 --endian=little /dev/null
++ printf %s 0123456789abcdef
++ od -An -t f16 --endian=little
++ in_swapped 16
++ od -An -t f16 --endian=big
++ printf %s 0123456789abcdef
++ sed 's/.\{16\}/&\
+/g'
++ tr -d '\n'
++ rev
++ read line
++ printf %s 0123456789abcdef
++ sed 's/./&\
+/g'
++ tac
++ paste -s -d ''
++ read line
++ compare out1 out2
++ compare_dev_null_ out1 out2
++ test 2 = 2
++ test xout1 = x/dev/null
++ test xout2 = x/dev/null
++ return 2
++ case $? in
++ compare_ out1 out2
++ diff -u out1 out2
++ for e in little big
++ test big = little
++ eo=little
++ for s in 1 2 4 8 16
++ for t in x f
++ od -t x1 --endian=big /dev/null
++ printf %s 0123456789abcdef
++ od -An -t x1 --endian=big
++ in_swapped 1
++ od -An -t x1 --endian=little
++ printf %s 0123456789abcdef
++ sed 's/.\{1\}/&\
+/g'
++ rev
++ read line
++ tr -d '\n'
++ sed 's/./&\
+/g'
++ tac
++ paste -s -d ''
++ printf %s 0
++ read line
++ printf %s 1
++ sed 's/./&\
+/g'
++ tac
++ paste -s -d ''
++ read line
++ printf %s 2
++ sed 's/./&\
+/g'
++ tac
++ paste -s -d ''
++ read line
++ printf %s 3
++ sed 's/./&\
+/g'
++ tac
++ paste -s -d ''
++ read line
++ printf %s 4
++ sed 's/./&\
+/g'
++ tac
++ paste -s -d ''
++ read line
++ printf %s 5
++ sed 's/./&\
+/g'
++ tac
++ paste -s -d ''
++ read line
++ printf %s 6
++ sed 's/./&\
+/g'
++ tac
++ paste -s -d ''
++ read line
++ printf %s 7
++ sed 's/./&\
+/g'
++ tac
++ paste -s -d ''
++ read line
++ printf %s 8
++ sed 's/./&\
+/g'
++ tac
++ paste -s -d ''
++ read line
++ printf %s 9
++ sed 's/./&\
+/g'
++ tac
++ paste -s -d ''
++ read line
++ printf %s a
++ sed 's/./&\
+/g'
++ tac
++ paste -s -d ''
++ read line
++ printf %s b
++ sed 's/./&\
+/g'
++ tac
++ paste -s -d ''
++ read line
++ printf %s c
++ sed 's/./&\
+/g'
++ tac
++ paste -s -d ''
++ read line
++ printf %s d
++ sed 's/./&\
+/g'
++ tac
++ paste -s -d ''
++ read line
++ printf %s e
++ sed 's/./&\
+/g'
++ tac
++ paste -s -d ''
++ read line
++ printf %s f
++ sed 's/./&\
+/g'
++ paste -s -d ''
++ tac
++ read line
++ compare out1 out2
++ compare_dev_null_ out1 out2
++ test 2 = 2
++ test xout1 = x/dev/null
++ test xout2 = x/dev/null
++ return 2
++ case $? in
++ compare_ out1 out2
++ diff -u out1 out2
++ for t in x f
++ od -t f1 --endian=big /dev/null
++ continue
++ for s in 1 2 4 8 16
++ for t in x f
++ od -t x2 --endian=big /dev/null
++ printf %s 0123456789abcdef
++ od -An -t x2 --endian=big
++ in_swapped 2
++ od -An -t x2 --endian=little
++ printf %s 0123456789abcdef
++ sed 's/.\{2\}/&\
+/g'
++ rev
++ read line
++ tr -d '\n'
++ printf %s 01
++ sed 's/./&\
+/g'
++ tac
++ paste -s -d ''
++ read line
++ printf %s 23
++ sed 's/./&\
+/g'
++ tac
++ paste -s -d ''
++ read line
++ printf %s 45
++ sed 's/./&\
+/g'
++ tac
++ paste -s -d ''
++ read line
++ printf %s 67
++ sed 's/./&\
+/g'
++ tac
++ paste -s -d ''
++ read line
++ printf %s 89
++ sed 's/./&\
+/g'
++ tac
++ paste -s -d ''
++ read line
++ printf %s ab
++ sed 's/./&\
+/g'
++ tac
++ paste -s -d ''
++ read line
++ printf %s cd
++ sed 's/./&\
+/g'
++ tac
++ paste -s -d ''
++ read line
++ printf %s ef
++ sed 's/./&\
+/g'
++ paste -s -d ''
++ tac
++ read line
++ compare out1 out2
++ compare_dev_null_ out1 out2
++ test 2 = 2
++ test xout1 = x/dev/null
++ test xout2 = x/dev/null
++ return 2
++ case $? in
++ compare_ out1 out2
++ diff -u out1 out2
++ for t in x f
++ od -t f2 --endian=big /dev/null
++ continue
++ for s in 1 2 4 8 16
++ for t in x f
++ od -t x4 --endian=big /dev/null
++ printf %s 0123456789abcdef
++ od -An -t x4 --endian=big
++ in_swapped 4
++ od -An -t x4 --endian=little
++ sed 's/.\{4\}/&\
+/g'
++ tr -d '\n'
++ printf %s 0123456789abcdef
++ rev
++ read line
++ printf %s 0123
++ sed 's/./&\
+/g'
++ tac
++ paste -s -d ''
++ read line
++ printf %s 4567
++ tac
++ paste -s -d ''
++ sed 's/./&\
+/g'
++ read line
++ printf %s 89ab
++ sed 's/./&\
+/g'
++ tac
++ paste -s -d ''
++ read line
++ printf %s cdef
++ sed 's/./&\
+/g'
++ tac
++ read line
++ compare out1 out2
++ compare_dev_null_ out1 out2
++ test 2 = 2
++ test xout1 = x/dev/null
++ test xout2 = x/dev/null
++ return 2
++ case $? in
++ compare_ out1 out2
++ diff -u out1 out2
++ for t in x f
++ od -t f4 --endian=big /dev/null
++ printf %s 0123456789abcdef
++ od -An -t f4 --endian=big
++ in_swapped 4
++ od -An -t f4 --endian=little
++ printf %s 0123456789abcdef
++ sed 's/.\{4\}/&\
+/g'
++ tr -d '\n'
++ rev
++ read line
++ printf %s 0123
++ paste -s -d ''
++ tac
++ sed 's/./&\
+/g'
++ read line
++ printf %s 4567
++ sed 's/./&\
+/g'
++ tac
++ paste -s -d ''
++ read line
++ printf %s 89ab
++ sed 's/./&\
+/g'
++ tac
++ paste -s -d ''
++ read line
++ printf %s cdef
++ sed 's/./&\
+/g'
++ tac
++ paste -s -d ''
++ read line
++ compare out1 out2
++ compare_dev_null_ out1 out2
++ test 2 = 2
++ test xout1 = x/dev/null
++ test xout2 = x/dev/null
++ return 2
++ case $? in
++ compare_ out1 out2
++ diff -u out1 out2
++ for s in 1 2 4 8 16
++ for t in x f
++ od -t x8 --endian=big /dev/null
++ printf %s 0123456789abcdef
++ od -An -t x8 --endian=big
++ in_swapped 8
++ od -An -t x8 --endian=little
++ printf %s 0123456789abcdef
++ sed 's/.\{8\}/&\
+/g'
++ tr -d '\n'
++ rev
++ read line
++ printf %s 01234567
++ sed 's/./&\
+/g'
++ tac
++ paste -s -d ''
++ read line
++ printf %s 89abcdef
++ sed 's/./&\
+/g'
++ tac
++ paste -s -d ''
++ read line
++ compare out1 out2
++ compare_dev_null_ out1 out2
++ test 2 = 2
++ test xout1 = x/dev/null
++ test xout2 = x/dev/null
++ return 2
++ case $? in
++ compare_ out1 out2
++ diff -u out1 out2
++ for t in x f
++ od -t f8 --endian=big /dev/null
++ printf %s 0123456789abcdef
++ od -An -t f8 --endian=big
++ in_swapped 8
++ od -An -t f8 --endian=little
++ printf %s 0123456789abcdef
++ sed 's/.\{8\}/&\
+/g'
++ rev
++ tr -d '\n'
++ read line
++ printf %s 01234567
++ sed 's/./&\
+/g'
++ tac
++ paste -s -d ''
++ read line
++ printf %s 89abcdef
++ sed 's/./&\
+/g'
++ tac
++ paste -s -d ''
++ read line
++ compare out1 out2
++ compare_dev_null_ out1 out2
++ test 2 = 2
++ test xout1 = x/dev/null
++ test xout2 = x/dev/null
++ return 2
++ case $? in
++ compare_ out1 out2
++ diff -u out1 out2
++ for s in 1 2 4 8 16
++ for t in x f
++ od -t x16 --endian=big /dev/null
++ continue
++ for t in x f
++ od -t f16 --endian=big /dev/null
++ printf %s 0123456789abcdef
++ od -An -t f16 --endian=big
++ in_swapped 16
++ printf %s 0123456789abcdef
++ sed 's/.\{16\}/&\
+/g'
++ tr -d '\n'
++ rev
++ od -An -t f16 --endian=little
++ read line
++ printf %s 0123456789abcdef
++ sed 's/./&\
+/g'
++ tac
++ paste -s -d ''
++ read line
++ compare out1 out2
++ compare_dev_null_ out1 out2
++ test 2 = 2
++ test xout1 = x/dev/null
++ test xout2 = x/dev/null
++ return 2
++ case $? in
++ compare_ out1 out2
++ diff -u out1 out2
++ Exit 0
++ set +e
++ exit 0
++ exit 0
++ remove_tmp_
++ __st=0
++ cleanup_
++ :
++ cd '/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23'
++ chmod -R u+rwx '/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/gt-od-endian.sh.sFGt'
++ rm -rf '/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/gt-od-endian.sh.sFGt'
++ exit 0

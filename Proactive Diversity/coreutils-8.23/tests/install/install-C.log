@@ -1,0 +1,254 @@
+++ initial_cwd_='/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23'
+++ fail=0
++++ testdir_prefix_
++++ printf gt
+++ pfx_=gt
++++ mktempd_ '/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23' gt-install-C.sh.XXXX
++++ case $# in
++++ destdir_='/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23'
++++ template_=gt-install-C.sh.XXXX
++++ MAX_TRIES_=4
++++ case $destdir_ in
++++ case $template_ in
+++++ unset TMPDIR
++++ d='/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/gt-install-C.sh.D4pJ'
++++ case $d in
++++ test -d '/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/gt-install-C.sh.D4pJ'
+++++ ls -dgo '/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/gt-install-C.sh.D4pJ'
+++++ tr S -
++++ perms='drwx------ 2 4096 Mar  6 11:59 /home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/gt-install-C.sh.D4pJ'
++++ case $perms in
++++ test 0 = 0
++++ echo '/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/gt-install-C.sh.D4pJ'
++++ return
+++ test_dir_='/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/gt-install-C.sh.D4pJ'
+++ cd '/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/gt-install-C.sh.D4pJ'
+++ gl_init_sh_nl_='
+'
+++ IFS=' 	
+'
+++ for sig_ in 1 2 3 13 15
++++ expr 1 + 128
+++ eval 'trap '\''Exit 129'\'' 1'
++++ trap 'Exit 129' 1
+++ for sig_ in 1 2 3 13 15
++++ expr 2 + 128
+++ eval 'trap '\''Exit 130'\'' 2'
++++ trap 'Exit 130' 2
+++ for sig_ in 1 2 3 13 15
++++ expr 3 + 128
+++ eval 'trap '\''Exit 131'\'' 3'
++++ trap 'Exit 131' 3
+++ for sig_ in 1 2 3 13 15
++++ expr 13 + 128
+++ eval 'trap '\''Exit 141'\'' 13'
++++ trap 'Exit 141' 13
+++ for sig_ in 1 2 3 13 15
++++ expr 15 + 128
+++ eval 'trap '\''Exit 143'\'' 15'
++++ trap 'Exit 143' 15
+++ trap remove_tmp_ 0
++ path_prepend_ ./src
++ test 1 '!=' 0
++ path_dir_=./src
++ case $path_dir_ in
++ abs_path_dir_='/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/./src'
++ case $abs_path_dir_ in
++ PATH='/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/./src:/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/src:/home/jfloyd/.opam/system/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games'
++ create_exe_shims_ '/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/./src'
++ case $EXEEXT in
++ return 0
++ shift
++ test 0 '!=' 0
++ export PATH
++ print_ver_ ginstall
++ test yes = yes
++ local i
++ for i in '$*'
++ env ginstall --version
+install (GNU coreutils) 8.23
+Copyright (C) 2014 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>.
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.
+
+Written by David MacKenzie.
++ skip_if_setgid_
++ setgid_tmpdir=setgid-27389
++ umask 77
++ mkdir setgid-27389
+++ stat --printf %A setgid-27389
++ perms=drwx------
++ rmdir setgid-27389
++ case $perms in
++ skip_if_nondefault_group_
++ touch grp.27389
+++ stat -c %u:%g grp.27389
++ gen_ug=1000:1000
++ rm grp.27389
+++ id -ru
+++ id -rg
++ test 1000:1000 = 1000:1000
++ mode1=0644
++ mode2=0755
++ mode3=2755
++ echo test
++ echo ''\''a'\'' -> '\''b'\'''
++ echo 'removed '\''b'\''
+'\''a'\'' -> '\''b'\'''
++ ginstall -Cv -m0644 a b
++ compare out out_installed_first
++ compare_dev_null_ out out_installed_first
++ test 2 = 2
++ test xout = x/dev/null
++ test xout_installed_first = x/dev/null
++ return 2
++ case $? in
++ compare_ out out_installed_first
++ diff -u out out_installed_first
++ ginstall -Cv -m0644 a b
++ compare out out_empty
++ compare_dev_null_ out out_empty
++ test 2 = 2
++ test xout = x/dev/null
++ test xout_empty = x/dev/null
++ return 2
++ case $? in
++ compare_ out out_empty
++ diff -u out out_empty
++ ginstall -v --compare -m0644 a b
++ compare out out_empty
++ compare_dev_null_ out out_empty
++ test 2 = 2
++ test xout = x/dev/null
++ test xout_empty = x/dev/null
++ return 2
++ case $? in
++ compare_ out out_empty
++ diff -u out out_empty
++ ginstall -v -m0644 a b
++ compare out out_installed_second
++ compare_dev_null_ out out_installed_second
++ test 2 = 2
++ test xout = x/dev/null
++ test xout_installed_second = x/dev/null
++ return 2
++ case $? in
++ compare_ out out_installed_second
++ diff -u out out_installed_second
++ ginstall -Cv -m2755 a b
+ginstall: the --compare (-C) option is ignored when you specify a mode with non-permission bits
++ compare out out_installed_second
++ compare_dev_null_ out out_installed_second
++ test 2 = 2
++ test xout = x/dev/null
++ test xout_installed_second = x/dev/null
++ return 2
++ case $? in
++ compare_ out out_installed_second
++ diff -u out out_installed_second
++ ginstall -Cv -m2755 a b
+ginstall: the --compare (-C) option is ignored when you specify a mode with non-permission bits
++ compare out out_installed_second
++ compare_dev_null_ out out_installed_second
++ test 2 = 2
++ test xout = x/dev/null
++ test xout_installed_second = x/dev/null
++ return 2
++ case $? in
++ compare_ out out_installed_second
++ diff -u out out_installed_second
++ ln -s a c
++ ln -s b d
++ ginstall -Cv -m0644 c d
++ echo 'removed '\''d'\''
+'\''c'\'' -> '\''d'\'''
++ compare out out_installed_second_cd
++ compare_dev_null_ out out_installed_second_cd
++ test 2 = 2
++ test xout = x/dev/null
++ test xout_installed_second_cd = x/dev/null
++ return 2
++ case $? in
++ compare_ out out_installed_second_cd
++ diff -u out out_installed_second_cd
++ echo test1
++ ginstall -Cv -m0644 a b
++ compare out out_installed_second
++ compare_dev_null_ out out_installed_second
++ test 2 = 2
++ test xout = x/dev/null
++ test xout_installed_second = x/dev/null
++ return 2
++ case $? in
++ compare_ out out_installed_second
++ diff -u out out_installed_second
++ ginstall -Cv -m0644 a b
++ compare out out_empty
++ compare_dev_null_ out out_empty
++ test 2 = 2
++ test xout = x/dev/null
++ test xout_empty = x/dev/null
++ return 2
++ case $? in
++ compare_ out out_empty
++ diff -u out out_empty
++ echo test2
++ ginstall -Cv -m0644 a b
++ compare out out_installed_second
++ compare_dev_null_ out out_installed_second
++ test 2 = 2
++ test xout = x/dev/null
++ test xout_installed_second = x/dev/null
++ return 2
++ case $? in
++ compare_ out out_installed_second
++ diff -u out out_installed_second
++ ginstall -Cv -m0644 a b
++ compare out out_empty
++ compare_dev_null_ out out_empty
++ test 2 = 2
++ test xout = x/dev/null
++ test xout_empty = x/dev/null
++ return 2
++ case $? in
++ compare_ out out_empty
++ diff -u out out_empty
++ ginstall -Cv -m0755 a b
++ compare out out_installed_second
++ compare_dev_null_ out out_installed_second
++ test 2 = 2
++ test xout = x/dev/null
++ test xout_installed_second = x/dev/null
++ return 2
++ case $? in
++ compare_ out out_installed_second
++ diff -u out out_installed_second
++ ginstall -Cv -m0755 a b
++ compare out out_empty
++ compare_dev_null_ out out_empty
++ test 2 = 2
++ test xout = x/dev/null
++ test xout_empty = x/dev/null
++ return 2
++ case $? in
++ compare_ out out_empty
++ diff -u out out_empty
++ ginstall -C --preserve-timestamps a b
+ginstall: options --compare (-C) and --preserve-timestamps are mutually exclusive
+Try 'ginstall --help' for more information.
++ ginstall -C --strip --strip-program=echo a b
+ginstall: options --compare (-C) and --strip are mutually exclusive
+Try 'ginstall --help' for more information.
++ Exit 0
++ set +e
++ exit 0
++ exit 0
++ remove_tmp_
++ __st=0
++ cleanup_
++ :
++ cd '/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23'
++ chmod -R u+rwx '/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/gt-install-C.sh.D4pJ'
++ rm -rf '/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/gt-install-C.sh.D4pJ'
++ exit 0

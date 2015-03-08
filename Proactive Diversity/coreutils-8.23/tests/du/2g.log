@@ -1,0 +1,518 @@
+++ initial_cwd_='/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23'
+++ fail=0
++++ testdir_prefix_
++++ printf gt
+++ pfx_=gt
++++ mktempd_ '/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23' gt-2g.sh.XXXX
++++ case $# in
++++ destdir_='/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23'
++++ template_=gt-2g.sh.XXXX
++++ MAX_TRIES_=4
++++ case $destdir_ in
++++ case $template_ in
+++++ unset TMPDIR
++++ d='/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/gt-2g.sh.oWGe'
++++ case $d in
++++ test -d '/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/gt-2g.sh.oWGe'
+++++ ls -dgo '/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/gt-2g.sh.oWGe'
+++++ tr S -
++++ perms='drwx------ 2 4096 Mar  6 11:59 /home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/gt-2g.sh.oWGe'
++++ case $perms in
++++ test 0 = 0
++++ echo '/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/gt-2g.sh.oWGe'
++++ return
+++ test_dir_='/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/gt-2g.sh.oWGe'
+++ cd '/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/gt-2g.sh.oWGe'
+++ gl_init_sh_nl_='
+'
+++ IFS=' 	
+'
+++ for sig_ in 1 2 3 13 15
++++ expr 1 + 128
+++ eval 'trap '\''Exit 129'\'' 1'
++++ trap 'Exit 129' 1
+++ for sig_ in 1 2 3 13 15
++++ expr 2 + 128
+++ eval 'trap '\''Exit 130'\'' 2'
++++ trap 'Exit 130' 2
+++ for sig_ in 1 2 3 13 15
++++ expr 3 + 128
+++ eval 'trap '\''Exit 131'\'' 3'
++++ trap 'Exit 131' 3
+++ for sig_ in 1 2 3 13 15
++++ expr 13 + 128
+++ eval 'trap '\''Exit 141'\'' 13'
++++ trap 'Exit 141' 13
+++ for sig_ in 1 2 3 13 15
++++ expr 15 + 128
+++ eval 'trap '\''Exit 143'\'' 15'
++++ trap 'Exit 143' 15
+++ trap remove_tmp_ 0
++ path_prepend_ ./src
++ test 1 '!=' 0
++ path_dir_=./src
++ case $path_dir_ in
++ abs_path_dir_='/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/./src'
++ case $abs_path_dir_ in
++ PATH='/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/./src:/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/src:/home/jfloyd/.opam/system/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games'
++ create_exe_shims_ '/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/./src'
++ case $EXEEXT in
++ return 0
++ shift
++ test 0 '!=' 0
++ export PATH
++ print_ver_ du
++ test yes = yes
++ local i
++ for i in '$*'
++ env du --version
+du (GNU coreutils) 8.23
+Copyright (C) 2014 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>.
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.
+
+Written by Torbjorn Granlund, David MacKenzie, Paul Eggert,
+and Jim Meyering.
++ very_expensive_
++ test yes '!=' yes
+++ df -k --output=avail .
+++ tail -n1
++ free_kb=441514168
++ case "$free_kb" in
++ min_kb=3000000
++ test 3000000 -lt 441514168
++ big=big
++ rm -f big
++ test -t 1
++ printf 'creating a 2GB file...\n'
+creating a 2GB file...
+++ seq 100
++ for i in '$(seq 100)'
++ printf %21474836s x
++ test 1 = 100
++ test -t 1
++ for i in '$(seq 100)'
++ printf %21474836s x
++ test 2 = 100
++ test -t 1
++ for i in '$(seq 100)'
++ printf %21474836s x
++ test 3 = 100
++ test -t 1
++ for i in '$(seq 100)'
++ printf %21474836s x
++ test 4 = 100
++ test -t 1
++ for i in '$(seq 100)'
++ printf %21474836s x
++ test 5 = 100
++ test -t 1
++ for i in '$(seq 100)'
++ printf %21474836s x
++ test 6 = 100
++ test -t 1
++ for i in '$(seq 100)'
++ printf %21474836s x
++ test 7 = 100
++ test -t 1
++ for i in '$(seq 100)'
++ printf %21474836s x
++ test 8 = 100
++ test -t 1
++ for i in '$(seq 100)'
++ printf %21474836s x
++ test 9 = 100
++ test -t 1
++ for i in '$(seq 100)'
++ printf %21474836s x
++ test 10 = 100
++ test -t 1
++ for i in '$(seq 100)'
++ printf %21474836s x
++ test 11 = 100
++ test -t 1
++ for i in '$(seq 100)'
++ printf %21474836s x
++ test 12 = 100
++ test -t 1
++ for i in '$(seq 100)'
++ printf %21474836s x
++ test 13 = 100
++ test -t 1
++ for i in '$(seq 100)'
++ printf %21474836s x
++ test 14 = 100
++ test -t 1
++ for i in '$(seq 100)'
++ printf %21474836s x
++ test 15 = 100
++ test -t 1
++ for i in '$(seq 100)'
++ printf %21474836s x
++ test 16 = 100
++ test -t 1
++ for i in '$(seq 100)'
++ printf %21474836s x
++ test 17 = 100
++ test -t 1
++ for i in '$(seq 100)'
++ printf %21474836s x
++ test 18 = 100
++ test -t 1
++ for i in '$(seq 100)'
++ printf %21474836s x
++ test 19 = 100
++ test -t 1
++ for i in '$(seq 100)'
++ printf %21474836s x
++ test 20 = 100
++ test -t 1
++ for i in '$(seq 100)'
++ printf %21474836s x
++ test 21 = 100
++ test -t 1
++ for i in '$(seq 100)'
++ printf %21474836s x
++ test 22 = 100
++ test -t 1
++ for i in '$(seq 100)'
++ printf %21474836s x
++ test 23 = 100
++ test -t 1
++ for i in '$(seq 100)'
++ printf %21474836s x
++ test 24 = 100
++ test -t 1
++ for i in '$(seq 100)'
++ printf %21474836s x
++ test 25 = 100
++ test -t 1
++ for i in '$(seq 100)'
++ printf %21474836s x
++ test 26 = 100
++ test -t 1
++ for i in '$(seq 100)'
++ printf %21474836s x
++ test 27 = 100
++ test -t 1
++ for i in '$(seq 100)'
++ printf %21474836s x
++ test 28 = 100
++ test -t 1
++ for i in '$(seq 100)'
++ printf %21474836s x
++ test 29 = 100
++ test -t 1
++ for i in '$(seq 100)'
++ printf %21474836s x
++ test 30 = 100
++ test -t 1
++ for i in '$(seq 100)'
++ printf %21474836s x
++ test 31 = 100
++ test -t 1
++ for i in '$(seq 100)'
++ printf %21474836s x
++ test 32 = 100
++ test -t 1
++ for i in '$(seq 100)'
++ printf %21474836s x
++ test 33 = 100
++ test -t 1
++ for i in '$(seq 100)'
++ printf %21474836s x
++ test 34 = 100
++ test -t 1
++ for i in '$(seq 100)'
++ printf %21474836s x
++ test 35 = 100
++ test -t 1
++ for i in '$(seq 100)'
++ printf %21474836s x
++ test 36 = 100
++ test -t 1
++ for i in '$(seq 100)'
++ printf %21474836s x
++ test 37 = 100
++ test -t 1
++ for i in '$(seq 100)'
++ printf %21474836s x
++ test 38 = 100
++ test -t 1
++ for i in '$(seq 100)'
++ printf %21474836s x
++ test 39 = 100
++ test -t 1
++ for i in '$(seq 100)'
++ printf %21474836s x
++ test 40 = 100
++ test -t 1
++ for i in '$(seq 100)'
++ printf %21474836s x
++ test 41 = 100
++ test -t 1
++ for i in '$(seq 100)'
++ printf %21474836s x
++ test 42 = 100
++ test -t 1
++ for i in '$(seq 100)'
++ printf %21474836s x
++ test 43 = 100
++ test -t 1
++ for i in '$(seq 100)'
++ printf %21474836s x
++ test 44 = 100
++ test -t 1
++ for i in '$(seq 100)'
++ printf %21474836s x
++ test 45 = 100
++ test -t 1
++ for i in '$(seq 100)'
++ printf %21474836s x
++ test 46 = 100
++ test -t 1
++ for i in '$(seq 100)'
++ printf %21474836s x
++ test 47 = 100
++ test -t 1
++ for i in '$(seq 100)'
++ printf %21474836s x
++ test 48 = 100
++ test -t 1
++ for i in '$(seq 100)'
++ printf %21474836s x
++ test 49 = 100
++ test -t 1
++ for i in '$(seq 100)'
++ printf %21474836s x
++ test 50 = 100
++ test -t 1
++ for i in '$(seq 100)'
++ printf %21474836s x
++ test 51 = 100
++ test -t 1
++ for i in '$(seq 100)'
++ printf %21474836s x
++ test 52 = 100
++ test -t 1
++ for i in '$(seq 100)'
++ printf %21474836s x
++ test 53 = 100
++ test -t 1
++ for i in '$(seq 100)'
++ printf %21474836s x
++ test 54 = 100
++ test -t 1
++ for i in '$(seq 100)'
++ printf %21474836s x
++ test 55 = 100
++ test -t 1
++ for i in '$(seq 100)'
++ printf %21474836s x
++ test 56 = 100
++ test -t 1
++ for i in '$(seq 100)'
++ printf %21474836s x
++ test 57 = 100
++ test -t 1
++ for i in '$(seq 100)'
++ printf %21474836s x
++ test 58 = 100
++ test -t 1
++ for i in '$(seq 100)'
++ printf %21474836s x
++ test 59 = 100
++ test -t 1
++ for i in '$(seq 100)'
++ printf %21474836s x
++ test 60 = 100
++ test -t 1
++ for i in '$(seq 100)'
++ printf %21474836s x
++ test 61 = 100
++ test -t 1
++ for i in '$(seq 100)'
++ printf %21474836s x
++ test 62 = 100
++ test -t 1
++ for i in '$(seq 100)'
++ printf %21474836s x
++ test 63 = 100
++ test -t 1
++ for i in '$(seq 100)'
++ printf %21474836s x
++ test 64 = 100
++ test -t 1
++ for i in '$(seq 100)'
++ printf %21474836s x
++ test 65 = 100
++ test -t 1
++ for i in '$(seq 100)'
++ printf %21474836s x
++ test 66 = 100
++ test -t 1
++ for i in '$(seq 100)'
++ printf %21474836s x
++ test 67 = 100
++ test -t 1
++ for i in '$(seq 100)'
++ printf %21474836s x
++ test 68 = 100
++ test -t 1
++ for i in '$(seq 100)'
++ printf %21474836s x
++ test 69 = 100
++ test -t 1
++ for i in '$(seq 100)'
++ printf %21474836s x
++ test 70 = 100
++ test -t 1
++ for i in '$(seq 100)'
++ printf %21474836s x
++ test 71 = 100
++ test -t 1
++ for i in '$(seq 100)'
++ printf %21474836s x
++ test 72 = 100
++ test -t 1
++ for i in '$(seq 100)'
++ printf %21474836s x
++ test 73 = 100
++ test -t 1
++ for i in '$(seq 100)'
++ printf %21474836s x
++ test 74 = 100
++ test -t 1
++ for i in '$(seq 100)'
++ printf %21474836s x
++ test 75 = 100
++ test -t 1
++ for i in '$(seq 100)'
++ printf %21474836s x
++ test 76 = 100
++ test -t 1
++ for i in '$(seq 100)'
++ printf %21474836s x
++ test 77 = 100
++ test -t 1
++ for i in '$(seq 100)'
++ printf %21474836s x
++ test 78 = 100
++ test -t 1
++ for i in '$(seq 100)'
++ printf %21474836s x
++ test 79 = 100
++ test -t 1
++ for i in '$(seq 100)'
++ printf %21474836s x
++ test 80 = 100
++ test -t 1
++ for i in '$(seq 100)'
++ printf %21474836s x
++ test 81 = 100
++ test -t 1
++ for i in '$(seq 100)'
++ printf %21474836s x
++ test 82 = 100
++ test -t 1
++ for i in '$(seq 100)'
++ printf %21474836s x
++ test 83 = 100
++ test -t 1
++ for i in '$(seq 100)'
++ printf %21474836s x
++ test 84 = 100
++ test -t 1
++ for i in '$(seq 100)'
++ printf %21474836s x
++ test 85 = 100
++ test -t 1
++ for i in '$(seq 100)'
++ printf %21474836s x
++ test 86 = 100
++ test -t 1
++ for i in '$(seq 100)'
++ printf %21474836s x
++ test 87 = 100
++ test -t 1
++ for i in '$(seq 100)'
++ printf %21474836s x
++ test 88 = 100
++ test -t 1
++ for i in '$(seq 100)'
++ printf %21474836s x
++ test 89 = 100
++ test -t 1
++ for i in '$(seq 100)'
++ printf %21474836s x
++ test 90 = 100
++ test -t 1
++ for i in '$(seq 100)'
++ printf %21474836s x
++ test 91 = 100
++ test -t 1
++ for i in '$(seq 100)'
++ printf %21474836s x
++ test 92 = 100
++ test -t 1
++ for i in '$(seq 100)'
++ printf %21474836s x
++ test 93 = 100
++ test -t 1
++ for i in '$(seq 100)'
++ printf %21474836s x
++ test 94 = 100
++ test -t 1
++ for i in '$(seq 100)'
++ printf %21474836s x
++ test 95 = 100
++ test -t 1
++ for i in '$(seq 100)'
++ printf %21474836s x
++ test 96 = 100
++ test -t 1
++ for i in '$(seq 100)'
++ printf %21474836s x
++ test 97 = 100
++ test -t 1
++ for i in '$(seq 100)'
++ printf %21474836s x
++ test 98 = 100
++ test -t 1
++ for i in '$(seq 100)'
++ printf %21474836s x
++ test 99 = 100
++ test -t 1
++ for i in '$(seq 100)'
++ printf %21474836s x
++ test 100 = 100
++ printf %48s x
++ test -t 1
++ echo
+
++ du -k big
++ rm -f big
++ sed 's/^2[0-9][0-9][0-9][0-9][0-9][0-9]	big$/~2M/' out1
++ cat
++ compare exp out
++ compare_dev_null_ exp out
++ test 2 = 2
++ test xexp = x/dev/null
++ test xout = x/dev/null
++ return 2
++ case $? in
++ compare_ exp out
++ diff -u exp out
++ Exit 0
++ set +e
++ exit 0
++ exit 0
++ remove_tmp_
++ __st=0
++ cleanup_
++ :
++ cd '/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23'
++ chmod -R u+rwx '/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/gt-2g.sh.oWGe'
++ rm -rf '/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/gt-2g.sh.oWGe'
++ exit 0

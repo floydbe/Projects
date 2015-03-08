@@ -1,0 +1,4227 @@
+++ initial_cwd_='/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23'
+++ fail=0
++++ testdir_prefix_
++++ printf gt
+++ pfx_=gt
++++ mktempd_ '/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23' gt-help-version.sh.XXXX
++++ case $# in
++++ destdir_='/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23'
++++ template_=gt-help-version.sh.XXXX
++++ MAX_TRIES_=4
++++ case $destdir_ in
++++ case $template_ in
+++++ unset TMPDIR
++++ d='/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/gt-help-version.sh.TuE2'
++++ case $d in
++++ test -d '/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/gt-help-version.sh.TuE2'
+++++ ls -dgo '/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/gt-help-version.sh.TuE2'
+++++ tr S -
++++ perms='drwx------ 2 4096 Mar  6 11:54 /home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/gt-help-version.sh.TuE2'
++++ case $perms in
++++ test 0 = 0
++++ echo '/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/gt-help-version.sh.TuE2'
++++ return
+++ test_dir_='/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/gt-help-version.sh.TuE2'
+++ cd '/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/gt-help-version.sh.TuE2'
+++ gl_init_sh_nl_='
+'
+++ IFS=' 	
+'
+++ for sig_ in 1 2 3 13 15
++++ expr 1 + 128
+++ eval 'trap '\''Exit 129'\'' 1'
++++ trap 'Exit 129' 1
+++ for sig_ in 1 2 3 13 15
++++ expr 2 + 128
+++ eval 'trap '\''Exit 130'\'' 2'
++++ trap 'Exit 130' 2
+++ for sig_ in 1 2 3 13 15
++++ expr 3 + 128
+++ eval 'trap '\''Exit 131'\'' 3'
++++ trap 'Exit 131' 3
+++ for sig_ in 1 2 3 13 15
++++ expr 13 + 128
+++ eval 'trap '\''Exit 141'\'' 13'
++++ trap 'Exit 141' 13
+++ for sig_ in 1 2 3 13 15
++++ expr 15 + 128
+++ eval 'trap '\''Exit 143'\'' 15'
++++ trap 'Exit 143' 15
+++ trap remove_tmp_ 0
++ path_prepend_ ./src
++ test 1 '!=' 0
++ path_dir_=./src
++ case $path_dir_ in
++ abs_path_dir_='/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/./src'
++ case $abs_path_dir_ in
++ PATH='/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/./src:/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/src:/home/jfloyd/.opam/system/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games'
++ create_exe_shims_ '/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/./src'
++ case $EXEEXT in
++ return 0
++ shift
++ test 0 '!=' 0
++ export PATH
++ expected_failure_status_chroot=125
++ expected_failure_status_env=125
++ expected_failure_status_nice=125
++ expected_failure_status_nohup=125
++ expected_failure_status_stdbuf=125
++ expected_failure_status_timeout=125
++ expected_failure_status_printenv=2
++ expected_failure_status_tty=3
++ expected_failure_status_sort=2
++ expected_failure_status_expr=3
++ expected_failure_status_lbracket=2
++ expected_failure_status_dir=2
++ expected_failure_status_ls=2
++ expected_failure_status_vdir=2
++ expected_failure_status_cmp=2
++ expected_failure_status_zcmp=2
++ expected_failure_status_sdiff=2
++ expected_failure_status_diff3=2
++ expected_failure_status_diff=2
++ expected_failure_status_zdiff=2
++ expected_failure_status_zgrep=2
++ expected_failure_status_zegrep=2
++ expected_failure_status_zfgrep=2
++ expected_failure_status_grep=2
++ expected_failure_status_egrep=2
++ expected_failure_status_fgrep=2
++ test '[ base64 basename cat chcon chgrp chmod chown chroot cksum comm cp csplit cut date dd df dir dircolors dirname du echo env expand expr factor false fmt fold ginstall groups head hostid id join kill link ln logname ls md5sum mkdir mkfifo mknod mktemp mv nice nl nohup nproc numfmt od paste pathchk pinky pr printenv printf ptx pwd readlink realpath rm rmdir runcon seq sha1sum sha224sum sha256sum sha384sum sha512sum shred shuf sleep sort split stat stdbuf stty sum sync tac tail tee test timeout touch tr true truncate tsort tty uname unexpand uniq unlink uptime users vdir wc who whoami yes '
++ test 8.23
++ for i in '$built_programs'
+++ env '[' --version
+++ sed -n '1s/.* //p;q'
++ v=8.23
++ break
++ test x8.23 = x8.23
++ for i in '$built_programs'
++ test '[' = test
++ test '[' = false
++ test '[' = true
++ test '[' = install
++ env '[' --help
++ env '[' --version
++ test -w /dev/full
++ test -c /dev/full
++ env '[' --help
++ env '[' --version
++ status=2
++ test '[' = '['
++ prog=lbracket
++ eval 'expected=$expected_failure_status_lbracket'
+++ expected=2
++ test x2 = x
++ test 2 = 2
++ :
++ for i in '$built_programs'
++ test base64 = test
++ test base64 = false
++ test base64 = true
++ test base64 = install
++ env base64 --help
++ env base64 --version
++ test -w /dev/full
++ test -c /dev/full
++ env base64 --help
++ env base64 --version
++ status=1
++ test base64 = '['
+++ echo base64
+++ sed 's/$//'
++ prog=base64
++ eval 'expected=$expected_failure_status_base64'
+++ expected=
++ test x = x
++ expected=1
++ test 1 = 1
++ :
++ for i in '$built_programs'
++ test basename = test
++ test basename = false
++ test basename = true
++ test basename = install
++ env basename --help
++ env basename --version
++ test -w /dev/full
++ test -c /dev/full
++ env basename --help
++ env basename --version
++ status=1
++ test basename = '['
+++ echo basename
+++ sed 's/$//'
++ prog=basename
++ eval 'expected=$expected_failure_status_basename'
+++ expected=
++ test x = x
++ expected=1
++ test 1 = 1
++ :
++ for i in '$built_programs'
++ test cat = test
++ test cat = false
++ test cat = true
++ test cat = install
++ env cat --help
++ env cat --version
++ test -w /dev/full
++ test -c /dev/full
++ env cat --help
++ env cat --version
++ status=1
++ test cat = '['
+++ echo cat
+++ sed 's/$//'
++ prog=cat
++ eval 'expected=$expected_failure_status_cat'
+++ expected=
++ test x = x
++ expected=1
++ test 1 = 1
++ :
++ for i in '$built_programs'
++ test chcon = test
++ test chcon = false
++ test chcon = true
++ test chcon = install
++ env chcon --help
++ env chcon --version
++ test -w /dev/full
++ test -c /dev/full
++ env chcon --help
++ env chcon --version
++ status=1
++ test chcon = '['
+++ echo chcon
+++ sed 's/$//'
++ prog=chcon
++ eval 'expected=$expected_failure_status_chcon'
+++ expected=
++ test x = x
++ expected=1
++ test 1 = 1
++ :
++ for i in '$built_programs'
++ test chgrp = test
++ test chgrp = false
++ test chgrp = true
++ test chgrp = install
++ env chgrp --help
++ env chgrp --version
++ test -w /dev/full
++ test -c /dev/full
++ env chgrp --help
++ env chgrp --version
++ status=1
++ test chgrp = '['
+++ echo chgrp
+++ sed 's/$//'
++ prog=chgrp
++ eval 'expected=$expected_failure_status_chgrp'
+++ expected=
++ test x = x
++ expected=1
++ test 1 = 1
++ :
++ for i in '$built_programs'
++ test chmod = test
++ test chmod = false
++ test chmod = true
++ test chmod = install
++ env chmod --help
++ env chmod --version
++ test -w /dev/full
++ test -c /dev/full
++ env chmod --help
++ env chmod --version
++ status=1
++ test chmod = '['
+++ echo chmod
+++ sed 's/$//'
++ prog=chmod
++ eval 'expected=$expected_failure_status_chmod'
+++ expected=
++ test x = x
++ expected=1
++ test 1 = 1
++ :
++ for i in '$built_programs'
++ test chown = test
++ test chown = false
++ test chown = true
++ test chown = install
++ env chown --help
++ env chown --version
++ test -w /dev/full
++ test -c /dev/full
++ env chown --help
++ env chown --version
++ status=1
++ test chown = '['
+++ echo chown
+++ sed 's/$//'
++ prog=chown
++ eval 'expected=$expected_failure_status_chown'
+++ expected=
++ test x = x
++ expected=1
++ test 1 = 1
++ :
++ for i in '$built_programs'
++ test chroot = test
++ test chroot = false
++ test chroot = true
++ test chroot = install
++ env chroot --help
++ env chroot --version
++ test -w /dev/full
++ test -c /dev/full
++ env chroot --help
++ env chroot --version
++ status=125
++ test chroot = '['
+++ echo chroot
+++ sed 's/$//'
++ prog=chroot
++ eval 'expected=$expected_failure_status_chroot'
+++ expected=125
++ test x125 = x
++ test 125 = 125
++ :
++ for i in '$built_programs'
++ test cksum = test
++ test cksum = false
++ test cksum = true
++ test cksum = install
++ env cksum --help
++ env cksum --version
++ test -w /dev/full
++ test -c /dev/full
++ env cksum --help
++ env cksum --version
++ status=1
++ test cksum = '['
+++ echo cksum
+++ sed 's/$//'
++ prog=cksum
++ eval 'expected=$expected_failure_status_cksum'
+++ expected=
++ test x = x
++ expected=1
++ test 1 = 1
++ :
++ for i in '$built_programs'
++ test comm = test
++ test comm = false
++ test comm = true
++ test comm = install
++ env comm --help
++ env comm --version
++ test -w /dev/full
++ test -c /dev/full
++ env comm --help
++ env comm --version
++ status=1
++ test comm = '['
+++ echo comm
+++ sed 's/$//'
++ prog=comm
++ eval 'expected=$expected_failure_status_comm'
+++ expected=
++ test x = x
++ expected=1
++ test 1 = 1
++ :
++ for i in '$built_programs'
++ test cp = test
++ test cp = false
++ test cp = true
++ test cp = install
++ env cp --help
++ env cp --version
++ test -w /dev/full
++ test -c /dev/full
++ env cp --help
++ env cp --version
++ status=1
++ test cp = '['
+++ echo cp
+++ sed 's/$//'
++ prog=cp
++ eval 'expected=$expected_failure_status_cp'
+++ expected=
++ test x = x
++ expected=1
++ test 1 = 1
++ :
++ for i in '$built_programs'
++ test csplit = test
++ test csplit = false
++ test csplit = true
++ test csplit = install
++ env csplit --help
++ env csplit --version
++ test -w /dev/full
++ test -c /dev/full
++ env csplit --help
++ env csplit --version
++ status=1
++ test csplit = '['
+++ echo csplit
+++ sed 's/$//'
++ prog=csplit
++ eval 'expected=$expected_failure_status_csplit'
+++ expected=
++ test x = x
++ expected=1
++ test 1 = 1
++ :
++ for i in '$built_programs'
++ test cut = test
++ test cut = false
++ test cut = true
++ test cut = install
++ env cut --help
++ env cut --version
++ test -w /dev/full
++ test -c /dev/full
++ env cut --help
++ env cut --version
++ status=1
++ test cut = '['
+++ echo cut
+++ sed 's/$//'
++ prog=cut
++ eval 'expected=$expected_failure_status_cut'
+++ expected=
++ test x = x
++ expected=1
++ test 1 = 1
++ :
++ for i in '$built_programs'
++ test date = test
++ test date = false
++ test date = true
++ test date = install
++ env date --help
++ env date --version
++ test -w /dev/full
++ test -c /dev/full
++ env date --help
++ env date --version
++ status=1
++ test date = '['
+++ echo date
+++ sed 's/$//'
++ prog=date
++ eval 'expected=$expected_failure_status_date'
+++ expected=
++ test x = x
++ expected=1
++ test 1 = 1
++ :
++ for i in '$built_programs'
++ test dd = test
++ test dd = false
++ test dd = true
++ test dd = install
++ env dd --help
++ env dd --version
++ test -w /dev/full
++ test -c /dev/full
++ env dd --help
++ env dd --version
++ status=1
++ test dd = '['
+++ echo dd
+++ sed 's/$//'
++ prog=dd
++ eval 'expected=$expected_failure_status_dd'
+++ expected=
++ test x = x
++ expected=1
++ test 1 = 1
++ :
++ for i in '$built_programs'
++ test df = test
++ test df = false
++ test df = true
++ test df = install
++ env df --help
++ env df --version
++ test -w /dev/full
++ test -c /dev/full
++ env df --help
++ env df --version
++ status=1
++ test df = '['
+++ echo df
+++ sed 's/$//'
++ prog=df
++ eval 'expected=$expected_failure_status_df'
+++ expected=
++ test x = x
++ expected=1
++ test 1 = 1
++ :
++ for i in '$built_programs'
++ test dir = test
++ test dir = false
++ test dir = true
++ test dir = install
++ env dir --help
++ env dir --version
++ test -w /dev/full
++ test -c /dev/full
++ env dir --help
++ env dir --version
++ status=2
++ test dir = '['
+++ echo dir
+++ sed 's/$//'
++ prog=dir
++ eval 'expected=$expected_failure_status_dir'
+++ expected=2
++ test x2 = x
++ test 2 = 2
++ :
++ for i in '$built_programs'
++ test dircolors = test
++ test dircolors = false
++ test dircolors = true
++ test dircolors = install
++ env dircolors --help
++ env dircolors --version
++ test -w /dev/full
++ test -c /dev/full
++ env dircolors --help
++ env dircolors --version
++ status=1
++ test dircolors = '['
+++ echo dircolors
+++ sed 's/$//'
++ prog=dircolors
++ eval 'expected=$expected_failure_status_dircolors'
+++ expected=
++ test x = x
++ expected=1
++ test 1 = 1
++ :
++ for i in '$built_programs'
++ test dirname = test
++ test dirname = false
++ test dirname = true
++ test dirname = install
++ env dirname --help
++ env dirname --version
++ test -w /dev/full
++ test -c /dev/full
++ env dirname --help
++ env dirname --version
++ status=1
++ test dirname = '['
+++ echo dirname
+++ sed 's/$//'
++ prog=dirname
++ eval 'expected=$expected_failure_status_dirname'
+++ expected=
++ test x = x
++ expected=1
++ test 1 = 1
++ :
++ for i in '$built_programs'
++ test du = test
++ test du = false
++ test du = true
++ test du = install
++ env du --help
++ env du --version
++ test -w /dev/full
++ test -c /dev/full
++ env du --help
++ env du --version
++ status=1
++ test du = '['
+++ echo du
+++ sed 's/$//'
++ prog=du
++ eval 'expected=$expected_failure_status_du'
+++ expected=
++ test x = x
++ expected=1
++ test 1 = 1
++ :
++ for i in '$built_programs'
++ test echo = test
++ test echo = false
++ test echo = true
++ test echo = install
++ env echo --help
++ env echo --version
++ test -w /dev/full
++ test -c /dev/full
++ env echo --help
++ env echo --version
++ status=1
++ test echo = '['
+++ echo echo
+++ sed 's/$//'
++ prog=echo
++ eval 'expected=$expected_failure_status_echo'
+++ expected=
++ test x = x
++ expected=1
++ test 1 = 1
++ :
++ for i in '$built_programs'
++ test env = test
++ test env = false
++ test env = true
++ test env = install
++ env env --help
++ env env --version
++ test -w /dev/full
++ test -c /dev/full
++ env env --help
++ env env --version
++ status=125
++ test env = '['
+++ echo env
+++ sed 's/$//'
++ prog=env
++ eval 'expected=$expected_failure_status_env'
+++ expected=125
++ test x125 = x
++ test 125 = 125
++ :
++ for i in '$built_programs'
++ test expand = test
++ test expand = false
++ test expand = true
++ test expand = install
++ env expand --help
++ env expand --version
++ test -w /dev/full
++ test -c /dev/full
++ env expand --help
++ env expand --version
++ status=1
++ test expand = '['
+++ echo expand
+++ sed 's/$//'
++ prog=expand
++ eval 'expected=$expected_failure_status_expand'
+++ expected=
++ test x = x
++ expected=1
++ test 1 = 1
++ :
++ for i in '$built_programs'
++ test expr = test
++ test expr = false
++ test expr = true
++ test expr = install
++ env expr --help
++ env expr --version
++ test -w /dev/full
++ test -c /dev/full
++ env expr --help
++ env expr --version
++ status=3
++ test expr = '['
+++ echo expr
+++ sed 's/$//'
++ prog=expr
++ eval 'expected=$expected_failure_status_expr'
+++ expected=3
++ test x3 = x
++ test 3 = 3
++ :
++ for i in '$built_programs'
++ test factor = test
++ test factor = false
++ test factor = true
++ test factor = install
++ env factor --help
++ env factor --version
++ test -w /dev/full
++ test -c /dev/full
++ env factor --help
++ env factor --version
++ status=1
++ test factor = '['
+++ echo factor
+++ sed 's/$//'
++ prog=factor
++ eval 'expected=$expected_failure_status_factor'
+++ expected=
++ test x = x
++ expected=1
++ test 1 = 1
++ :
++ for i in '$built_programs'
++ test false = test
++ test false = false
++ continue
++ for i in '$built_programs'
++ test fmt = test
++ test fmt = false
++ test fmt = true
++ test fmt = install
++ env fmt --help
++ env fmt --version
++ test -w /dev/full
++ test -c /dev/full
++ env fmt --help
++ env fmt --version
++ status=1
++ test fmt = '['
+++ echo fmt
+++ sed 's/$//'
++ prog=fmt
++ eval 'expected=$expected_failure_status_fmt'
+++ expected=
++ test x = x
++ expected=1
++ test 1 = 1
++ :
++ for i in '$built_programs'
++ test fold = test
++ test fold = false
++ test fold = true
++ test fold = install
++ env fold --help
++ env fold --version
++ test -w /dev/full
++ test -c /dev/full
++ env fold --help
++ env fold --version
++ status=1
++ test fold = '['
+++ echo fold
+++ sed 's/$//'
++ prog=fold
++ eval 'expected=$expected_failure_status_fold'
+++ expected=
++ test x = x
++ expected=1
++ test 1 = 1
++ :
++ for i in '$built_programs'
++ test ginstall = test
++ test ginstall = false
++ test ginstall = true
++ test ginstall = install
++ env ginstall --help
++ env ginstall --version
++ test -w /dev/full
++ test -c /dev/full
++ env ginstall --help
++ env ginstall --version
++ status=1
++ test ginstall = '['
+++ echo ginstall
+++ sed 's/$//'
++ prog=ginstall
++ eval 'expected=$expected_failure_status_ginstall'
+++ expected=
++ test x = x
++ expected=1
++ test 1 = 1
++ :
++ for i in '$built_programs'
++ test groups = test
++ test groups = false
++ test groups = true
++ test groups = install
++ env groups --help
++ env groups --version
++ test -w /dev/full
++ test -c /dev/full
++ env groups --help
++ env groups --version
++ status=1
++ test groups = '['
+++ echo groups
+++ sed 's/$//'
++ prog=groups
++ eval 'expected=$expected_failure_status_groups'
+++ expected=
++ test x = x
++ expected=1
++ test 1 = 1
++ :
++ for i in '$built_programs'
++ test head = test
++ test head = false
++ test head = true
++ test head = install
++ env head --help
++ env head --version
++ test -w /dev/full
++ test -c /dev/full
++ env head --help
++ env head --version
++ status=1
++ test head = '['
+++ echo head
+++ sed 's/$//'
++ prog=head
++ eval 'expected=$expected_failure_status_head'
+++ expected=
++ test x = x
++ expected=1
++ test 1 = 1
++ :
++ for i in '$built_programs'
++ test hostid = test
++ test hostid = false
++ test hostid = true
++ test hostid = install
++ env hostid --help
++ env hostid --version
++ test -w /dev/full
++ test -c /dev/full
++ env hostid --help
++ env hostid --version
++ status=1
++ test hostid = '['
+++ echo hostid
+++ sed 's/$//'
++ prog=hostid
++ eval 'expected=$expected_failure_status_hostid'
+++ expected=
++ test x = x
++ expected=1
++ test 1 = 1
++ :
++ for i in '$built_programs'
++ test id = test
++ test id = false
++ test id = true
++ test id = install
++ env id --help
++ env id --version
++ test -w /dev/full
++ test -c /dev/full
++ env id --help
++ env id --version
++ status=1
++ test id = '['
+++ echo id
+++ sed 's/$//'
++ prog=id
++ eval 'expected=$expected_failure_status_id'
+++ expected=
++ test x = x
++ expected=1
++ test 1 = 1
++ :
++ for i in '$built_programs'
++ test join = test
++ test join = false
++ test join = true
++ test join = install
++ env join --help
++ env join --version
++ test -w /dev/full
++ test -c /dev/full
++ env join --help
++ env join --version
++ status=1
++ test join = '['
+++ echo join
+++ sed 's/$//'
++ prog=join
++ eval 'expected=$expected_failure_status_join'
+++ expected=
++ test x = x
++ expected=1
++ test 1 = 1
++ :
++ for i in '$built_programs'
++ test kill = test
++ test kill = false
++ test kill = true
++ test kill = install
++ env kill --help
++ env kill --version
++ test -w /dev/full
++ test -c /dev/full
++ env kill --help
++ env kill --version
++ status=1
++ test kill = '['
+++ echo kill
+++ sed 's/$//'
++ prog=kill
++ eval 'expected=$expected_failure_status_kill'
+++ expected=
++ test x = x
++ expected=1
++ test 1 = 1
++ :
++ for i in '$built_programs'
++ test link = test
++ test link = false
++ test link = true
++ test link = install
++ env link --help
++ env link --version
++ test -w /dev/full
++ test -c /dev/full
++ env link --help
++ env link --version
++ status=1
++ test link = '['
+++ echo link
+++ sed 's/$//'
++ prog=link
++ eval 'expected=$expected_failure_status_link'
+++ expected=
++ test x = x
++ expected=1
++ test 1 = 1
++ :
++ for i in '$built_programs'
++ test ln = test
++ test ln = false
++ test ln = true
++ test ln = install
++ env ln --help
++ env ln --version
++ test -w /dev/full
++ test -c /dev/full
++ env ln --help
++ env ln --version
++ status=1
++ test ln = '['
+++ echo ln
+++ sed 's/$//'
++ prog=ln
++ eval 'expected=$expected_failure_status_ln'
+++ expected=
++ test x = x
++ expected=1
++ test 1 = 1
++ :
++ for i in '$built_programs'
++ test logname = test
++ test logname = false
++ test logname = true
++ test logname = install
++ env logname --help
++ env logname --version
++ test -w /dev/full
++ test -c /dev/full
++ env logname --help
++ env logname --version
++ status=1
++ test logname = '['
+++ echo logname
+++ sed 's/$//'
++ prog=logname
++ eval 'expected=$expected_failure_status_logname'
+++ expected=
++ test x = x
++ expected=1
++ test 1 = 1
++ :
++ for i in '$built_programs'
++ test ls = test
++ test ls = false
++ test ls = true
++ test ls = install
++ env ls --help
++ env ls --version
++ test -w /dev/full
++ test -c /dev/full
++ env ls --help
++ env ls --version
++ status=2
++ test ls = '['
+++ echo ls
+++ sed 's/$//'
++ prog=ls
++ eval 'expected=$expected_failure_status_ls'
+++ expected=2
++ test x2 = x
++ test 2 = 2
++ :
++ for i in '$built_programs'
++ test md5sum = test
++ test md5sum = false
++ test md5sum = true
++ test md5sum = install
++ env md5sum --help
++ env md5sum --version
++ test -w /dev/full
++ test -c /dev/full
++ env md5sum --help
++ env md5sum --version
++ status=1
++ test md5sum = '['
+++ echo md5sum
+++ sed 's/$//'
++ prog=md5sum
++ eval 'expected=$expected_failure_status_md5sum'
+++ expected=
++ test x = x
++ expected=1
++ test 1 = 1
++ :
++ for i in '$built_programs'
++ test mkdir = test
++ test mkdir = false
++ test mkdir = true
++ test mkdir = install
++ env mkdir --help
++ env mkdir --version
++ test -w /dev/full
++ test -c /dev/full
++ env mkdir --help
++ env mkdir --version
++ status=1
++ test mkdir = '['
+++ echo mkdir
+++ sed 's/$//'
++ prog=mkdir
++ eval 'expected=$expected_failure_status_mkdir'
+++ expected=
++ test x = x
++ expected=1
++ test 1 = 1
++ :
++ for i in '$built_programs'
++ test mkfifo = test
++ test mkfifo = false
++ test mkfifo = true
++ test mkfifo = install
++ env mkfifo --help
++ env mkfifo --version
++ test -w /dev/full
++ test -c /dev/full
++ env mkfifo --help
++ env mkfifo --version
++ status=1
++ test mkfifo = '['
+++ echo mkfifo
+++ sed 's/$//'
++ prog=mkfifo
++ eval 'expected=$expected_failure_status_mkfifo'
+++ expected=
++ test x = x
++ expected=1
++ test 1 = 1
++ :
++ for i in '$built_programs'
++ test mknod = test
++ test mknod = false
++ test mknod = true
++ test mknod = install
++ env mknod --help
++ env mknod --version
++ test -w /dev/full
++ test -c /dev/full
++ env mknod --help
++ env mknod --version
++ status=1
++ test mknod = '['
+++ echo mknod
+++ sed 's/$//'
++ prog=mknod
++ eval 'expected=$expected_failure_status_mknod'
+++ expected=
++ test x = x
++ expected=1
++ test 1 = 1
++ :
++ for i in '$built_programs'
++ test mktemp = test
++ test mktemp = false
++ test mktemp = true
++ test mktemp = install
++ env mktemp --help
++ env mktemp --version
++ test -w /dev/full
++ test -c /dev/full
++ env mktemp --help
++ env mktemp --version
++ status=1
++ test mktemp = '['
+++ echo mktemp
+++ sed 's/$//'
++ prog=mktemp
++ eval 'expected=$expected_failure_status_mktemp'
+++ expected=
++ test x = x
++ expected=1
++ test 1 = 1
++ :
++ for i in '$built_programs'
++ test mv = test
++ test mv = false
++ test mv = true
++ test mv = install
++ env mv --help
++ env mv --version
++ test -w /dev/full
++ test -c /dev/full
++ env mv --help
++ env mv --version
++ status=1
++ test mv = '['
+++ echo mv
+++ sed 's/$//'
++ prog=mv
++ eval 'expected=$expected_failure_status_mv'
+++ expected=
++ test x = x
++ expected=1
++ test 1 = 1
++ :
++ for i in '$built_programs'
++ test nice = test
++ test nice = false
++ test nice = true
++ test nice = install
++ env nice --help
++ env nice --version
++ test -w /dev/full
++ test -c /dev/full
++ env nice --help
++ env nice --version
++ status=125
++ test nice = '['
+++ echo nice
+++ sed 's/$//'
++ prog=nice
++ eval 'expected=$expected_failure_status_nice'
+++ expected=125
++ test x125 = x
++ test 125 = 125
++ :
++ for i in '$built_programs'
++ test nl = test
++ test nl = false
++ test nl = true
++ test nl = install
++ env nl --help
++ env nl --version
++ test -w /dev/full
++ test -c /dev/full
++ env nl --help
++ env nl --version
++ status=1
++ test nl = '['
+++ echo nl
+++ sed 's/$//'
++ prog=nl
++ eval 'expected=$expected_failure_status_nl'
+++ expected=
++ test x = x
++ expected=1
++ test 1 = 1
++ :
++ for i in '$built_programs'
++ test nohup = test
++ test nohup = false
++ test nohup = true
++ test nohup = install
++ env nohup --help
++ env nohup --version
++ test -w /dev/full
++ test -c /dev/full
++ env nohup --help
++ env nohup --version
++ status=125
++ test nohup = '['
+++ echo nohup
+++ sed 's/$//'
++ prog=nohup
++ eval 'expected=$expected_failure_status_nohup'
+++ expected=125
++ test x125 = x
++ test 125 = 125
++ :
++ for i in '$built_programs'
++ test nproc = test
++ test nproc = false
++ test nproc = true
++ test nproc = install
++ env nproc --help
++ env nproc --version
++ test -w /dev/full
++ test -c /dev/full
++ env nproc --help
++ env nproc --version
++ status=1
++ test nproc = '['
+++ echo nproc
+++ sed 's/$//'
++ prog=nproc
++ eval 'expected=$expected_failure_status_nproc'
+++ expected=
++ test x = x
++ expected=1
++ test 1 = 1
++ :
++ for i in '$built_programs'
++ test numfmt = test
++ test numfmt = false
++ test numfmt = true
++ test numfmt = install
++ env numfmt --help
++ env numfmt --version
++ test -w /dev/full
++ test -c /dev/full
++ env numfmt --help
++ env numfmt --version
++ status=1
++ test numfmt = '['
+++ echo numfmt
+++ sed 's/$//'
++ prog=numfmt
++ eval 'expected=$expected_failure_status_numfmt'
+++ expected=
++ test x = x
++ expected=1
++ test 1 = 1
++ :
++ for i in '$built_programs'
++ test od = test
++ test od = false
++ test od = true
++ test od = install
++ env od --help
++ env od --version
++ test -w /dev/full
++ test -c /dev/full
++ env od --help
++ env od --version
++ status=1
++ test od = '['
+++ echo od
+++ sed 's/$//'
++ prog=od
++ eval 'expected=$expected_failure_status_od'
+++ expected=
++ test x = x
++ expected=1
++ test 1 = 1
++ :
++ for i in '$built_programs'
++ test paste = test
++ test paste = false
++ test paste = true
++ test paste = install
++ env paste --help
++ env paste --version
++ test -w /dev/full
++ test -c /dev/full
++ env paste --help
++ env paste --version
++ status=1
++ test paste = '['
+++ echo paste
+++ sed 's/$//'
++ prog=paste
++ eval 'expected=$expected_failure_status_paste'
+++ expected=
++ test x = x
++ expected=1
++ test 1 = 1
++ :
++ for i in '$built_programs'
++ test pathchk = test
++ test pathchk = false
++ test pathchk = true
++ test pathchk = install
++ env pathchk --help
++ env pathchk --version
++ test -w /dev/full
++ test -c /dev/full
++ env pathchk --help
++ env pathchk --version
++ status=1
++ test pathchk = '['
+++ echo pathchk
+++ sed 's/$//'
++ prog=pathchk
++ eval 'expected=$expected_failure_status_pathchk'
+++ expected=
++ test x = x
++ expected=1
++ test 1 = 1
++ :
++ for i in '$built_programs'
++ test pinky = test
++ test pinky = false
++ test pinky = true
++ test pinky = install
++ env pinky --help
++ env pinky --version
++ test -w /dev/full
++ test -c /dev/full
++ env pinky --help
++ env pinky --version
++ status=1
++ test pinky = '['
+++ echo pinky
+++ sed 's/$//'
++ prog=pinky
++ eval 'expected=$expected_failure_status_pinky'
+++ expected=
++ test x = x
++ expected=1
++ test 1 = 1
++ :
++ for i in '$built_programs'
++ test pr = test
++ test pr = false
++ test pr = true
++ test pr = install
++ env pr --help
++ env pr --version
++ test -w /dev/full
++ test -c /dev/full
++ env pr --help
++ env pr --version
++ status=1
++ test pr = '['
+++ echo pr
+++ sed 's/$//'
++ prog=pr
++ eval 'expected=$expected_failure_status_pr'
+++ expected=
++ test x = x
++ expected=1
++ test 1 = 1
++ :
++ for i in '$built_programs'
++ test printenv = test
++ test printenv = false
++ test printenv = true
++ test printenv = install
++ env printenv --help
++ env printenv --version
++ test -w /dev/full
++ test -c /dev/full
++ env printenv --help
++ env printenv --version
++ status=2
++ test printenv = '['
+++ echo printenv
+++ sed 's/$//'
++ prog=printenv
++ eval 'expected=$expected_failure_status_printenv'
+++ expected=2
++ test x2 = x
++ test 2 = 2
++ :
++ for i in '$built_programs'
++ test printf = test
++ test printf = false
++ test printf = true
++ test printf = install
++ env printf --help
++ env printf --version
++ test -w /dev/full
++ test -c /dev/full
++ env printf --help
++ env printf --version
++ status=1
++ test printf = '['
+++ echo printf
+++ sed 's/$//'
++ prog=printf
++ eval 'expected=$expected_failure_status_printf'
+++ expected=
++ test x = x
++ expected=1
++ test 1 = 1
++ :
++ for i in '$built_programs'
++ test ptx = test
++ test ptx = false
++ test ptx = true
++ test ptx = install
++ env ptx --help
++ env ptx --version
++ test -w /dev/full
++ test -c /dev/full
++ env ptx --help
++ env ptx --version
++ status=1
++ test ptx = '['
+++ echo ptx
+++ sed 's/$//'
++ prog=ptx
++ eval 'expected=$expected_failure_status_ptx'
+++ expected=
++ test x = x
++ expected=1
++ test 1 = 1
++ :
++ for i in '$built_programs'
++ test pwd = test
++ test pwd = false
++ test pwd = true
++ test pwd = install
++ env pwd --help
++ env pwd --version
++ test -w /dev/full
++ test -c /dev/full
++ env pwd --help
++ env pwd --version
++ status=1
++ test pwd = '['
+++ echo pwd
+++ sed 's/$//'
++ prog=pwd
++ eval 'expected=$expected_failure_status_pwd'
+++ expected=
++ test x = x
++ expected=1
++ test 1 = 1
++ :
++ for i in '$built_programs'
++ test readlink = test
++ test readlink = false
++ test readlink = true
++ test readlink = install
++ env readlink --help
++ env readlink --version
++ test -w /dev/full
++ test -c /dev/full
++ env readlink --help
++ env readlink --version
++ status=1
++ test readlink = '['
+++ echo readlink
+++ sed 's/$//'
++ prog=readlink
++ eval 'expected=$expected_failure_status_readlink'
+++ expected=
++ test x = x
++ expected=1
++ test 1 = 1
++ :
++ for i in '$built_programs'
++ test realpath = test
++ test realpath = false
++ test realpath = true
++ test realpath = install
++ env realpath --help
++ env realpath --version
++ test -w /dev/full
++ test -c /dev/full
++ env realpath --help
++ env realpath --version
++ status=1
++ test realpath = '['
+++ echo realpath
+++ sed 's/$//'
++ prog=realpath
++ eval 'expected=$expected_failure_status_realpath'
+++ expected=
++ test x = x
++ expected=1
++ test 1 = 1
++ :
++ for i in '$built_programs'
++ test rm = test
++ test rm = false
++ test rm = true
++ test rm = install
++ env rm --help
++ env rm --version
++ test -w /dev/full
++ test -c /dev/full
++ env rm --help
++ env rm --version
++ status=1
++ test rm = '['
+++ echo rm
+++ sed 's/$//'
++ prog=rm
++ eval 'expected=$expected_failure_status_rm'
+++ expected=
++ test x = x
++ expected=1
++ test 1 = 1
++ :
++ for i in '$built_programs'
++ test rmdir = test
++ test rmdir = false
++ test rmdir = true
++ test rmdir = install
++ env rmdir --help
++ env rmdir --version
++ test -w /dev/full
++ test -c /dev/full
++ env rmdir --help
++ env rmdir --version
++ status=1
++ test rmdir = '['
+++ echo rmdir
+++ sed 's/$//'
++ prog=rmdir
++ eval 'expected=$expected_failure_status_rmdir'
+++ expected=
++ test x = x
++ expected=1
++ test 1 = 1
++ :
++ for i in '$built_programs'
++ test runcon = test
++ test runcon = false
++ test runcon = true
++ test runcon = install
++ env runcon --help
++ env runcon --version
++ test -w /dev/full
++ test -c /dev/full
++ env runcon --help
++ env runcon --version
++ status=1
++ test runcon = '['
+++ echo runcon
+++ sed 's/$//'
++ prog=runcon
++ eval 'expected=$expected_failure_status_runcon'
+++ expected=
++ test x = x
++ expected=1
++ test 1 = 1
++ :
++ for i in '$built_programs'
++ test seq = test
++ test seq = false
++ test seq = true
++ test seq = install
++ env seq --help
++ env seq --version
++ test -w /dev/full
++ test -c /dev/full
++ env seq --help
++ env seq --version
++ status=1
++ test seq = '['
+++ echo seq
+++ sed 's/$//'
++ prog=seq
++ eval 'expected=$expected_failure_status_seq'
+++ expected=
++ test x = x
++ expected=1
++ test 1 = 1
++ :
++ for i in '$built_programs'
++ test sha1sum = test
++ test sha1sum = false
++ test sha1sum = true
++ test sha1sum = install
++ env sha1sum --help
++ env sha1sum --version
++ test -w /dev/full
++ test -c /dev/full
++ env sha1sum --help
++ env sha1sum --version
++ status=1
++ test sha1sum = '['
+++ echo sha1sum
+++ sed 's/$//'
++ prog=sha1sum
++ eval 'expected=$expected_failure_status_sha1sum'
+++ expected=
++ test x = x
++ expected=1
++ test 1 = 1
++ :
++ for i in '$built_programs'
++ test sha224sum = test
++ test sha224sum = false
++ test sha224sum = true
++ test sha224sum = install
++ env sha224sum --help
++ env sha224sum --version
++ test -w /dev/full
++ test -c /dev/full
++ env sha224sum --help
++ env sha224sum --version
++ status=1
++ test sha224sum = '['
+++ echo sha224sum
+++ sed 's/$//'
++ prog=sha224sum
++ eval 'expected=$expected_failure_status_sha224sum'
+++ expected=
++ test x = x
++ expected=1
++ test 1 = 1
++ :
++ for i in '$built_programs'
++ test sha256sum = test
++ test sha256sum = false
++ test sha256sum = true
++ test sha256sum = install
++ env sha256sum --help
++ env sha256sum --version
++ test -w /dev/full
++ test -c /dev/full
++ env sha256sum --help
++ env sha256sum --version
++ status=1
++ test sha256sum = '['
+++ echo sha256sum
+++ sed 's/$//'
++ prog=sha256sum
++ eval 'expected=$expected_failure_status_sha256sum'
+++ expected=
++ test x = x
++ expected=1
++ test 1 = 1
++ :
++ for i in '$built_programs'
++ test sha384sum = test
++ test sha384sum = false
++ test sha384sum = true
++ test sha384sum = install
++ env sha384sum --help
++ env sha384sum --version
++ test -w /dev/full
++ test -c /dev/full
++ env sha384sum --help
++ env sha384sum --version
++ status=1
++ test sha384sum = '['
+++ echo sha384sum
+++ sed 's/$//'
++ prog=sha384sum
++ eval 'expected=$expected_failure_status_sha384sum'
+++ expected=
++ test x = x
++ expected=1
++ test 1 = 1
++ :
++ for i in '$built_programs'
++ test sha512sum = test
++ test sha512sum = false
++ test sha512sum = true
++ test sha512sum = install
++ env sha512sum --help
++ env sha512sum --version
++ test -w /dev/full
++ test -c /dev/full
++ env sha512sum --help
++ env sha512sum --version
++ status=1
++ test sha512sum = '['
+++ echo sha512sum
+++ sed 's/$//'
++ prog=sha512sum
++ eval 'expected=$expected_failure_status_sha512sum'
+++ expected=
++ test x = x
++ expected=1
++ test 1 = 1
++ :
++ for i in '$built_programs'
++ test shred = test
++ test shred = false
++ test shred = true
++ test shred = install
++ env shred --help
++ env shred --version
++ test -w /dev/full
++ test -c /dev/full
++ env shred --help
++ env shred --version
++ status=1
++ test shred = '['
+++ echo shred
+++ sed 's/$//'
++ prog=shred
++ eval 'expected=$expected_failure_status_shred'
+++ expected=
++ test x = x
++ expected=1
++ test 1 = 1
++ :
++ for i in '$built_programs'
++ test shuf = test
++ test shuf = false
++ test shuf = true
++ test shuf = install
++ env shuf --help
++ env shuf --version
++ test -w /dev/full
++ test -c /dev/full
++ env shuf --help
++ env shuf --version
++ status=1
++ test shuf = '['
+++ echo shuf
+++ sed 's/$//'
++ prog=shuf
++ eval 'expected=$expected_failure_status_shuf'
+++ expected=
++ test x = x
++ expected=1
++ test 1 = 1
++ :
++ for i in '$built_programs'
++ test sleep = test
++ test sleep = false
++ test sleep = true
++ test sleep = install
++ env sleep --help
++ env sleep --version
++ test -w /dev/full
++ test -c /dev/full
++ env sleep --help
++ env sleep --version
++ status=1
++ test sleep = '['
+++ echo sleep
+++ sed 's/$//'
++ prog=sleep
++ eval 'expected=$expected_failure_status_sleep'
+++ expected=
++ test x = x
++ expected=1
++ test 1 = 1
++ :
++ for i in '$built_programs'
++ test sort = test
++ test sort = false
++ test sort = true
++ test sort = install
++ env sort --help
++ env sort --version
++ test -w /dev/full
++ test -c /dev/full
++ env sort --help
++ env sort --version
++ status=2
++ test sort = '['
+++ echo sort
+++ sed 's/$//'
++ prog=sort
++ eval 'expected=$expected_failure_status_sort'
+++ expected=2
++ test x2 = x
++ test 2 = 2
++ :
++ for i in '$built_programs'
++ test split = test
++ test split = false
++ test split = true
++ test split = install
++ env split --help
++ env split --version
++ test -w /dev/full
++ test -c /dev/full
++ env split --help
++ env split --version
++ status=1
++ test split = '['
+++ echo split
+++ sed 's/$//'
++ prog=split
++ eval 'expected=$expected_failure_status_split'
+++ expected=
++ test x = x
++ expected=1
++ test 1 = 1
++ :
++ for i in '$built_programs'
++ test stat = test
++ test stat = false
++ test stat = true
++ test stat = install
++ env stat --help
++ env stat --version
++ test -w /dev/full
++ test -c /dev/full
++ env stat --help
++ env stat --version
++ status=1
++ test stat = '['
+++ echo stat
+++ sed 's/$//'
++ prog=stat
++ eval 'expected=$expected_failure_status_stat'
+++ expected=
++ test x = x
++ expected=1
++ test 1 = 1
++ :
++ for i in '$built_programs'
++ test stdbuf = test
++ test stdbuf = false
++ test stdbuf = true
++ test stdbuf = install
++ env stdbuf --help
++ env stdbuf --version
++ test -w /dev/full
++ test -c /dev/full
++ env stdbuf --help
++ env stdbuf --version
++ status=125
++ test stdbuf = '['
+++ echo stdbuf
+++ sed 's/$//'
++ prog=stdbuf
++ eval 'expected=$expected_failure_status_stdbuf'
+++ expected=125
++ test x125 = x
++ test 125 = 125
++ :
++ for i in '$built_programs'
++ test stty = test
++ test stty = false
++ test stty = true
++ test stty = install
++ env stty --help
++ env stty --version
++ test -w /dev/full
++ test -c /dev/full
++ env stty --help
++ env stty --version
++ status=1
++ test stty = '['
+++ echo stty
+++ sed 's/$//'
++ prog=stty
++ eval 'expected=$expected_failure_status_stty'
+++ expected=
++ test x = x
++ expected=1
++ test 1 = 1
++ :
++ for i in '$built_programs'
++ test sum = test
++ test sum = false
++ test sum = true
++ test sum = install
++ env sum --help
++ env sum --version
++ test -w /dev/full
++ test -c /dev/full
++ env sum --help
++ env sum --version
++ status=1
++ test sum = '['
+++ echo sum
+++ sed 's/$//'
++ prog=sum
++ eval 'expected=$expected_failure_status_sum'
+++ expected=
++ test x = x
++ expected=1
++ test 1 = 1
++ :
++ for i in '$built_programs'
++ test sync = test
++ test sync = false
++ test sync = true
++ test sync = install
++ env sync --help
++ env sync --version
++ test -w /dev/full
++ test -c /dev/full
++ env sync --help
++ env sync --version
++ status=1
++ test sync = '['
+++ echo sync
+++ sed 's/$//'
++ prog=sync
++ eval 'expected=$expected_failure_status_sync'
+++ expected=
++ test x = x
++ expected=1
++ test 1 = 1
++ :
++ for i in '$built_programs'
++ test tac = test
++ test tac = false
++ test tac = true
++ test tac = install
++ env tac --help
++ env tac --version
++ test -w /dev/full
++ test -c /dev/full
++ env tac --help
++ env tac --version
++ status=1
++ test tac = '['
+++ echo tac
+++ sed 's/$//'
++ prog=tac
++ eval 'expected=$expected_failure_status_tac'
+++ expected=
++ test x = x
++ expected=1
++ test 1 = 1
++ :
++ for i in '$built_programs'
++ test tail = test
++ test tail = false
++ test tail = true
++ test tail = install
++ env tail --help
++ env tail --version
++ test -w /dev/full
++ test -c /dev/full
++ env tail --help
++ env tail --version
++ status=1
++ test tail = '['
+++ echo tail
+++ sed 's/$//'
++ prog=tail
++ eval 'expected=$expected_failure_status_tail'
+++ expected=
++ test x = x
++ expected=1
++ test 1 = 1
++ :
++ for i in '$built_programs'
++ test tee = test
++ test tee = false
++ test tee = true
++ test tee = install
++ env tee --help
++ env tee --version
++ test -w /dev/full
++ test -c /dev/full
++ env tee --help
++ env tee --version
++ status=1
++ test tee = '['
+++ echo tee
+++ sed 's/$//'
++ prog=tee
++ eval 'expected=$expected_failure_status_tee'
+++ expected=
++ test x = x
++ expected=1
++ test 1 = 1
++ :
++ for i in '$built_programs'
++ test test = test
++ continue
++ for i in '$built_programs'
++ test timeout = test
++ test timeout = false
++ test timeout = true
++ test timeout = install
++ env timeout --help
++ env timeout --version
++ test -w /dev/full
++ test -c /dev/full
++ env timeout --help
++ env timeout --version
++ status=125
++ test timeout = '['
+++ echo timeout
+++ sed 's/$//'
++ prog=timeout
++ eval 'expected=$expected_failure_status_timeout'
+++ expected=125
++ test x125 = x
++ test 125 = 125
++ :
++ for i in '$built_programs'
++ test touch = test
++ test touch = false
++ test touch = true
++ test touch = install
++ env touch --help
++ env touch --version
++ test -w /dev/full
++ test -c /dev/full
++ env touch --help
++ env touch --version
++ status=1
++ test touch = '['
+++ echo touch
+++ sed 's/$//'
++ prog=touch
++ eval 'expected=$expected_failure_status_touch'
+++ expected=
++ test x = x
++ expected=1
++ test 1 = 1
++ :
++ for i in '$built_programs'
++ test tr = test
++ test tr = false
++ test tr = true
++ test tr = install
++ env tr --help
++ env tr --version
++ test -w /dev/full
++ test -c /dev/full
++ env tr --help
++ env tr --version
++ status=1
++ test tr = '['
+++ echo tr
+++ sed 's/$//'
++ prog=tr
++ eval 'expected=$expected_failure_status_tr'
+++ expected=
++ test x = x
++ expected=1
++ test 1 = 1
++ :
++ for i in '$built_programs'
++ test true = test
++ test true = false
++ test true = true
++ continue
++ for i in '$built_programs'
++ test truncate = test
++ test truncate = false
++ test truncate = true
++ test truncate = install
++ env truncate --help
++ env truncate --version
++ test -w /dev/full
++ test -c /dev/full
++ env truncate --help
++ env truncate --version
++ status=1
++ test truncate = '['
+++ echo truncate
+++ sed 's/$//'
++ prog=truncate
++ eval 'expected=$expected_failure_status_truncate'
+++ expected=
++ test x = x
++ expected=1
++ test 1 = 1
++ :
++ for i in '$built_programs'
++ test tsort = test
++ test tsort = false
++ test tsort = true
++ test tsort = install
++ env tsort --help
++ env tsort --version
++ test -w /dev/full
++ test -c /dev/full
++ env tsort --help
++ env tsort --version
++ status=1
++ test tsort = '['
+++ echo tsort
+++ sed 's/$//'
++ prog=tsort
++ eval 'expected=$expected_failure_status_tsort'
+++ expected=
++ test x = x
++ expected=1
++ test 1 = 1
++ :
++ for i in '$built_programs'
++ test tty = test
++ test tty = false
++ test tty = true
++ test tty = install
++ env tty --help
++ env tty --version
++ test -w /dev/full
++ test -c /dev/full
++ env tty --help
++ env tty --version
++ status=3
++ test tty = '['
+++ echo tty
+++ sed 's/$//'
++ prog=tty
++ eval 'expected=$expected_failure_status_tty'
+++ expected=3
++ test x3 = x
++ test 3 = 3
++ :
++ for i in '$built_programs'
++ test uname = test
++ test uname = false
++ test uname = true
++ test uname = install
++ env uname --help
++ env uname --version
++ test -w /dev/full
++ test -c /dev/full
++ env uname --help
++ env uname --version
++ status=1
++ test uname = '['
+++ echo uname
+++ sed 's/$//'
++ prog=uname
++ eval 'expected=$expected_failure_status_uname'
+++ expected=
++ test x = x
++ expected=1
++ test 1 = 1
++ :
++ for i in '$built_programs'
++ test unexpand = test
++ test unexpand = false
++ test unexpand = true
++ test unexpand = install
++ env unexpand --help
++ env unexpand --version
++ test -w /dev/full
++ test -c /dev/full
++ env unexpand --help
++ env unexpand --version
++ status=1
++ test unexpand = '['
+++ echo unexpand
+++ sed 's/$//'
++ prog=unexpand
++ eval 'expected=$expected_failure_status_unexpand'
+++ expected=
++ test x = x
++ expected=1
++ test 1 = 1
++ :
++ for i in '$built_programs'
++ test uniq = test
++ test uniq = false
++ test uniq = true
++ test uniq = install
++ env uniq --help
++ env uniq --version
++ test -w /dev/full
++ test -c /dev/full
++ env uniq --help
++ env uniq --version
++ status=1
++ test uniq = '['
+++ echo uniq
+++ sed 's/$//'
++ prog=uniq
++ eval 'expected=$expected_failure_status_uniq'
+++ expected=
++ test x = x
++ expected=1
++ test 1 = 1
++ :
++ for i in '$built_programs'
++ test unlink = test
++ test unlink = false
++ test unlink = true
++ test unlink = install
++ env unlink --help
++ env unlink --version
++ test -w /dev/full
++ test -c /dev/full
++ env unlink --help
++ env unlink --version
++ status=1
++ test unlink = '['
+++ echo unlink
+++ sed 's/$//'
++ prog=unlink
++ eval 'expected=$expected_failure_status_unlink'
+++ expected=
++ test x = x
++ expected=1
++ test 1 = 1
++ :
++ for i in '$built_programs'
++ test uptime = test
++ test uptime = false
++ test uptime = true
++ test uptime = install
++ env uptime --help
++ env uptime --version
++ test -w /dev/full
++ test -c /dev/full
++ env uptime --help
++ env uptime --version
++ status=1
++ test uptime = '['
+++ echo uptime
+++ sed 's/$//'
++ prog=uptime
++ eval 'expected=$expected_failure_status_uptime'
+++ expected=
++ test x = x
++ expected=1
++ test 1 = 1
++ :
++ for i in '$built_programs'
++ test users = test
++ test users = false
++ test users = true
++ test users = install
++ env users --help
++ env users --version
++ test -w /dev/full
++ test -c /dev/full
++ env users --help
++ env users --version
++ status=1
++ test users = '['
+++ echo users
+++ sed 's/$//'
++ prog=users
++ eval 'expected=$expected_failure_status_users'
+++ expected=
++ test x = x
++ expected=1
++ test 1 = 1
++ :
++ for i in '$built_programs'
++ test vdir = test
++ test vdir = false
++ test vdir = true
++ test vdir = install
++ env vdir --help
++ env vdir --version
++ test -w /dev/full
++ test -c /dev/full
++ env vdir --help
++ env vdir --version
++ status=2
++ test vdir = '['
+++ echo vdir
+++ sed 's/$//'
++ prog=vdir
++ eval 'expected=$expected_failure_status_vdir'
+++ expected=2
++ test x2 = x
++ test 2 = 2
++ :
++ for i in '$built_programs'
++ test wc = test
++ test wc = false
++ test wc = true
++ test wc = install
++ env wc --help
++ env wc --version
++ test -w /dev/full
++ test -c /dev/full
++ env wc --help
++ env wc --version
++ status=1
++ test wc = '['
+++ echo wc
+++ sed 's/$//'
++ prog=wc
++ eval 'expected=$expected_failure_status_wc'
+++ expected=
++ test x = x
++ expected=1
++ test 1 = 1
++ :
++ for i in '$built_programs'
++ test who = test
++ test who = false
++ test who = true
++ test who = install
++ env who --help
++ env who --version
++ test -w /dev/full
++ test -c /dev/full
++ env who --help
++ env who --version
++ status=1
++ test who = '['
+++ echo who
+++ sed 's/$//'
++ prog=who
++ eval 'expected=$expected_failure_status_who'
+++ expected=
++ test x = x
++ expected=1
++ test 1 = 1
++ :
++ for i in '$built_programs'
++ test whoami = test
++ test whoami = false
++ test whoami = true
++ test whoami = install
++ env whoami --help
++ env whoami --version
++ test -w /dev/full
++ test -c /dev/full
++ env whoami --help
++ env whoami --version
++ status=1
++ test whoami = '['
+++ echo whoami
+++ sed 's/$//'
++ prog=whoami
++ eval 'expected=$expected_failure_status_whoami'
+++ expected=
++ test x = x
++ expected=1
++ test 1 = 1
++ :
++ for i in '$built_programs'
++ test yes = test
++ test yes = false
++ test yes = true
++ test yes = install
++ env yes --help
++ env yes --version
++ test -w /dev/full
++ test -c /dev/full
++ env yes --help
++ env yes --version
++ status=1
++ test yes = '['
+++ echo yes
+++ sed 's/$//'
++ prog=yes
++ eval 'expected=$expected_failure_status_yes'
+++ expected=
++ test x = x
++ expected=1
++ test 1 = 1
++ :
++ bigZ_in=bigZ-in.Z
++ zin=zin.gz
++ zin2=zin2.gz
++ tmp=tmp-27330
++ tmp_in=in-27330
++ tmp_in2=in2-27330
++ tmp_dir=dir-27330
++ tmp_out=out-27330
++ mkdir tmp-27330
++ cd tmp-27330
++ for i in '$built_programs'
++ case $i in
++ rm -rf in-27330 in2-27330 dir-27330 out-27330 bigZ-in.Z zin.gz zin2.gz
++ echo z
++ gzip
++ cp zin.gz zin2.gz
++ cp zin.gz bigZ-in.Z
++ echo 2147483647 0
++ cp in-27330 in2-27330
++ mkdir dir-27330
++ test '[' = '['
++ prog=lbracket
++ type lbracket_setup
++ lbracket_setup
++ args=': ]'
++ env '[' : ']'
++ :
++ rm -rf in-27330 in2-27330 out-27330 dir-27330
++ for i in '$built_programs'
++ case $i in
++ rm -rf in-27330 in2-27330 dir-27330 out-27330 bigZ-in.Z zin.gz zin2.gz
++ echo z
++ gzip
++ cp zin.gz zin2.gz
++ cp zin.gz bigZ-in.Z
++ echo 2147483647 0
++ cp in-27330 in2-27330
++ mkdir dir-27330
++ test base64 = '['
+++ echo base64
+++ sed 's/$//'
++ prog=base64
++ type base64_setup
++ args=
++ env base64
++ :
++ rm -rf in-27330 in2-27330 out-27330 dir-27330
++ for i in '$built_programs'
++ case $i in
++ rm -rf in-27330 in2-27330 dir-27330 out-27330 bigZ-in.Z zin.gz zin2.gz
++ echo z
++ gzip
++ cp zin.gz zin2.gz
++ cp zin.gz bigZ-in.Z
++ echo 2147483647 0
++ cp in-27330 in2-27330
++ mkdir dir-27330
++ test basename = '['
+++ echo basename
+++ sed 's/$//'
++ prog=basename
++ type basename_setup
++ basename_setup
++ args=in-27330
++ env basename in-27330
++ :
++ rm -rf in-27330 in2-27330 out-27330 dir-27330
++ for i in '$built_programs'
++ case $i in
++ rm -rf in-27330 in2-27330 dir-27330 out-27330 bigZ-in.Z zin.gz zin2.gz
++ echo z
++ gzip
++ cp zin.gz zin2.gz
++ cp zin.gz bigZ-in.Z
++ echo 2147483647 0
++ cp in-27330 in2-27330
++ mkdir dir-27330
++ test cat = '['
+++ echo cat
+++ sed 's/$//'
++ prog=cat
++ type cat_setup
++ args=
++ env cat
++ :
++ rm -rf in-27330 in2-27330 out-27330 dir-27330
++ for i in '$built_programs'
++ case $i in
++ continue
++ for i in '$built_programs'
++ case $i in
++ rm -rf in-27330 in2-27330 dir-27330 out-27330 bigZ-in.Z zin.gz zin2.gz
++ echo z
++ gzip
++ cp zin.gz zin2.gz
++ cp zin.gz bigZ-in.Z
++ echo 2147483647 0
++ cp in-27330 in2-27330
++ mkdir dir-27330
++ test chgrp = '['
+++ echo chgrp
+++ sed 's/$//'
++ prog=chgrp
++ type chgrp_setup
++ chgrp_setup
++ args=--version
++ env chgrp --version
++ :
++ rm -rf in-27330 in2-27330 out-27330 dir-27330
++ for i in '$built_programs'
++ case $i in
++ rm -rf in-27330 in2-27330 dir-27330 out-27330 bigZ-in.Z zin.gz zin2.gz
++ echo z
++ gzip
++ cp zin.gz zin2.gz
++ cp zin.gz bigZ-in.Z
++ echo 2147483647 0
++ cp in-27330 in2-27330
++ mkdir dir-27330
++ test chmod = '['
+++ echo chmod
+++ sed 's/$//'
++ prog=chmod
++ type chmod_setup
++ chmod_setup
++ args='a+x in-27330'
++ env chmod a+x in-27330
++ :
++ rm -rf in-27330 in2-27330 out-27330 dir-27330
++ for i in '$built_programs'
++ case $i in
++ rm -rf in-27330 in2-27330 dir-27330 out-27330 bigZ-in.Z zin.gz zin2.gz
++ echo z
++ gzip
++ cp zin.gz zin2.gz
++ cp zin.gz bigZ-in.Z
++ echo 2147483647 0
++ cp in-27330 in2-27330
++ mkdir dir-27330
++ test chown = '['
+++ echo chown
+++ sed 's/$//'
++ prog=chown
++ type chown_setup
++ chown_setup
++ args=--version
++ env chown --version
++ :
++ rm -rf in-27330 in2-27330 out-27330 dir-27330
++ for i in '$built_programs'
++ case $i in
++ continue
++ for i in '$built_programs'
++ case $i in
++ rm -rf in-27330 in2-27330 dir-27330 out-27330 bigZ-in.Z zin.gz zin2.gz
++ echo z
++ gzip
++ cp zin.gz zin2.gz
++ cp zin.gz bigZ-in.Z
++ echo 2147483647 0
++ cp in-27330 in2-27330
++ mkdir dir-27330
++ test cksum = '['
+++ echo cksum
+++ sed 's/$//'
++ prog=cksum
++ type cksum_setup
++ args=
++ env cksum
++ :
++ rm -rf in-27330 in2-27330 out-27330 dir-27330
++ for i in '$built_programs'
++ case $i in
++ rm -rf in-27330 in2-27330 dir-27330 out-27330 bigZ-in.Z zin.gz zin2.gz
++ echo z
++ gzip
++ cp zin.gz zin2.gz
++ cp zin.gz bigZ-in.Z
++ echo 2147483647 0
++ cp in-27330 in2-27330
++ mkdir dir-27330
++ test comm = '['
+++ echo comm
+++ sed 's/$//'
++ prog=comm
++ type comm_setup
++ comm_setup
++ args='in-27330 in-27330'
++ env comm in-27330 in-27330
++ :
++ rm -rf in-27330 in2-27330 out-27330 dir-27330
++ for i in '$built_programs'
++ case $i in
++ rm -rf in-27330 in2-27330 dir-27330 out-27330 bigZ-in.Z zin.gz zin2.gz
++ echo z
++ gzip
++ cp zin.gz zin2.gz
++ cp zin.gz bigZ-in.Z
++ echo 2147483647 0
++ cp in-27330 in2-27330
++ mkdir dir-27330
++ test cp = '['
+++ echo cp
+++ sed 's/$//'
++ prog=cp
++ type cp_setup
++ cp_setup
++ args='in-27330 in2-27330'
++ env cp in-27330 in2-27330
++ :
++ rm -rf in-27330 in2-27330 out-27330 dir-27330
++ for i in '$built_programs'
++ case $i in
++ rm -rf in-27330 in2-27330 dir-27330 out-27330 bigZ-in.Z zin.gz zin2.gz
++ echo z
++ gzip
++ cp zin.gz zin2.gz
++ cp zin.gz bigZ-in.Z
++ echo 2147483647 0
++ cp in-27330 in2-27330
++ mkdir dir-27330
++ test csplit = '['
+++ echo csplit
+++ sed 's/$//'
++ prog=csplit
++ type csplit_setup
++ csplit_setup
++ args='in-27330 //'
++ env csplit in-27330 //
++ :
++ rm -rf in-27330 in2-27330 out-27330 dir-27330
++ for i in '$built_programs'
++ case $i in
++ rm -rf in-27330 in2-27330 dir-27330 out-27330 bigZ-in.Z zin.gz zin2.gz
++ echo z
++ gzip
++ cp zin.gz zin2.gz
++ cp zin.gz bigZ-in.Z
++ echo 2147483647 0
++ cp in-27330 in2-27330
++ mkdir dir-27330
++ test cut = '['
+++ echo cut
+++ sed 's/$//'
++ prog=cut
++ type cut_setup
++ cut_setup
++ args='-f 1'
++ env cut -f 1
++ :
++ rm -rf in-27330 in2-27330 out-27330 dir-27330
++ for i in '$built_programs'
++ case $i in
++ rm -rf in-27330 in2-27330 dir-27330 out-27330 bigZ-in.Z zin.gz zin2.gz
++ echo z
++ gzip
++ cp zin.gz zin2.gz
++ cp zin.gz bigZ-in.Z
++ echo 2147483647 0
++ cp in-27330 in2-27330
++ mkdir dir-27330
++ test date = '['
+++ echo date
+++ sed 's/$//'
++ prog=date
++ type date_setup
++ args=
++ env date
++ :
++ rm -rf in-27330 in2-27330 out-27330 dir-27330
++ for i in '$built_programs'
++ case $i in
++ rm -rf in-27330 in2-27330 dir-27330 out-27330 bigZ-in.Z zin.gz zin2.gz
++ echo z
++ gzip
++ cp zin.gz zin2.gz
++ cp zin.gz bigZ-in.Z
++ echo 2147483647 0
++ cp in-27330 in2-27330
++ mkdir dir-27330
++ test dd = '['
+++ echo dd
+++ sed 's/$//'
++ prog=dd
++ type dd_setup
++ dd_setup
++ args=status=noxfer
++ env dd status=noxfer
+0+1 records in
+0+1 records out
++ :
++ rm -rf in-27330 in2-27330 out-27330 dir-27330
++ for i in '$built_programs'
++ case $i in
++ rm -rf in-27330 in2-27330 dir-27330 out-27330 bigZ-in.Z zin.gz zin2.gz
++ echo z
++ gzip
++ cp zin.gz zin2.gz
++ cp zin.gz bigZ-in.Z
++ echo 2147483647 0
++ cp in-27330 in2-27330
++ mkdir dir-27330
++ test df = '['
+++ echo df
+++ sed 's/$//'
++ prog=df
++ type df_setup
++ df_setup
++ args=/
++ env df /
++ :
++ rm -rf in-27330 in2-27330 out-27330 dir-27330
++ for i in '$built_programs'
++ case $i in
++ rm -rf in-27330 in2-27330 dir-27330 out-27330 bigZ-in.Z zin.gz zin2.gz
++ echo z
++ gzip
++ cp zin.gz zin2.gz
++ cp zin.gz bigZ-in.Z
++ echo 2147483647 0
++ cp in-27330 in2-27330
++ mkdir dir-27330
++ test dir = '['
+++ echo dir
+++ sed 's/$//'
++ prog=dir
++ type dir_setup
++ args=
++ env dir
++ :
++ rm -rf in-27330 in2-27330 out-27330 dir-27330
++ for i in '$built_programs'
++ case $i in
++ rm -rf in-27330 in2-27330 dir-27330 out-27330 bigZ-in.Z zin.gz zin2.gz
++ echo z
++ gzip
++ cp zin.gz zin2.gz
++ cp zin.gz bigZ-in.Z
++ echo 2147483647 0
++ cp in-27330 in2-27330
++ mkdir dir-27330
++ test dircolors = '['
+++ echo dircolors
+++ sed 's/$//'
++ prog=dircolors
++ type dircolors_setup
++ args=
++ env dircolors
++ :
++ rm -rf in-27330 in2-27330 out-27330 dir-27330
++ for i in '$built_programs'
++ case $i in
++ rm -rf in-27330 in2-27330 dir-27330 out-27330 bigZ-in.Z zin.gz zin2.gz
++ echo z
++ gzip
++ cp zin.gz zin2.gz
++ cp zin.gz bigZ-in.Z
++ echo 2147483647 0
++ cp in-27330 in2-27330
++ mkdir dir-27330
++ test dirname = '['
+++ echo dirname
+++ sed 's/$//'
++ prog=dirname
++ type dirname_setup
++ dirname_setup
++ args=in-27330
++ env dirname in-27330
++ :
++ rm -rf in-27330 in2-27330 out-27330 dir-27330
++ for i in '$built_programs'
++ case $i in
++ rm -rf in-27330 in2-27330 dir-27330 out-27330 bigZ-in.Z zin.gz zin2.gz
++ echo z
++ gzip
++ cp zin.gz zin2.gz
++ cp zin.gz bigZ-in.Z
++ echo 2147483647 0
++ cp in-27330 in2-27330
++ mkdir dir-27330
++ test du = '['
+++ echo du
+++ sed 's/$//'
++ prog=du
++ type du_setup
++ args=
++ env du
++ :
++ rm -rf in-27330 in2-27330 out-27330 dir-27330
++ for i in '$built_programs'
++ case $i in
++ rm -rf in-27330 in2-27330 dir-27330 out-27330 bigZ-in.Z zin.gz zin2.gz
++ echo z
++ gzip
++ cp zin.gz zin2.gz
++ cp zin.gz bigZ-in.Z
++ echo 2147483647 0
++ cp in-27330 in2-27330
++ mkdir dir-27330
++ test echo = '['
+++ echo echo
+++ sed 's/$//'
++ prog=echo
++ type echo_setup
++ args=
++ env echo
++ :
++ rm -rf in-27330 in2-27330 out-27330 dir-27330
++ for i in '$built_programs'
++ case $i in
++ rm -rf in-27330 in2-27330 dir-27330 out-27330 bigZ-in.Z zin.gz zin2.gz
++ echo z
++ gzip
++ cp zin.gz zin2.gz
++ cp zin.gz bigZ-in.Z
++ echo 2147483647 0
++ cp in-27330 in2-27330
++ mkdir dir-27330
++ test env = '['
+++ echo env
+++ sed 's/$//'
++ prog=env
++ type env_setup
++ args=
++ env env
++ :
++ rm -rf in-27330 in2-27330 out-27330 dir-27330
++ for i in '$built_programs'
++ case $i in
++ rm -rf in-27330 in2-27330 dir-27330 out-27330 bigZ-in.Z zin.gz zin2.gz
++ echo z
++ gzip
++ cp zin.gz zin2.gz
++ cp zin.gz bigZ-in.Z
++ echo 2147483647 0
++ cp in-27330 in2-27330
++ mkdir dir-27330
++ test expand = '['
+++ echo expand
+++ sed 's/$//'
++ prog=expand
++ type expand_setup
++ args=
++ env expand
++ :
++ rm -rf in-27330 in2-27330 out-27330 dir-27330
++ for i in '$built_programs'
++ case $i in
++ rm -rf in-27330 in2-27330 dir-27330 out-27330 bigZ-in.Z zin.gz zin2.gz
++ echo z
++ gzip
++ cp zin.gz zin2.gz
++ cp zin.gz bigZ-in.Z
++ echo 2147483647 0
++ cp in-27330 in2-27330
++ mkdir dir-27330
++ test expr = '['
+++ echo expr
+++ sed 's/$//'
++ prog=expr
++ type expr_setup
++ expr_setup
++ args=foo
++ env expr foo
++ :
++ rm -rf in-27330 in2-27330 out-27330 dir-27330
++ for i in '$built_programs'
++ case $i in
++ rm -rf in-27330 in2-27330 dir-27330 out-27330 bigZ-in.Z zin.gz zin2.gz
++ echo z
++ gzip
++ cp zin.gz zin2.gz
++ cp zin.gz bigZ-in.Z
++ echo 2147483647 0
++ cp in-27330 in2-27330
++ mkdir dir-27330
++ test factor = '['
+++ echo factor
+++ sed 's/$//'
++ prog=factor
++ type factor_setup
++ args=
++ env factor
++ :
++ rm -rf in-27330 in2-27330 out-27330 dir-27330
++ for i in '$built_programs'
++ case $i in
++ continue
++ for i in '$built_programs'
++ case $i in
++ rm -rf in-27330 in2-27330 dir-27330 out-27330 bigZ-in.Z zin.gz zin2.gz
++ echo z
++ gzip
++ cp zin.gz zin2.gz
++ cp zin.gz bigZ-in.Z
++ echo 2147483647 0
++ cp in-27330 in2-27330
++ mkdir dir-27330
++ test fmt = '['
+++ echo fmt
+++ sed 's/$//'
++ prog=fmt
++ type fmt_setup
++ args=
++ env fmt
++ :
++ rm -rf in-27330 in2-27330 out-27330 dir-27330
++ for i in '$built_programs'
++ case $i in
++ rm -rf in-27330 in2-27330 dir-27330 out-27330 bigZ-in.Z zin.gz zin2.gz
++ echo z
++ gzip
++ cp zin.gz zin2.gz
++ cp zin.gz bigZ-in.Z
++ echo 2147483647 0
++ cp in-27330 in2-27330
++ mkdir dir-27330
++ test fold = '['
+++ echo fold
+++ sed 's/$//'
++ prog=fold
++ type fold_setup
++ args=
++ env fold
++ :
++ rm -rf in-27330 in2-27330 out-27330 dir-27330
++ for i in '$built_programs'
++ case $i in
++ rm -rf in-27330 in2-27330 dir-27330 out-27330 bigZ-in.Z zin.gz zin2.gz
++ echo z
++ gzip
++ cp zin.gz zin2.gz
++ cp zin.gz bigZ-in.Z
++ echo 2147483647 0
++ cp in-27330 in2-27330
++ mkdir dir-27330
++ test ginstall = '['
+++ echo ginstall
+++ sed 's/$//'
++ prog=ginstall
++ type ginstall_setup
++ ginstall_setup
++ args='in-27330 in2-27330'
++ env ginstall in-27330 in2-27330
++ :
++ rm -rf in-27330 in2-27330 out-27330 dir-27330
++ for i in '$built_programs'
++ case $i in
++ rm -rf in-27330 in2-27330 dir-27330 out-27330 bigZ-in.Z zin.gz zin2.gz
++ echo z
++ gzip
++ cp zin.gz zin2.gz
++ cp zin.gz bigZ-in.Z
++ echo 2147483647 0
++ cp in-27330 in2-27330
++ mkdir dir-27330
++ test groups = '['
+++ echo groups
+++ sed 's/$//'
++ prog=groups
++ type groups_setup
++ groups_setup
++ args=--version
++ env groups --version
++ :
++ rm -rf in-27330 in2-27330 out-27330 dir-27330
++ for i in '$built_programs'
++ case $i in
++ rm -rf in-27330 in2-27330 dir-27330 out-27330 bigZ-in.Z zin.gz zin2.gz
++ echo z
++ gzip
++ cp zin.gz zin2.gz
++ cp zin.gz bigZ-in.Z
++ echo 2147483647 0
++ cp in-27330 in2-27330
++ mkdir dir-27330
++ test head = '['
+++ echo head
+++ sed 's/$//'
++ prog=head
++ type head_setup
++ args=
++ env head
++ :
++ rm -rf in-27330 in2-27330 out-27330 dir-27330
++ for i in '$built_programs'
++ case $i in
++ rm -rf in-27330 in2-27330 dir-27330 out-27330 bigZ-in.Z zin.gz zin2.gz
++ echo z
++ gzip
++ cp zin.gz zin2.gz
++ cp zin.gz bigZ-in.Z
++ echo 2147483647 0
++ cp in-27330 in2-27330
++ mkdir dir-27330
++ test hostid = '['
+++ echo hostid
+++ sed 's/$//'
++ prog=hostid
++ type hostid_setup
++ args=
++ env hostid
++ :
++ rm -rf in-27330 in2-27330 out-27330 dir-27330
++ for i in '$built_programs'
++ case $i in
++ rm -rf in-27330 in2-27330 dir-27330 out-27330 bigZ-in.Z zin.gz zin2.gz
++ echo z
++ gzip
++ cp zin.gz zin2.gz
++ cp zin.gz bigZ-in.Z
++ echo 2147483647 0
++ cp in-27330 in2-27330
++ mkdir dir-27330
++ test id = '['
+++ echo id
+++ sed 's/$//'
++ prog=id
++ type id_setup
++ id_setup
++ args=-u
++ env id -u
++ :
++ rm -rf in-27330 in2-27330 out-27330 dir-27330
++ for i in '$built_programs'
++ case $i in
++ rm -rf in-27330 in2-27330 dir-27330 out-27330 bigZ-in.Z zin.gz zin2.gz
++ echo z
++ gzip
++ cp zin.gz zin2.gz
++ cp zin.gz bigZ-in.Z
++ echo 2147483647 0
++ cp in-27330 in2-27330
++ mkdir dir-27330
++ test join = '['
+++ echo join
+++ sed 's/$//'
++ prog=join
++ type join_setup
++ join_setup
++ args='in-27330 in-27330'
++ env join in-27330 in-27330
++ :
++ rm -rf in-27330 in2-27330 out-27330 dir-27330
++ for i in '$built_programs'
++ case $i in
++ rm -rf in-27330 in2-27330 dir-27330 out-27330 bigZ-in.Z zin.gz zin2.gz
++ echo z
++ gzip
++ cp zin.gz zin2.gz
++ cp zin.gz bigZ-in.Z
++ echo 2147483647 0
++ cp in-27330 in2-27330
++ mkdir dir-27330
++ test kill = '['
+++ echo kill
+++ sed 's/$//'
++ prog=kill
++ type kill_setup
++ kill_setup
++ args=28462
++ env kill 28462
++ env sleep 31.5
++ :
++ rm -rf in-27330 in2-27330 out-27330 dir-27330
++ for i in '$built_programs'
++ case $i in
++ rm -rf in-27330 in2-27330 dir-27330 out-27330 bigZ-in.Z zin.gz zin2.gz
++ echo z
++ gzip
++ cp zin.gz zin2.gz
++ cp zin.gz bigZ-in.Z
++ echo 2147483647 0
++ cp in-27330 in2-27330
++ mkdir dir-27330
++ test link = '['
+++ echo link
+++ sed 's/$//'
++ prog=link
++ type link_setup
++ link_setup
++ args='in-27330 link-target'
++ env link in-27330 link-target
++ :
++ rm -rf in-27330 in2-27330 out-27330 dir-27330
++ for i in '$built_programs'
++ case $i in
++ rm -rf in-27330 in2-27330 dir-27330 out-27330 bigZ-in.Z zin.gz zin2.gz
++ echo z
++ gzip
++ cp zin.gz zin2.gz
++ cp zin.gz bigZ-in.Z
++ echo 2147483647 0
++ cp in-27330 in2-27330
++ mkdir dir-27330
++ test ln = '['
+++ echo ln
+++ sed 's/$//'
++ prog=ln
++ type ln_setup
++ ln_setup
++ args='in-27330 ln-target'
++ env ln in-27330 ln-target
++ :
++ rm -rf in-27330 in2-27330 out-27330 dir-27330
++ for i in '$built_programs'
++ case $i in
++ rm -rf in-27330 in2-27330 dir-27330 out-27330 bigZ-in.Z zin.gz zin2.gz
++ echo z
++ gzip
++ cp zin.gz zin2.gz
++ cp zin.gz bigZ-in.Z
++ echo 2147483647 0
++ cp in-27330 in2-27330
++ mkdir dir-27330
++ test logname = '['
+++ echo logname
+++ sed 's/$//'
++ prog=logname
++ type logname_setup
++ logname_setup
++ args=--version
++ env logname --version
++ :
++ rm -rf in-27330 in2-27330 out-27330 dir-27330
++ for i in '$built_programs'
++ case $i in
++ rm -rf in-27330 in2-27330 dir-27330 out-27330 bigZ-in.Z zin.gz zin2.gz
++ echo z
++ gzip
++ cp zin.gz zin2.gz
++ cp zin.gz bigZ-in.Z
++ echo 2147483647 0
++ cp in-27330 in2-27330
++ mkdir dir-27330
++ test ls = '['
+++ echo ls
+++ sed 's/$//'
++ prog=ls
++ type ls_setup
++ args=
++ env ls
++ :
++ rm -rf in-27330 in2-27330 out-27330 dir-27330
++ for i in '$built_programs'
++ case $i in
++ rm -rf in-27330 in2-27330 dir-27330 out-27330 bigZ-in.Z zin.gz zin2.gz
++ echo z
++ gzip
++ cp zin.gz zin2.gz
++ cp zin.gz bigZ-in.Z
++ echo 2147483647 0
++ cp in-27330 in2-27330
++ mkdir dir-27330
++ test md5sum = '['
+++ echo md5sum
+++ sed 's/$//'
++ prog=md5sum
++ type md5sum_setup
++ args=
++ env md5sum
++ :
++ rm -rf in-27330 in2-27330 out-27330 dir-27330
++ for i in '$built_programs'
++ case $i in
++ rm -rf in-27330 in2-27330 dir-27330 out-27330 bigZ-in.Z zin.gz zin2.gz
++ echo z
++ gzip
++ cp zin.gz zin2.gz
++ cp zin.gz bigZ-in.Z
++ echo 2147483647 0
++ cp in-27330 in2-27330
++ mkdir dir-27330
++ test mkdir = '['
+++ echo mkdir
+++ sed 's/$//'
++ prog=mkdir
++ type mkdir_setup
++ mkdir_setup
++ args=dir-27330/subdir
++ env mkdir dir-27330/subdir
++ :
++ rm -rf in-27330 in2-27330 out-27330 dir-27330
++ for i in '$built_programs'
++ case $i in
++ rm -rf in-27330 in2-27330 dir-27330 out-27330 bigZ-in.Z zin.gz zin2.gz
++ echo z
++ gzip
++ cp zin.gz zin2.gz
++ cp zin.gz bigZ-in.Z
++ echo 2147483647 0
++ cp in-27330 in2-27330
++ mkdir dir-27330
++ test mkfifo = '['
+++ echo mkfifo
+++ sed 's/$//'
++ prog=mkfifo
++ type mkfifo_setup
++ mkfifo_setup
++ args=--version
++ env mkfifo --version
++ :
++ rm -rf in-27330 in2-27330 out-27330 dir-27330
++ for i in '$built_programs'
++ case $i in
++ rm -rf in-27330 in2-27330 dir-27330 out-27330 bigZ-in.Z zin.gz zin2.gz
++ echo z
++ gzip
++ cp zin.gz zin2.gz
++ cp zin.gz bigZ-in.Z
++ echo 2147483647 0
++ cp in-27330 in2-27330
++ mkdir dir-27330
++ test mknod = '['
+++ echo mknod
+++ sed 's/$//'
++ prog=mknod
++ type mknod_setup
++ mknod_setup
++ args=--version
++ env mknod --version
++ :
++ rm -rf in-27330 in2-27330 out-27330 dir-27330
++ for i in '$built_programs'
++ case $i in
++ rm -rf in-27330 in2-27330 dir-27330 out-27330 bigZ-in.Z zin.gz zin2.gz
++ echo z
++ gzip
++ cp zin.gz zin2.gz
++ cp zin.gz bigZ-in.Z
++ echo 2147483647 0
++ cp in-27330 in2-27330
++ mkdir dir-27330
++ test mktemp = '['
+++ echo mktemp
+++ sed 's/$//'
++ prog=mktemp
++ type mktemp_setup
++ mktemp_setup
++ args=mktemp.XXXX
++ env mktemp mktemp.XXXX
++ :
++ rm -rf in-27330 in2-27330 out-27330 dir-27330
++ for i in '$built_programs'
++ case $i in
++ rm -rf in-27330 in2-27330 dir-27330 out-27330 bigZ-in.Z zin.gz zin2.gz
++ echo z
++ gzip
++ cp zin.gz zin2.gz
++ cp zin.gz bigZ-in.Z
++ echo 2147483647 0
++ cp in-27330 in2-27330
++ mkdir dir-27330
++ test mv = '['
+++ echo mv
+++ sed 's/$//'
++ prog=mv
++ type mv_setup
++ mv_setup
++ args='in-27330 in2-27330'
++ env mv in-27330 in2-27330
++ :
++ rm -rf in-27330 in2-27330 out-27330 dir-27330
++ for i in '$built_programs'
++ case $i in
++ rm -rf in-27330 in2-27330 dir-27330 out-27330 bigZ-in.Z zin.gz zin2.gz
++ echo z
++ gzip
++ cp zin.gz zin2.gz
++ cp zin.gz bigZ-in.Z
++ echo 2147483647 0
++ cp in-27330 in2-27330
++ mkdir dir-27330
++ test nice = '['
+++ echo nice
+++ sed 's/$//'
++ prog=nice
++ type nice_setup
++ args=
++ env nice
++ :
++ rm -rf in-27330 in2-27330 out-27330 dir-27330
++ for i in '$built_programs'
++ case $i in
++ rm -rf in-27330 in2-27330 dir-27330 out-27330 bigZ-in.Z zin.gz zin2.gz
++ echo z
++ gzip
++ cp zin.gz zin2.gz
++ cp zin.gz bigZ-in.Z
++ echo 2147483647 0
++ cp in-27330 in2-27330
++ mkdir dir-27330
++ test nl = '['
+++ echo nl
+++ sed 's/$//'
++ prog=nl
++ type nl_setup
++ args=
++ env nl
++ :
++ rm -rf in-27330 in2-27330 out-27330 dir-27330
++ for i in '$built_programs'
++ case $i in
++ rm -rf in-27330 in2-27330 dir-27330 out-27330 bigZ-in.Z zin.gz zin2.gz
++ echo z
++ gzip
++ cp zin.gz zin2.gz
++ cp zin.gz bigZ-in.Z
++ echo 2147483647 0
++ cp in-27330 in2-27330
++ mkdir dir-27330
++ test nohup = '['
+++ echo nohup
+++ sed 's/$//'
++ prog=nohup
++ type nohup_setup
++ nohup_setup
++ args=--version
++ env nohup --version
++ :
++ rm -rf in-27330 in2-27330 out-27330 dir-27330
++ for i in '$built_programs'
++ case $i in
++ rm -rf in-27330 in2-27330 dir-27330 out-27330 bigZ-in.Z zin.gz zin2.gz
++ echo z
++ gzip
++ cp zin.gz zin2.gz
++ cp zin.gz bigZ-in.Z
++ echo 2147483647 0
++ cp in-27330 in2-27330
++ mkdir dir-27330
++ test nproc = '['
+++ echo nproc
+++ sed 's/$//'
++ prog=nproc
++ type nproc_setup
++ args=
++ env nproc
++ :
++ rm -rf in-27330 in2-27330 out-27330 dir-27330
++ for i in '$built_programs'
++ case $i in
++ rm -rf in-27330 in2-27330 dir-27330 out-27330 bigZ-in.Z zin.gz zin2.gz
++ echo z
++ gzip
++ cp zin.gz zin2.gz
++ cp zin.gz bigZ-in.Z
++ echo 2147483647 0
++ cp in-27330 in2-27330
++ mkdir dir-27330
++ test numfmt = '['
+++ echo numfmt
+++ sed 's/$//'
++ prog=numfmt
++ type numfmt_setup
++ args=
++ env numfmt
++ :
++ rm -rf in-27330 in2-27330 out-27330 dir-27330
++ for i in '$built_programs'
++ case $i in
++ rm -rf in-27330 in2-27330 dir-27330 out-27330 bigZ-in.Z zin.gz zin2.gz
++ echo z
++ gzip
++ cp zin.gz zin2.gz
++ cp zin.gz bigZ-in.Z
++ echo 2147483647 0
++ cp in-27330 in2-27330
++ mkdir dir-27330
++ test od = '['
+++ echo od
+++ sed 's/$//'
++ prog=od
++ type od_setup
++ args=
++ env od
++ :
++ rm -rf in-27330 in2-27330 out-27330 dir-27330
++ for i in '$built_programs'
++ case $i in
++ rm -rf in-27330 in2-27330 dir-27330 out-27330 bigZ-in.Z zin.gz zin2.gz
++ echo z
++ gzip
++ cp zin.gz zin2.gz
++ cp zin.gz bigZ-in.Z
++ echo 2147483647 0
++ cp in-27330 in2-27330
++ mkdir dir-27330
++ test paste = '['
+++ echo paste
+++ sed 's/$//'
++ prog=paste
++ type paste_setup
++ args=
++ env paste
++ :
++ rm -rf in-27330 in2-27330 out-27330 dir-27330
++ for i in '$built_programs'
++ case $i in
++ rm -rf in-27330 in2-27330 dir-27330 out-27330 bigZ-in.Z zin.gz zin2.gz
++ echo z
++ gzip
++ cp zin.gz zin2.gz
++ cp zin.gz bigZ-in.Z
++ echo 2147483647 0
++ cp in-27330 in2-27330
++ mkdir dir-27330
++ test pathchk = '['
+++ echo pathchk
+++ sed 's/$//'
++ prog=pathchk
++ type pathchk_setup
++ pathchk_setup
++ args=in-27330
++ env pathchk in-27330
++ :
++ rm -rf in-27330 in2-27330 out-27330 dir-27330
++ for i in '$built_programs'
++ case $i in
++ rm -rf in-27330 in2-27330 dir-27330 out-27330 bigZ-in.Z zin.gz zin2.gz
++ echo z
++ gzip
++ cp zin.gz zin2.gz
++ cp zin.gz bigZ-in.Z
++ echo 2147483647 0
++ cp in-27330 in2-27330
++ mkdir dir-27330
++ test pinky = '['
+++ echo pinky
+++ sed 's/$//'
++ prog=pinky
++ type pinky_setup
++ args=
++ env pinky
++ :
++ rm -rf in-27330 in2-27330 out-27330 dir-27330
++ for i in '$built_programs'
++ case $i in
++ rm -rf in-27330 in2-27330 dir-27330 out-27330 bigZ-in.Z zin.gz zin2.gz
++ echo z
++ gzip
++ cp zin.gz zin2.gz
++ cp zin.gz bigZ-in.Z
++ echo 2147483647 0
++ cp in-27330 in2-27330
++ mkdir dir-27330
++ test pr = '['
+++ echo pr
+++ sed 's/$//'
++ prog=pr
++ type pr_setup
++ args=
++ env pr
++ :
++ rm -rf in-27330 in2-27330 out-27330 dir-27330
++ for i in '$built_programs'
++ case $i in
++ rm -rf in-27330 in2-27330 dir-27330 out-27330 bigZ-in.Z zin.gz zin2.gz
++ echo z
++ gzip
++ cp zin.gz zin2.gz
++ cp zin.gz bigZ-in.Z
++ echo 2147483647 0
++ cp in-27330 in2-27330
++ mkdir dir-27330
++ test printenv = '['
+++ echo printenv
+++ sed 's/$//'
++ prog=printenv
++ type printenv_setup
++ args=
++ env printenv
++ :
++ rm -rf in-27330 in2-27330 out-27330 dir-27330
++ for i in '$built_programs'
++ case $i in
++ rm -rf in-27330 in2-27330 dir-27330 out-27330 bigZ-in.Z zin.gz zin2.gz
++ echo z
++ gzip
++ cp zin.gz zin2.gz
++ cp zin.gz bigZ-in.Z
++ echo 2147483647 0
++ cp in-27330 in2-27330
++ mkdir dir-27330
++ test printf = '['
+++ echo printf
+++ sed 's/$//'
++ prog=printf
++ type printf_setup
++ printf_setup
++ args=foo
++ env printf foo
++ :
++ rm -rf in-27330 in2-27330 out-27330 dir-27330
++ for i in '$built_programs'
++ case $i in
++ rm -rf in-27330 in2-27330 dir-27330 out-27330 bigZ-in.Z zin.gz zin2.gz
++ echo z
++ gzip
++ cp zin.gz zin2.gz
++ cp zin.gz bigZ-in.Z
++ echo 2147483647 0
++ cp in-27330 in2-27330
++ mkdir dir-27330
++ test ptx = '['
+++ echo ptx
+++ sed 's/$//'
++ prog=ptx
++ type ptx_setup
++ args=
++ env ptx
++ :
++ rm -rf in-27330 in2-27330 out-27330 dir-27330
++ for i in '$built_programs'
++ case $i in
++ rm -rf in-27330 in2-27330 dir-27330 out-27330 bigZ-in.Z zin.gz zin2.gz
++ echo z
++ gzip
++ cp zin.gz zin2.gz
++ cp zin.gz bigZ-in.Z
++ echo 2147483647 0
++ cp in-27330 in2-27330
++ mkdir dir-27330
++ test pwd = '['
+++ echo pwd
+++ sed 's/$//'
++ prog=pwd
++ type pwd_setup
++ args=
++ env pwd
++ :
++ rm -rf in-27330 in2-27330 out-27330 dir-27330
++ for i in '$built_programs'
++ case $i in
++ rm -rf in-27330 in2-27330 dir-27330 out-27330 bigZ-in.Z zin.gz zin2.gz
++ echo z
++ gzip
++ cp zin.gz zin2.gz
++ cp zin.gz bigZ-in.Z
++ echo 2147483647 0
++ cp in-27330 in2-27330
++ mkdir dir-27330
++ test readlink = '['
+++ echo readlink
+++ sed 's/$//'
++ prog=readlink
++ type readlink_setup
++ readlink_setup
++ ln -s . slink
++ args=slink
++ env readlink slink
++ :
++ rm -rf in-27330 in2-27330 out-27330 dir-27330
++ for i in '$built_programs'
++ case $i in
++ rm -rf in-27330 in2-27330 dir-27330 out-27330 bigZ-in.Z zin.gz zin2.gz
++ echo z
++ gzip
++ cp zin.gz zin2.gz
++ cp zin.gz bigZ-in.Z
++ echo 2147483647 0
++ cp in-27330 in2-27330
++ mkdir dir-27330
++ test realpath = '['
+++ echo realpath
+++ sed 's/$//'
++ prog=realpath
++ type realpath_setup
++ realpath_setup
++ args=in-27330
++ env realpath in-27330
++ :
++ rm -rf in-27330 in2-27330 out-27330 dir-27330
++ for i in '$built_programs'
++ case $i in
++ rm -rf in-27330 in2-27330 dir-27330 out-27330 bigZ-in.Z zin.gz zin2.gz
++ echo z
++ gzip
++ cp zin.gz zin2.gz
++ cp zin.gz bigZ-in.Z
++ echo 2147483647 0
++ cp in-27330 in2-27330
++ mkdir dir-27330
++ test rm = '['
+++ echo rm
+++ sed 's/$//'
++ prog=rm
++ type rm_setup
++ rm_setup
++ args=in-27330
++ env rm in-27330
++ :
++ rm -rf in-27330 in2-27330 out-27330 dir-27330
++ for i in '$built_programs'
++ case $i in
++ rm -rf in-27330 in2-27330 dir-27330 out-27330 bigZ-in.Z zin.gz zin2.gz
++ echo z
++ gzip
++ cp zin.gz zin2.gz
++ cp zin.gz bigZ-in.Z
++ echo 2147483647 0
++ cp in-27330 in2-27330
++ mkdir dir-27330
++ test rmdir = '['
+++ echo rmdir
+++ sed 's/$//'
++ prog=rmdir
++ type rmdir_setup
++ rmdir_setup
++ args=dir-27330
++ env rmdir dir-27330
++ :
++ rm -rf in-27330 in2-27330 out-27330 dir-27330
++ for i in '$built_programs'
++ case $i in
++ continue
++ for i in '$built_programs'
++ case $i in
++ rm -rf in-27330 in2-27330 dir-27330 out-27330 bigZ-in.Z zin.gz zin2.gz
++ echo z
++ gzip
++ cp zin.gz zin2.gz
++ cp zin.gz bigZ-in.Z
++ echo 2147483647 0
++ cp in-27330 in2-27330
++ mkdir dir-27330
++ test seq = '['
+++ echo seq
+++ sed 's/$//'
++ prog=seq
++ type seq_setup
++ seq_setup
++ args=10
++ env seq 10
++ :
++ rm -rf in-27330 in2-27330 out-27330 dir-27330
++ for i in '$built_programs'
++ case $i in
++ rm -rf in-27330 in2-27330 dir-27330 out-27330 bigZ-in.Z zin.gz zin2.gz
++ echo z
++ gzip
++ cp zin.gz zin2.gz
++ cp zin.gz bigZ-in.Z
++ echo 2147483647 0
++ cp in-27330 in2-27330
++ mkdir dir-27330
++ test sha1sum = '['
+++ echo sha1sum
+++ sed 's/$//'
++ prog=sha1sum
++ type sha1sum_setup
++ args=
++ env sha1sum
++ :
++ rm -rf in-27330 in2-27330 out-27330 dir-27330
++ for i in '$built_programs'
++ case $i in
++ rm -rf in-27330 in2-27330 dir-27330 out-27330 bigZ-in.Z zin.gz zin2.gz
++ echo z
++ gzip
++ cp zin.gz zin2.gz
++ cp zin.gz bigZ-in.Z
++ echo 2147483647 0
++ cp in-27330 in2-27330
++ mkdir dir-27330
++ test sha224sum = '['
+++ echo sha224sum
+++ sed 's/$//'
++ prog=sha224sum
++ type sha224sum_setup
++ args=
++ env sha224sum
++ :
++ rm -rf in-27330 in2-27330 out-27330 dir-27330
++ for i in '$built_programs'
++ case $i in
++ rm -rf in-27330 in2-27330 dir-27330 out-27330 bigZ-in.Z zin.gz zin2.gz
++ echo z
++ gzip
++ cp zin.gz zin2.gz
++ cp zin.gz bigZ-in.Z
++ echo 2147483647 0
++ cp in-27330 in2-27330
++ mkdir dir-27330
++ test sha256sum = '['
+++ echo sha256sum
+++ sed 's/$//'
++ prog=sha256sum
++ type sha256sum_setup
++ args=
++ env sha256sum
++ :
++ rm -rf in-27330 in2-27330 out-27330 dir-27330
++ for i in '$built_programs'
++ case $i in
++ rm -rf in-27330 in2-27330 dir-27330 out-27330 bigZ-in.Z zin.gz zin2.gz
++ echo z
++ gzip
++ cp zin.gz zin2.gz
++ cp zin.gz bigZ-in.Z
++ echo 2147483647 0
++ cp in-27330 in2-27330
++ mkdir dir-27330
++ test sha384sum = '['
+++ echo sha384sum
+++ sed 's/$//'
++ prog=sha384sum
++ type sha384sum_setup
++ args=
++ env sha384sum
++ :
++ rm -rf in-27330 in2-27330 out-27330 dir-27330
++ for i in '$built_programs'
++ case $i in
++ rm -rf in-27330 in2-27330 dir-27330 out-27330 bigZ-in.Z zin.gz zin2.gz
++ echo z
++ gzip
++ cp zin.gz zin2.gz
++ cp zin.gz bigZ-in.Z
++ echo 2147483647 0
++ cp in-27330 in2-27330
++ mkdir dir-27330
++ test sha512sum = '['
+++ echo sha512sum
+++ sed 's/$//'
++ prog=sha512sum
++ type sha512sum_setup
++ args=
++ env sha512sum
++ :
++ rm -rf in-27330 in2-27330 out-27330 dir-27330
++ for i in '$built_programs'
++ case $i in
++ rm -rf in-27330 in2-27330 dir-27330 out-27330 bigZ-in.Z zin.gz zin2.gz
++ echo z
++ gzip
++ cp zin.gz zin2.gz
++ cp zin.gz bigZ-in.Z
++ echo 2147483647 0
++ cp in-27330 in2-27330
++ mkdir dir-27330
++ test shred = '['
+++ echo shred
+++ sed 's/$//'
++ prog=shred
++ type shred_setup
++ shred_setup
++ args=in-27330
++ env shred in-27330
++ :
++ rm -rf in-27330 in2-27330 out-27330 dir-27330
++ for i in '$built_programs'
++ case $i in
++ rm -rf in-27330 in2-27330 dir-27330 out-27330 bigZ-in.Z zin.gz zin2.gz
++ echo z
++ gzip
++ cp zin.gz zin2.gz
++ cp zin.gz bigZ-in.Z
++ echo 2147483647 0
++ cp in-27330 in2-27330
++ mkdir dir-27330
++ test shuf = '['
+++ echo shuf
+++ sed 's/$//'
++ prog=shuf
++ type shuf_setup
++ args=
++ env shuf
++ :
++ rm -rf in-27330 in2-27330 out-27330 dir-27330
++ for i in '$built_programs'
++ case $i in
++ rm -rf in-27330 in2-27330 dir-27330 out-27330 bigZ-in.Z zin.gz zin2.gz
++ echo z
++ gzip
++ cp zin.gz zin2.gz
++ cp zin.gz bigZ-in.Z
++ echo 2147483647 0
++ cp in-27330 in2-27330
++ mkdir dir-27330
++ test sleep = '['
+++ echo sleep
+++ sed 's/$//'
++ prog=sleep
++ type sleep_setup
++ sleep_setup
++ args=0
++ env sleep 0
++ :
++ rm -rf in-27330 in2-27330 out-27330 dir-27330
++ for i in '$built_programs'
++ case $i in
++ rm -rf in-27330 in2-27330 dir-27330 out-27330 bigZ-in.Z zin.gz zin2.gz
++ echo z
++ gzip
++ cp zin.gz zin2.gz
++ cp zin.gz bigZ-in.Z
++ echo 2147483647 0
++ cp in-27330 in2-27330
++ mkdir dir-27330
++ test sort = '['
+++ echo sort
+++ sed 's/$//'
++ prog=sort
++ type sort_setup
++ args=
++ env sort
++ :
++ rm -rf in-27330 in2-27330 out-27330 dir-27330
++ for i in '$built_programs'
++ case $i in
++ rm -rf in-27330 in2-27330 dir-27330 out-27330 bigZ-in.Z zin.gz zin2.gz
++ echo z
++ gzip
++ cp zin.gz zin2.gz
++ cp zin.gz bigZ-in.Z
++ echo 2147483647 0
++ cp in-27330 in2-27330
++ mkdir dir-27330
++ test split = '['
+++ echo split
+++ sed 's/$//'
++ prog=split
++ type split_setup
++ args=
++ env split
++ :
++ rm -rf in-27330 in2-27330 out-27330 dir-27330
++ for i in '$built_programs'
++ case $i in
++ rm -rf in-27330 in2-27330 dir-27330 out-27330 bigZ-in.Z zin.gz zin2.gz
++ echo z
++ gzip
++ cp zin.gz zin2.gz
++ cp zin.gz bigZ-in.Z
++ echo 2147483647 0
++ cp in-27330 in2-27330
++ mkdir dir-27330
++ test stat = '['
+++ echo stat
+++ sed 's/$//'
++ prog=stat
++ type stat_setup
++ stat_setup
++ args=in-27330
++ env stat in-27330
++ :
++ rm -rf in-27330 in2-27330 out-27330 dir-27330
++ for i in '$built_programs'
++ case $i in
++ rm -rf in-27330 in2-27330 dir-27330 out-27330 bigZ-in.Z zin.gz zin2.gz
++ echo z
++ gzip
++ cp zin.gz zin2.gz
++ cp zin.gz bigZ-in.Z
++ echo 2147483647 0
++ cp in-27330 in2-27330
++ mkdir dir-27330
++ test stdbuf = '['
+++ echo stdbuf
+++ sed 's/$//'
++ prog=stdbuf
++ type stdbuf_setup
++ stdbuf_setup
++ args='-oL true'
++ env stdbuf -oL true
+ERROR: ld.so: object '/home/jfloyd/Documents/Projects/Proactive' from LD_PRELOAD cannot be preloaded (cannot open shared object file): ignored.
+ERROR: ld.so: object 'Diversity/coreutils-8.23/src/libstdbuf.so' from LD_PRELOAD cannot be preloaded (cannot open shared object file): ignored.
++ :
++ rm -rf in-27330 in2-27330 out-27330 dir-27330
++ for i in '$built_programs'
++ case $i in
++ continue
++ for i in '$built_programs'
++ case $i in
++ rm -rf in-27330 in2-27330 dir-27330 out-27330 bigZ-in.Z zin.gz zin2.gz
++ echo z
++ gzip
++ cp zin.gz zin2.gz
++ cp zin.gz bigZ-in.Z
++ echo 2147483647 0
++ cp in-27330 in2-27330
++ mkdir dir-27330
++ test sum = '['
+++ echo sum
+++ sed 's/$//'
++ prog=sum
++ type sum_setup
++ args=
++ env sum
++ :
++ rm -rf in-27330 in2-27330 out-27330 dir-27330
++ for i in '$built_programs'
++ case $i in
++ rm -rf in-27330 in2-27330 dir-27330 out-27330 bigZ-in.Z zin.gz zin2.gz
++ echo z
++ gzip
++ cp zin.gz zin2.gz
++ cp zin.gz bigZ-in.Z
++ echo 2147483647 0
++ cp in-27330 in2-27330
++ mkdir dir-27330
++ test sync = '['
+++ echo sync
+++ sed 's/$//'
++ prog=sync
++ type sync_setup
++ sync_setup
++ args=--version
++ env sync --version
++ :
++ rm -rf in-27330 in2-27330 out-27330 dir-27330
++ for i in '$built_programs'
++ case $i in
++ rm -rf in-27330 in2-27330 dir-27330 out-27330 bigZ-in.Z zin.gz zin2.gz
++ echo z
++ gzip
++ cp zin.gz zin2.gz
++ cp zin.gz bigZ-in.Z
++ echo 2147483647 0
++ cp in-27330 in2-27330
++ mkdir dir-27330
++ test tac = '['
+++ echo tac
+++ sed 's/$//'
++ prog=tac
++ type tac_setup
++ args=
++ env tac
++ :
++ rm -rf in-27330 in2-27330 out-27330 dir-27330
++ for i in '$built_programs'
++ case $i in
++ rm -rf in-27330 in2-27330 dir-27330 out-27330 bigZ-in.Z zin.gz zin2.gz
++ echo z
++ gzip
++ cp zin.gz zin2.gz
++ cp zin.gz bigZ-in.Z
++ echo 2147483647 0
++ cp in-27330 in2-27330
++ mkdir dir-27330
++ test tail = '['
+++ echo tail
+++ sed 's/$//'
++ prog=tail
++ type tail_setup
++ args=
++ env tail
++ :
++ rm -rf in-27330 in2-27330 out-27330 dir-27330
++ for i in '$built_programs'
++ case $i in
++ rm -rf in-27330 in2-27330 dir-27330 out-27330 bigZ-in.Z zin.gz zin2.gz
++ echo z
++ gzip
++ cp zin.gz zin2.gz
++ cp zin.gz bigZ-in.Z
++ echo 2147483647 0
++ cp in-27330 in2-27330
++ mkdir dir-27330
++ test tee = '['
+++ echo tee
+++ sed 's/$//'
++ prog=tee
++ type tee_setup
++ args=
++ env tee
++ :
++ rm -rf in-27330 in2-27330 out-27330 dir-27330
++ for i in '$built_programs'
++ case $i in
++ rm -rf in-27330 in2-27330 dir-27330 out-27330 bigZ-in.Z zin.gz zin2.gz
++ echo z
++ gzip
++ cp zin.gz zin2.gz
++ cp zin.gz bigZ-in.Z
++ echo 2147483647 0
++ cp in-27330 in2-27330
++ mkdir dir-27330
++ test test = '['
+++ echo test
+++ sed 's/$//'
++ prog=test
++ type test_setup
++ test_setup
++ args=foo
++ env test foo
++ :
++ rm -rf in-27330 in2-27330 out-27330 dir-27330
++ for i in '$built_programs'
++ case $i in
++ rm -rf in-27330 in2-27330 dir-27330 out-27330 bigZ-in.Z zin.gz zin2.gz
++ echo z
++ gzip
++ cp zin.gz zin2.gz
++ cp zin.gz bigZ-in.Z
++ echo 2147483647 0
++ cp in-27330 in2-27330
++ mkdir dir-27330
++ test timeout = '['
+++ echo timeout
+++ sed 's/$//'
++ prog=timeout
++ type timeout_setup
++ timeout_setup
++ args=--version
++ env timeout --version
++ :
++ rm -rf in-27330 in2-27330 out-27330 dir-27330
++ for i in '$built_programs'
++ case $i in
++ rm -rf in-27330 in2-27330 dir-27330 out-27330 bigZ-in.Z zin.gz zin2.gz
++ echo z
++ gzip
++ cp zin.gz zin2.gz
++ cp zin.gz bigZ-in.Z
++ echo 2147483647 0
++ cp in-27330 in2-27330
++ mkdir dir-27330
++ test touch = '['
+++ echo touch
+++ sed 's/$//'
++ prog=touch
++ type touch_setup
++ touch_setup
++ args=in2-27330
++ env touch in2-27330
++ :
++ rm -rf in-27330 in2-27330 out-27330 dir-27330
++ for i in '$built_programs'
++ case $i in
++ rm -rf in-27330 in2-27330 dir-27330 out-27330 bigZ-in.Z zin.gz zin2.gz
++ echo z
++ gzip
++ cp zin.gz zin2.gz
++ cp zin.gz bigZ-in.Z
++ echo 2147483647 0
++ cp in-27330 in2-27330
++ mkdir dir-27330
++ test tr = '['
+++ echo tr
+++ sed 's/$//'
++ prog=tr
++ type tr_setup
++ tr_setup
++ args='a a'
++ env tr a a
++ :
++ rm -rf in-27330 in2-27330 out-27330 dir-27330
++ for i in '$built_programs'
++ case $i in
++ rm -rf in-27330 in2-27330 dir-27330 out-27330 bigZ-in.Z zin.gz zin2.gz
++ echo z
++ gzip
++ cp zin.gz zin2.gz
++ cp zin.gz bigZ-in.Z
++ echo 2147483647 0
++ cp in-27330 in2-27330
++ mkdir dir-27330
++ test true = '['
+++ echo true
+++ sed 's/$//'
++ prog=true
++ type true_setup
++ args=
++ env true
++ :
++ rm -rf in-27330 in2-27330 out-27330 dir-27330
++ for i in '$built_programs'
++ case $i in
++ rm -rf in-27330 in2-27330 dir-27330 out-27330 bigZ-in.Z zin.gz zin2.gz
++ echo z
++ gzip
++ cp zin.gz zin2.gz
++ cp zin.gz bigZ-in.Z
++ echo 2147483647 0
++ cp in-27330 in2-27330
++ mkdir dir-27330
++ test truncate = '['
+++ echo truncate
+++ sed 's/$//'
++ prog=truncate
++ type truncate_setup
++ truncate_setup
++ args='--reference=in-27330 in2-27330'
++ env truncate --reference=in-27330 in2-27330
++ :
++ rm -rf in-27330 in2-27330 out-27330 dir-27330
++ for i in '$built_programs'
++ case $i in
++ rm -rf in-27330 in2-27330 dir-27330 out-27330 bigZ-in.Z zin.gz zin2.gz
++ echo z
++ gzip
++ cp zin.gz zin2.gz
++ cp zin.gz bigZ-in.Z
++ echo 2147483647 0
++ cp in-27330 in2-27330
++ mkdir dir-27330
++ test tsort = '['
+++ echo tsort
+++ sed 's/$//'
++ prog=tsort
++ type tsort_setup
++ args=
++ env tsort
++ :
++ rm -rf in-27330 in2-27330 out-27330 dir-27330
++ for i in '$built_programs'
++ case $i in
++ continue
++ for i in '$built_programs'
++ case $i in
++ rm -rf in-27330 in2-27330 dir-27330 out-27330 bigZ-in.Z zin.gz zin2.gz
++ echo z
++ gzip
++ cp zin.gz zin2.gz
++ cp zin.gz bigZ-in.Z
++ echo 2147483647 0
++ cp in-27330 in2-27330
++ mkdir dir-27330
++ test uname = '['
+++ echo uname
+++ sed 's/$//'
++ prog=uname
++ type uname_setup
++ args=
++ env uname
++ :
++ rm -rf in-27330 in2-27330 out-27330 dir-27330
++ for i in '$built_programs'
++ case $i in
++ rm -rf in-27330 in2-27330 dir-27330 out-27330 bigZ-in.Z zin.gz zin2.gz
++ echo z
++ gzip
++ cp zin.gz zin2.gz
++ cp zin.gz bigZ-in.Z
++ echo 2147483647 0
++ cp in-27330 in2-27330
++ mkdir dir-27330
++ test unexpand = '['
+++ echo unexpand
+++ sed 's/$//'
++ prog=unexpand
++ type unexpand_setup
++ args=
++ env unexpand
++ :
++ rm -rf in-27330 in2-27330 out-27330 dir-27330
++ for i in '$built_programs'
++ case $i in
++ rm -rf in-27330 in2-27330 dir-27330 out-27330 bigZ-in.Z zin.gz zin2.gz
++ echo z
++ gzip
++ cp zin.gz zin2.gz
++ cp zin.gz bigZ-in.Z
++ echo 2147483647 0
++ cp in-27330 in2-27330
++ mkdir dir-27330
++ test uniq = '['
+++ echo uniq
+++ sed 's/$//'
++ prog=uniq
++ type uniq_setup
++ args=
++ env uniq
++ :
++ rm -rf in-27330 in2-27330 out-27330 dir-27330
++ for i in '$built_programs'
++ case $i in
++ rm -rf in-27330 in2-27330 dir-27330 out-27330 bigZ-in.Z zin.gz zin2.gz
++ echo z
++ gzip
++ cp zin.gz zin2.gz
++ cp zin.gz bigZ-in.Z
++ echo 2147483647 0
++ cp in-27330 in2-27330
++ mkdir dir-27330
++ test unlink = '['
+++ echo unlink
+++ sed 's/$//'
++ prog=unlink
++ type unlink_setup
++ unlink_setup
++ args=in-27330
++ env unlink in-27330
++ :
++ rm -rf in-27330 in2-27330 out-27330 dir-27330
++ for i in '$built_programs'
++ case $i in
++ rm -rf in-27330 in2-27330 dir-27330 out-27330 bigZ-in.Z zin.gz zin2.gz
++ echo z
++ gzip
++ cp zin.gz zin2.gz
++ cp zin.gz bigZ-in.Z
++ echo 2147483647 0
++ cp in-27330 in2-27330
++ mkdir dir-27330
++ test uptime = '['
+++ echo uptime
+++ sed 's/$//'
++ prog=uptime
++ type uptime_setup
++ uptime_setup
++ args=--version
++ env uptime --version
++ :
++ rm -rf in-27330 in2-27330 out-27330 dir-27330
++ for i in '$built_programs'
++ case $i in
++ rm -rf in-27330 in2-27330 dir-27330 out-27330 bigZ-in.Z zin.gz zin2.gz
++ echo z
++ gzip
++ cp zin.gz zin2.gz
++ cp zin.gz bigZ-in.Z
++ echo 2147483647 0
++ cp in-27330 in2-27330
++ mkdir dir-27330
++ test users = '['
+++ echo users
+++ sed 's/$//'
++ prog=users
++ type users_setup
++ args=
++ env users
++ :
++ rm -rf in-27330 in2-27330 out-27330 dir-27330
++ for i in '$built_programs'
++ case $i in
++ rm -rf in-27330 in2-27330 dir-27330 out-27330 bigZ-in.Z zin.gz zin2.gz
++ echo z
++ gzip
++ cp zin.gz zin2.gz
++ cp zin.gz bigZ-in.Z
++ echo 2147483647 0
++ cp in-27330 in2-27330
++ mkdir dir-27330
++ test vdir = '['
+++ echo vdir
+++ sed 's/$//'
++ prog=vdir
++ type vdir_setup
++ args=
++ env vdir
++ :
++ rm -rf in-27330 in2-27330 out-27330 dir-27330
++ for i in '$built_programs'
++ case $i in
++ rm -rf in-27330 in2-27330 dir-27330 out-27330 bigZ-in.Z zin.gz zin2.gz
++ echo z
++ gzip
++ cp zin.gz zin2.gz
++ cp zin.gz bigZ-in.Z
++ echo 2147483647 0
++ cp in-27330 in2-27330
++ mkdir dir-27330
++ test wc = '['
+++ echo wc
+++ sed 's/$//'
++ prog=wc
++ type wc_setup
++ args=
++ env wc
++ :
++ rm -rf in-27330 in2-27330 out-27330 dir-27330
++ for i in '$built_programs'
++ case $i in
++ rm -rf in-27330 in2-27330 dir-27330 out-27330 bigZ-in.Z zin.gz zin2.gz
++ echo z
++ gzip
++ cp zin.gz zin2.gz
++ cp zin.gz bigZ-in.Z
++ echo 2147483647 0
++ cp in-27330 in2-27330
++ mkdir dir-27330
++ test who = '['
+++ echo who
+++ sed 's/$//'
++ prog=who
++ type who_setup
++ args=
++ env who
++ :
++ rm -rf in-27330 in2-27330 out-27330 dir-27330
++ for i in '$built_programs'
++ case $i in
++ rm -rf in-27330 in2-27330 dir-27330 out-27330 bigZ-in.Z zin.gz zin2.gz
++ echo z
++ gzip
++ cp zin.gz zin2.gz
++ cp zin.gz bigZ-in.Z
++ echo 2147483647 0
++ cp in-27330 in2-27330
++ mkdir dir-27330
++ test whoami = '['
+++ echo whoami
+++ sed 's/$//'
++ prog=whoami
++ type whoami_setup
++ args=
++ env whoami
++ :
++ rm -rf in-27330 in2-27330 out-27330 dir-27330
++ for i in '$built_programs'
++ case $i in
++ rm -rf in-27330 in2-27330 dir-27330 out-27330 bigZ-in.Z zin.gz zin2.gz
++ echo z
++ gzip
++ cp zin.gz zin2.gz
++ cp zin.gz bigZ-in.Z
++ echo 2147483647 0
++ cp in-27330 in2-27330
++ mkdir dir-27330
++ test yes = '['
+++ echo yes
+++ sed 's/$//'
++ prog=yes
++ type yes_setup
++ yes_setup
++ args=--version
++ env yes --version
++ :
++ rm -rf in-27330 in2-27330 out-27330 dir-27330
++ Exit 0
++ set +e
++ exit 0
++ exit 0
++ remove_tmp_
++ __st=0
++ cleanup_
++ :
++ cd '/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23'
++ chmod -R u+rwx '/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/gt-help-version.sh.TuE2'
++ rm -rf '/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/gt-help-version.sh.TuE2'
++ exit 0

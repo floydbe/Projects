@@ -1,0 +1,2134 @@
+++ initial_cwd_='/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23'
+++ fail=0
++++ testdir_prefix_
++++ printf gt
+++ pfx_=gt
++++ mktempd_ '/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23' gt-part-symlink.sh.XXXX
++++ case $# in
++++ destdir_='/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23'
++++ template_=gt-part-symlink.sh.XXXX
++++ MAX_TRIES_=4
++++ case $destdir_ in
++++ case $template_ in
+++++ unset TMPDIR
++++ d='/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/gt-part-symlink.sh.pK7S'
++++ case $d in
++++ test -d '/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/gt-part-symlink.sh.pK7S'
+++++ ls -dgo '/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/gt-part-symlink.sh.pK7S'
+++++ tr S -
++++ perms='drwx------ 2 4096 Mar  6 11:59 /home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/gt-part-symlink.sh.pK7-'
++++ case $perms in
++++ test 0 = 0
++++ echo '/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/gt-part-symlink.sh.pK7S'
++++ return
+++ test_dir_='/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/gt-part-symlink.sh.pK7S'
+++ cd '/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/gt-part-symlink.sh.pK7S'
+++ gl_init_sh_nl_='
+'
+++ IFS=' 	
+'
+++ for sig_ in 1 2 3 13 15
++++ expr 1 + 128
+++ eval 'trap '\''Exit 129'\'' 1'
++++ trap 'Exit 129' 1
+++ for sig_ in 1 2 3 13 15
++++ expr 2 + 128
+++ eval 'trap '\''Exit 130'\'' 2'
++++ trap 'Exit 130' 2
+++ for sig_ in 1 2 3 13 15
++++ expr 3 + 128
+++ eval 'trap '\''Exit 131'\'' 3'
++++ trap 'Exit 131' 3
+++ for sig_ in 1 2 3 13 15
++++ expr 13 + 128
+++ eval 'trap '\''Exit 141'\'' 13'
++++ trap 'Exit 141' 13
+++ for sig_ in 1 2 3 13 15
++++ expr 15 + 128
+++ eval 'trap '\''Exit 143'\'' 15'
++++ trap 'Exit 143' 15
+++ trap remove_tmp_ 0
++ path_prepend_ ./src
++ test 1 '!=' 0
++ path_dir_=./src
++ case $path_dir_ in
++ abs_path_dir_='/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/./src'
++ case $abs_path_dir_ in
++ PATH='/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/./src:/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/src:/home/jfloyd/.opam/system/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games'
++ create_exe_shims_ '/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/./src'
++ case $EXEEXT in
++ return 0
++ shift
++ test 0 '!=' 0
++ export PATH
++ print_ver_ cp mv
++ test yes = yes
++ local i
++ for i in '$*'
++ env cp --version
+cp (GNU coreutils) 8.23
+Copyright (C) 2014 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>.
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.
+
+Written by Torbjorn Granlund, David MacKenzie, and Jim Meyering.
++ for i in '$*'
++ env mv --version
+mv (GNU coreutils) 8.23
+Copyright (C) 2014 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>.
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.
+
+Written by Mike Parker, David MacKenzie, and Jim Meyering.
++ . '/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/tests/other-fs-tmpdir'
+++ test '' = set
+++ CANDIDATE_TMP_DIRS='/tmp /tmp /dev/shm /var/tmp /usr/tmp /home/jfloyd'
+++ other_partition_tmpdir=
++++ stat -c %d .
+++ dot_mount_point=2049
+++ for d in '$CANDIDATE_TMP_DIRS'
+++ test -d /tmp
++++ stat -L -c %d /tmp
+++ d_mount_point=2049
+++ test x2049 = x2049
+++ continue
+++ for d in '$CANDIDATE_TMP_DIRS'
+++ test -d /tmp
++++ stat -L -c %d /tmp
+++ d_mount_point=2049
+++ test x2049 = x2049
+++ continue
+++ for d in '$CANDIDATE_TMP_DIRS'
+++ test -d /dev/shm
++++ stat -L -c %d /dev/shm
+++ d_mount_point=20
+++ test x20 = x2049
+++ mkdir /dev/shm/tmp2863
+++ other_partition_tmpdir=/dev/shm/tmp2863
+++ break
+++ test -z /dev/shm/tmp2863
+++ test yes = yes
+++ set -x
++ require_local_dir_
++ require_mount_list_
++ local 'mount_list_fail=cannot read table of mounted file systems'
++ df
++ grep -F 'cannot read table of mounted file systems'
++ is_local_dir_ .
++ test 1 = 1
++ df --local .
+++ pwd
++ pwd_tmp='/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/gt-part-symlink.sh.pK7S'
++ unset CDPATH
++ exec
++ contents=XYZ
++ loc_reg=loc_reg
++ loc_sl=loc_sl
++ rem_reg=/dev/shm/tmp2863/rem_reg
++ rem_sl=/dev/shm/tmp2863/rem_sl
++ for copy in cp mv
++ for args in ''\''loc_reg rem_sl'\''' ''\''rem_sl loc_reg'\''' ''\''loc_sl rem_reg'\''' ''\''rem_reg loc_sl'\'''
++ for options in ''\'''\''' --rem ''\''--rem -d'\''' ''\''--rem -b'\''' -b -bd -d
++ case "$options" in
++ rm -rf dir
++ rm -f '/dev/shm/tmp2863/*'
++ mkdir dir
++ cd dir
++ case "$args" in
+++ pwd
++ reg_abs='/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/gt-part-symlink.sh.pK7S/dir/loc_reg'
++ case "$args" in
++ case "$args" in
++ case "$args" in
++ slink=/dev/shm/tmp2863/rem_sl
++ echo XYZ
++ ln -nsf '/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/gt-part-symlink.sh.pK7S/dir/loc_reg' /dev/shm/tmp2863/rem_sl
+++ echo loc_reg rem_sl
+++ sed 's,^,$,;s/ / $/'
++ actual_args='$loc_reg $rem_sl'
+++ eval echo '$loc_reg' '$rem_sl'
++++ echo loc_reg /dev/shm/tmp2863/rem_sl
++ actual_args='loc_reg /dev/shm/tmp2863/rem_sl'
++ cp loc_reg /dev/shm/tmp2863/rem_sl
++ sed 's/  *$//'
++ copy_status=1
++ echo 1 cp loc_reg rem_sl
++ test -s .err
++ echo ' ['
++ tr -d '\n'
++ sed 's/^[^:][^:]*\(..\):/\1:/;s,/dev/shm/tmp2863/,,' .err
++ tr -d '\n'
++ echo ']'
+++ ls -gG --ignore=.err .
+++ sed -e '/^total /d' -e s,/dev/shm/tmp2863/,, -e 's,/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/gt-part-symlink.sh.pK7S/,,' -e 's/^[^ ]*  *[^ ]*  *[^ ]*  *[^ ]*  *[^ ]*  *[^ ]*  *//'
++ ls=loc_reg
+++ cd /dev/shm/tmp2863
+++ ls -gG --ignore=.err .
+++ sed -e '/^total /d' -e s,/dev/shm/tmp2863/,, -e 's,/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/gt-part-symlink.sh.pK7S/,,' -e 's/^[^ ]*  *[^ ]*  *[^ ]*  *[^ ]*  *[^ ]*  *[^ ]*  *//'
++ ls2='rem_sl -> dir/loc_reg'
++ echo ' (loc_reg) (rem_sl' '->' 'dir/loc_reg)'
++ test 1 '!=' 0
++ for f in '$actual_args'
++ test -f loc_reg
++ case "$(cat $f)" in
+++ cat loc_reg
++ for f in '$actual_args'
++ test -f /dev/shm/tmp2863/rem_sl
++ case "$(cat $f)" in
+++ cat /dev/shm/tmp2863/rem_sl
++ test cp = cp
++ for f in '$actual_args'
++ test -f loc_reg
++ test 1 '!=' 0
++ test
++ case "$(cat $f)" in
+++ cat loc_reg
++ for f in '$actual_args'
++ test -f /dev/shm/tmp2863/rem_sl
++ test 1 '!=' 0
++ test
++ case "$(cat $f)" in
+++ cat /dev/shm/tmp2863/rem_sl
++ cd ..
++ for options in ''\'''\''' --rem ''\''--rem -d'\''' ''\''--rem -b'\''' -b -bd -d
++ case "$options" in
++ test cp = mv
++ rm -rf dir
++ rm -f /dev/shm/tmp2863/rem_sl
++ mkdir dir
++ cd dir
++ case "$args" in
+++ pwd
++ reg_abs='/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/gt-part-symlink.sh.pK7S/dir/loc_reg'
++ case "$args" in
++ case "$args" in
++ case "$args" in
++ slink=/dev/shm/tmp2863/rem_sl
++ echo XYZ
++ ln -nsf '/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/gt-part-symlink.sh.pK7S/dir/loc_reg' /dev/shm/tmp2863/rem_sl
+++ echo loc_reg rem_sl
+++ sed 's,^,$,;s/ / $/'
++ actual_args='$loc_reg $rem_sl'
+++ eval echo '$loc_reg' '$rem_sl'
++++ echo loc_reg /dev/shm/tmp2863/rem_sl
++ actual_args='loc_reg /dev/shm/tmp2863/rem_sl'
++ cp --rem loc_reg /dev/shm/tmp2863/rem_sl
++ sed 's/  *$//'
++ copy_status=0
++ echo 0 cp --rem loc_reg rem_sl
++ test -s .err
+++ ls -gG --ignore=.err .
+++ sed -e '/^total /d' -e s,/dev/shm/tmp2863/,, -e 's,/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/gt-part-symlink.sh.pK7S/,,' -e 's/^[^ ]*  *[^ ]*  *[^ ]*  *[^ ]*  *[^ ]*  *[^ ]*  *//'
++ ls=loc_reg
+++ cd /dev/shm/tmp2863
+++ ls -gG --ignore=.err .
+++ sed -e '/^total /d' -e s,/dev/shm/tmp2863/,, -e 's,/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/gt-part-symlink.sh.pK7S/,,' -e 's/^[^ ]*  *[^ ]*  *[^ ]*  *[^ ]*  *[^ ]*  *[^ ]*  *//'
++ ls2=rem_sl
++ echo ' (loc_reg) (rem_sl)'
++ test 0 '!=' 0
++ test cp = cp
++ for f in '$actual_args'
++ test -f loc_reg
++ test 0 '!=' 0
++ case "$(cat $f)" in
+++ cat loc_reg
++ for f in '$actual_args'
++ test -f /dev/shm/tmp2863/rem_sl
++ test 0 '!=' 0
++ case "$(cat $f)" in
+++ cat /dev/shm/tmp2863/rem_sl
++ cd ..
++ for options in ''\'''\''' --rem ''\''--rem -d'\''' ''\''--rem -b'\''' -b -bd -d
++ case "$options" in
++ test cp = mv
++ rm -rf dir
++ rm -f /dev/shm/tmp2863/rem_sl
++ mkdir dir
++ cd dir
++ case "$args" in
+++ pwd
++ reg_abs='/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/gt-part-symlink.sh.pK7S/dir/loc_reg'
++ case "$args" in
++ case "$args" in
++ case "$args" in
++ slink=/dev/shm/tmp2863/rem_sl
++ echo XYZ
++ ln -nsf '/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/gt-part-symlink.sh.pK7S/dir/loc_reg' /dev/shm/tmp2863/rem_sl
+++ echo loc_reg rem_sl
+++ sed 's,^,$,;s/ / $/'
++ actual_args='$loc_reg $rem_sl'
+++ eval echo '$loc_reg' '$rem_sl'
++++ echo loc_reg /dev/shm/tmp2863/rem_sl
++ actual_args='loc_reg /dev/shm/tmp2863/rem_sl'
++ cp --rem -d loc_reg /dev/shm/tmp2863/rem_sl
++ sed 's/  *$//'
++ copy_status=0
++ echo 0 cp --rem -d loc_reg rem_sl
++ test -s .err
+++ ls -gG --ignore=.err .
+++ sed -e '/^total /d' -e s,/dev/shm/tmp2863/,, -e 's,/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/gt-part-symlink.sh.pK7S/,,' -e 's/^[^ ]*  *[^ ]*  *[^ ]*  *[^ ]*  *[^ ]*  *[^ ]*  *//'
++ ls=loc_reg
+++ cd /dev/shm/tmp2863
+++ ls -gG --ignore=.err .
+++ sed -e '/^total /d' -e s,/dev/shm/tmp2863/,, -e 's,/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/gt-part-symlink.sh.pK7S/,,' -e 's/^[^ ]*  *[^ ]*  *[^ ]*  *[^ ]*  *[^ ]*  *[^ ]*  *//'
++ ls2=rem_sl
++ echo ' (loc_reg) (rem_sl)'
++ test 0 '!=' 0
++ test cp = cp
++ for f in '$actual_args'
++ test -f loc_reg
++ test 0 '!=' 0
++ case "$(cat $f)" in
+++ cat loc_reg
++ for f in '$actual_args'
++ test -f /dev/shm/tmp2863/rem_sl
++ test 0 '!=' 0
++ case "$(cat $f)" in
+++ cat /dev/shm/tmp2863/rem_sl
++ cd ..
++ for options in ''\'''\''' --rem ''\''--rem -d'\''' ''\''--rem -b'\''' -b -bd -d
++ case "$options" in
++ test cp = mv
++ rm -rf dir
++ rm -f /dev/shm/tmp2863/rem_sl
++ mkdir dir
++ cd dir
++ case "$args" in
+++ pwd
++ reg_abs='/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/gt-part-symlink.sh.pK7S/dir/loc_reg'
++ case "$args" in
++ case "$args" in
++ case "$args" in
++ slink=/dev/shm/tmp2863/rem_sl
++ echo XYZ
++ ln -nsf '/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/gt-part-symlink.sh.pK7S/dir/loc_reg' /dev/shm/tmp2863/rem_sl
+++ echo loc_reg rem_sl
+++ sed 's,^,$,;s/ / $/'
++ actual_args='$loc_reg $rem_sl'
+++ eval echo '$loc_reg' '$rem_sl'
++++ echo loc_reg /dev/shm/tmp2863/rem_sl
++ actual_args='loc_reg /dev/shm/tmp2863/rem_sl'
++ cp --rem -b loc_reg /dev/shm/tmp2863/rem_sl
++ sed 's/  *$//'
++ copy_status=0
++ echo 0 cp --rem -b loc_reg rem_sl
++ test -s .err
+++ ls -gG --ignore=.err .
+++ sed -e '/^total /d' -e s,/dev/shm/tmp2863/,, -e 's,/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/gt-part-symlink.sh.pK7S/,,' -e 's/^[^ ]*  *[^ ]*  *[^ ]*  *[^ ]*  *[^ ]*  *[^ ]*  *//'
++ ls=loc_reg
+++ cd /dev/shm/tmp2863
+++ ls -gG --ignore=.err .
+++ sed -e '/^total /d' -e s,/dev/shm/tmp2863/,, -e 's,/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/gt-part-symlink.sh.pK7S/,,' -e 's/^[^ ]*  *[^ ]*  *[^ ]*  *[^ ]*  *[^ ]*  *[^ ]*  *//'
++ ls2='rem_sl
+rem_sl~ -> dir/loc_reg'
++ echo ' (loc_reg) (rem_sl' rem_sl~ '->' 'dir/loc_reg)'
++ test 0 '!=' 0
++ test cp = cp
++ for f in '$actual_args'
++ test -f loc_reg
++ test 0 '!=' 0
++ case "$(cat $f)" in
+++ cat loc_reg
++ for f in '$actual_args'
++ test -f /dev/shm/tmp2863/rem_sl
++ test 0 '!=' 0
++ case "$(cat $f)" in
+++ cat /dev/shm/tmp2863/rem_sl
++ cd ..
++ for options in ''\'''\''' --rem ''\''--rem -d'\''' ''\''--rem -b'\''' -b -bd -d
++ case "$options" in
++ rm -rf dir
++ rm -f /dev/shm/tmp2863/rem_sl /dev/shm/tmp2863/rem_sl~
++ mkdir dir
++ cd dir
++ case "$args" in
+++ pwd
++ reg_abs='/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/gt-part-symlink.sh.pK7S/dir/loc_reg'
++ case "$args" in
++ case "$args" in
++ case "$args" in
++ slink=/dev/shm/tmp2863/rem_sl
++ echo XYZ
++ ln -nsf '/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/gt-part-symlink.sh.pK7S/dir/loc_reg' /dev/shm/tmp2863/rem_sl
+++ echo loc_reg rem_sl
+++ sed 's,^,$,;s/ / $/'
++ actual_args='$loc_reg $rem_sl'
+++ eval echo '$loc_reg' '$rem_sl'
++++ echo loc_reg /dev/shm/tmp2863/rem_sl
++ actual_args='loc_reg /dev/shm/tmp2863/rem_sl'
++ cp -b loc_reg /dev/shm/tmp2863/rem_sl
++ sed 's/  *$//'
++ copy_status=0
++ echo 0 cp -b loc_reg rem_sl
++ test -s .err
+++ ls -gG --ignore=.err .
+++ sed -e '/^total /d' -e s,/dev/shm/tmp2863/,, -e 's,/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/gt-part-symlink.sh.pK7S/,,' -e 's/^[^ ]*  *[^ ]*  *[^ ]*  *[^ ]*  *[^ ]*  *[^ ]*  *//'
++ ls=loc_reg
+++ cd /dev/shm/tmp2863
+++ ls -gG --ignore=.err .
+++ sed -e '/^total /d' -e s,/dev/shm/tmp2863/,, -e 's,/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/gt-part-symlink.sh.pK7S/,,' -e 's/^[^ ]*  *[^ ]*  *[^ ]*  *[^ ]*  *[^ ]*  *[^ ]*  *//'
++ ls2='rem_sl
+rem_sl~ -> dir/loc_reg'
++ echo ' (loc_reg) (rem_sl' rem_sl~ '->' 'dir/loc_reg)'
++ test 0 '!=' 0
++ test cp = cp
++ for f in '$actual_args'
++ test -f loc_reg
++ test 0 '!=' 0
++ case "$(cat $f)" in
+++ cat loc_reg
++ for f in '$actual_args'
++ test -f /dev/shm/tmp2863/rem_sl
++ test 0 '!=' 0
++ case "$(cat $f)" in
+++ cat /dev/shm/tmp2863/rem_sl
++ cd ..
++ for options in ''\'''\''' --rem ''\''--rem -d'\''' ''\''--rem -b'\''' -b -bd -d
++ case "$options" in
++ test cp = mv
++ rm -rf dir
++ rm -f /dev/shm/tmp2863/rem_sl /dev/shm/tmp2863/rem_sl~
++ mkdir dir
++ cd dir
++ case "$args" in
+++ pwd
++ reg_abs='/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/gt-part-symlink.sh.pK7S/dir/loc_reg'
++ case "$args" in
++ case "$args" in
++ case "$args" in
++ slink=/dev/shm/tmp2863/rem_sl
++ echo XYZ
++ ln -nsf '/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/gt-part-symlink.sh.pK7S/dir/loc_reg' /dev/shm/tmp2863/rem_sl
+++ echo loc_reg rem_sl
+++ sed 's,^,$,;s/ / $/'
++ actual_args='$loc_reg $rem_sl'
+++ eval echo '$loc_reg' '$rem_sl'
++++ echo loc_reg /dev/shm/tmp2863/rem_sl
++ actual_args='loc_reg /dev/shm/tmp2863/rem_sl'
++ cp -bd loc_reg /dev/shm/tmp2863/rem_sl
++ sed 's/  *$//'
++ copy_status=0
++ echo 0 cp -bd loc_reg rem_sl
++ test -s .err
+++ ls -gG --ignore=.err .
+++ sed -e '/^total /d' -e s,/dev/shm/tmp2863/,, -e 's,/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/gt-part-symlink.sh.pK7S/,,' -e 's/^[^ ]*  *[^ ]*  *[^ ]*  *[^ ]*  *[^ ]*  *[^ ]*  *//'
++ ls=loc_reg
+++ cd /dev/shm/tmp2863
+++ ls -gG --ignore=.err .
+++ sed -e '/^total /d' -e s,/dev/shm/tmp2863/,, -e 's,/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/gt-part-symlink.sh.pK7S/,,' -e 's/^[^ ]*  *[^ ]*  *[^ ]*  *[^ ]*  *[^ ]*  *[^ ]*  *//'
++ ls2='rem_sl
+rem_sl~ -> dir/loc_reg'
++ echo ' (loc_reg) (rem_sl' rem_sl~ '->' 'dir/loc_reg)'
++ test 0 '!=' 0
++ test cp = cp
++ for f in '$actual_args'
++ test -f loc_reg
++ test 0 '!=' 0
++ case "$(cat $f)" in
+++ cat loc_reg
++ for f in '$actual_args'
++ test -f /dev/shm/tmp2863/rem_sl
++ test 0 '!=' 0
++ case "$(cat $f)" in
+++ cat /dev/shm/tmp2863/rem_sl
++ cd ..
++ for options in ''\'''\''' --rem ''\''--rem -d'\''' ''\''--rem -b'\''' -b -bd -d
++ case "$options" in
++ test cp = mv
++ rm -rf dir
++ rm -f /dev/shm/tmp2863/rem_sl /dev/shm/tmp2863/rem_sl~
++ mkdir dir
++ cd dir
++ case "$args" in
+++ pwd
++ reg_abs='/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/gt-part-symlink.sh.pK7S/dir/loc_reg'
++ case "$args" in
++ case "$args" in
++ case "$args" in
++ slink=/dev/shm/tmp2863/rem_sl
++ echo XYZ
++ ln -nsf '/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/gt-part-symlink.sh.pK7S/dir/loc_reg' /dev/shm/tmp2863/rem_sl
+++ echo loc_reg rem_sl
+++ sed 's,^,$,;s/ / $/'
++ actual_args='$loc_reg $rem_sl'
+++ eval echo '$loc_reg' '$rem_sl'
++++ echo loc_reg /dev/shm/tmp2863/rem_sl
++ actual_args='loc_reg /dev/shm/tmp2863/rem_sl'
++ cp -d loc_reg /dev/shm/tmp2863/rem_sl
++ sed 's/  *$//'
++ copy_status=1
++ echo 1 cp -d loc_reg rem_sl
++ test -s .err
++ echo ' ['
++ tr -d '\n'
++ sed 's/^[^:][^:]*\(..\):/\1:/;s,/dev/shm/tmp2863/,,' .err
++ tr -d '\n'
++ echo ']'
+++ ls -gG --ignore=.err .
+++ sed -e '/^total /d' -e s,/dev/shm/tmp2863/,, -e 's,/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/gt-part-symlink.sh.pK7S/,,' -e 's/^[^ ]*  *[^ ]*  *[^ ]*  *[^ ]*  *[^ ]*  *[^ ]*  *//'
++ ls=loc_reg
+++ cd /dev/shm/tmp2863
+++ ls -gG --ignore=.err .
+++ sed -e '/^total /d' -e s,/dev/shm/tmp2863/,, -e 's,/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/gt-part-symlink.sh.pK7S/,,' -e 's/^[^ ]*  *[^ ]*  *[^ ]*  *[^ ]*  *[^ ]*  *[^ ]*  *//'
++ ls2='rem_sl -> dir/loc_reg'
++ echo ' (loc_reg) (rem_sl' '->' 'dir/loc_reg)'
++ test 1 '!=' 0
++ for f in '$actual_args'
++ test -f loc_reg
++ case "$(cat $f)" in
+++ cat loc_reg
++ for f in '$actual_args'
++ test -f /dev/shm/tmp2863/rem_sl
++ case "$(cat $f)" in
+++ cat /dev/shm/tmp2863/rem_sl
++ test cp = cp
++ for f in '$actual_args'
++ test -f loc_reg
++ test 1 '!=' 0
++ test
++ case "$(cat $f)" in
+++ cat loc_reg
++ for f in '$actual_args'
++ test -f /dev/shm/tmp2863/rem_sl
++ test 1 '!=' 0
++ test
++ case "$(cat $f)" in
+++ cat /dev/shm/tmp2863/rem_sl
++ cd ..
++ echo
++ for args in ''\''loc_reg rem_sl'\''' ''\''rem_sl loc_reg'\''' ''\''loc_sl rem_reg'\''' ''\''rem_reg loc_sl'\'''
++ for options in ''\'''\''' --rem ''\''--rem -d'\''' ''\''--rem -b'\''' -b -bd -d
++ case "$options" in
++ rm -rf dir
++ rm -f /dev/shm/tmp2863/rem_sl
++ mkdir dir
++ cd dir
++ case "$args" in
+++ pwd
++ reg_abs='/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/gt-part-symlink.sh.pK7S/dir/loc_reg'
++ case "$args" in
++ case "$args" in
++ case "$args" in
++ slink=/dev/shm/tmp2863/rem_sl
++ echo XYZ
++ ln -nsf '/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/gt-part-symlink.sh.pK7S/dir/loc_reg' /dev/shm/tmp2863/rem_sl
+++ echo rem_sl loc_reg
+++ sed 's,^,$,;s/ / $/'
++ actual_args='$rem_sl $loc_reg'
+++ eval echo '$rem_sl' '$loc_reg'
++++ echo /dev/shm/tmp2863/rem_sl loc_reg
++ actual_args='/dev/shm/tmp2863/rem_sl loc_reg'
++ cp /dev/shm/tmp2863/rem_sl loc_reg
++ sed 's/  *$//'
++ copy_status=1
++ echo 1 cp rem_sl loc_reg
++ test -s .err
++ echo ' ['
++ tr -d '\n'
++ sed 's/^[^:][^:]*\(..\):/\1:/;s,/dev/shm/tmp2863/,,' .err
++ tr -d '\n'
++ echo ']'
+++ ls -gG --ignore=.err .
+++ sed -e '/^total /d' -e s,/dev/shm/tmp2863/,, -e 's,/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/gt-part-symlink.sh.pK7S/,,' -e 's/^[^ ]*  *[^ ]*  *[^ ]*  *[^ ]*  *[^ ]*  *[^ ]*  *//'
++ ls=loc_reg
+++ cd /dev/shm/tmp2863
+++ ls -gG --ignore=.err .
+++ sed -e '/^total /d' -e s,/dev/shm/tmp2863/,, -e 's,/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/gt-part-symlink.sh.pK7S/,,' -e 's/^[^ ]*  *[^ ]*  *[^ ]*  *[^ ]*  *[^ ]*  *[^ ]*  *//'
++ ls2='rem_sl -> dir/loc_reg'
++ echo ' (loc_reg) (rem_sl' '->' 'dir/loc_reg)'
++ test 1 '!=' 0
++ for f in '$actual_args'
++ test -f /dev/shm/tmp2863/rem_sl
++ case "$(cat $f)" in
+++ cat /dev/shm/tmp2863/rem_sl
++ for f in '$actual_args'
++ test -f loc_reg
++ case "$(cat $f)" in
+++ cat loc_reg
++ test cp = cp
++ for f in '$actual_args'
++ test -f /dev/shm/tmp2863/rem_sl
++ test 1 '!=' 0
++ test
++ case "$(cat $f)" in
+++ cat /dev/shm/tmp2863/rem_sl
++ for f in '$actual_args'
++ test -f loc_reg
++ test 1 '!=' 0
++ test
++ case "$(cat $f)" in
+++ cat loc_reg
++ cd ..
++ for options in ''\'''\''' --rem ''\''--rem -d'\''' ''\''--rem -b'\''' -b -bd -d
++ case "$options" in
++ test cp = mv
++ rm -rf dir
++ rm -f /dev/shm/tmp2863/rem_sl
++ mkdir dir
++ cd dir
++ case "$args" in
+++ pwd
++ reg_abs='/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/gt-part-symlink.sh.pK7S/dir/loc_reg'
++ case "$args" in
++ case "$args" in
++ case "$args" in
++ slink=/dev/shm/tmp2863/rem_sl
++ echo XYZ
++ ln -nsf '/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/gt-part-symlink.sh.pK7S/dir/loc_reg' /dev/shm/tmp2863/rem_sl
+++ echo rem_sl loc_reg
+++ sed 's,^,$,;s/ / $/'
++ actual_args='$rem_sl $loc_reg'
+++ eval echo '$rem_sl' '$loc_reg'
++++ echo /dev/shm/tmp2863/rem_sl loc_reg
++ actual_args='/dev/shm/tmp2863/rem_sl loc_reg'
++ cp --rem /dev/shm/tmp2863/rem_sl loc_reg
++ sed 's/  *$//'
++ copy_status=1
++ echo 1 cp --rem rem_sl loc_reg
++ test -s .err
++ echo ' ['
++ tr -d '\n'
++ sed 's/^[^:][^:]*\(..\):/\1:/;s,/dev/shm/tmp2863/,,' .err
++ tr -d '\n'
++ echo ']'
+++ ls -gG --ignore=.err .
+++ sed -e '/^total /d' -e s,/dev/shm/tmp2863/,, -e 's,/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/gt-part-symlink.sh.pK7S/,,' -e 's/^[^ ]*  *[^ ]*  *[^ ]*  *[^ ]*  *[^ ]*  *[^ ]*  *//'
++ ls=loc_reg
+++ cd /dev/shm/tmp2863
+++ ls -gG --ignore=.err .
+++ sed -e '/^total /d' -e s,/dev/shm/tmp2863/,, -e 's,/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/gt-part-symlink.sh.pK7S/,,' -e 's/^[^ ]*  *[^ ]*  *[^ ]*  *[^ ]*  *[^ ]*  *[^ ]*  *//'
++ ls2='rem_sl -> dir/loc_reg'
++ echo ' (loc_reg) (rem_sl' '->' 'dir/loc_reg)'
++ test 1 '!=' 0
++ for f in '$actual_args'
++ test -f /dev/shm/tmp2863/rem_sl
++ case "$(cat $f)" in
+++ cat /dev/shm/tmp2863/rem_sl
++ for f in '$actual_args'
++ test -f loc_reg
++ case "$(cat $f)" in
+++ cat loc_reg
++ test cp = cp
++ for f in '$actual_args'
++ test -f /dev/shm/tmp2863/rem_sl
++ test 1 '!=' 0
++ test
++ case "$(cat $f)" in
+++ cat /dev/shm/tmp2863/rem_sl
++ for f in '$actual_args'
++ test -f loc_reg
++ test 1 '!=' 0
++ test
++ case "$(cat $f)" in
+++ cat loc_reg
++ cd ..
++ for options in ''\'''\''' --rem ''\''--rem -d'\''' ''\''--rem -b'\''' -b -bd -d
++ case "$options" in
++ test cp = mv
++ rm -rf dir
++ rm -f /dev/shm/tmp2863/rem_sl
++ mkdir dir
++ cd dir
++ case "$args" in
+++ pwd
++ reg_abs='/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/gt-part-symlink.sh.pK7S/dir/loc_reg'
++ case "$args" in
++ case "$args" in
++ case "$args" in
++ slink=/dev/shm/tmp2863/rem_sl
++ echo XYZ
++ ln -nsf '/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/gt-part-symlink.sh.pK7S/dir/loc_reg' /dev/shm/tmp2863/rem_sl
+++ echo rem_sl loc_reg
+++ sed 's,^,$,;s/ / $/'
++ actual_args='$rem_sl $loc_reg'
+++ eval echo '$rem_sl' '$loc_reg'
++++ echo /dev/shm/tmp2863/rem_sl loc_reg
++ actual_args='/dev/shm/tmp2863/rem_sl loc_reg'
++ cp --rem -d /dev/shm/tmp2863/rem_sl loc_reg
++ sed 's/  *$//'
++ copy_status=1
++ echo 1 cp --rem -d rem_sl loc_reg
++ test -s .err
++ echo ' ['
++ tr -d '\n'
++ sed 's/^[^:][^:]*\(..\):/\1:/;s,/dev/shm/tmp2863/,,' .err
++ tr -d '\n'
++ echo ']'
+++ ls -gG --ignore=.err .
+++ sed -e '/^total /d' -e s,/dev/shm/tmp2863/,, -e 's,/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/gt-part-symlink.sh.pK7S/,,' -e 's/^[^ ]*  *[^ ]*  *[^ ]*  *[^ ]*  *[^ ]*  *[^ ]*  *//'
++ ls=loc_reg
+++ cd /dev/shm/tmp2863
+++ ls -gG --ignore=.err .
+++ sed -e '/^total /d' -e s,/dev/shm/tmp2863/,, -e 's,/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/gt-part-symlink.sh.pK7S/,,' -e 's/^[^ ]*  *[^ ]*  *[^ ]*  *[^ ]*  *[^ ]*  *[^ ]*  *//'
++ ls2='rem_sl -> dir/loc_reg'
++ echo ' (loc_reg) (rem_sl' '->' 'dir/loc_reg)'
++ test 1 '!=' 0
++ for f in '$actual_args'
++ test -f /dev/shm/tmp2863/rem_sl
++ case "$(cat $f)" in
+++ cat /dev/shm/tmp2863/rem_sl
++ for f in '$actual_args'
++ test -f loc_reg
++ case "$(cat $f)" in
+++ cat loc_reg
++ test cp = cp
++ for f in '$actual_args'
++ test -f /dev/shm/tmp2863/rem_sl
++ test 1 '!=' 0
++ test
++ case "$(cat $f)" in
+++ cat /dev/shm/tmp2863/rem_sl
++ for f in '$actual_args'
++ test -f loc_reg
++ test 1 '!=' 0
++ test
++ case "$(cat $f)" in
+++ cat loc_reg
++ cd ..
++ for options in ''\'''\''' --rem ''\''--rem -d'\''' ''\''--rem -b'\''' -b -bd -d
++ case "$options" in
++ test cp = mv
++ rm -rf dir
++ rm -f /dev/shm/tmp2863/rem_sl
++ mkdir dir
++ cd dir
++ case "$args" in
+++ pwd
++ reg_abs='/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/gt-part-symlink.sh.pK7S/dir/loc_reg'
++ case "$args" in
++ case "$args" in
++ case "$args" in
++ slink=/dev/shm/tmp2863/rem_sl
++ echo XYZ
++ ln -nsf '/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/gt-part-symlink.sh.pK7S/dir/loc_reg' /dev/shm/tmp2863/rem_sl
+++ echo rem_sl loc_reg
+++ sed 's,^,$,;s/ / $/'
++ actual_args='$rem_sl $loc_reg'
+++ eval echo '$rem_sl' '$loc_reg'
++++ echo /dev/shm/tmp2863/rem_sl loc_reg
++ actual_args='/dev/shm/tmp2863/rem_sl loc_reg'
++ sed 's/  *$//'
++ cp --rem -b /dev/shm/tmp2863/rem_sl loc_reg
++ copy_status=1
++ echo 1 cp --rem -b rem_sl loc_reg
++ test -s .err
++ echo ' ['
++ tr -d '\n'
++ sed 's/^[^:][^:]*\(..\):/\1:/;s,/dev/shm/tmp2863/,,' .err
++ tr -d '\n'
++ echo ']'
+++ ls -gG --ignore=.err .
+++ sed -e '/^total /d' -e s,/dev/shm/tmp2863/,, -e 's,/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/gt-part-symlink.sh.pK7S/,,' -e 's/^[^ ]*  *[^ ]*  *[^ ]*  *[^ ]*  *[^ ]*  *[^ ]*  *//'
++ ls=loc_reg
+++ cd /dev/shm/tmp2863
+++ ls -gG --ignore=.err .
+++ sed -e '/^total /d' -e s,/dev/shm/tmp2863/,, -e 's,/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/gt-part-symlink.sh.pK7S/,,' -e 's/^[^ ]*  *[^ ]*  *[^ ]*  *[^ ]*  *[^ ]*  *[^ ]*  *//'
++ ls2='rem_sl -> dir/loc_reg'
++ echo ' (loc_reg) (rem_sl' '->' 'dir/loc_reg)'
++ test 1 '!=' 0
++ for f in '$actual_args'
++ test -f /dev/shm/tmp2863/rem_sl
++ case "$(cat $f)" in
+++ cat /dev/shm/tmp2863/rem_sl
++ for f in '$actual_args'
++ test -f loc_reg
++ case "$(cat $f)" in
+++ cat loc_reg
++ test cp = cp
++ for f in '$actual_args'
++ test -f /dev/shm/tmp2863/rem_sl
++ test 1 '!=' 0
++ test
++ case "$(cat $f)" in
+++ cat /dev/shm/tmp2863/rem_sl
++ for f in '$actual_args'
++ test -f loc_reg
++ test 1 '!=' 0
++ test
++ case "$(cat $f)" in
+++ cat loc_reg
++ cd ..
++ for options in ''\'''\''' --rem ''\''--rem -d'\''' ''\''--rem -b'\''' -b -bd -d
++ case "$options" in
++ rm -rf dir
++ rm -f /dev/shm/tmp2863/rem_sl
++ mkdir dir
++ cd dir
++ case "$args" in
+++ pwd
++ reg_abs='/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/gt-part-symlink.sh.pK7S/dir/loc_reg'
++ case "$args" in
++ case "$args" in
++ case "$args" in
++ slink=/dev/shm/tmp2863/rem_sl
++ echo XYZ
++ ln -nsf '/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/gt-part-symlink.sh.pK7S/dir/loc_reg' /dev/shm/tmp2863/rem_sl
+++ echo rem_sl loc_reg
+++ sed 's,^,$,;s/ / $/'
++ actual_args='$rem_sl $loc_reg'
+++ eval echo '$rem_sl' '$loc_reg'
++++ echo /dev/shm/tmp2863/rem_sl loc_reg
++ actual_args='/dev/shm/tmp2863/rem_sl loc_reg'
++ cp -b /dev/shm/tmp2863/rem_sl loc_reg
++ sed 's/  *$//'
++ copy_status=1
++ echo 1 cp -b rem_sl loc_reg
++ test -s .err
++ echo ' ['
++ tr -d '\n'
++ sed 's/^[^:][^:]*\(..\):/\1:/;s,/dev/shm/tmp2863/,,' .err
++ tr -d '\n'
++ echo ']'
+++ ls -gG --ignore=.err .
+++ sed -e '/^total /d' -e s,/dev/shm/tmp2863/,, -e 's,/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/gt-part-symlink.sh.pK7S/,,' -e 's/^[^ ]*  *[^ ]*  *[^ ]*  *[^ ]*  *[^ ]*  *[^ ]*  *//'
++ ls=loc_reg
+++ cd /dev/shm/tmp2863
+++ ls -gG --ignore=.err .
+++ sed -e '/^total /d' -e s,/dev/shm/tmp2863/,, -e 's,/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/gt-part-symlink.sh.pK7S/,,' -e 's/^[^ ]*  *[^ ]*  *[^ ]*  *[^ ]*  *[^ ]*  *[^ ]*  *//'
++ ls2='rem_sl -> dir/loc_reg'
++ echo ' (loc_reg) (rem_sl' '->' 'dir/loc_reg)'
++ test 1 '!=' 0
++ for f in '$actual_args'
++ test -f /dev/shm/tmp2863/rem_sl
++ case "$(cat $f)" in
+++ cat /dev/shm/tmp2863/rem_sl
++ for f in '$actual_args'
++ test -f loc_reg
++ case "$(cat $f)" in
+++ cat loc_reg
++ test cp = cp
++ for f in '$actual_args'
++ test -f /dev/shm/tmp2863/rem_sl
++ test 1 '!=' 0
++ test
++ case "$(cat $f)" in
+++ cat /dev/shm/tmp2863/rem_sl
++ for f in '$actual_args'
++ test -f loc_reg
++ test 1 '!=' 0
++ test
++ case "$(cat $f)" in
+++ cat loc_reg
++ cd ..
++ for options in ''\'''\''' --rem ''\''--rem -d'\''' ''\''--rem -b'\''' -b -bd -d
++ case "$options" in
++ test cp = mv
++ rm -rf dir
++ rm -f /dev/shm/tmp2863/rem_sl
++ mkdir dir
++ cd dir
++ case "$args" in
+++ pwd
++ reg_abs='/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/gt-part-symlink.sh.pK7S/dir/loc_reg'
++ case "$args" in
++ case "$args" in
++ case "$args" in
++ slink=/dev/shm/tmp2863/rem_sl
++ echo XYZ
++ ln -nsf '/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/gt-part-symlink.sh.pK7S/dir/loc_reg' /dev/shm/tmp2863/rem_sl
+++ echo rem_sl loc_reg
+++ sed 's,^,$,;s/ / $/'
++ actual_args='$rem_sl $loc_reg'
+++ eval echo '$rem_sl' '$loc_reg'
++++ echo /dev/shm/tmp2863/rem_sl loc_reg
++ actual_args='/dev/shm/tmp2863/rem_sl loc_reg'
++ cp -bd /dev/shm/tmp2863/rem_sl loc_reg
++ sed 's/  *$//'
++ copy_status=0
++ echo 0 cp -bd rem_sl loc_reg
++ test -s .err
+++ ls -gG --ignore=.err .
+++ sed -e '/^total /d' -e s,/dev/shm/tmp2863/,, -e 's,/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/gt-part-symlink.sh.pK7S/,,' -e 's/^[^ ]*  *[^ ]*  *[^ ]*  *[^ ]*  *[^ ]*  *[^ ]*  *//'
++ ls='loc_reg -> dir/loc_reg
+loc_reg~'
+++ cd /dev/shm/tmp2863
+++ ls -gG --ignore=.err .
+++ sed -e '/^total /d' -e s,/dev/shm/tmp2863/,, -e 's,/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/gt-part-symlink.sh.pK7S/,,' -e 's/^[^ ]*  *[^ ]*  *[^ ]*  *[^ ]*  *[^ ]*  *[^ ]*  *//'
++ ls2='rem_sl -> dir/loc_reg'
++ echo ' (loc_reg' '->' dir/loc_reg 'loc_reg~) (rem_sl' '->' 'dir/loc_reg)'
++ test 0 '!=' 0
++ test cp = cp
++ for f in '$actual_args'
++ test -f /dev/shm/tmp2863/rem_sl
++ echo ' symlink-loop'
++ for f in '$actual_args'
++ test -f loc_reg
++ echo ' symlink-loop'
++ cd ..
++ for options in ''\'''\''' --rem ''\''--rem -d'\''' ''\''--rem -b'\''' -b -bd -d
++ case "$options" in
++ test cp = mv
++ rm -rf dir
++ rm -f /dev/shm/tmp2863/rem_sl
++ mkdir dir
++ cd dir
++ case "$args" in
+++ pwd
++ reg_abs='/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/gt-part-symlink.sh.pK7S/dir/loc_reg'
++ case "$args" in
++ case "$args" in
++ case "$args" in
++ slink=/dev/shm/tmp2863/rem_sl
++ echo XYZ
++ ln -nsf '/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/gt-part-symlink.sh.pK7S/dir/loc_reg' /dev/shm/tmp2863/rem_sl
+++ echo rem_sl loc_reg
+++ sed 's,^,$,;s/ / $/'
++ actual_args='$rem_sl $loc_reg'
+++ eval echo '$rem_sl' '$loc_reg'
++++ echo /dev/shm/tmp2863/rem_sl loc_reg
++ actual_args='/dev/shm/tmp2863/rem_sl loc_reg'
++ cp -d /dev/shm/tmp2863/rem_sl loc_reg
++ sed 's/  *$//'
++ copy_status=1
++ echo 1 cp -d rem_sl loc_reg
++ test -s .err
++ echo ' ['
++ tr -d '\n'
++ sed 's/^[^:][^:]*\(..\):/\1:/;s,/dev/shm/tmp2863/,,' .err
++ tr -d '\n'
++ echo ']'
+++ ls -gG --ignore=.err .
+++ sed -e '/^total /d' -e s,/dev/shm/tmp2863/,, -e 's,/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/gt-part-symlink.sh.pK7S/,,' -e 's/^[^ ]*  *[^ ]*  *[^ ]*  *[^ ]*  *[^ ]*  *[^ ]*  *//'
++ ls=loc_reg
+++ cd /dev/shm/tmp2863
+++ ls -gG --ignore=.err .
+++ sed -e '/^total /d' -e s,/dev/shm/tmp2863/,, -e 's,/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/gt-part-symlink.sh.pK7S/,,' -e 's/^[^ ]*  *[^ ]*  *[^ ]*  *[^ ]*  *[^ ]*  *[^ ]*  *//'
++ ls2='rem_sl -> dir/loc_reg'
++ echo ' (loc_reg) (rem_sl' '->' 'dir/loc_reg)'
++ test 1 '!=' 0
++ for f in '$actual_args'
++ test -f /dev/shm/tmp2863/rem_sl
++ case "$(cat $f)" in
+++ cat /dev/shm/tmp2863/rem_sl
++ for f in '$actual_args'
++ test -f loc_reg
++ case "$(cat $f)" in
+++ cat loc_reg
++ test cp = cp
++ for f in '$actual_args'
++ test -f /dev/shm/tmp2863/rem_sl
++ test 1 '!=' 0
++ test
++ case "$(cat $f)" in
+++ cat /dev/shm/tmp2863/rem_sl
++ for f in '$actual_args'
++ test -f loc_reg
++ test 1 '!=' 0
++ test
++ case "$(cat $f)" in
+++ cat loc_reg
++ cd ..
++ echo
++ for args in ''\''loc_reg rem_sl'\''' ''\''rem_sl loc_reg'\''' ''\''loc_sl rem_reg'\''' ''\''rem_reg loc_sl'\'''
++ for options in ''\'''\''' --rem ''\''--rem -d'\''' ''\''--rem -b'\''' -b -bd -d
++ case "$options" in
++ rm -rf dir
++ rm -f /dev/shm/tmp2863/rem_sl
++ mkdir dir
++ cd dir
++ case "$args" in
++ case "$args" in
++ reg_abs=/dev/shm/tmp2863/rem_reg
++ case "$args" in
++ slink=loc_sl
++ case "$args" in
++ echo XYZ
++ ln -nsf /dev/shm/tmp2863/rem_reg loc_sl
+++ echo loc_sl rem_reg
+++ sed 's,^,$,;s/ / $/'
++ actual_args='$loc_sl $rem_reg'
+++ eval echo '$loc_sl' '$rem_reg'
++++ echo loc_sl /dev/shm/tmp2863/rem_reg
++ actual_args='loc_sl /dev/shm/tmp2863/rem_reg'
++ cp loc_sl /dev/shm/tmp2863/rem_reg
++ sed 's/  *$//'
++ copy_status=1
++ echo 1 cp loc_sl rem_reg
++ test -s .err
++ echo ' ['
++ tr -d '\n'
++ sed 's/^[^:][^:]*\(..\):/\1:/;s,/dev/shm/tmp2863/,,' .err
++ tr -d '\n'
++ echo ']'
+++ ls -gG --ignore=.err .
+++ sed -e '/^total /d' -e s,/dev/shm/tmp2863/,, -e 's,/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/gt-part-symlink.sh.pK7S/,,' -e 's/^[^ ]*  *[^ ]*  *[^ ]*  *[^ ]*  *[^ ]*  *[^ ]*  *//'
++ ls='loc_sl -> rem_reg'
+++ cd /dev/shm/tmp2863
+++ ls -gG --ignore=.err .
+++ sed -e '/^total /d' -e s,/dev/shm/tmp2863/,, -e 's,/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/gt-part-symlink.sh.pK7S/,,' -e 's/^[^ ]*  *[^ ]*  *[^ ]*  *[^ ]*  *[^ ]*  *[^ ]*  *//'
++ ls2=rem_reg
++ echo ' (loc_sl' '->' 'rem_reg) (rem_reg)'
++ test 1 '!=' 0
++ for f in '$actual_args'
++ test -f loc_sl
++ case "$(cat $f)" in
+++ cat loc_sl
++ for f in '$actual_args'
++ test -f /dev/shm/tmp2863/rem_reg
++ case "$(cat $f)" in
+++ cat /dev/shm/tmp2863/rem_reg
++ test cp = cp
++ for f in '$actual_args'
++ test -f loc_sl
++ test 1 '!=' 0
++ test
++ case "$(cat $f)" in
+++ cat loc_sl
++ for f in '$actual_args'
++ test -f /dev/shm/tmp2863/rem_reg
++ test 1 '!=' 0
++ test
++ case "$(cat $f)" in
+++ cat /dev/shm/tmp2863/rem_reg
++ cd ..
++ for options in ''\'''\''' --rem ''\''--rem -d'\''' ''\''--rem -b'\''' -b -bd -d
++ case "$options" in
++ test cp = mv
++ rm -rf dir
++ rm -f /dev/shm/tmp2863/rem_reg
++ mkdir dir
++ cd dir
++ case "$args" in
++ case "$args" in
++ reg_abs=/dev/shm/tmp2863/rem_reg
++ case "$args" in
++ slink=loc_sl
++ case "$args" in
++ echo XYZ
++ ln -nsf /dev/shm/tmp2863/rem_reg loc_sl
+++ echo loc_sl rem_reg
+++ sed 's,^,$,;s/ / $/'
++ actual_args='$loc_sl $rem_reg'
+++ eval echo '$loc_sl' '$rem_reg'
++++ echo loc_sl /dev/shm/tmp2863/rem_reg
++ actual_args='loc_sl /dev/shm/tmp2863/rem_reg'
++ cp --rem loc_sl /dev/shm/tmp2863/rem_reg
++ sed 's/  *$//'
++ copy_status=1
++ echo 1 cp --rem loc_sl rem_reg
++ test -s .err
++ echo ' ['
++ tr -d '\n'
++ sed 's/^[^:][^:]*\(..\):/\1:/;s,/dev/shm/tmp2863/,,' .err
++ tr -d '\n'
++ echo ']'
+++ ls -gG --ignore=.err .
+++ sed -e '/^total /d' -e s,/dev/shm/tmp2863/,, -e 's,/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/gt-part-symlink.sh.pK7S/,,' -e 's/^[^ ]*  *[^ ]*  *[^ ]*  *[^ ]*  *[^ ]*  *[^ ]*  *//'
++ ls='loc_sl -> rem_reg'
+++ cd /dev/shm/tmp2863
+++ ls -gG --ignore=.err .
+++ sed -e '/^total /d' -e s,/dev/shm/tmp2863/,, -e 's,/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/gt-part-symlink.sh.pK7S/,,' -e 's/^[^ ]*  *[^ ]*  *[^ ]*  *[^ ]*  *[^ ]*  *[^ ]*  *//'
++ ls2=rem_reg
++ echo ' (loc_sl' '->' 'rem_reg) (rem_reg)'
++ test 1 '!=' 0
++ for f in '$actual_args'
++ test -f loc_sl
++ case "$(cat $f)" in
+++ cat loc_sl
++ for f in '$actual_args'
++ test -f /dev/shm/tmp2863/rem_reg
++ case "$(cat $f)" in
+++ cat /dev/shm/tmp2863/rem_reg
++ test cp = cp
++ for f in '$actual_args'
++ test -f loc_sl
++ test 1 '!=' 0
++ test
++ case "$(cat $f)" in
+++ cat loc_sl
++ for f in '$actual_args'
++ test -f /dev/shm/tmp2863/rem_reg
++ test 1 '!=' 0
++ test
++ case "$(cat $f)" in
+++ cat /dev/shm/tmp2863/rem_reg
++ cd ..
++ for options in ''\'''\''' --rem ''\''--rem -d'\''' ''\''--rem -b'\''' -b -bd -d
++ case "$options" in
++ test cp = mv
++ rm -rf dir
++ rm -f /dev/shm/tmp2863/rem_reg
++ mkdir dir
++ cd dir
++ case "$args" in
++ case "$args" in
++ reg_abs=/dev/shm/tmp2863/rem_reg
++ case "$args" in
++ slink=loc_sl
++ case "$args" in
++ echo XYZ
++ ln -nsf /dev/shm/tmp2863/rem_reg loc_sl
+++ echo loc_sl rem_reg
+++ sed 's,^,$,;s/ / $/'
++ actual_args='$loc_sl $rem_reg'
+++ eval echo '$loc_sl' '$rem_reg'
++++ echo loc_sl /dev/shm/tmp2863/rem_reg
++ actual_args='loc_sl /dev/shm/tmp2863/rem_reg'
++ cp --rem -d loc_sl /dev/shm/tmp2863/rem_reg
++ sed 's/  *$//'
++ copy_status=1
++ echo 1 cp --rem -d loc_sl rem_reg
++ test -s .err
++ echo ' ['
++ tr -d '\n'
++ sed 's/^[^:][^:]*\(..\):/\1:/;s,/dev/shm/tmp2863/,,' .err
++ tr -d '\n'
++ echo ']'
+++ ls -gG --ignore=.err .
+++ sed -e '/^total /d' -e s,/dev/shm/tmp2863/,, -e 's,/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/gt-part-symlink.sh.pK7S/,,' -e 's/^[^ ]*  *[^ ]*  *[^ ]*  *[^ ]*  *[^ ]*  *[^ ]*  *//'
++ ls='loc_sl -> rem_reg'
+++ cd /dev/shm/tmp2863
+++ ls -gG --ignore=.err .
+++ sed -e '/^total /d' -e s,/dev/shm/tmp2863/,, -e 's,/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/gt-part-symlink.sh.pK7S/,,' -e 's/^[^ ]*  *[^ ]*  *[^ ]*  *[^ ]*  *[^ ]*  *[^ ]*  *//'
++ ls2=rem_reg
++ echo ' (loc_sl' '->' 'rem_reg) (rem_reg)'
++ test 1 '!=' 0
++ for f in '$actual_args'
++ test -f loc_sl
++ case "$(cat $f)" in
+++ cat loc_sl
++ for f in '$actual_args'
++ test -f /dev/shm/tmp2863/rem_reg
++ case "$(cat $f)" in
+++ cat /dev/shm/tmp2863/rem_reg
++ test cp = cp
++ for f in '$actual_args'
++ test -f loc_sl
++ test 1 '!=' 0
++ test
++ case "$(cat $f)" in
+++ cat loc_sl
++ for f in '$actual_args'
++ test -f /dev/shm/tmp2863/rem_reg
++ test 1 '!=' 0
++ test
++ case "$(cat $f)" in
+++ cat /dev/shm/tmp2863/rem_reg
++ cd ..
++ for options in ''\'''\''' --rem ''\''--rem -d'\''' ''\''--rem -b'\''' -b -bd -d
++ case "$options" in
++ test cp = mv
++ rm -rf dir
++ rm -f /dev/shm/tmp2863/rem_reg
++ mkdir dir
++ cd dir
++ case "$args" in
++ case "$args" in
++ reg_abs=/dev/shm/tmp2863/rem_reg
++ case "$args" in
++ slink=loc_sl
++ case "$args" in
++ echo XYZ
++ ln -nsf /dev/shm/tmp2863/rem_reg loc_sl
+++ echo loc_sl rem_reg
+++ sed 's,^,$,;s/ / $/'
++ actual_args='$loc_sl $rem_reg'
+++ eval echo '$loc_sl' '$rem_reg'
++++ echo loc_sl /dev/shm/tmp2863/rem_reg
++ actual_args='loc_sl /dev/shm/tmp2863/rem_reg'
++ cp --rem -b loc_sl /dev/shm/tmp2863/rem_reg
++ sed 's/  *$//'
++ copy_status=1
++ echo 1 cp --rem -b loc_sl rem_reg
++ test -s .err
++ echo ' ['
++ tr -d '\n'
++ sed 's/^[^:][^:]*\(..\):/\1:/;s,/dev/shm/tmp2863/,,' .err
++ tr -d '\n'
++ echo ']'
+++ ls -gG --ignore=.err .
+++ sed -e '/^total /d' -e s,/dev/shm/tmp2863/,, -e 's,/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/gt-part-symlink.sh.pK7S/,,' -e 's/^[^ ]*  *[^ ]*  *[^ ]*  *[^ ]*  *[^ ]*  *[^ ]*  *//'
++ ls='loc_sl -> rem_reg'
+++ cd /dev/shm/tmp2863
+++ ls -gG --ignore=.err .
+++ sed -e '/^total /d' -e s,/dev/shm/tmp2863/,, -e 's,/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/gt-part-symlink.sh.pK7S/,,' -e 's/^[^ ]*  *[^ ]*  *[^ ]*  *[^ ]*  *[^ ]*  *[^ ]*  *//'
++ ls2=rem_reg
++ echo ' (loc_sl' '->' 'rem_reg) (rem_reg)'
++ test 1 '!=' 0
++ for f in '$actual_args'
++ test -f loc_sl
++ case "$(cat $f)" in
+++ cat loc_sl
++ for f in '$actual_args'
++ test -f /dev/shm/tmp2863/rem_reg
++ case "$(cat $f)" in
+++ cat /dev/shm/tmp2863/rem_reg
++ test cp = cp
++ for f in '$actual_args'
++ test -f loc_sl
++ test 1 '!=' 0
++ test
++ case "$(cat $f)" in
+++ cat loc_sl
++ for f in '$actual_args'
++ test -f /dev/shm/tmp2863/rem_reg
++ test 1 '!=' 0
++ test
++ case "$(cat $f)" in
+++ cat /dev/shm/tmp2863/rem_reg
++ cd ..
++ for options in ''\'''\''' --rem ''\''--rem -d'\''' ''\''--rem -b'\''' -b -bd -d
++ case "$options" in
++ rm -rf dir
++ rm -f /dev/shm/tmp2863/rem_reg
++ mkdir dir
++ cd dir
++ case "$args" in
++ case "$args" in
++ reg_abs=/dev/shm/tmp2863/rem_reg
++ case "$args" in
++ slink=loc_sl
++ case "$args" in
++ echo XYZ
++ ln -nsf /dev/shm/tmp2863/rem_reg loc_sl
+++ echo loc_sl rem_reg
+++ sed 's,^,$,;s/ / $/'
++ actual_args='$loc_sl $rem_reg'
+++ eval echo '$loc_sl' '$rem_reg'
++++ echo loc_sl /dev/shm/tmp2863/rem_reg
++ actual_args='loc_sl /dev/shm/tmp2863/rem_reg'
++ cp -b loc_sl /dev/shm/tmp2863/rem_reg
++ sed 's/  *$//'
++ copy_status=1
++ echo 1 cp -b loc_sl rem_reg
++ test -s .err
++ echo ' ['
++ tr -d '\n'
++ sed 's/^[^:][^:]*\(..\):/\1:/;s,/dev/shm/tmp2863/,,' .err
++ tr -d '\n'
++ echo ']'
+++ ls -gG --ignore=.err .
+++ sed -e '/^total /d' -e s,/dev/shm/tmp2863/,, -e 's,/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/gt-part-symlink.sh.pK7S/,,' -e 's/^[^ ]*  *[^ ]*  *[^ ]*  *[^ ]*  *[^ ]*  *[^ ]*  *//'
++ ls='loc_sl -> rem_reg'
+++ cd /dev/shm/tmp2863
+++ ls -gG --ignore=.err .
+++ sed -e '/^total /d' -e s,/dev/shm/tmp2863/,, -e 's,/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/gt-part-symlink.sh.pK7S/,,' -e 's/^[^ ]*  *[^ ]*  *[^ ]*  *[^ ]*  *[^ ]*  *[^ ]*  *//'
++ ls2=rem_reg
++ echo ' (loc_sl' '->' 'rem_reg) (rem_reg)'
++ test 1 '!=' 0
++ for f in '$actual_args'
++ test -f loc_sl
++ case "$(cat $f)" in
+++ cat loc_sl
++ for f in '$actual_args'
++ test -f /dev/shm/tmp2863/rem_reg
++ case "$(cat $f)" in
+++ cat /dev/shm/tmp2863/rem_reg
++ test cp = cp
++ for f in '$actual_args'
++ test -f loc_sl
++ test 1 '!=' 0
++ test
++ case "$(cat $f)" in
+++ cat loc_sl
++ for f in '$actual_args'
++ test -f /dev/shm/tmp2863/rem_reg
++ test 1 '!=' 0
++ test
++ case "$(cat $f)" in
+++ cat /dev/shm/tmp2863/rem_reg
++ cd ..
++ for options in ''\'''\''' --rem ''\''--rem -d'\''' ''\''--rem -b'\''' -b -bd -d
++ case "$options" in
++ test cp = mv
++ rm -rf dir
++ rm -f /dev/shm/tmp2863/rem_reg
++ mkdir dir
++ cd dir
++ case "$args" in
++ case "$args" in
++ reg_abs=/dev/shm/tmp2863/rem_reg
++ case "$args" in
++ slink=loc_sl
++ case "$args" in
++ echo XYZ
++ ln -nsf /dev/shm/tmp2863/rem_reg loc_sl
+++ echo loc_sl rem_reg
+++ sed 's,^,$,;s/ / $/'
++ actual_args='$loc_sl $rem_reg'
+++ eval echo '$loc_sl' '$rem_reg'
++++ echo loc_sl /dev/shm/tmp2863/rem_reg
++ actual_args='loc_sl /dev/shm/tmp2863/rem_reg'
++ cp -bd loc_sl /dev/shm/tmp2863/rem_reg
++ sed 's/  *$//'
++ copy_status=0
++ echo 0 cp -bd loc_sl rem_reg
++ test -s .err
+++ ls -gG --ignore=.err .
+++ sed -e '/^total /d' -e s,/dev/shm/tmp2863/,, -e 's,/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/gt-part-symlink.sh.pK7S/,,' -e 's/^[^ ]*  *[^ ]*  *[^ ]*  *[^ ]*  *[^ ]*  *[^ ]*  *//'
++ ls='loc_sl -> rem_reg'
+++ cd /dev/shm/tmp2863
+++ ls -gG --ignore=.err .
+++ sed -e '/^total /d' -e s,/dev/shm/tmp2863/,, -e 's,/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/gt-part-symlink.sh.pK7S/,,' -e 's/^[^ ]*  *[^ ]*  *[^ ]*  *[^ ]*  *[^ ]*  *[^ ]*  *//'
++ ls2='rem_reg -> rem_reg
+rem_reg~'
++ echo ' (loc_sl' '->' 'rem_reg) (rem_reg' '->' rem_reg 'rem_reg~)'
++ test 0 '!=' 0
++ test cp = cp
++ for f in '$actual_args'
++ test -f loc_sl
++ echo ' symlink-loop'
++ for f in '$actual_args'
++ test -f /dev/shm/tmp2863/rem_reg
++ echo ' symlink-loop'
++ cd ..
++ for options in ''\'''\''' --rem ''\''--rem -d'\''' ''\''--rem -b'\''' -b -bd -d
++ case "$options" in
++ test cp = mv
++ rm -rf dir
++ rm -f /dev/shm/tmp2863/rem_reg /dev/shm/tmp2863/rem_reg~
++ mkdir dir
++ cd dir
++ case "$args" in
++ case "$args" in
++ reg_abs=/dev/shm/tmp2863/rem_reg
++ case "$args" in
++ slink=loc_sl
++ case "$args" in
++ echo XYZ
++ ln -nsf /dev/shm/tmp2863/rem_reg loc_sl
+++ echo loc_sl rem_reg
+++ sed 's,^,$,;s/ / $/'
++ actual_args='$loc_sl $rem_reg'
+++ eval echo '$loc_sl' '$rem_reg'
++++ echo loc_sl /dev/shm/tmp2863/rem_reg
++ actual_args='loc_sl /dev/shm/tmp2863/rem_reg'
++ cp -d loc_sl /dev/shm/tmp2863/rem_reg
++ sed 's/  *$//'
++ copy_status=1
++ echo 1 cp -d loc_sl rem_reg
++ test -s .err
++ echo ' ['
++ tr -d '\n'
++ sed 's/^[^:][^:]*\(..\):/\1:/;s,/dev/shm/tmp2863/,,' .err
++ tr -d '\n'
++ echo ']'
+++ ls -gG --ignore=.err .
+++ sed -e '/^total /d' -e s,/dev/shm/tmp2863/,, -e 's,/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/gt-part-symlink.sh.pK7S/,,' -e 's/^[^ ]*  *[^ ]*  *[^ ]*  *[^ ]*  *[^ ]*  *[^ ]*  *//'
++ ls='loc_sl -> rem_reg'
+++ cd /dev/shm/tmp2863
+++ ls -gG --ignore=.err .
+++ sed -e '/^total /d' -e s,/dev/shm/tmp2863/,, -e 's,/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/gt-part-symlink.sh.pK7S/,,' -e 's/^[^ ]*  *[^ ]*  *[^ ]*  *[^ ]*  *[^ ]*  *[^ ]*  *//'
++ ls2=rem_reg
++ echo ' (loc_sl' '->' 'rem_reg) (rem_reg)'
++ test 1 '!=' 0
++ for f in '$actual_args'
++ test -f loc_sl
++ case "$(cat $f)" in
+++ cat loc_sl
++ for f in '$actual_args'
++ test -f /dev/shm/tmp2863/rem_reg
++ case "$(cat $f)" in
+++ cat /dev/shm/tmp2863/rem_reg
++ test cp = cp
++ for f in '$actual_args'
++ test -f loc_sl
++ test 1 '!=' 0
++ test
++ case "$(cat $f)" in
+++ cat loc_sl
++ for f in '$actual_args'
++ test -f /dev/shm/tmp2863/rem_reg
++ test 1 '!=' 0
++ test
++ case "$(cat $f)" in
+++ cat /dev/shm/tmp2863/rem_reg
++ cd ..
++ echo
++ for args in ''\''loc_reg rem_sl'\''' ''\''rem_sl loc_reg'\''' ''\''loc_sl rem_reg'\''' ''\''rem_reg loc_sl'\'''
++ for options in ''\'''\''' --rem ''\''--rem -d'\''' ''\''--rem -b'\''' -b -bd -d
++ case "$options" in
++ rm -rf dir
++ rm -f /dev/shm/tmp2863/rem_reg
++ mkdir dir
++ cd dir
++ case "$args" in
++ case "$args" in
++ reg_abs=/dev/shm/tmp2863/rem_reg
++ case "$args" in
++ slink=loc_sl
++ case "$args" in
++ echo XYZ
++ ln -nsf /dev/shm/tmp2863/rem_reg loc_sl
+++ echo rem_reg loc_sl
+++ sed 's,^,$,;s/ / $/'
++ actual_args='$rem_reg $loc_sl'
+++ eval echo '$rem_reg' '$loc_sl'
++++ echo /dev/shm/tmp2863/rem_reg loc_sl
++ actual_args='/dev/shm/tmp2863/rem_reg loc_sl'
++ cp /dev/shm/tmp2863/rem_reg loc_sl
++ sed 's/  *$//'
++ copy_status=1
++ echo 1 cp rem_reg loc_sl
++ test -s .err
++ echo ' ['
++ tr -d '\n'
++ sed 's/^[^:][^:]*\(..\):/\1:/;s,/dev/shm/tmp2863/,,' .err
++ tr -d '\n'
++ echo ']'
+++ ls -gG --ignore=.err .
+++ sed -e '/^total /d' -e s,/dev/shm/tmp2863/,, -e 's,/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/gt-part-symlink.sh.pK7S/,,' -e 's/^[^ ]*  *[^ ]*  *[^ ]*  *[^ ]*  *[^ ]*  *[^ ]*  *//'
++ ls='loc_sl -> rem_reg'
+++ cd /dev/shm/tmp2863
+++ ls -gG --ignore=.err .
+++ sed -e '/^total /d' -e s,/dev/shm/tmp2863/,, -e 's,/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/gt-part-symlink.sh.pK7S/,,' -e 's/^[^ ]*  *[^ ]*  *[^ ]*  *[^ ]*  *[^ ]*  *[^ ]*  *//'
++ ls2=rem_reg
++ echo ' (loc_sl' '->' 'rem_reg) (rem_reg)'
++ test 1 '!=' 0
++ for f in '$actual_args'
++ test -f /dev/shm/tmp2863/rem_reg
++ case "$(cat $f)" in
+++ cat /dev/shm/tmp2863/rem_reg
++ for f in '$actual_args'
++ test -f loc_sl
++ case "$(cat $f)" in
+++ cat loc_sl
++ test cp = cp
++ for f in '$actual_args'
++ test -f /dev/shm/tmp2863/rem_reg
++ test 1 '!=' 0
++ test
++ case "$(cat $f)" in
+++ cat /dev/shm/tmp2863/rem_reg
++ for f in '$actual_args'
++ test -f loc_sl
++ test 1 '!=' 0
++ test
++ case "$(cat $f)" in
+++ cat loc_sl
++ cd ..
++ for options in ''\'''\''' --rem ''\''--rem -d'\''' ''\''--rem -b'\''' -b -bd -d
++ case "$options" in
++ test cp = mv
++ rm -rf dir
++ rm -f /dev/shm/tmp2863/rem_reg
++ mkdir dir
++ cd dir
++ case "$args" in
++ case "$args" in
++ reg_abs=/dev/shm/tmp2863/rem_reg
++ case "$args" in
++ slink=loc_sl
++ case "$args" in
++ echo XYZ
++ ln -nsf /dev/shm/tmp2863/rem_reg loc_sl
+++ echo rem_reg loc_sl
+++ sed 's,^,$,;s/ / $/'
++ actual_args='$rem_reg $loc_sl'
+++ eval echo '$rem_reg' '$loc_sl'
++++ echo /dev/shm/tmp2863/rem_reg loc_sl
++ actual_args='/dev/shm/tmp2863/rem_reg loc_sl'
++ cp --rem /dev/shm/tmp2863/rem_reg loc_sl
++ sed 's/  *$//'
++ copy_status=0
++ echo 0 cp --rem rem_reg loc_sl
++ test -s .err
+++ ls -gG --ignore=.err .
+++ sed -e '/^total /d' -e s,/dev/shm/tmp2863/,, -e 's,/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/gt-part-symlink.sh.pK7S/,,' -e 's/^[^ ]*  *[^ ]*  *[^ ]*  *[^ ]*  *[^ ]*  *[^ ]*  *//'
++ ls=loc_sl
+++ cd /dev/shm/tmp2863
+++ ls -gG --ignore=.err .
+++ sed -e '/^total /d' -e s,/dev/shm/tmp2863/,, -e 's,/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/gt-part-symlink.sh.pK7S/,,' -e 's/^[^ ]*  *[^ ]*  *[^ ]*  *[^ ]*  *[^ ]*  *[^ ]*  *//'
++ ls2=rem_reg
++ echo ' (loc_sl) (rem_reg)'
++ test 0 '!=' 0
++ test cp = cp
++ for f in '$actual_args'
++ test -f /dev/shm/tmp2863/rem_reg
++ test 0 '!=' 0
++ case "$(cat $f)" in
+++ cat /dev/shm/tmp2863/rem_reg
++ for f in '$actual_args'
++ test -f loc_sl
++ test 0 '!=' 0
++ case "$(cat $f)" in
+++ cat loc_sl
++ cd ..
++ for options in ''\'''\''' --rem ''\''--rem -d'\''' ''\''--rem -b'\''' -b -bd -d
++ case "$options" in
++ test cp = mv
++ rm -rf dir
++ rm -f /dev/shm/tmp2863/rem_reg
++ mkdir dir
++ cd dir
++ case "$args" in
++ case "$args" in
++ reg_abs=/dev/shm/tmp2863/rem_reg
++ case "$args" in
++ slink=loc_sl
++ case "$args" in
++ echo XYZ
++ ln -nsf /dev/shm/tmp2863/rem_reg loc_sl
+++ echo rem_reg loc_sl
+++ sed 's,^,$,;s/ / $/'
++ actual_args='$rem_reg $loc_sl'
+++ eval echo '$rem_reg' '$loc_sl'
++++ echo /dev/shm/tmp2863/rem_reg loc_sl
++ actual_args='/dev/shm/tmp2863/rem_reg loc_sl'
++ cp --rem -d /dev/shm/tmp2863/rem_reg loc_sl
++ sed 's/  *$//'
++ copy_status=0
++ echo 0 cp --rem -d rem_reg loc_sl
++ test -s .err
+++ ls -gG --ignore=.err .
+++ sed -e '/^total /d' -e s,/dev/shm/tmp2863/,, -e 's,/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/gt-part-symlink.sh.pK7S/,,' -e 's/^[^ ]*  *[^ ]*  *[^ ]*  *[^ ]*  *[^ ]*  *[^ ]*  *//'
++ ls=loc_sl
+++ cd /dev/shm/tmp2863
+++ ls -gG --ignore=.err .
+++ sed -e '/^total /d' -e s,/dev/shm/tmp2863/,, -e 's,/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/gt-part-symlink.sh.pK7S/,,' -e 's/^[^ ]*  *[^ ]*  *[^ ]*  *[^ ]*  *[^ ]*  *[^ ]*  *//'
++ ls2=rem_reg
++ echo ' (loc_sl) (rem_reg)'
++ test 0 '!=' 0
++ test cp = cp
++ for f in '$actual_args'
++ test -f /dev/shm/tmp2863/rem_reg
++ test 0 '!=' 0
++ case "$(cat $f)" in
+++ cat /dev/shm/tmp2863/rem_reg
++ for f in '$actual_args'
++ test -f loc_sl
++ test 0 '!=' 0
++ case "$(cat $f)" in
+++ cat loc_sl
++ cd ..
++ for options in ''\'''\''' --rem ''\''--rem -d'\''' ''\''--rem -b'\''' -b -bd -d
++ case "$options" in
++ test cp = mv
++ rm -rf dir
++ rm -f /dev/shm/tmp2863/rem_reg
++ mkdir dir
++ cd dir
++ case "$args" in
++ case "$args" in
++ reg_abs=/dev/shm/tmp2863/rem_reg
++ case "$args" in
++ slink=loc_sl
++ case "$args" in
++ echo XYZ
++ ln -nsf /dev/shm/tmp2863/rem_reg loc_sl
+++ echo rem_reg loc_sl
+++ sed 's,^,$,;s/ / $/'
++ actual_args='$rem_reg $loc_sl'
+++ eval echo '$rem_reg' '$loc_sl'
++++ echo /dev/shm/tmp2863/rem_reg loc_sl
++ actual_args='/dev/shm/tmp2863/rem_reg loc_sl'
++ cp --rem -b /dev/shm/tmp2863/rem_reg loc_sl
++ sed 's/  *$//'
++ copy_status=0
++ echo 0 cp --rem -b rem_reg loc_sl
++ test -s .err
+++ ls -gG --ignore=.err .
+++ sed -e '/^total /d' -e s,/dev/shm/tmp2863/,, -e 's,/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/gt-part-symlink.sh.pK7S/,,' -e 's/^[^ ]*  *[^ ]*  *[^ ]*  *[^ ]*  *[^ ]*  *[^ ]*  *//'
++ ls='loc_sl
+loc_sl~ -> rem_reg'
+++ cd /dev/shm/tmp2863
+++ ls -gG --ignore=.err .
+++ sed -e '/^total /d' -e s,/dev/shm/tmp2863/,, -e 's,/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/gt-part-symlink.sh.pK7S/,,' -e 's/^[^ ]*  *[^ ]*  *[^ ]*  *[^ ]*  *[^ ]*  *[^ ]*  *//'
++ ls2=rem_reg
++ echo ' (loc_sl' loc_sl~ '->' 'rem_reg) (rem_reg)'
++ test 0 '!=' 0
++ test cp = cp
++ for f in '$actual_args'
++ test -f /dev/shm/tmp2863/rem_reg
++ test 0 '!=' 0
++ case "$(cat $f)" in
+++ cat /dev/shm/tmp2863/rem_reg
++ for f in '$actual_args'
++ test -f loc_sl
++ test 0 '!=' 0
++ case "$(cat $f)" in
+++ cat loc_sl
++ cd ..
++ for options in ''\'''\''' --rem ''\''--rem -d'\''' ''\''--rem -b'\''' -b -bd -d
++ case "$options" in
++ rm -rf dir
++ rm -f /dev/shm/tmp2863/rem_reg
++ mkdir dir
++ cd dir
++ case "$args" in
++ case "$args" in
++ reg_abs=/dev/shm/tmp2863/rem_reg
++ case "$args" in
++ slink=loc_sl
++ case "$args" in
++ echo XYZ
++ ln -nsf /dev/shm/tmp2863/rem_reg loc_sl
+++ echo rem_reg loc_sl
+++ sed 's,^,$,;s/ / $/'
++ actual_args='$rem_reg $loc_sl'
+++ eval echo '$rem_reg' '$loc_sl'
++++ echo /dev/shm/tmp2863/rem_reg loc_sl
++ actual_args='/dev/shm/tmp2863/rem_reg loc_sl'
++ sed 's/  *$//'
++ copy_status=0
++ echo 0 cp -b rem_reg loc_sl
++ test -s .err
+++ ls -gG --ignore=.err .
+++ sed -e '/^total /d' -e s,/dev/shm/tmp2863/,, -e 's,/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/gt-part-symlink.sh.pK7S/,,' -e 's/^[^ ]*  *[^ ]*  *[^ ]*  *[^ ]*  *[^ ]*  *[^ ]*  *//'
++ ls='loc_sl
+loc_sl~ -> rem_reg'
+++ cd /dev/shm/tmp2863
+++ ls -gG --ignore=.err .
+++ sed -e '/^total /d' -e s,/dev/shm/tmp2863/,, -e 's,/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/gt-part-symlink.sh.pK7S/,,' -e 's/^[^ ]*  *[^ ]*  *[^ ]*  *[^ ]*  *[^ ]*  *[^ ]*  *//'
++ ls2=rem_reg
++ echo ' (loc_sl' loc_sl~ '->' 'rem_reg) (rem_reg)'
++ test 0 '!=' 0
++ test cp = cp
++ for f in '$actual_args'
++ test -f /dev/shm/tmp2863/rem_reg
++ test 0 '!=' 0
++ case "$(cat $f)" in
+++ cat /dev/shm/tmp2863/rem_reg
++ for f in '$actual_args'
++ test -f loc_sl
++ test 0 '!=' 0
++ case "$(cat $f)" in
+++ cat loc_sl
++ cd ..
++ for options in ''\'''\''' --rem ''\''--rem -d'\''' ''\''--rem -b'\''' -b -bd -d
++ case "$options" in
++ test cp = mv
++ rm -rf dir
++ rm -f /dev/shm/tmp2863/rem_reg
++ mkdir dir
++ cd dir
++ case "$args" in
++ case "$args" in
++ reg_abs=/dev/shm/tmp2863/rem_reg
++ case "$args" in
++ slink=loc_sl
++ case "$args" in
++ echo XYZ
++ ln -nsf /dev/shm/tmp2863/rem_reg loc_sl
+++ echo rem_reg loc_sl
+++ sed 's,^,$,;s/ / $/'
++ actual_args='$rem_reg $loc_sl'
+++ eval echo '$rem_reg' '$loc_sl'
++++ echo /dev/shm/tmp2863/rem_reg loc_sl
++ actual_args='/dev/shm/tmp2863/rem_reg loc_sl'
++ cp -bd /dev/shm/tmp2863/rem_reg loc_sl
++ sed 's/  *$//'
++ copy_status=0
++ echo 0 cp -bd rem_reg loc_sl
++ test -s .err
+++ ls -gG --ignore=.err .
+++ sed -e '/^total /d' -e s,/dev/shm/tmp2863/,, -e 's,/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/gt-part-symlink.sh.pK7S/,,' -e 's/^[^ ]*  *[^ ]*  *[^ ]*  *[^ ]*  *[^ ]*  *[^ ]*  *//'
++ ls='loc_sl
+loc_sl~ -> rem_reg'
+++ cd /dev/shm/tmp2863
+++ ls -gG --ignore=.err .
+++ sed -e '/^total /d' -e s,/dev/shm/tmp2863/,, -e 's,/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/gt-part-symlink.sh.pK7S/,,' -e 's/^[^ ]*  *[^ ]*  *[^ ]*  *[^ ]*  *[^ ]*  *[^ ]*  *//'
++ ls2=rem_reg
++ echo ' (loc_sl' loc_sl~ '->' 'rem_reg) (rem_reg)'
++ test 0 '!=' 0
++ test cp = cp
++ for f in '$actual_args'
++ test -f /dev/shm/tmp2863/rem_reg
++ test 0 '!=' 0
++ case "$(cat $f)" in
+++ cat /dev/shm/tmp2863/rem_reg
++ for f in '$actual_args'
++ test -f loc_sl
++ test 0 '!=' 0
++ case "$(cat $f)" in
+++ cat loc_sl
++ cd ..
++ for options in ''\'''\''' --rem ''\''--rem -d'\''' ''\''--rem -b'\''' -b -bd -d
++ case "$options" in
++ test cp = mv
++ rm -rf dir
++ rm -f /dev/shm/tmp2863/rem_reg
++ mkdir dir
++ cd dir
++ case "$args" in
++ case "$args" in
++ reg_abs=/dev/shm/tmp2863/rem_reg
++ case "$args" in
++ slink=loc_sl
++ case "$args" in
++ echo XYZ
++ ln -nsf /dev/shm/tmp2863/rem_reg loc_sl
+++ echo rem_reg loc_sl
+++ sed 's,^,$,;s/ / $/'
++ actual_args='$rem_reg $loc_sl'
+++ eval echo '$rem_reg' '$loc_sl'
++++ echo /dev/shm/tmp2863/rem_reg loc_sl
++ actual_args='/dev/shm/tmp2863/rem_reg loc_sl'
++ cp -d /dev/shm/tmp2863/rem_reg loc_sl
++ sed 's/  *$//'
++ copy_status=1
++ echo 1 cp -d rem_reg loc_sl
++ test -s .err
++ echo ' ['
++ tr -d '\n'
++ sed 's/^[^:][^:]*\(..\):/\1:/;s,/dev/shm/tmp2863/,,' .err
++ tr -d '\n'
++ echo ']'
+++ ls -gG --ignore=.err .
+++ sed -e '/^total /d' -e s,/dev/shm/tmp2863/,, -e 's,/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/gt-part-symlink.sh.pK7S/,,' -e 's/^[^ ]*  *[^ ]*  *[^ ]*  *[^ ]*  *[^ ]*  *[^ ]*  *//'
++ ls='loc_sl -> rem_reg'
+++ cd /dev/shm/tmp2863
+++ ls -gG --ignore=.err .
+++ sed -e '/^total /d' -e s,/dev/shm/tmp2863/,, -e 's,/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/gt-part-symlink.sh.pK7S/,,' -e 's/^[^ ]*  *[^ ]*  *[^ ]*  *[^ ]*  *[^ ]*  *[^ ]*  *//'
++ ls2=rem_reg
++ echo ' (loc_sl' '->' 'rem_reg) (rem_reg)'
++ test 1 '!=' 0
++ for f in '$actual_args'
++ test -f /dev/shm/tmp2863/rem_reg
++ case "$(cat $f)" in
+++ cat /dev/shm/tmp2863/rem_reg
++ for f in '$actual_args'
++ test -f loc_sl
++ case "$(cat $f)" in
+++ cat loc_sl
++ test cp = cp
++ for f in '$actual_args'
++ test -f /dev/shm/tmp2863/rem_reg
++ test 1 '!=' 0
++ test
++ case "$(cat $f)" in
+++ cat /dev/shm/tmp2863/rem_reg
++ for f in '$actual_args'
++ test -f loc_sl
++ test 1 '!=' 0
++ test
++ case "$(cat $f)" in
+++ cat loc_sl
++ cd ..
++ echo
++ for copy in cp mv
++ for args in ''\''loc_reg rem_sl'\''' ''\''rem_sl loc_reg'\''' ''\''loc_sl rem_reg'\''' ''\''rem_reg loc_sl'\'''
++ for options in ''\'''\''' --rem ''\''--rem -d'\''' ''\''--rem -b'\''' -b -bd -d
++ case "$options" in
++ rm -rf dir
++ rm -f /dev/shm/tmp2863/rem_reg
++ mkdir dir
++ cd dir
++ case "$args" in
+++ pwd
++ reg_abs='/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/gt-part-symlink.sh.pK7S/dir/loc_reg'
++ case "$args" in
++ case "$args" in
++ case "$args" in
++ slink=/dev/shm/tmp2863/rem_sl
++ echo XYZ
++ ln -nsf '/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/gt-part-symlink.sh.pK7S/dir/loc_reg' /dev/shm/tmp2863/rem_sl
+++ echo loc_reg rem_sl
+++ sed 's,^,$,;s/ / $/'
++ actual_args='$loc_reg $rem_sl'
+++ eval echo '$loc_reg' '$rem_sl'
++++ echo loc_reg /dev/shm/tmp2863/rem_sl
++ actual_args='loc_reg /dev/shm/tmp2863/rem_sl'
++ mv loc_reg /dev/shm/tmp2863/rem_sl
++ sed 's/  *$//'
++ copy_status=0
++ echo 0 mv loc_reg rem_sl
++ test -s .err
+++ ls -gG --ignore=.err .
+++ sed -e '/^total /d' -e s,/dev/shm/tmp2863/,, -e 's,/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/gt-part-symlink.sh.pK7S/,,' -e 's/^[^ ]*  *[^ ]*  *[^ ]*  *[^ ]*  *[^ ]*  *[^ ]*  *//'
++ ls=
+++ cd /dev/shm/tmp2863
+++ ls -gG --ignore=.err .
+++ sed -e '/^total /d' -e s,/dev/shm/tmp2863/,, -e 's,/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/gt-part-symlink.sh.pK7S/,,' -e 's/^[^ ]*  *[^ ]*  *[^ ]*  *[^ ]*  *[^ ]*  *[^ ]*  *//'
++ ls2=rem_sl
++ echo ' () (rem_sl)'
++ test 0 '!=' 0
++ test mv = cp
++ cd ..
++ for options in ''\'''\''' --rem ''\''--rem -d'\''' ''\''--rem -b'\''' -b -bd -d
++ case "$options" in
++ test mv = mv
++ continue
++ for options in ''\'''\''' --rem ''\''--rem -d'\''' ''\''--rem -b'\''' -b -bd -d
++ case "$options" in
++ test mv = mv
++ continue
++ for options in ''\'''\''' --rem ''\''--rem -d'\''' ''\''--rem -b'\''' -b -bd -d
++ case "$options" in
++ test mv = mv
++ continue
++ for options in ''\'''\''' --rem ''\''--rem -d'\''' ''\''--rem -b'\''' -b -bd -d
++ case "$options" in
++ rm -rf dir
++ rm -f /dev/shm/tmp2863/rem_sl
++ mkdir dir
++ cd dir
++ case "$args" in
+++ pwd
++ reg_abs='/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/gt-part-symlink.sh.pK7S/dir/loc_reg'
++ case "$args" in
++ case "$args" in
++ case "$args" in
++ slink=/dev/shm/tmp2863/rem_sl
++ echo XYZ
++ ln -nsf '/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/gt-part-symlink.sh.pK7S/dir/loc_reg' /dev/shm/tmp2863/rem_sl
+++ echo loc_reg rem_sl
+++ sed 's,^,$,;s/ / $/'
++ actual_args='$loc_reg $rem_sl'
+++ eval echo '$loc_reg' '$rem_sl'
++++ echo loc_reg /dev/shm/tmp2863/rem_sl
++ actual_args='loc_reg /dev/shm/tmp2863/rem_sl'
++ mv -b loc_reg /dev/shm/tmp2863/rem_sl
++ sed 's/  *$//'
++ copy_status=0
++ echo 0 mv -b loc_reg rem_sl
++ test -s .err
+++ ls -gG --ignore=.err .
+++ sed -e '/^total /d' -e s,/dev/shm/tmp2863/,, -e 's,/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/gt-part-symlink.sh.pK7S/,,' -e 's/^[^ ]*  *[^ ]*  *[^ ]*  *[^ ]*  *[^ ]*  *[^ ]*  *//'
++ ls=
+++ cd /dev/shm/tmp2863
+++ ls -gG --ignore=.err .
+++ sed -e '/^total /d' -e s,/dev/shm/tmp2863/,, -e 's,/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/gt-part-symlink.sh.pK7S/,,' -e 's/^[^ ]*  *[^ ]*  *[^ ]*  *[^ ]*  *[^ ]*  *[^ ]*  *//'
++ ls2='rem_sl
+rem_sl~ -> dir/loc_reg'
++ echo ' () (rem_sl' rem_sl~ '->' 'dir/loc_reg)'
++ test 0 '!=' 0
++ test mv = cp
++ cd ..
++ for options in ''\'''\''' --rem ''\''--rem -d'\''' ''\''--rem -b'\''' -b -bd -d
++ case "$options" in
++ test mv = mv
++ continue
++ for options in ''\'''\''' --rem ''\''--rem -d'\''' ''\''--rem -b'\''' -b -bd -d
++ case "$options" in
++ test mv = mv
++ continue
++ echo
++ for args in ''\''loc_reg rem_sl'\''' ''\''rem_sl loc_reg'\''' ''\''loc_sl rem_reg'\''' ''\''rem_reg loc_sl'\'''
++ for options in ''\'''\''' --rem ''\''--rem -d'\''' ''\''--rem -b'\''' -b -bd -d
++ case "$options" in
++ rm -rf dir
++ rm -f /dev/shm/tmp2863/rem_sl /dev/shm/tmp2863/rem_sl~
++ mkdir dir
++ cd dir
++ case "$args" in
+++ pwd
++ reg_abs='/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/gt-part-symlink.sh.pK7S/dir/loc_reg'
++ case "$args" in
++ case "$args" in
++ case "$args" in
++ slink=/dev/shm/tmp2863/rem_sl
++ echo XYZ
++ ln -nsf '/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/gt-part-symlink.sh.pK7S/dir/loc_reg' /dev/shm/tmp2863/rem_sl
+++ echo rem_sl loc_reg
+++ sed 's,^,$,;s/ / $/'
++ actual_args='$rem_sl $loc_reg'
+++ eval echo '$rem_sl' '$loc_reg'
++++ echo /dev/shm/tmp2863/rem_sl loc_reg
++ actual_args='/dev/shm/tmp2863/rem_sl loc_reg'
++ mv /dev/shm/tmp2863/rem_sl loc_reg
++ sed 's/  *$//'
++ copy_status=1
++ echo 1 mv rem_sl loc_reg
++ test -s .err
++ echo ' ['
++ tr -d '\n'
++ sed 's/^[^:][^:]*\(..\):/\1:/;s,/dev/shm/tmp2863/,,' .err
++ tr -d '\n'
++ echo ']'
+++ ls -gG --ignore=.err .
+++ sed -e '/^total /d' -e s,/dev/shm/tmp2863/,, -e 's,/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/gt-part-symlink.sh.pK7S/,,' -e 's/^[^ ]*  *[^ ]*  *[^ ]*  *[^ ]*  *[^ ]*  *[^ ]*  *//'
++ ls=loc_reg
+++ cd /dev/shm/tmp2863
+++ ls -gG --ignore=.err .
+++ sed -e '/^total /d' -e s,/dev/shm/tmp2863/,, -e 's,/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/gt-part-symlink.sh.pK7S/,,' -e 's/^[^ ]*  *[^ ]*  *[^ ]*  *[^ ]*  *[^ ]*  *[^ ]*  *//'
++ ls2='rem_sl -> dir/loc_reg'
++ echo ' (loc_reg) (rem_sl' '->' 'dir/loc_reg)'
++ test 1 '!=' 0
++ for f in '$actual_args'
++ test -f /dev/shm/tmp2863/rem_sl
++ case "$(cat $f)" in
+++ cat /dev/shm/tmp2863/rem_sl
++ for f in '$actual_args'
++ test -f loc_reg
++ case "$(cat $f)" in
+++ cat loc_reg
++ test mv = cp
++ cd ..
++ for options in ''\'''\''' --rem ''\''--rem -d'\''' ''\''--rem -b'\''' -b -bd -d
++ case "$options" in
++ test mv = mv
++ continue
++ for options in ''\'''\''' --rem ''\''--rem -d'\''' ''\''--rem -b'\''' -b -bd -d
++ case "$options" in
++ test mv = mv
++ continue
++ for options in ''\'''\''' --rem ''\''--rem -d'\''' ''\''--rem -b'\''' -b -bd -d
++ case "$options" in
++ test mv = mv
++ continue
++ for options in ''\'''\''' --rem ''\''--rem -d'\''' ''\''--rem -b'\''' -b -bd -d
++ case "$options" in
++ rm -rf dir
++ rm -f /dev/shm/tmp2863/rem_sl
++ mkdir dir
++ cd dir
++ case "$args" in
+++ pwd
++ reg_abs='/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/gt-part-symlink.sh.pK7S/dir/loc_reg'
++ case "$args" in
++ case "$args" in
++ case "$args" in
++ slink=/dev/shm/tmp2863/rem_sl
++ echo XYZ
++ ln -nsf '/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/gt-part-symlink.sh.pK7S/dir/loc_reg' /dev/shm/tmp2863/rem_sl
+++ echo rem_sl loc_reg
+++ sed 's,^,$,;s/ / $/'
++ actual_args='$rem_sl $loc_reg'
+++ eval echo '$rem_sl' '$loc_reg'
++++ echo /dev/shm/tmp2863/rem_sl loc_reg
++ actual_args='/dev/shm/tmp2863/rem_sl loc_reg'
++ mv -b /dev/shm/tmp2863/rem_sl loc_reg
++ sed 's/  *$//'
++ copy_status=0
++ echo 0 mv -b rem_sl loc_reg
++ test -s .err
+++ ls -gG --ignore=.err .
+++ sed -e '/^total /d' -e s,/dev/shm/tmp2863/,, -e 's,/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/gt-part-symlink.sh.pK7S/,,' -e 's/^[^ ]*  *[^ ]*  *[^ ]*  *[^ ]*  *[^ ]*  *[^ ]*  *//'
++ ls='loc_reg -> dir/loc_reg
+loc_reg~'
+++ cd /dev/shm/tmp2863
+++ ls -gG --ignore=.err .
+++ sed -e '/^total /d' -e s,/dev/shm/tmp2863/,, -e 's,/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/gt-part-symlink.sh.pK7S/,,' -e 's/^[^ ]*  *[^ ]*  *[^ ]*  *[^ ]*  *[^ ]*  *[^ ]*  *//'
++ ls2=
++ echo ' (loc_reg' '->' dir/loc_reg 'loc_reg~) ()'
++ test 0 '!=' 0
++ test mv = cp
++ cd ..
++ for options in ''\'''\''' --rem ''\''--rem -d'\''' ''\''--rem -b'\''' -b -bd -d
++ case "$options" in
++ test mv = mv
++ continue
++ for options in ''\'''\''' --rem ''\''--rem -d'\''' ''\''--rem -b'\''' -b -bd -d
++ case "$options" in
++ test mv = mv
++ continue
++ echo
++ for args in ''\''loc_reg rem_sl'\''' ''\''rem_sl loc_reg'\''' ''\''loc_sl rem_reg'\''' ''\''rem_reg loc_sl'\'''
++ for options in ''\'''\''' --rem ''\''--rem -d'\''' ''\''--rem -b'\''' -b -bd -d
++ case "$options" in
++ rm -rf dir
++ rm -f '/dev/shm/tmp2863/*'
++ mkdir dir
++ cd dir
++ case "$args" in
++ case "$args" in
++ reg_abs=/dev/shm/tmp2863/rem_reg
++ case "$args" in
++ slink=loc_sl
++ case "$args" in
++ echo XYZ
++ ln -nsf /dev/shm/tmp2863/rem_reg loc_sl
+++ echo loc_sl rem_reg
+++ sed 's,^,$,;s/ / $/'
++ actual_args='$loc_sl $rem_reg'
+++ eval echo '$loc_sl' '$rem_reg'
++++ echo loc_sl /dev/shm/tmp2863/rem_reg
++ actual_args='loc_sl /dev/shm/tmp2863/rem_reg'
++ mv loc_sl /dev/shm/tmp2863/rem_reg
++ sed 's/  *$//'
++ copy_status=1
++ echo 1 mv loc_sl rem_reg
++ test -s .err
++ echo ' ['
++ tr -d '\n'
++ sed 's/^[^:][^:]*\(..\):/\1:/;s,/dev/shm/tmp2863/,,' .err
++ tr -d '\n'
++ echo ']'
+++ ls -gG --ignore=.err .
+++ sed -e '/^total /d' -e s,/dev/shm/tmp2863/,, -e 's,/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/gt-part-symlink.sh.pK7S/,,' -e 's/^[^ ]*  *[^ ]*  *[^ ]*  *[^ ]*  *[^ ]*  *[^ ]*  *//'
++ ls='loc_sl -> rem_reg'
+++ cd /dev/shm/tmp2863
+++ ls -gG --ignore=.err .
+++ sed -e '/^total /d' -e s,/dev/shm/tmp2863/,, -e 's,/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/gt-part-symlink.sh.pK7S/,,' -e 's/^[^ ]*  *[^ ]*  *[^ ]*  *[^ ]*  *[^ ]*  *[^ ]*  *//'
++ ls2=rem_reg
++ echo ' (loc_sl' '->' 'rem_reg) (rem_reg)'
++ test 1 '!=' 0
++ for f in '$actual_args'
++ test -f loc_sl
++ case "$(cat $f)" in
+++ cat loc_sl
++ for f in '$actual_args'
++ test -f /dev/shm/tmp2863/rem_reg
++ case "$(cat $f)" in
+++ cat /dev/shm/tmp2863/rem_reg
++ test mv = cp
++ cd ..
++ for options in ''\'''\''' --rem ''\''--rem -d'\''' ''\''--rem -b'\''' -b -bd -d
++ case "$options" in
++ test mv = mv
++ continue
++ for options in ''\'''\''' --rem ''\''--rem -d'\''' ''\''--rem -b'\''' -b -bd -d
++ case "$options" in
++ test mv = mv
++ continue
++ for options in ''\'''\''' --rem ''\''--rem -d'\''' ''\''--rem -b'\''' -b -bd -d
++ case "$options" in
++ test mv = mv
++ continue
++ for options in ''\'''\''' --rem ''\''--rem -d'\''' ''\''--rem -b'\''' -b -bd -d
++ case "$options" in
++ rm -rf dir
++ rm -f /dev/shm/tmp2863/rem_reg
++ mkdir dir
++ cd dir
++ case "$args" in
++ case "$args" in
++ reg_abs=/dev/shm/tmp2863/rem_reg
++ case "$args" in
++ slink=loc_sl
++ case "$args" in
++ echo XYZ
++ ln -nsf /dev/shm/tmp2863/rem_reg loc_sl
+++ echo loc_sl rem_reg
+++ sed 's,^,$,;s/ / $/'
++ actual_args='$loc_sl $rem_reg'
+++ eval echo '$loc_sl' '$rem_reg'
++++ echo loc_sl /dev/shm/tmp2863/rem_reg
++ actual_args='loc_sl /dev/shm/tmp2863/rem_reg'
++ mv -b loc_sl /dev/shm/tmp2863/rem_reg
++ sed 's/  *$//'
++ copy_status=0
++ echo 0 mv -b loc_sl rem_reg
++ test -s .err
+++ ls -gG --ignore=.err .
+++ sed -e '/^total /d' -e s,/dev/shm/tmp2863/,, -e 's,/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/gt-part-symlink.sh.pK7S/,,' -e 's/^[^ ]*  *[^ ]*  *[^ ]*  *[^ ]*  *[^ ]*  *[^ ]*  *//'
++ ls=
+++ cd /dev/shm/tmp2863
+++ ls -gG --ignore=.err .
+++ sed -e '/^total /d' -e s,/dev/shm/tmp2863/,, -e 's,/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/gt-part-symlink.sh.pK7S/,,' -e 's/^[^ ]*  *[^ ]*  *[^ ]*  *[^ ]*  *[^ ]*  *[^ ]*  *//'
++ ls2='rem_reg -> rem_reg
+rem_reg~'
++ echo ' () (rem_reg' '->' rem_reg 'rem_reg~)'
++ test 0 '!=' 0
++ test mv = cp
++ cd ..
++ for options in ''\'''\''' --rem ''\''--rem -d'\''' ''\''--rem -b'\''' -b -bd -d
++ case "$options" in
++ test mv = mv
++ continue
++ for options in ''\'''\''' --rem ''\''--rem -d'\''' ''\''--rem -b'\''' -b -bd -d
++ case "$options" in
++ test mv = mv
++ continue
++ echo
++ for args in ''\''loc_reg rem_sl'\''' ''\''rem_sl loc_reg'\''' ''\''loc_sl rem_reg'\''' ''\''rem_reg loc_sl'\'''
++ for options in ''\'''\''' --rem ''\''--rem -d'\''' ''\''--rem -b'\''' -b -bd -d
++ case "$options" in
++ rm -rf dir
++ rm -f /dev/shm/tmp2863/rem_reg /dev/shm/tmp2863/rem_reg~
++ mkdir dir
++ cd dir
++ case "$args" in
++ case "$args" in
++ reg_abs=/dev/shm/tmp2863/rem_reg
++ case "$args" in
++ slink=loc_sl
++ case "$args" in
++ echo XYZ
++ ln -nsf /dev/shm/tmp2863/rem_reg loc_sl
+++ echo rem_reg loc_sl
+++ sed 's,^,$,;s/ / $/'
++ actual_args='$rem_reg $loc_sl'
+++ eval echo '$rem_reg' '$loc_sl'
++++ echo /dev/shm/tmp2863/rem_reg loc_sl
++ actual_args='/dev/shm/tmp2863/rem_reg loc_sl'
++ mv /dev/shm/tmp2863/rem_reg loc_sl
++ sed 's/  *$//'
++ copy_status=0
++ echo 0 mv rem_reg loc_sl
++ test -s .err
+++ ls -gG --ignore=.err .
+++ sed -e '/^total /d' -e s,/dev/shm/tmp2863/,, -e 's,/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/gt-part-symlink.sh.pK7S/,,' -e 's/^[^ ]*  *[^ ]*  *[^ ]*  *[^ ]*  *[^ ]*  *[^ ]*  *//'
++ ls=loc_sl
+++ cd /dev/shm/tmp2863
+++ ls -gG --ignore=.err .
+++ sed -e '/^total /d' -e s,/dev/shm/tmp2863/,, -e 's,/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/gt-part-symlink.sh.pK7S/,,' -e 's/^[^ ]*  *[^ ]*  *[^ ]*  *[^ ]*  *[^ ]*  *[^ ]*  *//'
++ ls2=
++ echo ' (loc_sl) ()'
++ test 0 '!=' 0
++ test mv = cp
++ cd ..
++ for options in ''\'''\''' --rem ''\''--rem -d'\''' ''\''--rem -b'\''' -b -bd -d
++ case "$options" in
++ test mv = mv
++ continue
++ for options in ''\'''\''' --rem ''\''--rem -d'\''' ''\''--rem -b'\''' -b -bd -d
++ case "$options" in
++ test mv = mv
++ continue
++ for options in ''\'''\''' --rem ''\''--rem -d'\''' ''\''--rem -b'\''' -b -bd -d
++ case "$options" in
++ test mv = mv
++ continue
++ for options in ''\'''\''' --rem ''\''--rem -d'\''' ''\''--rem -b'\''' -b -bd -d
++ case "$options" in
++ rm -rf dir
++ rm -f '/dev/shm/tmp2863/*'
++ mkdir dir
++ cd dir
++ case "$args" in
++ case "$args" in
++ reg_abs=/dev/shm/tmp2863/rem_reg
++ case "$args" in
++ slink=loc_sl
++ case "$args" in
++ echo XYZ
++ ln -nsf /dev/shm/tmp2863/rem_reg loc_sl
+++ echo rem_reg loc_sl
+++ sed 's,^,$,;s/ / $/'
++ actual_args='$rem_reg $loc_sl'
+++ eval echo '$rem_reg' '$loc_sl'
++++ echo /dev/shm/tmp2863/rem_reg loc_sl
++ actual_args='/dev/shm/tmp2863/rem_reg loc_sl'
++ mv -b /dev/shm/tmp2863/rem_reg loc_sl
++ sed 's/  *$//'
++ copy_status=0
++ echo 0 mv -b rem_reg loc_sl
++ test -s .err
+++ ls -gG --ignore=.err .
+++ sed -e '/^total /d' -e s,/dev/shm/tmp2863/,, -e 's,/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/gt-part-symlink.sh.pK7S/,,' -e 's/^[^ ]*  *[^ ]*  *[^ ]*  *[^ ]*  *[^ ]*  *[^ ]*  *//'
++ ls='loc_sl
+loc_sl~ -> rem_reg'
+++ cd /dev/shm/tmp2863
+++ ls -gG --ignore=.err .
+++ sed -e '/^total /d' -e s,/dev/shm/tmp2863/,, -e 's,/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/gt-part-symlink.sh.pK7S/,,' -e 's/^[^ ]*  *[^ ]*  *[^ ]*  *[^ ]*  *[^ ]*  *[^ ]*  *//'
++ ls2=
++ echo ' (loc_sl' loc_sl~ '->' 'rem_reg) ()'
++ test 0 '!=' 0
++ test mv = cp
++ cd ..
++ for options in ''\'''\''' --rem ''\''--rem -d'\''' ''\''--rem -b'\''' -b -bd -d
++ case "$options" in
++ test mv = mv
++ continue
++ for options in ''\'''\''' --rem ''\''--rem -d'\''' ''\''--rem -b'\''' -b -bd -d
++ case "$options" in
++ test mv = mv
++ continue
++ echo
++ test 0 = 1
++ cat
++ compare expected actual
++ compare_dev_null_ expected actual
++ test 2 = 2
++ test xexpected = x/dev/null
++ test xactual = x/dev/null
++ return 2
++ case $? in
++ compare_ expected actual
++ diff -u expected actual
++ Exit 0
++ set +e
++ exit 0
++ exit 0
++ remove_tmp_
++ __st=0
++ cleanup_
++ rm -rf /dev/shm/tmp2863
++ cd '/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23'
++ chmod -R u+rwx '/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/gt-part-symlink.sh.pK7S'
++ rm -rf '/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/gt-part-symlink.sh.pK7S'
++ exit 0

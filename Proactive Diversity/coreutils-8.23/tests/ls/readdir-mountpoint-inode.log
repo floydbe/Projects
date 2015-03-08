@@ -1,0 +1,504 @@
+++ initial_cwd_='/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23'
+++ fail=0
++++ testdir_prefix_
++++ printf gt
+++ pfx_=gt
++++ mktempd_ '/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23' gt-readdir-mountpoint-inode.sh.XXXX
++++ case $# in
++++ destdir_='/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23'
++++ template_=gt-readdir-mountpoint-inode.sh.XXXX
++++ MAX_TRIES_=4
++++ case $destdir_ in
++++ case $template_ in
+++++ unset TMPDIR
++++ d='/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/gt-readdir-mountpoint-inode.sh.h0W5'
++++ case $d in
++++ test -d '/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/gt-readdir-mountpoint-inode.sh.h0W5'
+++++ ls -dgo '/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/gt-readdir-mountpoint-inode.sh.h0W5'
+++++ tr S -
++++ perms='drwx------ 2 4096 Mar  6 11:59 /home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/gt-readdir-mountpoint-inode.sh.h0W5'
++++ case $perms in
++++ test 0 = 0
++++ echo '/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/gt-readdir-mountpoint-inode.sh.h0W5'
++++ return
+++ test_dir_='/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/gt-readdir-mountpoint-inode.sh.h0W5'
+++ cd '/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/gt-readdir-mountpoint-inode.sh.h0W5'
+++ gl_init_sh_nl_='
+'
+++ IFS=' 	
+'
+++ for sig_ in 1 2 3 13 15
++++ expr 1 + 128
+++ eval 'trap '\''Exit 129'\'' 1'
++++ trap 'Exit 129' 1
+++ for sig_ in 1 2 3 13 15
++++ expr 2 + 128
+++ eval 'trap '\''Exit 130'\'' 2'
++++ trap 'Exit 130' 2
+++ for sig_ in 1 2 3 13 15
++++ expr 3 + 128
+++ eval 'trap '\''Exit 131'\'' 3'
++++ trap 'Exit 131' 3
+++ for sig_ in 1 2 3 13 15
++++ expr 13 + 128
+++ eval 'trap '\''Exit 141'\'' 13'
++++ trap 'Exit 141' 13
+++ for sig_ in 1 2 3 13 15
++++ expr 15 + 128
+++ eval 'trap '\''Exit 143'\'' 15'
++++ trap 'Exit 143' 15
+++ trap remove_tmp_ 0
++ path_prepend_ ./src
++ test 1 '!=' 0
++ path_dir_=./src
++ case $path_dir_ in
++ abs_path_dir_='/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/./src'
++ case $abs_path_dir_ in
++ PATH='/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/./src:/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/src:/home/jfloyd/.opam/system/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games'
++ create_exe_shims_ '/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/./src'
++ case $EXEEXT in
++ return 0
++ shift
++ test 0 '!=' 0
++ export PATH
++ print_ver_ ls
++ test yes = yes
++ local i
++ for i in '$*'
++ env ls --version
+ls (GNU coreutils) 8.23
+Copyright (C) 2014 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>.
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.
+
+Written by Richard M. Stallman and David MacKenzie.
++ df --local --out=target
++ sed -n '/^\/./p'
++ test -s mount_points
++ read dir
+++ inode_via_readdir /sys/fs/cgroup
+++ mount_point=/sys/fs/cgroup
++++ basename /sys/fs/cgroup
+++ base=cgroup
+++ case "$base" in
++++ ls_ignore_options cgroup
++++ name=cgroup
++++ opts='-I '\''.?*'\'' -I '\''cgroup?*'\'''
++++ :
+++++ echo cgroup
+++++ sed 's/\(.*\)\(.\)$/\1[^\2]*/'
++++ glob='cgrou[^p]*'
++++ opts='-I '\''.?*'\'' -I '\''cgroup?*'\'' -I '\''cgrou[^p]*'\'''
+++++ echo cgroup
+++++ sed 's/.$//'
++++ name=cgrou
++++ test -z cgrou
+++++ echo cgrou
+++++ sed 's/./?/g'
++++ glob='?????'
++++ opts='-I '\''.?*'\'' -I '\''cgroup?*'\'' -I '\''cgrou[^p]*'\'' -I '\''?????'\'''
++++ :
+++++ echo cgrou
+++++ sed 's/\(.*\)\(.\)$/\1[^\2]*/'
++++ glob='cgro[^u]*'
++++ opts='-I '\''.?*'\'' -I '\''cgroup?*'\'' -I '\''cgrou[^p]*'\'' -I '\''?????'\'' -I '\''cgro[^u]*'\'''
+++++ echo cgrou
+++++ sed 's/.$//'
++++ name=cgro
++++ test -z cgro
+++++ echo cgro
+++++ sed 's/./?/g'
++++ glob='????'
++++ opts='-I '\''.?*'\'' -I '\''cgroup?*'\'' -I '\''cgrou[^p]*'\'' -I '\''?????'\'' -I '\''cgro[^u]*'\'' -I '\''????'\'''
++++ :
+++++ echo cgro
+++++ sed 's/\(.*\)\(.\)$/\1[^\2]*/'
++++ glob='cgr[^o]*'
++++ opts='-I '\''.?*'\'' -I '\''cgroup?*'\'' -I '\''cgrou[^p]*'\'' -I '\''?????'\'' -I '\''cgro[^u]*'\'' -I '\''????'\'' -I '\''cgr[^o]*'\'''
+++++ echo cgro
+++++ sed 's/.$//'
++++ name=cgr
++++ test -z cgr
+++++ echo cgr
+++++ sed 's/./?/g'
++++ glob='???'
++++ opts='-I '\''.?*'\'' -I '\''cgroup?*'\'' -I '\''cgrou[^p]*'\'' -I '\''?????'\'' -I '\''cgro[^u]*'\'' -I '\''????'\'' -I '\''cgr[^o]*'\'' -I '\''???'\'''
++++ :
+++++ echo cgr
+++++ sed 's/\(.*\)\(.\)$/\1[^\2]*/'
++++ glob='cg[^r]*'
++++ opts='-I '\''.?*'\'' -I '\''cgroup?*'\'' -I '\''cgrou[^p]*'\'' -I '\''?????'\'' -I '\''cgro[^u]*'\'' -I '\''????'\'' -I '\''cgr[^o]*'\'' -I '\''???'\'' -I '\''cg[^r]*'\'''
+++++ echo cgr
+++++ sed 's/.$//'
++++ name=cg
++++ test -z cg
+++++ echo cg
+++++ sed 's/./?/g'
++++ glob='??'
++++ opts='-I '\''.?*'\'' -I '\''cgroup?*'\'' -I '\''cgrou[^p]*'\'' -I '\''?????'\'' -I '\''cgro[^u]*'\'' -I '\''????'\'' -I '\''cgr[^o]*'\'' -I '\''???'\'' -I '\''cg[^r]*'\'' -I '\''??'\'''
++++ :
+++++ echo cg
+++++ sed 's/\(.*\)\(.\)$/\1[^\2]*/'
++++ glob='c[^g]*'
++++ opts='-I '\''.?*'\'' -I '\''cgroup?*'\'' -I '\''cgrou[^p]*'\'' -I '\''?????'\'' -I '\''cgro[^u]*'\'' -I '\''????'\'' -I '\''cgr[^o]*'\'' -I '\''???'\'' -I '\''cg[^r]*'\'' -I '\''??'\'' -I '\''c[^g]*'\'''
+++++ echo cg
+++++ sed 's/.$//'
++++ name=c
++++ test -z c
+++++ echo c
+++++ sed 's/./?/g'
++++ glob='?'
++++ opts='-I '\''.?*'\'' -I '\''cgroup?*'\'' -I '\''cgrou[^p]*'\'' -I '\''?????'\'' -I '\''cgro[^u]*'\'' -I '\''????'\'' -I '\''cgr[^o]*'\'' -I '\''???'\'' -I '\''cg[^r]*'\'' -I '\''??'\'' -I '\''c[^g]*'\'' -I '\''?'\'''
++++ :
+++++ echo c
+++++ sed 's/\(.*\)\(.\)$/\1[^\2]*/'
++++ glob='[^c]*'
++++ opts='-I '\''.?*'\'' -I '\''cgroup?*'\'' -I '\''cgrou[^p]*'\'' -I '\''?????'\'' -I '\''cgro[^u]*'\'' -I '\''????'\'' -I '\''cgr[^o]*'\'' -I '\''???'\'' -I '\''cg[^r]*'\'' -I '\''??'\'' -I '\''c[^g]*'\'' -I '\''?'\'' -I '\''[^c]*'\'''
+++++ echo c
+++++ sed 's/.$//'
++++ name=
++++ test -z ''
++++ break
++++ echo '-I '\''.?*'\'' -I '\''cgroup?*'\'' -I '\''cgrou[^p]*'\'' -I '\''?????'\'' -I '\''cgro[^u]*'\'' -I '\''????'\'' -I '\''cgr[^o]*'\'' -I '\''???'\'' -I '\''cg[^r]*'\'' -I '\''??'\'' -I '\''c[^g]*'\'' -I '\''?'\'' -I '\''[^c]*'\'''
+++ opts='-I '\''.?*'\'' -I '\''cgroup?*'\'' -I '\''cgrou[^p]*'\'' -I '\''?????'\'' -I '\''cgro[^u]*'\'' -I '\''????'\'' -I '\''cgr[^o]*'\'' -I '\''???'\'' -I '\''cg[^r]*'\'' -I '\''??'\'' -I '\''c[^g]*'\'' -I '\''?'\'' -I '\''[^c]*'\'''
++++ dirname /sys/fs/cgroup
+++ parent_dir=/sys/fs
+++ eval 'ls -i -I '\''.?*'\'' -I '\''cgroup?*'\'' -I '\''cgrou[^p]*'\'' -I '\''?????'\'' -I '\''cgro[^u]*'\'' -I '\''????'\'' -I '\''cgr[^o]*'\'' -I '\''???'\'' -I '\''cg[^r]*'\'' -I '\''??'\'' -I '\''c[^g]*'\'' -I '\''?'\'' -I '\''[^c]*'\'' '\''/sys/fs'\'''
+++ sed 's/ .*//'
++++ ls -i -I '.?*' -I 'cgroup?*' -I 'cgrou[^p]*' -I '?????' -I 'cgro[^u]*' -I '????' -I 'cgr[^o]*' -I '???' -I 'cg[^r]*' -I '??' -I 'c[^g]*' -I '?' -I '[^c]*' /sys/fs
++ readdir_inode=7551
++ test 0 = 77
+++ timeout 1 stat --format=%i /sys/fs/cgroup
++ stat_inode=7551
++ case $stat_inode in
++ test 7551 = 7551
++ read dir
+++ inode_via_readdir /dev
+++ mount_point=/dev
++++ basename /dev
+++ base=dev
+++ case "$base" in
++++ ls_ignore_options dev
++++ name=dev
++++ opts='-I '\''.?*'\'' -I '\''dev?*'\'''
++++ :
+++++ echo dev
+++++ sed 's/\(.*\)\(.\)$/\1[^\2]*/'
++++ glob='de[^v]*'
++++ opts='-I '\''.?*'\'' -I '\''dev?*'\'' -I '\''de[^v]*'\'''
+++++ echo dev
+++++ sed 's/.$//'
++++ name=de
++++ test -z de
+++++ echo de
+++++ sed 's/./?/g'
++++ glob='??'
++++ opts='-I '\''.?*'\'' -I '\''dev?*'\'' -I '\''de[^v]*'\'' -I '\''??'\'''
++++ :
+++++ echo de
+++++ sed 's/\(.*\)\(.\)$/\1[^\2]*/'
++++ glob='d[^e]*'
++++ opts='-I '\''.?*'\'' -I '\''dev?*'\'' -I '\''de[^v]*'\'' -I '\''??'\'' -I '\''d[^e]*'\'''
+++++ echo de
+++++ sed 's/.$//'
++++ name=d
++++ test -z d
+++++ echo d
+++++ sed 's/./?/g'
++++ glob='?'
++++ opts='-I '\''.?*'\'' -I '\''dev?*'\'' -I '\''de[^v]*'\'' -I '\''??'\'' -I '\''d[^e]*'\'' -I '\''?'\'''
++++ :
+++++ echo d
+++++ sed 's/\(.*\)\(.\)$/\1[^\2]*/'
++++ glob='[^d]*'
++++ opts='-I '\''.?*'\'' -I '\''dev?*'\'' -I '\''de[^v]*'\'' -I '\''??'\'' -I '\''d[^e]*'\'' -I '\''?'\'' -I '\''[^d]*'\'''
+++++ echo d
+++++ sed 's/.$//'
++++ name=
++++ test -z ''
++++ break
++++ echo '-I '\''.?*'\'' -I '\''dev?*'\'' -I '\''de[^v]*'\'' -I '\''??'\'' -I '\''d[^e]*'\'' -I '\''?'\'' -I '\''[^d]*'\'''
+++ opts='-I '\''.?*'\'' -I '\''dev?*'\'' -I '\''de[^v]*'\'' -I '\''??'\'' -I '\''d[^e]*'\'' -I '\''?'\'' -I '\''[^d]*'\'''
++++ dirname /dev
+++ parent_dir=/
+++ eval 'ls -i -I '\''.?*'\'' -I '\''dev?*'\'' -I '\''de[^v]*'\'' -I '\''??'\'' -I '\''d[^e]*'\'' -I '\''?'\'' -I '\''[^d]*'\'' '\''/'\'''
+++ sed 's/ .*//'
++++ ls -i -I '.?*' -I 'dev?*' -I 'de[^v]*' -I '??' -I 'd[^e]*' -I '?' -I '[^d]*' /
++ readdir_inode=1025
++ test 0 = 77
+++ timeout 1 stat --format=%i /dev
++ stat_inode=1025
++ case $stat_inode in
++ test 1025 = 1025
++ read dir
+++ inode_via_readdir /run
+++ mount_point=/run
++++ basename /run
+++ base=run
+++ case "$base" in
++++ ls_ignore_options run
++++ name=run
++++ opts='-I '\''.?*'\'' -I '\''run?*'\'''
++++ :
+++++ echo run
+++++ sed 's/\(.*\)\(.\)$/\1[^\2]*/'
++++ glob='ru[^n]*'
++++ opts='-I '\''.?*'\'' -I '\''run?*'\'' -I '\''ru[^n]*'\'''
+++++ echo run
+++++ sed 's/.$//'
++++ name=ru
++++ test -z ru
+++++ echo ru
+++++ sed 's/./?/g'
++++ glob='??'
++++ opts='-I '\''.?*'\'' -I '\''run?*'\'' -I '\''ru[^n]*'\'' -I '\''??'\'''
++++ :
+++++ echo ru
+++++ sed 's/\(.*\)\(.\)$/\1[^\2]*/'
++++ glob='r[^u]*'
++++ opts='-I '\''.?*'\'' -I '\''run?*'\'' -I '\''ru[^n]*'\'' -I '\''??'\'' -I '\''r[^u]*'\'''
+++++ echo ru
+++++ sed 's/.$//'
++++ name=r
++++ test -z r
+++++ echo r
+++++ sed 's/./?/g'
++++ glob='?'
++++ opts='-I '\''.?*'\'' -I '\''run?*'\'' -I '\''ru[^n]*'\'' -I '\''??'\'' -I '\''r[^u]*'\'' -I '\''?'\'''
++++ :
+++++ echo r
+++++ sed 's/\(.*\)\(.\)$/\1[^\2]*/'
++++ glob='[^r]*'
++++ opts='-I '\''.?*'\'' -I '\''run?*'\'' -I '\''ru[^n]*'\'' -I '\''??'\'' -I '\''r[^u]*'\'' -I '\''?'\'' -I '\''[^r]*'\'''
+++++ echo r
+++++ sed 's/.$//'
++++ name=
++++ test -z ''
++++ break
++++ echo '-I '\''.?*'\'' -I '\''run?*'\'' -I '\''ru[^n]*'\'' -I '\''??'\'' -I '\''r[^u]*'\'' -I '\''?'\'' -I '\''[^r]*'\'''
+++ opts='-I '\''.?*'\'' -I '\''run?*'\'' -I '\''ru[^n]*'\'' -I '\''??'\'' -I '\''r[^u]*'\'' -I '\''?'\'' -I '\''[^r]*'\'''
++++ dirname /run
+++ parent_dir=/
+++ eval 'ls -i -I '\''.?*'\'' -I '\''run?*'\'' -I '\''ru[^n]*'\'' -I '\''??'\'' -I '\''r[^u]*'\'' -I '\''?'\'' -I '\''[^r]*'\'' '\''/'\'''
+++ sed 's/ .*//'
++++ ls -i -I '.?*' -I 'run?*' -I 'ru[^n]*' -I '??' -I 'r[^u]*' -I '?' -I '[^r]*' /
++ readdir_inode=9307
++ test 0 = 77
+++ timeout 1 stat --format=%i /run
++ stat_inode=9307
++ case $stat_inode in
++ test 9307 = 9307
++ read dir
+++ inode_via_readdir /run/lock
+++ mount_point=/run/lock
++++ basename /run/lock
+++ base=lock
+++ case "$base" in
++++ ls_ignore_options lock
++++ name=lock
++++ opts='-I '\''.?*'\'' -I '\''lock?*'\'''
++++ :
+++++ echo lock
+++++ sed 's/\(.*\)\(.\)$/\1[^\2]*/'
++++ glob='loc[^k]*'
++++ opts='-I '\''.?*'\'' -I '\''lock?*'\'' -I '\''loc[^k]*'\'''
+++++ echo lock
+++++ sed 's/.$//'
++++ name=loc
++++ test -z loc
+++++ echo loc
+++++ sed 's/./?/g'
++++ glob='???'
++++ opts='-I '\''.?*'\'' -I '\''lock?*'\'' -I '\''loc[^k]*'\'' -I '\''???'\'''
++++ :
+++++ echo loc
+++++ sed 's/\(.*\)\(.\)$/\1[^\2]*/'
++++ glob='lo[^c]*'
++++ opts='-I '\''.?*'\'' -I '\''lock?*'\'' -I '\''loc[^k]*'\'' -I '\''???'\'' -I '\''lo[^c]*'\'''
+++++ echo loc
+++++ sed 's/.$//'
++++ name=lo
++++ test -z lo
+++++ echo lo
+++++ sed 's/./?/g'
++++ glob='??'
++++ opts='-I '\''.?*'\'' -I '\''lock?*'\'' -I '\''loc[^k]*'\'' -I '\''???'\'' -I '\''lo[^c]*'\'' -I '\''??'\'''
++++ :
+++++ echo lo
+++++ sed 's/\(.*\)\(.\)$/\1[^\2]*/'
++++ glob='l[^o]*'
++++ opts='-I '\''.?*'\'' -I '\''lock?*'\'' -I '\''loc[^k]*'\'' -I '\''???'\'' -I '\''lo[^c]*'\'' -I '\''??'\'' -I '\''l[^o]*'\'''
+++++ echo lo
+++++ sed 's/.$//'
++++ name=l
++++ test -z l
+++++ echo l
+++++ sed 's/./?/g'
++++ glob='?'
++++ opts='-I '\''.?*'\'' -I '\''lock?*'\'' -I '\''loc[^k]*'\'' -I '\''???'\'' -I '\''lo[^c]*'\'' -I '\''??'\'' -I '\''l[^o]*'\'' -I '\''?'\'''
++++ :
+++++ echo l
+++++ sed 's/\(.*\)\(.\)$/\1[^\2]*/'
++++ glob='[^l]*'
++++ opts='-I '\''.?*'\'' -I '\''lock?*'\'' -I '\''loc[^k]*'\'' -I '\''???'\'' -I '\''lo[^c]*'\'' -I '\''??'\'' -I '\''l[^o]*'\'' -I '\''?'\'' -I '\''[^l]*'\'''
+++++ echo l
+++++ sed 's/.$//'
++++ name=
++++ test -z ''
++++ break
++++ echo '-I '\''.?*'\'' -I '\''lock?*'\'' -I '\''loc[^k]*'\'' -I '\''???'\'' -I '\''lo[^c]*'\'' -I '\''??'\'' -I '\''l[^o]*'\'' -I '\''?'\'' -I '\''[^l]*'\'''
+++ opts='-I '\''.?*'\'' -I '\''lock?*'\'' -I '\''loc[^k]*'\'' -I '\''???'\'' -I '\''lo[^c]*'\'' -I '\''??'\'' -I '\''l[^o]*'\'' -I '\''?'\'' -I '\''[^l]*'\'''
++++ dirname /run/lock
+++ parent_dir=/run
+++ eval 'ls -i -I '\''.?*'\'' -I '\''lock?*'\'' -I '\''loc[^k]*'\'' -I '\''???'\'' -I '\''lo[^c]*'\'' -I '\''??'\'' -I '\''l[^o]*'\'' -I '\''?'\'' -I '\''[^l]*'\'' '\''/run'\'''
+++ sed 's/ .*//'
++++ ls -i -I '.?*' -I 'lock?*' -I 'loc[^k]*' -I '???' -I 'lo[^c]*' -I '??' -I 'l[^o]*' -I '?' -I '[^l]*' /run
++ readdir_inode=9611
++ test 0 = 77
+++ timeout 1 stat --format=%i /run/lock
++ stat_inode=9611
++ case $stat_inode in
++ test 9611 = 9611
++ read dir
+++ inode_via_readdir /run/shm
+++ mount_point=/run/shm
++++ basename /run/shm
+++ base=shm
+++ case "$base" in
++++ ls_ignore_options shm
++++ name=shm
++++ opts='-I '\''.?*'\'' -I '\''shm?*'\'''
++++ :
+++++ echo shm
+++++ sed 's/\(.*\)\(.\)$/\1[^\2]*/'
++++ glob='sh[^m]*'
++++ opts='-I '\''.?*'\'' -I '\''shm?*'\'' -I '\''sh[^m]*'\'''
+++++ echo shm
+++++ sed 's/.$//'
++++ name=sh
++++ test -z sh
+++++ echo sh
+++++ sed 's/./?/g'
++++ glob='??'
++++ opts='-I '\''.?*'\'' -I '\''shm?*'\'' -I '\''sh[^m]*'\'' -I '\''??'\'''
++++ :
+++++ echo sh
+++++ sed 's/\(.*\)\(.\)$/\1[^\2]*/'
++++ glob='s[^h]*'
++++ opts='-I '\''.?*'\'' -I '\''shm?*'\'' -I '\''sh[^m]*'\'' -I '\''??'\'' -I '\''s[^h]*'\'''
+++++ echo sh
+++++ sed 's/.$//'
++++ name=s
++++ test -z s
+++++ echo s
+++++ sed 's/./?/g'
++++ glob='?'
++++ opts='-I '\''.?*'\'' -I '\''shm?*'\'' -I '\''sh[^m]*'\'' -I '\''??'\'' -I '\''s[^h]*'\'' -I '\''?'\'''
++++ :
+++++ echo s
+++++ sed 's/\(.*\)\(.\)$/\1[^\2]*/'
++++ glob='[^s]*'
++++ opts='-I '\''.?*'\'' -I '\''shm?*'\'' -I '\''sh[^m]*'\'' -I '\''??'\'' -I '\''s[^h]*'\'' -I '\''?'\'' -I '\''[^s]*'\'''
+++++ echo s
+++++ sed 's/.$//'
++++ name=
++++ test -z ''
++++ break
++++ echo '-I '\''.?*'\'' -I '\''shm?*'\'' -I '\''sh[^m]*'\'' -I '\''??'\'' -I '\''s[^h]*'\'' -I '\''?'\'' -I '\''[^s]*'\'''
+++ opts='-I '\''.?*'\'' -I '\''shm?*'\'' -I '\''sh[^m]*'\'' -I '\''??'\'' -I '\''s[^h]*'\'' -I '\''?'\'' -I '\''[^s]*'\'''
++++ dirname /run/shm
+++ parent_dir=/run
+++ eval 'ls -i -I '\''.?*'\'' -I '\''shm?*'\'' -I '\''sh[^m]*'\'' -I '\''??'\'' -I '\''s[^h]*'\'' -I '\''?'\'' -I '\''[^s]*'\'' '\''/run'\'''
+++ sed 's/ .*//'
++++ ls -i -I '.?*' -I 'shm?*' -I 'sh[^m]*' -I '??' -I 's[^h]*' -I '?' -I '[^s]*' /run
++ readdir_inode=1258
++ test 0 = 77
+++ timeout 1 stat --format=%i /run/shm
++ stat_inode=1258
++ case $stat_inode in
++ test 1258 = 1258
++ read dir
+++ inode_via_readdir /run/user
+++ mount_point=/run/user
++++ basename /run/user
+++ base=user
+++ case "$base" in
++++ ls_ignore_options user
++++ name=user
++++ opts='-I '\''.?*'\'' -I '\''user?*'\'''
++++ :
+++++ echo user
+++++ sed 's/\(.*\)\(.\)$/\1[^\2]*/'
++++ glob='use[^r]*'
++++ opts='-I '\''.?*'\'' -I '\''user?*'\'' -I '\''use[^r]*'\'''
+++++ echo user
+++++ sed 's/.$//'
++++ name=use
++++ test -z use
+++++ echo use
+++++ sed 's/./?/g'
++++ glob='???'
++++ opts='-I '\''.?*'\'' -I '\''user?*'\'' -I '\''use[^r]*'\'' -I '\''???'\'''
++++ :
+++++ echo use
+++++ sed 's/\(.*\)\(.\)$/\1[^\2]*/'
++++ glob='us[^e]*'
++++ opts='-I '\''.?*'\'' -I '\''user?*'\'' -I '\''use[^r]*'\'' -I '\''???'\'' -I '\''us[^e]*'\'''
+++++ echo use
+++++ sed 's/.$//'
++++ name=us
++++ test -z us
+++++ echo us
+++++ sed 's/./?/g'
++++ glob='??'
++++ opts='-I '\''.?*'\'' -I '\''user?*'\'' -I '\''use[^r]*'\'' -I '\''???'\'' -I '\''us[^e]*'\'' -I '\''??'\'''
++++ :
+++++ echo us
+++++ sed 's/\(.*\)\(.\)$/\1[^\2]*/'
++++ glob='u[^s]*'
++++ opts='-I '\''.?*'\'' -I '\''user?*'\'' -I '\''use[^r]*'\'' -I '\''???'\'' -I '\''us[^e]*'\'' -I '\''??'\'' -I '\''u[^s]*'\'''
+++++ echo us
+++++ sed 's/.$//'
++++ name=u
++++ test -z u
+++++ echo u
+++++ sed 's/./?/g'
++++ glob='?'
++++ opts='-I '\''.?*'\'' -I '\''user?*'\'' -I '\''use[^r]*'\'' -I '\''???'\'' -I '\''us[^e]*'\'' -I '\''??'\'' -I '\''u[^s]*'\'' -I '\''?'\'''
++++ :
+++++ echo u
+++++ sed 's/\(.*\)\(.\)$/\1[^\2]*/'
++++ glob='[^u]*'
++++ opts='-I '\''.?*'\'' -I '\''user?*'\'' -I '\''use[^r]*'\'' -I '\''???'\'' -I '\''us[^e]*'\'' -I '\''??'\'' -I '\''u[^s]*'\'' -I '\''?'\'' -I '\''[^u]*'\'''
+++++ echo u
+++++ sed 's/.$//'
++++ name=
++++ test -z ''
++++ break
++++ echo '-I '\''.?*'\'' -I '\''user?*'\'' -I '\''use[^r]*'\'' -I '\''???'\'' -I '\''us[^e]*'\'' -I '\''??'\'' -I '\''u[^s]*'\'' -I '\''?'\'' -I '\''[^u]*'\'''
+++ opts='-I '\''.?*'\'' -I '\''user?*'\'' -I '\''use[^r]*'\'' -I '\''???'\'' -I '\''us[^e]*'\'' -I '\''??'\'' -I '\''u[^s]*'\'' -I '\''?'\'' -I '\''[^u]*'\'''
++++ dirname /run/user
+++ parent_dir=/run
+++ eval 'ls -i -I '\''.?*'\'' -I '\''user?*'\'' -I '\''use[^r]*'\'' -I '\''???'\'' -I '\''us[^e]*'\'' -I '\''??'\'' -I '\''u[^s]*'\'' -I '\''?'\'' -I '\''[^u]*'\'' '\''/run'\'''
+++ sed 's/ .*//'
++++ ls -i -I '.?*' -I 'user?*' -I 'use[^r]*' -I '???' -I 'us[^e]*' -I '??' -I 'u[^s]*' -I '?' -I '[^u]*' /run
++ readdir_inode=1260
++ test 0 = 77
+++ timeout 1 stat --format=%i /run/user
++ stat_inode=1260
++ case $stat_inode in
++ test 1260 = 1260
++ read dir
++ Exit 0
++ set +e
++ exit 0
++ exit 0
++ remove_tmp_
++ __st=0
++ cleanup_
++ :
++ cd '/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23'
++ chmod -R u+rwx '/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/gt-readdir-mountpoint-inode.sh.h0W5'
++ rm -rf '/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/gt-readdir-mountpoint-inode.sh.h0W5'
++ exit 0

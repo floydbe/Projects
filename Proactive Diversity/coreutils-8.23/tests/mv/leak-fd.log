@@ -1,0 +1,7953 @@
+++ initial_cwd_='/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23'
+++ fail=0
++++ testdir_prefix_
++++ printf gt
+++ pfx_=gt
++++ mktempd_ '/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23' gt-leak-fd.sh.XXXX
++++ case $# in
++++ destdir_='/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23'
++++ template_=gt-leak-fd.sh.XXXX
++++ MAX_TRIES_=4
++++ case $destdir_ in
++++ case $template_ in
+++++ unset TMPDIR
++++ d='/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/gt-leak-fd.sh.zbJj'
++++ case $d in
++++ test -d '/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/gt-leak-fd.sh.zbJj'
+++++ ls -dgo '/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/gt-leak-fd.sh.zbJj'
+++++ tr S -
++++ perms='drwx------ 2 4096 Mar  6 11:59 /home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/gt-leak-fd.sh.zbJj'
++++ case $perms in
++++ test 0 = 0
++++ echo '/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/gt-leak-fd.sh.zbJj'
++++ return
+++ test_dir_='/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/gt-leak-fd.sh.zbJj'
+++ cd '/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/gt-leak-fd.sh.zbJj'
+++ gl_init_sh_nl_='
+'
+++ IFS=' 	
+'
+++ for sig_ in 1 2 3 13 15
++++ expr 1 + 128
+++ eval 'trap '\''Exit 129'\'' 1'
++++ trap 'Exit 129' 1
+++ for sig_ in 1 2 3 13 15
++++ expr 2 + 128
+++ eval 'trap '\''Exit 130'\'' 2'
++++ trap 'Exit 130' 2
+++ for sig_ in 1 2 3 13 15
++++ expr 3 + 128
+++ eval 'trap '\''Exit 131'\'' 3'
++++ trap 'Exit 131' 3
+++ for sig_ in 1 2 3 13 15
++++ expr 13 + 128
+++ eval 'trap '\''Exit 141'\'' 13'
++++ trap 'Exit 141' 13
+++ for sig_ in 1 2 3 13 15
++++ expr 15 + 128
+++ eval 'trap '\''Exit 143'\'' 15'
++++ trap 'Exit 143' 15
+++ trap remove_tmp_ 0
++ path_prepend_ ./src
++ test 1 '!=' 0
++ path_dir_=./src
++ case $path_dir_ in
++ abs_path_dir_='/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/./src'
++ case $abs_path_dir_ in
++ PATH='/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/./src:/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/src:/home/jfloyd/.opam/system/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games'
++ create_exe_shims_ '/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/./src'
++ case $EXEEXT in
++ return 0
++ shift
++ test 0 '!=' 0
++ export PATH
++ print_ver_ mv
++ test yes = yes
++ local i
++ for i in '$*'
++ env mv --version
+mv (GNU coreutils) 8.23
+Copyright (C) 2014 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>.
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.
+
+Written by Mike Parker, David MacKenzie, and Jim Meyering.
++ skip_if_root_
++ uid_is_privileged_
+++ id -u
++ my_uid=1000
++ case $my_uid in
++ return 1
++ . '/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/tests/other-fs-tmpdir'
+++ test '' = set
+++ CANDIDATE_TMP_DIRS='/tmp /tmp /dev/shm /var/tmp /usr/tmp /home/jfloyd'
+++ other_partition_tmpdir=
++++ stat -c %d .
+++ dot_mount_point=2049
+++ for d in '$CANDIDATE_TMP_DIRS'
+++ test -d /tmp
++++ stat -L -c %d /tmp
+++ d_mount_point=2049
+++ test x2049 = x2049
+++ continue
+++ for d in '$CANDIDATE_TMP_DIRS'
+++ test -d /tmp
++++ stat -L -c %d /tmp
+++ d_mount_point=2049
+++ test x2049 = x2049
+++ continue
+++ for d in '$CANDIDATE_TMP_DIRS'
+++ test -d /dev/shm
++++ stat -L -c %d /dev/shm
+++ d_mount_point=20
+++ test x20 = x2049
+++ mkdir /dev/shm/tmp2252
+++ other_partition_tmpdir=/dev/shm/tmp2252
+++ break
+++ test -z /dev/shm/tmp2252
+++ test yes = yes
+++ set -x
++ expensive_
++ test yes '!=' yes
++ b='0 1 2 3 4 5 6 7 8 9
+a b c d e f g h i j k l m n o p q r s t u v w x y z
+_A _B _C _D _E _F _G _H _I _J _K _L _M _N _O _P _Q _R _S _T _U _V _W _X _Y _Z'
+++ echo 0 1 2 3 4 5 6 7 8 9 a b c d e f g h i j k l m n o p q r s t u v w x y z _A _B _C _D _E _F _G _H _I _J _K _L _M _N _O _P _Q _R _S _T _U _V _W _X _Y _Z
++ for i in '$(echo $b)'
++ echo 0
++ for j in '$b'
++ echo 00
++ for j in '$b'
++ echo 01
++ for j in '$b'
++ echo 02
++ for j in '$b'
++ echo 03
++ for j in '$b'
++ echo 04
++ for j in '$b'
++ echo 05
++ for j in '$b'
++ echo 06
++ for j in '$b'
++ echo 07
++ for j in '$b'
++ echo 08
++ for j in '$b'
++ echo 09
++ for j in '$b'
++ echo 0a
++ for j in '$b'
++ echo 0b
++ for j in '$b'
++ echo 0c
++ for j in '$b'
++ echo 0d
++ for j in '$b'
++ echo 0e
++ for j in '$b'
++ echo 0f
++ for j in '$b'
++ echo 0g
++ for j in '$b'
++ echo 0h
++ for j in '$b'
++ echo 0i
++ for j in '$b'
++ echo 0j
++ for j in '$b'
++ echo 0k
++ for j in '$b'
++ echo 0l
++ for j in '$b'
++ echo 0m
++ for j in '$b'
++ echo 0n
++ for j in '$b'
++ echo 0o
++ for j in '$b'
++ echo 0p
++ for j in '$b'
++ echo 0q
++ for j in '$b'
++ echo 0r
++ for j in '$b'
++ echo 0s
++ for j in '$b'
++ echo 0t
++ for j in '$b'
++ echo 0u
++ for j in '$b'
++ echo 0v
++ for j in '$b'
++ echo 0w
++ for j in '$b'
++ echo 0x
++ for j in '$b'
++ echo 0y
++ for j in '$b'
++ echo 0z
++ for j in '$b'
++ echo 0_A
++ for j in '$b'
++ echo 0_B
++ for j in '$b'
++ echo 0_C
++ for j in '$b'
++ echo 0_D
++ for j in '$b'
++ echo 0_E
++ for j in '$b'
++ echo 0_F
++ for j in '$b'
++ echo 0_G
++ for j in '$b'
++ echo 0_H
++ for j in '$b'
++ echo 0_I
++ for j in '$b'
++ echo 0_J
++ for j in '$b'
++ echo 0_K
++ for j in '$b'
++ echo 0_L
++ for j in '$b'
++ echo 0_M
++ for j in '$b'
++ echo 0_N
++ for j in '$b'
++ echo 0_O
++ for j in '$b'
++ echo 0_P
++ for j in '$b'
++ echo 0_Q
++ for j in '$b'
++ echo 0_R
++ for j in '$b'
++ echo 0_S
++ for j in '$b'
++ echo 0_T
++ for j in '$b'
++ echo 0_U
++ for j in '$b'
++ echo 0_V
++ for j in '$b'
++ echo 0_W
++ for j in '$b'
++ echo 0_X
++ for j in '$b'
++ echo 0_Y
++ for j in '$b'
++ echo 0_Z
++ for i in '$(echo $b)'
++ echo 1
++ for j in '$b'
++ echo 10
++ for j in '$b'
++ echo 11
++ for j in '$b'
++ echo 12
++ for j in '$b'
++ echo 13
++ for j in '$b'
++ echo 14
++ for j in '$b'
++ echo 15
++ for j in '$b'
++ echo 16
++ for j in '$b'
++ echo 17
++ for j in '$b'
++ echo 18
++ for j in '$b'
++ echo 19
++ for j in '$b'
++ echo 1a
++ for j in '$b'
++ echo 1b
++ for j in '$b'
++ echo 1c
++ for j in '$b'
++ echo 1d
++ for j in '$b'
++ echo 1e
++ for j in '$b'
++ echo 1f
++ for j in '$b'
++ echo 1g
++ for j in '$b'
++ echo 1h
++ for j in '$b'
++ echo 1i
++ for j in '$b'
++ echo 1j
++ for j in '$b'
++ echo 1k
++ for j in '$b'
++ echo 1l
++ for j in '$b'
++ echo 1m
++ for j in '$b'
++ echo 1n
++ for j in '$b'
++ echo 1o
++ for j in '$b'
++ echo 1p
++ for j in '$b'
++ echo 1q
++ for j in '$b'
++ echo 1r
++ for j in '$b'
++ echo 1s
++ for j in '$b'
++ echo 1t
++ for j in '$b'
++ echo 1u
++ for j in '$b'
++ echo 1v
++ for j in '$b'
++ echo 1w
++ for j in '$b'
++ echo 1x
++ for j in '$b'
++ echo 1y
++ for j in '$b'
++ echo 1z
++ for j in '$b'
++ echo 1_A
++ for j in '$b'
++ echo 1_B
++ for j in '$b'
++ echo 1_C
++ for j in '$b'
++ echo 1_D
++ for j in '$b'
++ echo 1_E
++ for j in '$b'
++ echo 1_F
++ for j in '$b'
++ echo 1_G
++ for j in '$b'
++ echo 1_H
++ for j in '$b'
++ echo 1_I
++ for j in '$b'
++ echo 1_J
++ for j in '$b'
++ echo 1_K
++ for j in '$b'
++ echo 1_L
++ for j in '$b'
++ echo 1_M
++ for j in '$b'
++ echo 1_N
++ for j in '$b'
++ echo 1_O
++ for j in '$b'
++ echo 1_P
++ for j in '$b'
++ echo 1_Q
++ for j in '$b'
++ echo 1_R
++ for j in '$b'
++ echo 1_S
++ for j in '$b'
++ echo 1_T
++ for j in '$b'
++ echo 1_U
++ for j in '$b'
++ echo 1_V
++ for j in '$b'
++ echo 1_W
++ for j in '$b'
++ echo 1_X
++ for j in '$b'
++ echo 1_Y
++ for j in '$b'
++ echo 1_Z
++ for i in '$(echo $b)'
++ echo 2
++ for j in '$b'
++ echo 20
++ for j in '$b'
++ echo 21
++ for j in '$b'
++ echo 22
++ for j in '$b'
++ echo 23
++ for j in '$b'
++ echo 24
++ for j in '$b'
++ echo 25
++ for j in '$b'
++ echo 26
++ for j in '$b'
++ echo 27
++ for j in '$b'
++ echo 28
++ for j in '$b'
++ echo 29
++ for j in '$b'
++ echo 2a
++ for j in '$b'
++ echo 2b
++ for j in '$b'
++ echo 2c
++ for j in '$b'
++ echo 2d
++ for j in '$b'
++ echo 2e
++ for j in '$b'
++ echo 2f
++ for j in '$b'
++ echo 2g
++ for j in '$b'
++ echo 2h
++ for j in '$b'
++ echo 2i
++ for j in '$b'
++ echo 2j
++ for j in '$b'
++ echo 2k
++ for j in '$b'
++ echo 2l
++ for j in '$b'
++ echo 2m
++ for j in '$b'
++ echo 2n
++ for j in '$b'
++ echo 2o
++ for j in '$b'
++ echo 2p
++ for j in '$b'
++ echo 2q
++ for j in '$b'
++ echo 2r
++ for j in '$b'
++ echo 2s
++ for j in '$b'
++ echo 2t
++ for j in '$b'
++ echo 2u
++ for j in '$b'
++ echo 2v
++ for j in '$b'
++ echo 2w
++ for j in '$b'
++ echo 2x
++ for j in '$b'
++ echo 2y
++ for j in '$b'
++ echo 2z
++ for j in '$b'
++ echo 2_A
++ for j in '$b'
++ echo 2_B
++ for j in '$b'
++ echo 2_C
++ for j in '$b'
++ echo 2_D
++ for j in '$b'
++ echo 2_E
++ for j in '$b'
++ echo 2_F
++ for j in '$b'
++ echo 2_G
++ for j in '$b'
++ echo 2_H
++ for j in '$b'
++ echo 2_I
++ for j in '$b'
++ echo 2_J
++ for j in '$b'
++ echo 2_K
++ for j in '$b'
++ echo 2_L
++ for j in '$b'
++ echo 2_M
++ for j in '$b'
++ echo 2_N
++ for j in '$b'
++ echo 2_O
++ for j in '$b'
++ echo 2_P
++ for j in '$b'
++ echo 2_Q
++ for j in '$b'
++ echo 2_R
++ for j in '$b'
++ echo 2_S
++ for j in '$b'
++ echo 2_T
++ for j in '$b'
++ echo 2_U
++ for j in '$b'
++ echo 2_V
++ for j in '$b'
++ echo 2_W
++ for j in '$b'
++ echo 2_X
++ for j in '$b'
++ echo 2_Y
++ for j in '$b'
++ echo 2_Z
++ for i in '$(echo $b)'
++ echo 3
++ for j in '$b'
++ echo 30
++ for j in '$b'
++ echo 31
++ for j in '$b'
++ echo 32
++ for j in '$b'
++ echo 33
++ for j in '$b'
++ echo 34
++ for j in '$b'
++ echo 35
++ for j in '$b'
++ echo 36
++ for j in '$b'
++ echo 37
++ for j in '$b'
++ echo 38
++ for j in '$b'
++ echo 39
++ for j in '$b'
++ echo 3a
++ for j in '$b'
++ echo 3b
++ for j in '$b'
++ echo 3c
++ for j in '$b'
++ echo 3d
++ for j in '$b'
++ echo 3e
++ for j in '$b'
++ echo 3f
++ for j in '$b'
++ echo 3g
++ for j in '$b'
++ echo 3h
++ for j in '$b'
++ echo 3i
++ for j in '$b'
++ echo 3j
++ for j in '$b'
++ echo 3k
++ for j in '$b'
++ echo 3l
++ for j in '$b'
++ echo 3m
++ for j in '$b'
++ echo 3n
++ for j in '$b'
++ echo 3o
++ for j in '$b'
++ echo 3p
++ for j in '$b'
++ echo 3q
++ for j in '$b'
++ echo 3r
++ for j in '$b'
++ echo 3s
++ for j in '$b'
++ echo 3t
++ for j in '$b'
++ echo 3u
++ for j in '$b'
++ echo 3v
++ for j in '$b'
++ echo 3w
++ for j in '$b'
++ echo 3x
++ for j in '$b'
++ echo 3y
++ for j in '$b'
++ echo 3z
++ for j in '$b'
++ echo 3_A
++ for j in '$b'
++ echo 3_B
++ for j in '$b'
++ echo 3_C
++ for j in '$b'
++ echo 3_D
++ for j in '$b'
++ echo 3_E
++ for j in '$b'
++ echo 3_F
++ for j in '$b'
++ echo 3_G
++ for j in '$b'
++ echo 3_H
++ for j in '$b'
++ echo 3_I
++ for j in '$b'
++ echo 3_J
++ for j in '$b'
++ echo 3_K
++ for j in '$b'
++ echo 3_L
++ for j in '$b'
++ echo 3_M
++ for j in '$b'
++ echo 3_N
++ for j in '$b'
++ echo 3_O
++ for j in '$b'
++ echo 3_P
++ for j in '$b'
++ echo 3_Q
++ for j in '$b'
++ echo 3_R
++ for j in '$b'
++ echo 3_S
++ for j in '$b'
++ echo 3_T
++ for j in '$b'
++ echo 3_U
++ for j in '$b'
++ echo 3_V
++ for j in '$b'
++ echo 3_W
++ for j in '$b'
++ echo 3_X
++ for j in '$b'
++ echo 3_Y
++ for j in '$b'
++ echo 3_Z
++ for i in '$(echo $b)'
++ echo 4
++ for j in '$b'
++ echo 40
++ for j in '$b'
++ echo 41
++ for j in '$b'
++ echo 42
++ for j in '$b'
++ echo 43
++ for j in '$b'
++ echo 44
++ for j in '$b'
++ echo 45
++ for j in '$b'
++ echo 46
++ for j in '$b'
++ echo 47
++ for j in '$b'
++ echo 48
++ for j in '$b'
++ echo 49
++ for j in '$b'
++ echo 4a
++ for j in '$b'
++ echo 4b
++ for j in '$b'
++ echo 4c
++ for j in '$b'
++ echo 4d
++ for j in '$b'
++ echo 4e
++ for j in '$b'
++ echo 4f
++ for j in '$b'
++ echo 4g
++ for j in '$b'
++ echo 4h
++ for j in '$b'
++ echo 4i
++ for j in '$b'
++ echo 4j
++ for j in '$b'
++ echo 4k
++ for j in '$b'
++ echo 4l
++ for j in '$b'
++ echo 4m
++ for j in '$b'
++ echo 4n
++ for j in '$b'
++ echo 4o
++ for j in '$b'
++ echo 4p
++ for j in '$b'
++ echo 4q
++ for j in '$b'
++ echo 4r
++ for j in '$b'
++ echo 4s
++ for j in '$b'
++ echo 4t
++ for j in '$b'
++ echo 4u
++ for j in '$b'
++ echo 4v
++ for j in '$b'
++ echo 4w
++ for j in '$b'
++ echo 4x
++ for j in '$b'
++ echo 4y
++ for j in '$b'
++ echo 4z
++ for j in '$b'
++ echo 4_A
++ for j in '$b'
++ echo 4_B
++ for j in '$b'
++ echo 4_C
++ for j in '$b'
++ echo 4_D
++ for j in '$b'
++ echo 4_E
++ for j in '$b'
++ echo 4_F
++ for j in '$b'
++ echo 4_G
++ for j in '$b'
++ echo 4_H
++ for j in '$b'
++ echo 4_I
++ for j in '$b'
++ echo 4_J
++ for j in '$b'
++ echo 4_K
++ for j in '$b'
++ echo 4_L
++ for j in '$b'
++ echo 4_M
++ for j in '$b'
++ echo 4_N
++ for j in '$b'
++ echo 4_O
++ for j in '$b'
++ echo 4_P
++ for j in '$b'
++ echo 4_Q
++ for j in '$b'
++ echo 4_R
++ for j in '$b'
++ echo 4_S
++ for j in '$b'
++ echo 4_T
++ for j in '$b'
++ echo 4_U
++ for j in '$b'
++ echo 4_V
++ for j in '$b'
++ echo 4_W
++ for j in '$b'
++ echo 4_X
++ for j in '$b'
++ echo 4_Y
++ for j in '$b'
++ echo 4_Z
++ for i in '$(echo $b)'
++ echo 5
++ for j in '$b'
++ echo 50
++ for j in '$b'
++ echo 51
++ for j in '$b'
++ echo 52
++ for j in '$b'
++ echo 53
++ for j in '$b'
++ echo 54
++ for j in '$b'
++ echo 55
++ for j in '$b'
++ echo 56
++ for j in '$b'
++ echo 57
++ for j in '$b'
++ echo 58
++ for j in '$b'
++ echo 59
++ for j in '$b'
++ echo 5a
++ for j in '$b'
++ echo 5b
++ for j in '$b'
++ echo 5c
++ for j in '$b'
++ echo 5d
++ for j in '$b'
++ echo 5e
++ for j in '$b'
++ echo 5f
++ for j in '$b'
++ echo 5g
++ for j in '$b'
++ echo 5h
++ for j in '$b'
++ echo 5i
++ for j in '$b'
++ echo 5j
++ for j in '$b'
++ echo 5k
++ for j in '$b'
++ echo 5l
++ for j in '$b'
++ echo 5m
++ for j in '$b'
++ echo 5n
++ for j in '$b'
++ echo 5o
++ for j in '$b'
++ echo 5p
++ for j in '$b'
++ echo 5q
++ for j in '$b'
++ echo 5r
++ for j in '$b'
++ echo 5s
++ for j in '$b'
++ echo 5t
++ for j in '$b'
++ echo 5u
++ for j in '$b'
++ echo 5v
++ for j in '$b'
++ echo 5w
++ for j in '$b'
++ echo 5x
++ for j in '$b'
++ echo 5y
++ for j in '$b'
++ echo 5z
++ for j in '$b'
++ echo 5_A
++ for j in '$b'
++ echo 5_B
++ for j in '$b'
++ echo 5_C
++ for j in '$b'
++ echo 5_D
++ for j in '$b'
++ echo 5_E
++ for j in '$b'
++ echo 5_F
++ for j in '$b'
++ echo 5_G
++ for j in '$b'
++ echo 5_H
++ for j in '$b'
++ echo 5_I
++ for j in '$b'
++ echo 5_J
++ for j in '$b'
++ echo 5_K
++ for j in '$b'
++ echo 5_L
++ for j in '$b'
++ echo 5_M
++ for j in '$b'
++ echo 5_N
++ for j in '$b'
++ echo 5_O
++ for j in '$b'
++ echo 5_P
++ for j in '$b'
++ echo 5_Q
++ for j in '$b'
++ echo 5_R
++ for j in '$b'
++ echo 5_S
++ for j in '$b'
++ echo 5_T
++ for j in '$b'
++ echo 5_U
++ for j in '$b'
++ echo 5_V
++ for j in '$b'
++ echo 5_W
++ for j in '$b'
++ echo 5_X
++ for j in '$b'
++ echo 5_Y
++ for j in '$b'
++ echo 5_Z
++ for i in '$(echo $b)'
++ echo 6
++ for j in '$b'
++ echo 60
++ for j in '$b'
++ echo 61
++ for j in '$b'
++ echo 62
++ for j in '$b'
++ echo 63
++ for j in '$b'
++ echo 64
++ for j in '$b'
++ echo 65
++ for j in '$b'
++ echo 66
++ for j in '$b'
++ echo 67
++ for j in '$b'
++ echo 68
++ for j in '$b'
++ echo 69
++ for j in '$b'
++ echo 6a
++ for j in '$b'
++ echo 6b
++ for j in '$b'
++ echo 6c
++ for j in '$b'
++ echo 6d
++ for j in '$b'
++ echo 6e
++ for j in '$b'
++ echo 6f
++ for j in '$b'
++ echo 6g
++ for j in '$b'
++ echo 6h
++ for j in '$b'
++ echo 6i
++ for j in '$b'
++ echo 6j
++ for j in '$b'
++ echo 6k
++ for j in '$b'
++ echo 6l
++ for j in '$b'
++ echo 6m
++ for j in '$b'
++ echo 6n
++ for j in '$b'
++ echo 6o
++ for j in '$b'
++ echo 6p
++ for j in '$b'
++ echo 6q
++ for j in '$b'
++ echo 6r
++ for j in '$b'
++ echo 6s
++ for j in '$b'
++ echo 6t
++ for j in '$b'
++ echo 6u
++ for j in '$b'
++ echo 6v
++ for j in '$b'
++ echo 6w
++ for j in '$b'
++ echo 6x
++ for j in '$b'
++ echo 6y
++ for j in '$b'
++ echo 6z
++ for j in '$b'
++ echo 6_A
++ for j in '$b'
++ echo 6_B
++ for j in '$b'
++ echo 6_C
++ for j in '$b'
++ echo 6_D
++ for j in '$b'
++ echo 6_E
++ for j in '$b'
++ echo 6_F
++ for j in '$b'
++ echo 6_G
++ for j in '$b'
++ echo 6_H
++ for j in '$b'
++ echo 6_I
++ for j in '$b'
++ echo 6_J
++ for j in '$b'
++ echo 6_K
++ for j in '$b'
++ echo 6_L
++ for j in '$b'
++ echo 6_M
++ for j in '$b'
++ echo 6_N
++ for j in '$b'
++ echo 6_O
++ for j in '$b'
++ echo 6_P
++ for j in '$b'
++ echo 6_Q
++ for j in '$b'
++ echo 6_R
++ for j in '$b'
++ echo 6_S
++ for j in '$b'
++ echo 6_T
++ for j in '$b'
++ echo 6_U
++ for j in '$b'
++ echo 6_V
++ for j in '$b'
++ echo 6_W
++ for j in '$b'
++ echo 6_X
++ for j in '$b'
++ echo 6_Y
++ for j in '$b'
++ echo 6_Z
++ for i in '$(echo $b)'
++ echo 7
++ for j in '$b'
++ echo 70
++ for j in '$b'
++ echo 71
++ for j in '$b'
++ echo 72
++ for j in '$b'
++ echo 73
++ for j in '$b'
++ echo 74
++ for j in '$b'
++ echo 75
++ for j in '$b'
++ echo 76
++ for j in '$b'
++ echo 77
++ for j in '$b'
++ echo 78
++ for j in '$b'
++ echo 79
++ for j in '$b'
++ echo 7a
++ for j in '$b'
++ echo 7b
++ for j in '$b'
++ echo 7c
++ for j in '$b'
++ echo 7d
++ for j in '$b'
++ echo 7e
++ for j in '$b'
++ echo 7f
++ for j in '$b'
++ echo 7g
++ for j in '$b'
++ echo 7h
++ for j in '$b'
++ echo 7i
++ for j in '$b'
++ echo 7j
++ for j in '$b'
++ echo 7k
++ for j in '$b'
++ echo 7l
++ for j in '$b'
++ echo 7m
++ for j in '$b'
++ echo 7n
++ for j in '$b'
++ echo 7o
++ for j in '$b'
++ echo 7p
++ for j in '$b'
++ echo 7q
++ for j in '$b'
++ echo 7r
++ for j in '$b'
++ echo 7s
++ for j in '$b'
++ echo 7t
++ for j in '$b'
++ echo 7u
++ for j in '$b'
++ echo 7v
++ for j in '$b'
++ echo 7w
++ for j in '$b'
++ echo 7x
++ for j in '$b'
++ echo 7y
++ for j in '$b'
++ echo 7z
++ for j in '$b'
++ echo 7_A
++ for j in '$b'
++ echo 7_B
++ for j in '$b'
++ echo 7_C
++ for j in '$b'
++ echo 7_D
++ for j in '$b'
++ echo 7_E
++ for j in '$b'
++ echo 7_F
++ for j in '$b'
++ echo 7_G
++ for j in '$b'
++ echo 7_H
++ for j in '$b'
++ echo 7_I
++ for j in '$b'
++ echo 7_J
++ for j in '$b'
++ echo 7_K
++ for j in '$b'
++ echo 7_L
++ for j in '$b'
++ echo 7_M
++ for j in '$b'
++ echo 7_N
++ for j in '$b'
++ echo 7_O
++ for j in '$b'
++ echo 7_P
++ for j in '$b'
++ echo 7_Q
++ for j in '$b'
++ echo 7_R
++ for j in '$b'
++ echo 7_S
++ for j in '$b'
++ echo 7_T
++ for j in '$b'
++ echo 7_U
++ for j in '$b'
++ echo 7_V
++ for j in '$b'
++ echo 7_W
++ for j in '$b'
++ echo 7_X
++ for j in '$b'
++ echo 7_Y
++ for j in '$b'
++ echo 7_Z
++ for i in '$(echo $b)'
++ echo 8
++ for j in '$b'
++ echo 80
++ for j in '$b'
++ echo 81
++ for j in '$b'
++ echo 82
++ for j in '$b'
++ echo 83
++ for j in '$b'
++ echo 84
++ for j in '$b'
++ echo 85
++ for j in '$b'
++ echo 86
++ for j in '$b'
++ echo 87
++ for j in '$b'
++ echo 88
++ for j in '$b'
++ echo 89
++ for j in '$b'
++ echo 8a
++ for j in '$b'
++ echo 8b
++ for j in '$b'
++ echo 8c
++ for j in '$b'
++ echo 8d
++ for j in '$b'
++ echo 8e
++ for j in '$b'
++ echo 8f
++ for j in '$b'
++ echo 8g
++ for j in '$b'
++ echo 8h
++ for j in '$b'
++ echo 8i
++ for j in '$b'
++ echo 8j
++ for j in '$b'
++ echo 8k
++ for j in '$b'
++ echo 8l
++ for j in '$b'
++ echo 8m
++ for j in '$b'
++ echo 8n
++ for j in '$b'
++ echo 8o
++ for j in '$b'
++ echo 8p
++ for j in '$b'
++ echo 8q
++ for j in '$b'
++ echo 8r
++ for j in '$b'
++ echo 8s
++ for j in '$b'
++ echo 8t
++ for j in '$b'
++ echo 8u
++ for j in '$b'
++ echo 8v
++ for j in '$b'
++ echo 8w
++ for j in '$b'
++ echo 8x
++ for j in '$b'
++ echo 8y
++ for j in '$b'
++ echo 8z
++ for j in '$b'
++ echo 8_A
++ for j in '$b'
++ echo 8_B
++ for j in '$b'
++ echo 8_C
++ for j in '$b'
++ echo 8_D
++ for j in '$b'
++ echo 8_E
++ for j in '$b'
++ echo 8_F
++ for j in '$b'
++ echo 8_G
++ for j in '$b'
++ echo 8_H
++ for j in '$b'
++ echo 8_I
++ for j in '$b'
++ echo 8_J
++ for j in '$b'
++ echo 8_K
++ for j in '$b'
++ echo 8_L
++ for j in '$b'
++ echo 8_M
++ for j in '$b'
++ echo 8_N
++ for j in '$b'
++ echo 8_O
++ for j in '$b'
++ echo 8_P
++ for j in '$b'
++ echo 8_Q
++ for j in '$b'
++ echo 8_R
++ for j in '$b'
++ echo 8_S
++ for j in '$b'
++ echo 8_T
++ for j in '$b'
++ echo 8_U
++ for j in '$b'
++ echo 8_V
++ for j in '$b'
++ echo 8_W
++ for j in '$b'
++ echo 8_X
++ for j in '$b'
++ echo 8_Y
++ for j in '$b'
++ echo 8_Z
++ for i in '$(echo $b)'
++ echo 9
++ for j in '$b'
++ echo 90
++ for j in '$b'
++ echo 91
++ for j in '$b'
++ echo 92
++ for j in '$b'
++ echo 93
++ for j in '$b'
++ echo 94
++ for j in '$b'
++ echo 95
++ for j in '$b'
++ echo 96
++ for j in '$b'
++ echo 97
++ for j in '$b'
++ echo 98
++ for j in '$b'
++ echo 99
++ for j in '$b'
++ echo 9a
++ for j in '$b'
++ echo 9b
++ for j in '$b'
++ echo 9c
++ for j in '$b'
++ echo 9d
++ for j in '$b'
++ echo 9e
++ for j in '$b'
++ echo 9f
++ for j in '$b'
++ echo 9g
++ for j in '$b'
++ echo 9h
++ for j in '$b'
++ echo 9i
++ for j in '$b'
++ echo 9j
++ for j in '$b'
++ echo 9k
++ for j in '$b'
++ echo 9l
++ for j in '$b'
++ echo 9m
++ for j in '$b'
++ echo 9n
++ for j in '$b'
++ echo 9o
++ for j in '$b'
++ echo 9p
++ for j in '$b'
++ echo 9q
++ for j in '$b'
++ echo 9r
++ for j in '$b'
++ echo 9s
++ for j in '$b'
++ echo 9t
++ for j in '$b'
++ echo 9u
++ for j in '$b'
++ echo 9v
++ for j in '$b'
++ echo 9w
++ for j in '$b'
++ echo 9x
++ for j in '$b'
++ echo 9y
++ for j in '$b'
++ echo 9z
++ for j in '$b'
++ echo 9_A
++ for j in '$b'
++ echo 9_B
++ for j in '$b'
++ echo 9_C
++ for j in '$b'
++ echo 9_D
++ for j in '$b'
++ echo 9_E
++ for j in '$b'
++ echo 9_F
++ for j in '$b'
++ echo 9_G
++ for j in '$b'
++ echo 9_H
++ for j in '$b'
++ echo 9_I
++ for j in '$b'
++ echo 9_J
++ for j in '$b'
++ echo 9_K
++ for j in '$b'
++ echo 9_L
++ for j in '$b'
++ echo 9_M
++ for j in '$b'
++ echo 9_N
++ for j in '$b'
++ echo 9_O
++ for j in '$b'
++ echo 9_P
++ for j in '$b'
++ echo 9_Q
++ for j in '$b'
++ echo 9_R
++ for j in '$b'
++ echo 9_S
++ for j in '$b'
++ echo 9_T
++ for j in '$b'
++ echo 9_U
++ for j in '$b'
++ echo 9_V
++ for j in '$b'
++ echo 9_W
++ for j in '$b'
++ echo 9_X
++ for j in '$b'
++ echo 9_Y
++ for j in '$b'
++ echo 9_Z
++ for i in '$(echo $b)'
++ echo a
++ for j in '$b'
++ echo a0
++ for j in '$b'
++ echo a1
++ for j in '$b'
++ echo a2
++ for j in '$b'
++ echo a3
++ for j in '$b'
++ echo a4
++ for j in '$b'
++ echo a5
++ for j in '$b'
++ echo a6
++ for j in '$b'
++ echo a7
++ for j in '$b'
++ echo a8
++ for j in '$b'
++ echo a9
++ for j in '$b'
++ echo aa
++ for j in '$b'
++ echo ab
++ for j in '$b'
++ echo ac
++ for j in '$b'
++ echo ad
++ for j in '$b'
++ echo ae
++ for j in '$b'
++ echo af
++ for j in '$b'
++ echo ag
++ for j in '$b'
++ echo ah
++ for j in '$b'
++ echo ai
++ for j in '$b'
++ echo aj
++ for j in '$b'
++ echo ak
++ for j in '$b'
++ echo al
++ for j in '$b'
++ echo am
++ for j in '$b'
++ echo an
++ for j in '$b'
++ echo ao
++ for j in '$b'
++ echo ap
++ for j in '$b'
++ echo aq
++ for j in '$b'
++ echo ar
++ for j in '$b'
++ echo as
++ for j in '$b'
++ echo at
++ for j in '$b'
++ echo au
++ for j in '$b'
++ echo av
++ for j in '$b'
++ echo aw
++ for j in '$b'
++ echo ax
++ for j in '$b'
++ echo ay
++ for j in '$b'
++ echo az
++ for j in '$b'
++ echo a_A
++ for j in '$b'
++ echo a_B
++ for j in '$b'
++ echo a_C
++ for j in '$b'
++ echo a_D
++ for j in '$b'
++ echo a_E
++ for j in '$b'
++ echo a_F
++ for j in '$b'
++ echo a_G
++ for j in '$b'
++ echo a_H
++ for j in '$b'
++ echo a_I
++ for j in '$b'
++ echo a_J
++ for j in '$b'
++ echo a_K
++ for j in '$b'
++ echo a_L
++ for j in '$b'
++ echo a_M
++ for j in '$b'
++ echo a_N
++ for j in '$b'
++ echo a_O
++ for j in '$b'
++ echo a_P
++ for j in '$b'
++ echo a_Q
++ for j in '$b'
++ echo a_R
++ for j in '$b'
++ echo a_S
++ for j in '$b'
++ echo a_T
++ for j in '$b'
++ echo a_U
++ for j in '$b'
++ echo a_V
++ for j in '$b'
++ echo a_W
++ for j in '$b'
++ echo a_X
++ for j in '$b'
++ echo a_Y
++ for j in '$b'
++ echo a_Z
++ for i in '$(echo $b)'
++ echo b
++ for j in '$b'
++ echo b0
++ for j in '$b'
++ echo b1
++ for j in '$b'
++ echo b2
++ for j in '$b'
++ echo b3
++ for j in '$b'
++ echo b4
++ for j in '$b'
++ echo b5
++ for j in '$b'
++ echo b6
++ for j in '$b'
++ echo b7
++ for j in '$b'
++ echo b8
++ for j in '$b'
++ echo b9
++ for j in '$b'
++ echo ba
++ for j in '$b'
++ echo bb
++ for j in '$b'
++ echo bc
++ for j in '$b'
++ echo bd
++ for j in '$b'
++ echo be
++ for j in '$b'
++ echo bf
++ for j in '$b'
++ echo bg
++ for j in '$b'
++ echo bh
++ for j in '$b'
++ echo bi
++ for j in '$b'
++ echo bj
++ for j in '$b'
++ echo bk
++ for j in '$b'
++ echo bl
++ for j in '$b'
++ echo bm
++ for j in '$b'
++ echo bn
++ for j in '$b'
++ echo bo
++ for j in '$b'
++ echo bp
++ for j in '$b'
++ echo bq
++ for j in '$b'
++ echo br
++ for j in '$b'
++ echo bs
++ for j in '$b'
++ echo bt
++ for j in '$b'
++ echo bu
++ for j in '$b'
++ echo bv
++ for j in '$b'
++ echo bw
++ for j in '$b'
++ echo bx
++ for j in '$b'
++ echo by
++ for j in '$b'
++ echo bz
++ for j in '$b'
++ echo b_A
++ for j in '$b'
++ echo b_B
++ for j in '$b'
++ echo b_C
++ for j in '$b'
++ echo b_D
++ for j in '$b'
++ echo b_E
++ for j in '$b'
++ echo b_F
++ for j in '$b'
++ echo b_G
++ for j in '$b'
++ echo b_H
++ for j in '$b'
++ echo b_I
++ for j in '$b'
++ echo b_J
++ for j in '$b'
++ echo b_K
++ for j in '$b'
++ echo b_L
++ for j in '$b'
++ echo b_M
++ for j in '$b'
++ echo b_N
++ for j in '$b'
++ echo b_O
++ for j in '$b'
++ echo b_P
++ for j in '$b'
++ echo b_Q
++ for j in '$b'
++ echo b_R
++ for j in '$b'
++ echo b_S
++ for j in '$b'
++ echo b_T
++ for j in '$b'
++ echo b_U
++ for j in '$b'
++ echo b_V
++ for j in '$b'
++ echo b_W
++ for j in '$b'
++ echo b_X
++ for j in '$b'
++ echo b_Y
++ for j in '$b'
++ echo b_Z
++ for i in '$(echo $b)'
++ echo c
++ for j in '$b'
++ echo c0
++ for j in '$b'
++ echo c1
++ for j in '$b'
++ echo c2
++ for j in '$b'
++ echo c3
++ for j in '$b'
++ echo c4
++ for j in '$b'
++ echo c5
++ for j in '$b'
++ echo c6
++ for j in '$b'
++ echo c7
++ for j in '$b'
++ echo c8
++ for j in '$b'
++ echo c9
++ for j in '$b'
++ echo ca
++ for j in '$b'
++ echo cb
++ for j in '$b'
++ echo cc
++ for j in '$b'
++ echo cd
++ for j in '$b'
++ echo ce
++ for j in '$b'
++ echo cf
++ for j in '$b'
++ echo cg
++ for j in '$b'
++ echo ch
++ for j in '$b'
++ echo ci
++ for j in '$b'
++ echo cj
++ for j in '$b'
++ echo ck
++ for j in '$b'
++ echo cl
++ for j in '$b'
++ echo cm
++ for j in '$b'
++ echo cn
++ for j in '$b'
++ echo co
++ for j in '$b'
++ echo cp
++ for j in '$b'
++ echo cq
++ for j in '$b'
++ echo cr
++ for j in '$b'
++ echo cs
++ for j in '$b'
++ echo ct
++ for j in '$b'
++ echo cu
++ for j in '$b'
++ echo cv
++ for j in '$b'
++ echo cw
++ for j in '$b'
++ echo cx
++ for j in '$b'
++ echo cy
++ for j in '$b'
++ echo cz
++ for j in '$b'
++ echo c_A
++ for j in '$b'
++ echo c_B
++ for j in '$b'
++ echo c_C
++ for j in '$b'
++ echo c_D
++ for j in '$b'
++ echo c_E
++ for j in '$b'
++ echo c_F
++ for j in '$b'
++ echo c_G
++ for j in '$b'
++ echo c_H
++ for j in '$b'
++ echo c_I
++ for j in '$b'
++ echo c_J
++ for j in '$b'
++ echo c_K
++ for j in '$b'
++ echo c_L
++ for j in '$b'
++ echo c_M
++ for j in '$b'
++ echo c_N
++ for j in '$b'
++ echo c_O
++ for j in '$b'
++ echo c_P
++ for j in '$b'
++ echo c_Q
++ for j in '$b'
++ echo c_R
++ for j in '$b'
++ echo c_S
++ for j in '$b'
++ echo c_T
++ for j in '$b'
++ echo c_U
++ for j in '$b'
++ echo c_V
++ for j in '$b'
++ echo c_W
++ for j in '$b'
++ echo c_X
++ for j in '$b'
++ echo c_Y
++ for j in '$b'
++ echo c_Z
++ for i in '$(echo $b)'
++ echo d
++ for j in '$b'
++ echo d0
++ for j in '$b'
++ echo d1
++ for j in '$b'
++ echo d2
++ for j in '$b'
++ echo d3
++ for j in '$b'
++ echo d4
++ for j in '$b'
++ echo d5
++ for j in '$b'
++ echo d6
++ for j in '$b'
++ echo d7
++ for j in '$b'
++ echo d8
++ for j in '$b'
++ echo d9
++ for j in '$b'
++ echo da
++ for j in '$b'
++ echo db
++ for j in '$b'
++ echo dc
++ for j in '$b'
++ echo dd
++ for j in '$b'
++ echo de
++ for j in '$b'
++ echo df
++ for j in '$b'
++ echo dg
++ for j in '$b'
++ echo dh
++ for j in '$b'
++ echo di
++ for j in '$b'
++ echo dj
++ for j in '$b'
++ echo dk
++ for j in '$b'
++ echo dl
++ for j in '$b'
++ echo dm
++ for j in '$b'
++ echo dn
++ for j in '$b'
++ echo do
++ for j in '$b'
++ echo dp
++ for j in '$b'
++ echo dq
++ for j in '$b'
++ echo dr
++ for j in '$b'
++ echo ds
++ for j in '$b'
++ echo dt
++ for j in '$b'
++ echo du
++ for j in '$b'
++ echo dv
++ for j in '$b'
++ echo dw
++ for j in '$b'
++ echo dx
++ for j in '$b'
++ echo dy
++ for j in '$b'
++ echo dz
++ for j in '$b'
++ echo d_A
++ for j in '$b'
++ echo d_B
++ for j in '$b'
++ echo d_C
++ for j in '$b'
++ echo d_D
++ for j in '$b'
++ echo d_E
++ for j in '$b'
++ echo d_F
++ for j in '$b'
++ echo d_G
++ for j in '$b'
++ echo d_H
++ for j in '$b'
++ echo d_I
++ for j in '$b'
++ echo d_J
++ for j in '$b'
++ echo d_K
++ for j in '$b'
++ echo d_L
++ for j in '$b'
++ echo d_M
++ for j in '$b'
++ echo d_N
++ for j in '$b'
++ echo d_O
++ for j in '$b'
++ echo d_P
++ for j in '$b'
++ echo d_Q
++ for j in '$b'
++ echo d_R
++ for j in '$b'
++ echo d_S
++ for j in '$b'
++ echo d_T
++ for j in '$b'
++ echo d_U
++ for j in '$b'
++ echo d_V
++ for j in '$b'
++ echo d_W
++ for j in '$b'
++ echo d_X
++ for j in '$b'
++ echo d_Y
++ for j in '$b'
++ echo d_Z
++ for i in '$(echo $b)'
++ echo e
++ for j in '$b'
++ echo e0
++ for j in '$b'
++ echo e1
++ for j in '$b'
++ echo e2
++ for j in '$b'
++ echo e3
++ for j in '$b'
++ echo e4
++ for j in '$b'
++ echo e5
++ for j in '$b'
++ echo e6
++ for j in '$b'
++ echo e7
++ for j in '$b'
++ echo e8
++ for j in '$b'
++ echo e9
++ for j in '$b'
++ echo ea
++ for j in '$b'
++ echo eb
++ for j in '$b'
++ echo ec
++ for j in '$b'
++ echo ed
++ for j in '$b'
++ echo ee
++ for j in '$b'
++ echo ef
++ for j in '$b'
++ echo eg
++ for j in '$b'
++ echo eh
++ for j in '$b'
++ echo ei
++ for j in '$b'
++ echo ej
++ for j in '$b'
++ echo ek
++ for j in '$b'
++ echo el
++ for j in '$b'
++ echo em
++ for j in '$b'
++ echo en
++ for j in '$b'
++ echo eo
++ for j in '$b'
++ echo ep
++ for j in '$b'
++ echo eq
++ for j in '$b'
++ echo er
++ for j in '$b'
++ echo es
++ for j in '$b'
++ echo et
++ for j in '$b'
++ echo eu
++ for j in '$b'
++ echo ev
++ for j in '$b'
++ echo ew
++ for j in '$b'
++ echo ex
++ for j in '$b'
++ echo ey
++ for j in '$b'
++ echo ez
++ for j in '$b'
++ echo e_A
++ for j in '$b'
++ echo e_B
++ for j in '$b'
++ echo e_C
++ for j in '$b'
++ echo e_D
++ for j in '$b'
++ echo e_E
++ for j in '$b'
++ echo e_F
++ for j in '$b'
++ echo e_G
++ for j in '$b'
++ echo e_H
++ for j in '$b'
++ echo e_I
++ for j in '$b'
++ echo e_J
++ for j in '$b'
++ echo e_K
++ for j in '$b'
++ echo e_L
++ for j in '$b'
++ echo e_M
++ for j in '$b'
++ echo e_N
++ for j in '$b'
++ echo e_O
++ for j in '$b'
++ echo e_P
++ for j in '$b'
++ echo e_Q
++ for j in '$b'
++ echo e_R
++ for j in '$b'
++ echo e_S
++ for j in '$b'
++ echo e_T
++ for j in '$b'
++ echo e_U
++ for j in '$b'
++ echo e_V
++ for j in '$b'
++ echo e_W
++ for j in '$b'
++ echo e_X
++ for j in '$b'
++ echo e_Y
++ for j in '$b'
++ echo e_Z
++ for i in '$(echo $b)'
++ echo f
++ for j in '$b'
++ echo f0
++ for j in '$b'
++ echo f1
++ for j in '$b'
++ echo f2
++ for j in '$b'
++ echo f3
++ for j in '$b'
++ echo f4
++ for j in '$b'
++ echo f5
++ for j in '$b'
++ echo f6
++ for j in '$b'
++ echo f7
++ for j in '$b'
++ echo f8
++ for j in '$b'
++ echo f9
++ for j in '$b'
++ echo fa
++ for j in '$b'
++ echo fb
++ for j in '$b'
++ echo fc
++ for j in '$b'
++ echo fd
++ for j in '$b'
++ echo fe
++ for j in '$b'
++ echo ff
++ for j in '$b'
++ echo fg
++ for j in '$b'
++ echo fh
++ for j in '$b'
++ echo fi
++ for j in '$b'
++ echo fj
++ for j in '$b'
++ echo fk
++ for j in '$b'
++ echo fl
++ for j in '$b'
++ echo fm
++ for j in '$b'
++ echo fn
++ for j in '$b'
++ echo fo
++ for j in '$b'
++ echo fp
++ for j in '$b'
++ echo fq
++ for j in '$b'
++ echo fr
++ for j in '$b'
++ echo fs
++ for j in '$b'
++ echo ft
++ for j in '$b'
++ echo fu
++ for j in '$b'
++ echo fv
++ for j in '$b'
++ echo fw
++ for j in '$b'
++ echo fx
++ for j in '$b'
++ echo fy
++ for j in '$b'
++ echo fz
++ for j in '$b'
++ echo f_A
++ for j in '$b'
++ echo f_B
++ for j in '$b'
++ echo f_C
++ for j in '$b'
++ echo f_D
++ for j in '$b'
++ echo f_E
++ for j in '$b'
++ echo f_F
++ for j in '$b'
++ echo f_G
++ for j in '$b'
++ echo f_H
++ for j in '$b'
++ echo f_I
++ for j in '$b'
++ echo f_J
++ for j in '$b'
++ echo f_K
++ for j in '$b'
++ echo f_L
++ for j in '$b'
++ echo f_M
++ for j in '$b'
++ echo f_N
++ for j in '$b'
++ echo f_O
++ for j in '$b'
++ echo f_P
++ for j in '$b'
++ echo f_Q
++ for j in '$b'
++ echo f_R
++ for j in '$b'
++ echo f_S
++ for j in '$b'
++ echo f_T
++ for j in '$b'
++ echo f_U
++ for j in '$b'
++ echo f_V
++ for j in '$b'
++ echo f_W
++ for j in '$b'
++ echo f_X
++ for j in '$b'
++ echo f_Y
++ for j in '$b'
++ echo f_Z
++ for i in '$(echo $b)'
++ echo g
++ for j in '$b'
++ echo g0
++ for j in '$b'
++ echo g1
++ for j in '$b'
++ echo g2
++ for j in '$b'
++ echo g3
++ for j in '$b'
++ echo g4
++ for j in '$b'
++ echo g5
++ for j in '$b'
++ echo g6
++ for j in '$b'
++ echo g7
++ for j in '$b'
++ echo g8
++ for j in '$b'
++ echo g9
++ for j in '$b'
++ echo ga
++ for j in '$b'
++ echo gb
++ for j in '$b'
++ echo gc
++ for j in '$b'
++ echo gd
++ for j in '$b'
++ echo ge
++ for j in '$b'
++ echo gf
++ for j in '$b'
++ echo gg
++ for j in '$b'
++ echo gh
++ for j in '$b'
++ echo gi
++ for j in '$b'
++ echo gj
++ for j in '$b'
++ echo gk
++ for j in '$b'
++ echo gl
++ for j in '$b'
++ echo gm
++ for j in '$b'
++ echo gn
++ for j in '$b'
++ echo go
++ for j in '$b'
++ echo gp
++ for j in '$b'
++ echo gq
++ for j in '$b'
++ echo gr
++ for j in '$b'
++ echo gs
++ for j in '$b'
++ echo gt
++ for j in '$b'
++ echo gu
++ for j in '$b'
++ echo gv
++ for j in '$b'
++ echo gw
++ for j in '$b'
++ echo gx
++ for j in '$b'
++ echo gy
++ for j in '$b'
++ echo gz
++ for j in '$b'
++ echo g_A
++ for j in '$b'
++ echo g_B
++ for j in '$b'
++ echo g_C
++ for j in '$b'
++ echo g_D
++ for j in '$b'
++ echo g_E
++ for j in '$b'
++ echo g_F
++ for j in '$b'
++ echo g_G
++ for j in '$b'
++ echo g_H
++ for j in '$b'
++ echo g_I
++ for j in '$b'
++ echo g_J
++ for j in '$b'
++ echo g_K
++ for j in '$b'
++ echo g_L
++ for j in '$b'
++ echo g_M
++ for j in '$b'
++ echo g_N
++ for j in '$b'
++ echo g_O
++ for j in '$b'
++ echo g_P
++ for j in '$b'
++ echo g_Q
++ for j in '$b'
++ echo g_R
++ for j in '$b'
++ echo g_S
++ for j in '$b'
++ echo g_T
++ for j in '$b'
++ echo g_U
++ for j in '$b'
++ echo g_V
++ for j in '$b'
++ echo g_W
++ for j in '$b'
++ echo g_X
++ for j in '$b'
++ echo g_Y
++ for j in '$b'
++ echo g_Z
++ for i in '$(echo $b)'
++ echo h
++ for j in '$b'
++ echo h0
++ for j in '$b'
++ echo h1
++ for j in '$b'
++ echo h2
++ for j in '$b'
++ echo h3
++ for j in '$b'
++ echo h4
++ for j in '$b'
++ echo h5
++ for j in '$b'
++ echo h6
++ for j in '$b'
++ echo h7
++ for j in '$b'
++ echo h8
++ for j in '$b'
++ echo h9
++ for j in '$b'
++ echo ha
++ for j in '$b'
++ echo hb
++ for j in '$b'
++ echo hc
++ for j in '$b'
++ echo hd
++ for j in '$b'
++ echo he
++ for j in '$b'
++ echo hf
++ for j in '$b'
++ echo hg
++ for j in '$b'
++ echo hh
++ for j in '$b'
++ echo hi
++ for j in '$b'
++ echo hj
++ for j in '$b'
++ echo hk
++ for j in '$b'
++ echo hl
++ for j in '$b'
++ echo hm
++ for j in '$b'
++ echo hn
++ for j in '$b'
++ echo ho
++ for j in '$b'
++ echo hp
++ for j in '$b'
++ echo hq
++ for j in '$b'
++ echo hr
++ for j in '$b'
++ echo hs
++ for j in '$b'
++ echo ht
++ for j in '$b'
++ echo hu
++ for j in '$b'
++ echo hv
++ for j in '$b'
++ echo hw
++ for j in '$b'
++ echo hx
++ for j in '$b'
++ echo hy
++ for j in '$b'
++ echo hz
++ for j in '$b'
++ echo h_A
++ for j in '$b'
++ echo h_B
++ for j in '$b'
++ echo h_C
++ for j in '$b'
++ echo h_D
++ for j in '$b'
++ echo h_E
++ for j in '$b'
++ echo h_F
++ for j in '$b'
++ echo h_G
++ for j in '$b'
++ echo h_H
++ for j in '$b'
++ echo h_I
++ for j in '$b'
++ echo h_J
++ for j in '$b'
++ echo h_K
++ for j in '$b'
++ echo h_L
++ for j in '$b'
++ echo h_M
++ for j in '$b'
++ echo h_N
++ for j in '$b'
++ echo h_O
++ for j in '$b'
++ echo h_P
++ for j in '$b'
++ echo h_Q
++ for j in '$b'
++ echo h_R
++ for j in '$b'
++ echo h_S
++ for j in '$b'
++ echo h_T
++ for j in '$b'
++ echo h_U
++ for j in '$b'
++ echo h_V
++ for j in '$b'
++ echo h_W
++ for j in '$b'
++ echo h_X
++ for j in '$b'
++ echo h_Y
++ for j in '$b'
++ echo h_Z
++ for i in '$(echo $b)'
++ echo i
++ for j in '$b'
++ echo i0
++ for j in '$b'
++ echo i1
++ for j in '$b'
++ echo i2
++ for j in '$b'
++ echo i3
++ for j in '$b'
++ echo i4
++ for j in '$b'
++ echo i5
++ for j in '$b'
++ echo i6
++ for j in '$b'
++ echo i7
++ for j in '$b'
++ echo i8
++ for j in '$b'
++ echo i9
++ for j in '$b'
++ echo ia
++ for j in '$b'
++ echo ib
++ for j in '$b'
++ echo ic
++ for j in '$b'
++ echo id
++ for j in '$b'
++ echo ie
++ for j in '$b'
++ echo if
++ for j in '$b'
++ echo ig
++ for j in '$b'
++ echo ih
++ for j in '$b'
++ echo ii
++ for j in '$b'
++ echo ij
++ for j in '$b'
++ echo ik
++ for j in '$b'
++ echo il
++ for j in '$b'
++ echo im
++ for j in '$b'
++ echo in
++ for j in '$b'
++ echo io
++ for j in '$b'
++ echo ip
++ for j in '$b'
++ echo iq
++ for j in '$b'
++ echo ir
++ for j in '$b'
++ echo is
++ for j in '$b'
++ echo it
++ for j in '$b'
++ echo iu
++ for j in '$b'
++ echo iv
++ for j in '$b'
++ echo iw
++ for j in '$b'
++ echo ix
++ for j in '$b'
++ echo iy
++ for j in '$b'
++ echo iz
++ for j in '$b'
++ echo i_A
++ for j in '$b'
++ echo i_B
++ for j in '$b'
++ echo i_C
++ for j in '$b'
++ echo i_D
++ for j in '$b'
++ echo i_E
++ for j in '$b'
++ echo i_F
++ for j in '$b'
++ echo i_G
++ for j in '$b'
++ echo i_H
++ for j in '$b'
++ echo i_I
++ for j in '$b'
++ echo i_J
++ for j in '$b'
++ echo i_K
++ for j in '$b'
++ echo i_L
++ for j in '$b'
++ echo i_M
++ for j in '$b'
++ echo i_N
++ for j in '$b'
++ echo i_O
++ for j in '$b'
++ echo i_P
++ for j in '$b'
++ echo i_Q
++ for j in '$b'
++ echo i_R
++ for j in '$b'
++ echo i_S
++ for j in '$b'
++ echo i_T
++ for j in '$b'
++ echo i_U
++ for j in '$b'
++ echo i_V
++ for j in '$b'
++ echo i_W
++ for j in '$b'
++ echo i_X
++ for j in '$b'
++ echo i_Y
++ for j in '$b'
++ echo i_Z
++ for i in '$(echo $b)'
++ echo j
++ for j in '$b'
++ echo j0
++ for j in '$b'
++ echo j1
++ for j in '$b'
++ echo j2
++ for j in '$b'
++ echo j3
++ for j in '$b'
++ echo j4
++ for j in '$b'
++ echo j5
++ for j in '$b'
++ echo j6
++ for j in '$b'
++ echo j7
++ for j in '$b'
++ echo j8
++ for j in '$b'
++ echo j9
++ for j in '$b'
++ echo ja
++ for j in '$b'
++ echo jb
++ for j in '$b'
++ echo jc
++ for j in '$b'
++ echo jd
++ for j in '$b'
++ echo je
++ for j in '$b'
++ echo jf
++ for j in '$b'
++ echo jg
++ for j in '$b'
++ echo jh
++ for j in '$b'
++ echo ji
++ for j in '$b'
++ echo jj
++ for j in '$b'
++ echo jk
++ for j in '$b'
++ echo jl
++ for j in '$b'
++ echo jm
++ for j in '$b'
++ echo jn
++ for j in '$b'
++ echo jo
++ for j in '$b'
++ echo jp
++ for j in '$b'
++ echo jq
++ for j in '$b'
++ echo jr
++ for j in '$b'
++ echo js
++ for j in '$b'
++ echo jt
++ for j in '$b'
++ echo ju
++ for j in '$b'
++ echo jv
++ for j in '$b'
++ echo jw
++ for j in '$b'
++ echo jx
++ for j in '$b'
++ echo jy
++ for j in '$b'
++ echo jz
++ for j in '$b'
++ echo j_A
++ for j in '$b'
++ echo j_B
++ for j in '$b'
++ echo j_C
++ for j in '$b'
++ echo j_D
++ for j in '$b'
++ echo j_E
++ for j in '$b'
++ echo j_F
++ for j in '$b'
++ echo j_G
++ for j in '$b'
++ echo j_H
++ for j in '$b'
++ echo j_I
++ for j in '$b'
++ echo j_J
++ for j in '$b'
++ echo j_K
++ for j in '$b'
++ echo j_L
++ for j in '$b'
++ echo j_M
++ for j in '$b'
++ echo j_N
++ for j in '$b'
++ echo j_O
++ for j in '$b'
++ echo j_P
++ for j in '$b'
++ echo j_Q
++ for j in '$b'
++ echo j_R
++ for j in '$b'
++ echo j_S
++ for j in '$b'
++ echo j_T
++ for j in '$b'
++ echo j_U
++ for j in '$b'
++ echo j_V
++ for j in '$b'
++ echo j_W
++ for j in '$b'
++ echo j_X
++ for j in '$b'
++ echo j_Y
++ for j in '$b'
++ echo j_Z
++ for i in '$(echo $b)'
++ echo k
++ for j in '$b'
++ echo k0
++ for j in '$b'
++ echo k1
++ for j in '$b'
++ echo k2
++ for j in '$b'
++ echo k3
++ for j in '$b'
++ echo k4
++ for j in '$b'
++ echo k5
++ for j in '$b'
++ echo k6
++ for j in '$b'
++ echo k7
++ for j in '$b'
++ echo k8
++ for j in '$b'
++ echo k9
++ for j in '$b'
++ echo ka
++ for j in '$b'
++ echo kb
++ for j in '$b'
++ echo kc
++ for j in '$b'
++ echo kd
++ for j in '$b'
++ echo ke
++ for j in '$b'
++ echo kf
++ for j in '$b'
++ echo kg
++ for j in '$b'
++ echo kh
++ for j in '$b'
++ echo ki
++ for j in '$b'
++ echo kj
++ for j in '$b'
++ echo kk
++ for j in '$b'
++ echo kl
++ for j in '$b'
++ echo km
++ for j in '$b'
++ echo kn
++ for j in '$b'
++ echo ko
++ for j in '$b'
++ echo kp
++ for j in '$b'
++ echo kq
++ for j in '$b'
++ echo kr
++ for j in '$b'
++ echo ks
++ for j in '$b'
++ echo kt
++ for j in '$b'
++ echo ku
++ for j in '$b'
++ echo kv
++ for j in '$b'
++ echo kw
++ for j in '$b'
++ echo kx
++ for j in '$b'
++ echo ky
++ for j in '$b'
++ echo kz
++ for j in '$b'
++ echo k_A
++ for j in '$b'
++ echo k_B
++ for j in '$b'
++ echo k_C
++ for j in '$b'
++ echo k_D
++ for j in '$b'
++ echo k_E
++ for j in '$b'
++ echo k_F
++ for j in '$b'
++ echo k_G
++ for j in '$b'
++ echo k_H
++ for j in '$b'
++ echo k_I
++ for j in '$b'
++ echo k_J
++ for j in '$b'
++ echo k_K
++ for j in '$b'
++ echo k_L
++ for j in '$b'
++ echo k_M
++ for j in '$b'
++ echo k_N
++ for j in '$b'
++ echo k_O
++ for j in '$b'
++ echo k_P
++ for j in '$b'
++ echo k_Q
++ for j in '$b'
++ echo k_R
++ for j in '$b'
++ echo k_S
++ for j in '$b'
++ echo k_T
++ for j in '$b'
++ echo k_U
++ for j in '$b'
++ echo k_V
++ for j in '$b'
++ echo k_W
++ for j in '$b'
++ echo k_X
++ for j in '$b'
++ echo k_Y
++ for j in '$b'
++ echo k_Z
++ for i in '$(echo $b)'
++ echo l
++ for j in '$b'
++ echo l0
++ for j in '$b'
++ echo l1
++ for j in '$b'
++ echo l2
++ for j in '$b'
++ echo l3
++ for j in '$b'
++ echo l4
++ for j in '$b'
++ echo l5
++ for j in '$b'
++ echo l6
++ for j in '$b'
++ echo l7
++ for j in '$b'
++ echo l8
++ for j in '$b'
++ echo l9
++ for j in '$b'
++ echo la
++ for j in '$b'
++ echo lb
++ for j in '$b'
++ echo lc
++ for j in '$b'
++ echo ld
++ for j in '$b'
++ echo le
++ for j in '$b'
++ echo lf
++ for j in '$b'
++ echo lg
++ for j in '$b'
++ echo lh
++ for j in '$b'
++ echo li
++ for j in '$b'
++ echo lj
++ for j in '$b'
++ echo lk
++ for j in '$b'
++ echo ll
++ for j in '$b'
++ echo lm
++ for j in '$b'
++ echo ln
++ for j in '$b'
++ echo lo
++ for j in '$b'
++ echo lp
++ for j in '$b'
++ echo lq
++ for j in '$b'
++ echo lr
++ for j in '$b'
++ echo ls
++ for j in '$b'
++ echo lt
++ for j in '$b'
++ echo lu
++ for j in '$b'
++ echo lv
++ for j in '$b'
++ echo lw
++ for j in '$b'
++ echo lx
++ for j in '$b'
++ echo ly
++ for j in '$b'
++ echo lz
++ for j in '$b'
++ echo l_A
++ for j in '$b'
++ echo l_B
++ for j in '$b'
++ echo l_C
++ for j in '$b'
++ echo l_D
++ for j in '$b'
++ echo l_E
++ for j in '$b'
++ echo l_F
++ for j in '$b'
++ echo l_G
++ for j in '$b'
++ echo l_H
++ for j in '$b'
++ echo l_I
++ for j in '$b'
++ echo l_J
++ for j in '$b'
++ echo l_K
++ for j in '$b'
++ echo l_L
++ for j in '$b'
++ echo l_M
++ for j in '$b'
++ echo l_N
++ for j in '$b'
++ echo l_O
++ for j in '$b'
++ echo l_P
++ for j in '$b'
++ echo l_Q
++ for j in '$b'
++ echo l_R
++ for j in '$b'
++ echo l_S
++ for j in '$b'
++ echo l_T
++ for j in '$b'
++ echo l_U
++ for j in '$b'
++ echo l_V
++ for j in '$b'
++ echo l_W
++ for j in '$b'
++ echo l_X
++ for j in '$b'
++ echo l_Y
++ for j in '$b'
++ echo l_Z
++ for i in '$(echo $b)'
++ echo m
++ for j in '$b'
++ echo m0
++ for j in '$b'
++ echo m1
++ for j in '$b'
++ echo m2
++ for j in '$b'
++ echo m3
++ for j in '$b'
++ echo m4
++ for j in '$b'
++ echo m5
++ for j in '$b'
++ echo m6
++ for j in '$b'
++ echo m7
++ for j in '$b'
++ echo m8
++ for j in '$b'
++ echo m9
++ for j in '$b'
++ echo ma
++ for j in '$b'
++ echo mb
++ for j in '$b'
++ echo mc
++ for j in '$b'
++ echo md
++ for j in '$b'
++ echo me
++ for j in '$b'
++ echo mf
++ for j in '$b'
++ echo mg
++ for j in '$b'
++ echo mh
++ for j in '$b'
++ echo mi
++ for j in '$b'
++ echo mj
++ for j in '$b'
++ echo mk
++ for j in '$b'
++ echo ml
++ for j in '$b'
++ echo mm
++ for j in '$b'
++ echo mn
++ for j in '$b'
++ echo mo
++ for j in '$b'
++ echo mp
++ for j in '$b'
++ echo mq
++ for j in '$b'
++ echo mr
++ for j in '$b'
++ echo ms
++ for j in '$b'
++ echo mt
++ for j in '$b'
++ echo mu
++ for j in '$b'
++ echo mv
++ for j in '$b'
++ echo mw
++ for j in '$b'
++ echo mx
++ for j in '$b'
++ echo my
++ for j in '$b'
++ echo mz
++ for j in '$b'
++ echo m_A
++ for j in '$b'
++ echo m_B
++ for j in '$b'
++ echo m_C
++ for j in '$b'
++ echo m_D
++ for j in '$b'
++ echo m_E
++ for j in '$b'
++ echo m_F
++ for j in '$b'
++ echo m_G
++ for j in '$b'
++ echo m_H
++ for j in '$b'
++ echo m_I
++ for j in '$b'
++ echo m_J
++ for j in '$b'
++ echo m_K
++ for j in '$b'
++ echo m_L
++ for j in '$b'
++ echo m_M
++ for j in '$b'
++ echo m_N
++ for j in '$b'
++ echo m_O
++ for j in '$b'
++ echo m_P
++ for j in '$b'
++ echo m_Q
++ for j in '$b'
++ echo m_R
++ for j in '$b'
++ echo m_S
++ for j in '$b'
++ echo m_T
++ for j in '$b'
++ echo m_U
++ for j in '$b'
++ echo m_V
++ for j in '$b'
++ echo m_W
++ for j in '$b'
++ echo m_X
++ for j in '$b'
++ echo m_Y
++ for j in '$b'
++ echo m_Z
++ for i in '$(echo $b)'
++ echo n
++ for j in '$b'
++ echo n0
++ for j in '$b'
++ echo n1
++ for j in '$b'
++ echo n2
++ for j in '$b'
++ echo n3
++ for j in '$b'
++ echo n4
++ for j in '$b'
++ echo n5
++ for j in '$b'
++ echo n6
++ for j in '$b'
++ echo n7
++ for j in '$b'
++ echo n8
++ for j in '$b'
++ echo n9
++ for j in '$b'
++ echo na
++ for j in '$b'
++ echo nb
++ for j in '$b'
++ echo nc
++ for j in '$b'
++ echo nd
++ for j in '$b'
++ echo ne
++ for j in '$b'
++ echo nf
++ for j in '$b'
++ echo ng
++ for j in '$b'
++ echo nh
++ for j in '$b'
++ echo ni
++ for j in '$b'
++ echo nj
++ for j in '$b'
++ echo nk
++ for j in '$b'
++ echo nl
++ for j in '$b'
++ echo nm
++ for j in '$b'
++ echo nn
++ for j in '$b'
++ echo no
++ for j in '$b'
++ echo np
++ for j in '$b'
++ echo nq
++ for j in '$b'
++ echo nr
++ for j in '$b'
++ echo ns
++ for j in '$b'
++ echo nt
++ for j in '$b'
++ echo nu
++ for j in '$b'
++ echo nv
++ for j in '$b'
++ echo nw
++ for j in '$b'
++ echo nx
++ for j in '$b'
++ echo ny
++ for j in '$b'
++ echo nz
++ for j in '$b'
++ echo n_A
++ for j in '$b'
++ echo n_B
++ for j in '$b'
++ echo n_C
++ for j in '$b'
++ echo n_D
++ for j in '$b'
++ echo n_E
++ for j in '$b'
++ echo n_F
++ for j in '$b'
++ echo n_G
++ for j in '$b'
++ echo n_H
++ for j in '$b'
++ echo n_I
++ for j in '$b'
++ echo n_J
++ for j in '$b'
++ echo n_K
++ for j in '$b'
++ echo n_L
++ for j in '$b'
++ echo n_M
++ for j in '$b'
++ echo n_N
++ for j in '$b'
++ echo n_O
++ for j in '$b'
++ echo n_P
++ for j in '$b'
++ echo n_Q
++ for j in '$b'
++ echo n_R
++ for j in '$b'
++ echo n_S
++ for j in '$b'
++ echo n_T
++ for j in '$b'
++ echo n_U
++ for j in '$b'
++ echo n_V
++ for j in '$b'
++ echo n_W
++ for j in '$b'
++ echo n_X
++ for j in '$b'
++ echo n_Y
++ for j in '$b'
++ echo n_Z
++ for i in '$(echo $b)'
++ echo o
++ for j in '$b'
++ echo o0
++ for j in '$b'
++ echo o1
++ for j in '$b'
++ echo o2
++ for j in '$b'
++ echo o3
++ for j in '$b'
++ echo o4
++ for j in '$b'
++ echo o5
++ for j in '$b'
++ echo o6
++ for j in '$b'
++ echo o7
++ for j in '$b'
++ echo o8
++ for j in '$b'
++ echo o9
++ for j in '$b'
++ echo oa
++ for j in '$b'
++ echo ob
++ for j in '$b'
++ echo oc
++ for j in '$b'
++ echo od
++ for j in '$b'
++ echo oe
++ for j in '$b'
++ echo of
++ for j in '$b'
++ echo og
++ for j in '$b'
++ echo oh
++ for j in '$b'
++ echo oi
++ for j in '$b'
++ echo oj
++ for j in '$b'
++ echo ok
++ for j in '$b'
++ echo ol
++ for j in '$b'
++ echo om
++ for j in '$b'
++ echo on
++ for j in '$b'
++ echo oo
++ for j in '$b'
++ echo op
++ for j in '$b'
++ echo oq
++ for j in '$b'
++ echo or
++ for j in '$b'
++ echo os
++ for j in '$b'
++ echo ot
++ for j in '$b'
++ echo ou
++ for j in '$b'
++ echo ov
++ for j in '$b'
++ echo ow
++ for j in '$b'
++ echo ox
++ for j in '$b'
++ echo oy
++ for j in '$b'
++ echo oz
++ for j in '$b'
++ echo o_A
++ for j in '$b'
++ echo o_B
++ for j in '$b'
++ echo o_C
++ for j in '$b'
++ echo o_D
++ for j in '$b'
++ echo o_E
++ for j in '$b'
++ echo o_F
++ for j in '$b'
++ echo o_G
++ for j in '$b'
++ echo o_H
++ for j in '$b'
++ echo o_I
++ for j in '$b'
++ echo o_J
++ for j in '$b'
++ echo o_K
++ for j in '$b'
++ echo o_L
++ for j in '$b'
++ echo o_M
++ for j in '$b'
++ echo o_N
++ for j in '$b'
++ echo o_O
++ for j in '$b'
++ echo o_P
++ for j in '$b'
++ echo o_Q
++ for j in '$b'
++ echo o_R
++ for j in '$b'
++ echo o_S
++ for j in '$b'
++ echo o_T
++ for j in '$b'
++ echo o_U
++ for j in '$b'
++ echo o_V
++ for j in '$b'
++ echo o_W
++ for j in '$b'
++ echo o_X
++ for j in '$b'
++ echo o_Y
++ for j in '$b'
++ echo o_Z
++ for i in '$(echo $b)'
++ echo p
++ for j in '$b'
++ echo p0
++ for j in '$b'
++ echo p1
++ for j in '$b'
++ echo p2
++ for j in '$b'
++ echo p3
++ for j in '$b'
++ echo p4
++ for j in '$b'
++ echo p5
++ for j in '$b'
++ echo p6
++ for j in '$b'
++ echo p7
++ for j in '$b'
++ echo p8
++ for j in '$b'
++ echo p9
++ for j in '$b'
++ echo pa
++ for j in '$b'
++ echo pb
++ for j in '$b'
++ echo pc
++ for j in '$b'
++ echo pd
++ for j in '$b'
++ echo pe
++ for j in '$b'
++ echo pf
++ for j in '$b'
++ echo pg
++ for j in '$b'
++ echo ph
++ for j in '$b'
++ echo pi
++ for j in '$b'
++ echo pj
++ for j in '$b'
++ echo pk
++ for j in '$b'
++ echo pl
++ for j in '$b'
++ echo pm
++ for j in '$b'
++ echo pn
++ for j in '$b'
++ echo po
++ for j in '$b'
++ echo pp
++ for j in '$b'
++ echo pq
++ for j in '$b'
++ echo pr
++ for j in '$b'
++ echo ps
++ for j in '$b'
++ echo pt
++ for j in '$b'
++ echo pu
++ for j in '$b'
++ echo pv
++ for j in '$b'
++ echo pw
++ for j in '$b'
++ echo px
++ for j in '$b'
++ echo py
++ for j in '$b'
++ echo pz
++ for j in '$b'
++ echo p_A
++ for j in '$b'
++ echo p_B
++ for j in '$b'
++ echo p_C
++ for j in '$b'
++ echo p_D
++ for j in '$b'
++ echo p_E
++ for j in '$b'
++ echo p_F
++ for j in '$b'
++ echo p_G
++ for j in '$b'
++ echo p_H
++ for j in '$b'
++ echo p_I
++ for j in '$b'
++ echo p_J
++ for j in '$b'
++ echo p_K
++ for j in '$b'
++ echo p_L
++ for j in '$b'
++ echo p_M
++ for j in '$b'
++ echo p_N
++ for j in '$b'
++ echo p_O
++ for j in '$b'
++ echo p_P
++ for j in '$b'
++ echo p_Q
++ for j in '$b'
++ echo p_R
++ for j in '$b'
++ echo p_S
++ for j in '$b'
++ echo p_T
++ for j in '$b'
++ echo p_U
++ for j in '$b'
++ echo p_V
++ for j in '$b'
++ echo p_W
++ for j in '$b'
++ echo p_X
++ for j in '$b'
++ echo p_Y
++ for j in '$b'
++ echo p_Z
++ for i in '$(echo $b)'
++ echo q
++ for j in '$b'
++ echo q0
++ for j in '$b'
++ echo q1
++ for j in '$b'
++ echo q2
++ for j in '$b'
++ echo q3
++ for j in '$b'
++ echo q4
++ for j in '$b'
++ echo q5
++ for j in '$b'
++ echo q6
++ for j in '$b'
++ echo q7
++ for j in '$b'
++ echo q8
++ for j in '$b'
++ echo q9
++ for j in '$b'
++ echo qa
++ for j in '$b'
++ echo qb
++ for j in '$b'
++ echo qc
++ for j in '$b'
++ echo qd
++ for j in '$b'
++ echo qe
++ for j in '$b'
++ echo qf
++ for j in '$b'
++ echo qg
++ for j in '$b'
++ echo qh
++ for j in '$b'
++ echo qi
++ for j in '$b'
++ echo qj
++ for j in '$b'
++ echo qk
++ for j in '$b'
++ echo ql
++ for j in '$b'
++ echo qm
++ for j in '$b'
++ echo qn
++ for j in '$b'
++ echo qo
++ for j in '$b'
++ echo qp
++ for j in '$b'
++ echo qq
++ for j in '$b'
++ echo qr
++ for j in '$b'
++ echo qs
++ for j in '$b'
++ echo qt
++ for j in '$b'
++ echo qu
++ for j in '$b'
++ echo qv
++ for j in '$b'
++ echo qw
++ for j in '$b'
++ echo qx
++ for j in '$b'
++ echo qy
++ for j in '$b'
++ echo qz
++ for j in '$b'
++ echo q_A
++ for j in '$b'
++ echo q_B
++ for j in '$b'
++ echo q_C
++ for j in '$b'
++ echo q_D
++ for j in '$b'
++ echo q_E
++ for j in '$b'
++ echo q_F
++ for j in '$b'
++ echo q_G
++ for j in '$b'
++ echo q_H
++ for j in '$b'
++ echo q_I
++ for j in '$b'
++ echo q_J
++ for j in '$b'
++ echo q_K
++ for j in '$b'
++ echo q_L
++ for j in '$b'
++ echo q_M
++ for j in '$b'
++ echo q_N
++ for j in '$b'
++ echo q_O
++ for j in '$b'
++ echo q_P
++ for j in '$b'
++ echo q_Q
++ for j in '$b'
++ echo q_R
++ for j in '$b'
++ echo q_S
++ for j in '$b'
++ echo q_T
++ for j in '$b'
++ echo q_U
++ for j in '$b'
++ echo q_V
++ for j in '$b'
++ echo q_W
++ for j in '$b'
++ echo q_X
++ for j in '$b'
++ echo q_Y
++ for j in '$b'
++ echo q_Z
++ for i in '$(echo $b)'
++ echo r
++ for j in '$b'
++ echo r0
++ for j in '$b'
++ echo r1
++ for j in '$b'
++ echo r2
++ for j in '$b'
++ echo r3
++ for j in '$b'
++ echo r4
++ for j in '$b'
++ echo r5
++ for j in '$b'
++ echo r6
++ for j in '$b'
++ echo r7
++ for j in '$b'
++ echo r8
++ for j in '$b'
++ echo r9
++ for j in '$b'
++ echo ra
++ for j in '$b'
++ echo rb
++ for j in '$b'
++ echo rc
++ for j in '$b'
++ echo rd
++ for j in '$b'
++ echo re
++ for j in '$b'
++ echo rf
++ for j in '$b'
++ echo rg
++ for j in '$b'
++ echo rh
++ for j in '$b'
++ echo ri
++ for j in '$b'
++ echo rj
++ for j in '$b'
++ echo rk
++ for j in '$b'
++ echo rl
++ for j in '$b'
++ echo rm
++ for j in '$b'
++ echo rn
++ for j in '$b'
++ echo ro
++ for j in '$b'
++ echo rp
++ for j in '$b'
++ echo rq
++ for j in '$b'
++ echo rr
++ for j in '$b'
++ echo rs
++ for j in '$b'
++ echo rt
++ for j in '$b'
++ echo ru
++ for j in '$b'
++ echo rv
++ for j in '$b'
++ echo rw
++ for j in '$b'
++ echo rx
++ for j in '$b'
++ echo ry
++ for j in '$b'
++ echo rz
++ for j in '$b'
++ echo r_A
++ for j in '$b'
++ echo r_B
++ for j in '$b'
++ echo r_C
++ for j in '$b'
++ echo r_D
++ for j in '$b'
++ echo r_E
++ for j in '$b'
++ echo r_F
++ for j in '$b'
++ echo r_G
++ for j in '$b'
++ echo r_H
++ for j in '$b'
++ echo r_I
++ for j in '$b'
++ echo r_J
++ for j in '$b'
++ echo r_K
++ for j in '$b'
++ echo r_L
++ for j in '$b'
++ echo r_M
++ for j in '$b'
++ echo r_N
++ for j in '$b'
++ echo r_O
++ for j in '$b'
++ echo r_P
++ for j in '$b'
++ echo r_Q
++ for j in '$b'
++ echo r_R
++ for j in '$b'
++ echo r_S
++ for j in '$b'
++ echo r_T
++ for j in '$b'
++ echo r_U
++ for j in '$b'
++ echo r_V
++ for j in '$b'
++ echo r_W
++ for j in '$b'
++ echo r_X
++ for j in '$b'
++ echo r_Y
++ for j in '$b'
++ echo r_Z
++ for i in '$(echo $b)'
++ echo s
++ for j in '$b'
++ echo s0
++ for j in '$b'
++ echo s1
++ for j in '$b'
++ echo s2
++ for j in '$b'
++ echo s3
++ for j in '$b'
++ echo s4
++ for j in '$b'
++ echo s5
++ for j in '$b'
++ echo s6
++ for j in '$b'
++ echo s7
++ for j in '$b'
++ echo s8
++ for j in '$b'
++ echo s9
++ for j in '$b'
++ echo sa
++ for j in '$b'
++ echo sb
++ for j in '$b'
++ echo sc
++ for j in '$b'
++ echo sd
++ for j in '$b'
++ echo se
++ for j in '$b'
++ echo sf
++ for j in '$b'
++ echo sg
++ for j in '$b'
++ echo sh
++ for j in '$b'
++ echo si
++ for j in '$b'
++ echo sj
++ for j in '$b'
++ echo sk
++ for j in '$b'
++ echo sl
++ for j in '$b'
++ echo sm
++ for j in '$b'
++ echo sn
++ for j in '$b'
++ echo so
++ for j in '$b'
++ echo sp
++ for j in '$b'
++ echo sq
++ for j in '$b'
++ echo sr
++ for j in '$b'
++ echo ss
++ for j in '$b'
++ echo st
++ for j in '$b'
++ echo su
++ for j in '$b'
++ echo sv
++ for j in '$b'
++ echo sw
++ for j in '$b'
++ echo sx
++ for j in '$b'
++ echo sy
++ for j in '$b'
++ echo sz
++ for j in '$b'
++ echo s_A
++ for j in '$b'
++ echo s_B
++ for j in '$b'
++ echo s_C
++ for j in '$b'
++ echo s_D
++ for j in '$b'
++ echo s_E
++ for j in '$b'
++ echo s_F
++ for j in '$b'
++ echo s_G
++ for j in '$b'
++ echo s_H
++ for j in '$b'
++ echo s_I
++ for j in '$b'
++ echo s_J
++ for j in '$b'
++ echo s_K
++ for j in '$b'
++ echo s_L
++ for j in '$b'
++ echo s_M
++ for j in '$b'
++ echo s_N
++ for j in '$b'
++ echo s_O
++ for j in '$b'
++ echo s_P
++ for j in '$b'
++ echo s_Q
++ for j in '$b'
++ echo s_R
++ for j in '$b'
++ echo s_S
++ for j in '$b'
++ echo s_T
++ for j in '$b'
++ echo s_U
++ for j in '$b'
++ echo s_V
++ for j in '$b'
++ echo s_W
++ for j in '$b'
++ echo s_X
++ for j in '$b'
++ echo s_Y
++ for j in '$b'
++ echo s_Z
++ for i in '$(echo $b)'
++ echo t
++ for j in '$b'
++ echo t0
++ for j in '$b'
++ echo t1
++ for j in '$b'
++ echo t2
++ for j in '$b'
++ echo t3
++ for j in '$b'
++ echo t4
++ for j in '$b'
++ echo t5
++ for j in '$b'
++ echo t6
++ for j in '$b'
++ echo t7
++ for j in '$b'
++ echo t8
++ for j in '$b'
++ echo t9
++ for j in '$b'
++ echo ta
++ for j in '$b'
++ echo tb
++ for j in '$b'
++ echo tc
++ for j in '$b'
++ echo td
++ for j in '$b'
++ echo te
++ for j in '$b'
++ echo tf
++ for j in '$b'
++ echo tg
++ for j in '$b'
++ echo th
++ for j in '$b'
++ echo ti
++ for j in '$b'
++ echo tj
++ for j in '$b'
++ echo tk
++ for j in '$b'
++ echo tl
++ for j in '$b'
++ echo tm
++ for j in '$b'
++ echo tn
++ for j in '$b'
++ echo to
++ for j in '$b'
++ echo tp
++ for j in '$b'
++ echo tq
++ for j in '$b'
++ echo tr
++ for j in '$b'
++ echo ts
++ for j in '$b'
++ echo tt
++ for j in '$b'
++ echo tu
++ for j in '$b'
++ echo tv
++ for j in '$b'
++ echo tw
++ for j in '$b'
++ echo tx
++ for j in '$b'
++ echo ty
++ for j in '$b'
++ echo tz
++ for j in '$b'
++ echo t_A
++ for j in '$b'
++ echo t_B
++ for j in '$b'
++ echo t_C
++ for j in '$b'
++ echo t_D
++ for j in '$b'
++ echo t_E
++ for j in '$b'
++ echo t_F
++ for j in '$b'
++ echo t_G
++ for j in '$b'
++ echo t_H
++ for j in '$b'
++ echo t_I
++ for j in '$b'
++ echo t_J
++ for j in '$b'
++ echo t_K
++ for j in '$b'
++ echo t_L
++ for j in '$b'
++ echo t_M
++ for j in '$b'
++ echo t_N
++ for j in '$b'
++ echo t_O
++ for j in '$b'
++ echo t_P
++ for j in '$b'
++ echo t_Q
++ for j in '$b'
++ echo t_R
++ for j in '$b'
++ echo t_S
++ for j in '$b'
++ echo t_T
++ for j in '$b'
++ echo t_U
++ for j in '$b'
++ echo t_V
++ for j in '$b'
++ echo t_W
++ for j in '$b'
++ echo t_X
++ for j in '$b'
++ echo t_Y
++ for j in '$b'
++ echo t_Z
++ for i in '$(echo $b)'
++ echo u
++ for j in '$b'
++ echo u0
++ for j in '$b'
++ echo u1
++ for j in '$b'
++ echo u2
++ for j in '$b'
++ echo u3
++ for j in '$b'
++ echo u4
++ for j in '$b'
++ echo u5
++ for j in '$b'
++ echo u6
++ for j in '$b'
++ echo u7
++ for j in '$b'
++ echo u8
++ for j in '$b'
++ echo u9
++ for j in '$b'
++ echo ua
++ for j in '$b'
++ echo ub
++ for j in '$b'
++ echo uc
++ for j in '$b'
++ echo ud
++ for j in '$b'
++ echo ue
++ for j in '$b'
++ echo uf
++ for j in '$b'
++ echo ug
++ for j in '$b'
++ echo uh
++ for j in '$b'
++ echo ui
++ for j in '$b'
++ echo uj
++ for j in '$b'
++ echo uk
++ for j in '$b'
++ echo ul
++ for j in '$b'
++ echo um
++ for j in '$b'
++ echo un
++ for j in '$b'
++ echo uo
++ for j in '$b'
++ echo up
++ for j in '$b'
++ echo uq
++ for j in '$b'
++ echo ur
++ for j in '$b'
++ echo us
++ for j in '$b'
++ echo ut
++ for j in '$b'
++ echo uu
++ for j in '$b'
++ echo uv
++ for j in '$b'
++ echo uw
++ for j in '$b'
++ echo ux
++ for j in '$b'
++ echo uy
++ for j in '$b'
++ echo uz
++ for j in '$b'
++ echo u_A
++ for j in '$b'
++ echo u_B
++ for j in '$b'
++ echo u_C
++ for j in '$b'
++ echo u_D
++ for j in '$b'
++ echo u_E
++ for j in '$b'
++ echo u_F
++ for j in '$b'
++ echo u_G
++ for j in '$b'
++ echo u_H
++ for j in '$b'
++ echo u_I
++ for j in '$b'
++ echo u_J
++ for j in '$b'
++ echo u_K
++ for j in '$b'
++ echo u_L
++ for j in '$b'
++ echo u_M
++ for j in '$b'
++ echo u_N
++ for j in '$b'
++ echo u_O
++ for j in '$b'
++ echo u_P
++ for j in '$b'
++ echo u_Q
++ for j in '$b'
++ echo u_R
++ for j in '$b'
++ echo u_S
++ for j in '$b'
++ echo u_T
++ for j in '$b'
++ echo u_U
++ for j in '$b'
++ echo u_V
++ for j in '$b'
++ echo u_W
++ for j in '$b'
++ echo u_X
++ for j in '$b'
++ echo u_Y
++ for j in '$b'
++ echo u_Z
++ for i in '$(echo $b)'
++ echo v
++ for j in '$b'
++ echo v0
++ for j in '$b'
++ echo v1
++ for j in '$b'
++ echo v2
++ for j in '$b'
++ echo v3
++ for j in '$b'
++ echo v4
++ for j in '$b'
++ echo v5
++ for j in '$b'
++ echo v6
++ for j in '$b'
++ echo v7
++ for j in '$b'
++ echo v8
++ for j in '$b'
++ echo v9
++ for j in '$b'
++ echo va
++ for j in '$b'
++ echo vb
++ for j in '$b'
++ echo vc
++ for j in '$b'
++ echo vd
++ for j in '$b'
++ echo ve
++ for j in '$b'
++ echo vf
++ for j in '$b'
++ echo vg
++ for j in '$b'
++ echo vh
++ for j in '$b'
++ echo vi
++ for j in '$b'
++ echo vj
++ for j in '$b'
++ echo vk
++ for j in '$b'
++ echo vl
++ for j in '$b'
++ echo vm
++ for j in '$b'
++ echo vn
++ for j in '$b'
++ echo vo
++ for j in '$b'
++ echo vp
++ for j in '$b'
++ echo vq
++ for j in '$b'
++ echo vr
++ for j in '$b'
++ echo vs
++ for j in '$b'
++ echo vt
++ for j in '$b'
++ echo vu
++ for j in '$b'
++ echo vv
++ for j in '$b'
++ echo vw
++ for j in '$b'
++ echo vx
++ for j in '$b'
++ echo vy
++ for j in '$b'
++ echo vz
++ for j in '$b'
++ echo v_A
++ for j in '$b'
++ echo v_B
++ for j in '$b'
++ echo v_C
++ for j in '$b'
++ echo v_D
++ for j in '$b'
++ echo v_E
++ for j in '$b'
++ echo v_F
++ for j in '$b'
++ echo v_G
++ for j in '$b'
++ echo v_H
++ for j in '$b'
++ echo v_I
++ for j in '$b'
++ echo v_J
++ for j in '$b'
++ echo v_K
++ for j in '$b'
++ echo v_L
++ for j in '$b'
++ echo v_M
++ for j in '$b'
++ echo v_N
++ for j in '$b'
++ echo v_O
++ for j in '$b'
++ echo v_P
++ for j in '$b'
++ echo v_Q
++ for j in '$b'
++ echo v_R
++ for j in '$b'
++ echo v_S
++ for j in '$b'
++ echo v_T
++ for j in '$b'
++ echo v_U
++ for j in '$b'
++ echo v_V
++ for j in '$b'
++ echo v_W
++ for j in '$b'
++ echo v_X
++ for j in '$b'
++ echo v_Y
++ for j in '$b'
++ echo v_Z
++ for i in '$(echo $b)'
++ echo w
++ for j in '$b'
++ echo w0
++ for j in '$b'
++ echo w1
++ for j in '$b'
++ echo w2
++ for j in '$b'
++ echo w3
++ for j in '$b'
++ echo w4
++ for j in '$b'
++ echo w5
++ for j in '$b'
++ echo w6
++ for j in '$b'
++ echo w7
++ for j in '$b'
++ echo w8
++ for j in '$b'
++ echo w9
++ for j in '$b'
++ echo wa
++ for j in '$b'
++ echo wb
++ for j in '$b'
++ echo wc
++ for j in '$b'
++ echo wd
++ for j in '$b'
++ echo we
++ for j in '$b'
++ echo wf
++ for j in '$b'
++ echo wg
++ for j in '$b'
++ echo wh
++ for j in '$b'
++ echo wi
++ for j in '$b'
++ echo wj
++ for j in '$b'
++ echo wk
++ for j in '$b'
++ echo wl
++ for j in '$b'
++ echo wm
++ for j in '$b'
++ echo wn
++ for j in '$b'
++ echo wo
++ for j in '$b'
++ echo wp
++ for j in '$b'
++ echo wq
++ for j in '$b'
++ echo wr
++ for j in '$b'
++ echo ws
++ for j in '$b'
++ echo wt
++ for j in '$b'
++ echo wu
++ for j in '$b'
++ echo wv
++ for j in '$b'
++ echo ww
++ for j in '$b'
++ echo wx
++ for j in '$b'
++ echo wy
++ for j in '$b'
++ echo wz
++ for j in '$b'
++ echo w_A
++ for j in '$b'
++ echo w_B
++ for j in '$b'
++ echo w_C
++ for j in '$b'
++ echo w_D
++ for j in '$b'
++ echo w_E
++ for j in '$b'
++ echo w_F
++ for j in '$b'
++ echo w_G
++ for j in '$b'
++ echo w_H
++ for j in '$b'
++ echo w_I
++ for j in '$b'
++ echo w_J
++ for j in '$b'
++ echo w_K
++ for j in '$b'
++ echo w_L
++ for j in '$b'
++ echo w_M
++ for j in '$b'
++ echo w_N
++ for j in '$b'
++ echo w_O
++ for j in '$b'
++ echo w_P
++ for j in '$b'
++ echo w_Q
++ for j in '$b'
++ echo w_R
++ for j in '$b'
++ echo w_S
++ for j in '$b'
++ echo w_T
++ for j in '$b'
++ echo w_U
++ for j in '$b'
++ echo w_V
++ for j in '$b'
++ echo w_W
++ for j in '$b'
++ echo w_X
++ for j in '$b'
++ echo w_Y
++ for j in '$b'
++ echo w_Z
++ for i in '$(echo $b)'
++ echo x
++ for j in '$b'
++ echo x0
++ for j in '$b'
++ echo x1
++ for j in '$b'
++ echo x2
++ for j in '$b'
++ echo x3
++ for j in '$b'
++ echo x4
++ for j in '$b'
++ echo x5
++ for j in '$b'
++ echo x6
++ for j in '$b'
++ echo x7
++ for j in '$b'
++ echo x8
++ for j in '$b'
++ echo x9
++ for j in '$b'
++ echo xa
++ for j in '$b'
++ echo xb
++ for j in '$b'
++ echo xc
++ for j in '$b'
++ echo xd
++ for j in '$b'
++ echo xe
++ for j in '$b'
++ echo xf
++ for j in '$b'
++ echo xg
++ for j in '$b'
++ echo xh
++ for j in '$b'
++ echo xi
++ for j in '$b'
++ echo xj
++ for j in '$b'
++ echo xk
++ for j in '$b'
++ echo xl
++ for j in '$b'
++ echo xm
++ for j in '$b'
++ echo xn
++ for j in '$b'
++ echo xo
++ for j in '$b'
++ echo xp
++ for j in '$b'
++ echo xq
++ for j in '$b'
++ echo xr
++ for j in '$b'
++ echo xs
++ for j in '$b'
++ echo xt
++ for j in '$b'
++ echo xu
++ for j in '$b'
++ echo xv
++ for j in '$b'
++ echo xw
++ for j in '$b'
++ echo xx
++ for j in '$b'
++ echo xy
++ for j in '$b'
++ echo xz
++ for j in '$b'
++ echo x_A
++ for j in '$b'
++ echo x_B
++ for j in '$b'
++ echo x_C
++ for j in '$b'
++ echo x_D
++ for j in '$b'
++ echo x_E
++ for j in '$b'
++ echo x_F
++ for j in '$b'
++ echo x_G
++ for j in '$b'
++ echo x_H
++ for j in '$b'
++ echo x_I
++ for j in '$b'
++ echo x_J
++ for j in '$b'
++ echo x_K
++ for j in '$b'
++ echo x_L
++ for j in '$b'
++ echo x_M
++ for j in '$b'
++ echo x_N
++ for j in '$b'
++ echo x_O
++ for j in '$b'
++ echo x_P
++ for j in '$b'
++ echo x_Q
++ for j in '$b'
++ echo x_R
++ for j in '$b'
++ echo x_S
++ for j in '$b'
++ echo x_T
++ for j in '$b'
++ echo x_U
++ for j in '$b'
++ echo x_V
++ for j in '$b'
++ echo x_W
++ for j in '$b'
++ echo x_X
++ for j in '$b'
++ echo x_Y
++ for j in '$b'
++ echo x_Z
++ for i in '$(echo $b)'
++ echo y
++ for j in '$b'
++ echo y0
++ for j in '$b'
++ echo y1
++ for j in '$b'
++ echo y2
++ for j in '$b'
++ echo y3
++ for j in '$b'
++ echo y4
++ for j in '$b'
++ echo y5
++ for j in '$b'
++ echo y6
++ for j in '$b'
++ echo y7
++ for j in '$b'
++ echo y8
++ for j in '$b'
++ echo y9
++ for j in '$b'
++ echo ya
++ for j in '$b'
++ echo yb
++ for j in '$b'
++ echo yc
++ for j in '$b'
++ echo yd
++ for j in '$b'
++ echo ye
++ for j in '$b'
++ echo yf
++ for j in '$b'
++ echo yg
++ for j in '$b'
++ echo yh
++ for j in '$b'
++ echo yi
++ for j in '$b'
++ echo yj
++ for j in '$b'
++ echo yk
++ for j in '$b'
++ echo yl
++ for j in '$b'
++ echo ym
++ for j in '$b'
++ echo yn
++ for j in '$b'
++ echo yo
++ for j in '$b'
++ echo yp
++ for j in '$b'
++ echo yq
++ for j in '$b'
++ echo yr
++ for j in '$b'
++ echo ys
++ for j in '$b'
++ echo yt
++ for j in '$b'
++ echo yu
++ for j in '$b'
++ echo yv
++ for j in '$b'
++ echo yw
++ for j in '$b'
++ echo yx
++ for j in '$b'
++ echo yy
++ for j in '$b'
++ echo yz
++ for j in '$b'
++ echo y_A
++ for j in '$b'
++ echo y_B
++ for j in '$b'
++ echo y_C
++ for j in '$b'
++ echo y_D
++ for j in '$b'
++ echo y_E
++ for j in '$b'
++ echo y_F
++ for j in '$b'
++ echo y_G
++ for j in '$b'
++ echo y_H
++ for j in '$b'
++ echo y_I
++ for j in '$b'
++ echo y_J
++ for j in '$b'
++ echo y_K
++ for j in '$b'
++ echo y_L
++ for j in '$b'
++ echo y_M
++ for j in '$b'
++ echo y_N
++ for j in '$b'
++ echo y_O
++ for j in '$b'
++ echo y_P
++ for j in '$b'
++ echo y_Q
++ for j in '$b'
++ echo y_R
++ for j in '$b'
++ echo y_S
++ for j in '$b'
++ echo y_T
++ for j in '$b'
++ echo y_U
++ for j in '$b'
++ echo y_V
++ for j in '$b'
++ echo y_W
++ for j in '$b'
++ echo y_X
++ for j in '$b'
++ echo y_Y
++ for j in '$b'
++ echo y_Z
++ for i in '$(echo $b)'
++ echo z
++ for j in '$b'
++ echo z0
++ for j in '$b'
++ echo z1
++ for j in '$b'
++ echo z2
++ for j in '$b'
++ echo z3
++ for j in '$b'
++ echo z4
++ for j in '$b'
++ echo z5
++ for j in '$b'
++ echo z6
++ for j in '$b'
++ echo z7
++ for j in '$b'
++ echo z8
++ for j in '$b'
++ echo z9
++ for j in '$b'
++ echo za
++ for j in '$b'
++ echo zb
++ for j in '$b'
++ echo zc
++ for j in '$b'
++ echo zd
++ for j in '$b'
++ echo ze
++ for j in '$b'
++ echo zf
++ for j in '$b'
++ echo zg
++ for j in '$b'
++ echo zh
++ for j in '$b'
++ echo zi
++ for j in '$b'
++ echo zj
++ for j in '$b'
++ echo zk
++ for j in '$b'
++ echo zl
++ for j in '$b'
++ echo zm
++ for j in '$b'
++ echo zn
++ for j in '$b'
++ echo zo
++ for j in '$b'
++ echo zp
++ for j in '$b'
++ echo zq
++ for j in '$b'
++ echo zr
++ for j in '$b'
++ echo zs
++ for j in '$b'
++ echo zt
++ for j in '$b'
++ echo zu
++ for j in '$b'
++ echo zv
++ for j in '$b'
++ echo zw
++ for j in '$b'
++ echo zx
++ for j in '$b'
++ echo zy
++ for j in '$b'
++ echo zz
++ for j in '$b'
++ echo z_A
++ for j in '$b'
++ echo z_B
++ for j in '$b'
++ echo z_C
++ for j in '$b'
++ echo z_D
++ for j in '$b'
++ echo z_E
++ for j in '$b'
++ echo z_F
++ for j in '$b'
++ echo z_G
++ for j in '$b'
++ echo z_H
++ for j in '$b'
++ echo z_I
++ for j in '$b'
++ echo z_J
++ for j in '$b'
++ echo z_K
++ for j in '$b'
++ echo z_L
++ for j in '$b'
++ echo z_M
++ for j in '$b'
++ echo z_N
++ for j in '$b'
++ echo z_O
++ for j in '$b'
++ echo z_P
++ for j in '$b'
++ echo z_Q
++ for j in '$b'
++ echo z_R
++ for j in '$b'
++ echo z_S
++ for j in '$b'
++ echo z_T
++ for j in '$b'
++ echo z_U
++ for j in '$b'
++ echo z_V
++ for j in '$b'
++ echo z_W
++ for j in '$b'
++ echo z_X
++ for j in '$b'
++ echo z_Y
++ for j in '$b'
++ echo z_Z
++ for i in '$(echo $b)'
++ echo _A
++ for j in '$b'
++ echo _A0
++ for j in '$b'
++ echo _A1
++ for j in '$b'
++ echo _A2
++ for j in '$b'
++ echo _A3
++ for j in '$b'
++ echo _A4
++ for j in '$b'
++ echo _A5
++ for j in '$b'
++ echo _A6
++ for j in '$b'
++ echo _A7
++ for j in '$b'
++ echo _A8
++ for j in '$b'
++ echo _A9
++ for j in '$b'
++ echo _Aa
++ for j in '$b'
++ echo _Ab
++ for j in '$b'
++ echo _Ac
++ for j in '$b'
++ echo _Ad
++ for j in '$b'
++ echo _Ae
++ for j in '$b'
++ echo _Af
++ for j in '$b'
++ echo _Ag
++ for j in '$b'
++ echo _Ah
++ for j in '$b'
++ echo _Ai
++ for j in '$b'
++ echo _Aj
++ for j in '$b'
++ echo _Ak
++ for j in '$b'
++ echo _Al
++ for j in '$b'
++ echo _Am
++ for j in '$b'
++ echo _An
++ for j in '$b'
++ echo _Ao
++ for j in '$b'
++ echo _Ap
++ for j in '$b'
++ echo _Aq
++ for j in '$b'
++ echo _Ar
++ for j in '$b'
++ echo _As
++ for j in '$b'
++ echo _At
++ for j in '$b'
++ echo _Au
++ for j in '$b'
++ echo _Av
++ for j in '$b'
++ echo _Aw
++ for j in '$b'
++ echo _Ax
++ for j in '$b'
++ echo _Ay
++ for j in '$b'
++ echo _Az
++ for j in '$b'
++ echo _A_A
++ for j in '$b'
++ echo _A_B
++ for j in '$b'
++ echo _A_C
++ for j in '$b'
++ echo _A_D
++ for j in '$b'
++ echo _A_E
++ for j in '$b'
++ echo _A_F
++ for j in '$b'
++ echo _A_G
++ for j in '$b'
++ echo _A_H
++ for j in '$b'
++ echo _A_I
++ for j in '$b'
++ echo _A_J
++ for j in '$b'
++ echo _A_K
++ for j in '$b'
++ echo _A_L
++ for j in '$b'
++ echo _A_M
++ for j in '$b'
++ echo _A_N
++ for j in '$b'
++ echo _A_O
++ for j in '$b'
++ echo _A_P
++ for j in '$b'
++ echo _A_Q
++ for j in '$b'
++ echo _A_R
++ for j in '$b'
++ echo _A_S
++ for j in '$b'
++ echo _A_T
++ for j in '$b'
++ echo _A_U
++ for j in '$b'
++ echo _A_V
++ for j in '$b'
++ echo _A_W
++ for j in '$b'
++ echo _A_X
++ for j in '$b'
++ echo _A_Y
++ for j in '$b'
++ echo _A_Z
++ for i in '$(echo $b)'
++ echo _B
++ for j in '$b'
++ echo _B0
++ for j in '$b'
++ echo _B1
++ for j in '$b'
++ echo _B2
++ for j in '$b'
++ echo _B3
++ for j in '$b'
++ echo _B4
++ for j in '$b'
++ echo _B5
++ for j in '$b'
++ echo _B6
++ for j in '$b'
++ echo _B7
++ for j in '$b'
++ echo _B8
++ for j in '$b'
++ echo _B9
++ for j in '$b'
++ echo _Ba
++ for j in '$b'
++ echo _Bb
++ for j in '$b'
++ echo _Bc
++ for j in '$b'
++ echo _Bd
++ for j in '$b'
++ echo _Be
++ for j in '$b'
++ echo _Bf
++ for j in '$b'
++ echo _Bg
++ for j in '$b'
++ echo _Bh
++ for j in '$b'
++ echo _Bi
++ for j in '$b'
++ echo _Bj
++ for j in '$b'
++ echo _Bk
++ for j in '$b'
++ echo _Bl
++ for j in '$b'
++ echo _Bm
++ for j in '$b'
++ echo _Bn
++ for j in '$b'
++ echo _Bo
++ for j in '$b'
++ echo _Bp
++ for j in '$b'
++ echo _Bq
++ for j in '$b'
++ echo _Br
++ for j in '$b'
++ echo _Bs
++ for j in '$b'
++ echo _Bt
++ for j in '$b'
++ echo _Bu
++ for j in '$b'
++ echo _Bv
++ for j in '$b'
++ echo _Bw
++ for j in '$b'
++ echo _Bx
++ for j in '$b'
++ echo _By
++ for j in '$b'
++ echo _Bz
++ for j in '$b'
++ echo _B_A
++ for j in '$b'
++ echo _B_B
++ for j in '$b'
++ echo _B_C
++ for j in '$b'
++ echo _B_D
++ for j in '$b'
++ echo _B_E
++ for j in '$b'
++ echo _B_F
++ for j in '$b'
++ echo _B_G
++ for j in '$b'
++ echo _B_H
++ for j in '$b'
++ echo _B_I
++ for j in '$b'
++ echo _B_J
++ for j in '$b'
++ echo _B_K
++ for j in '$b'
++ echo _B_L
++ for j in '$b'
++ echo _B_M
++ for j in '$b'
++ echo _B_N
++ for j in '$b'
++ echo _B_O
++ for j in '$b'
++ echo _B_P
++ for j in '$b'
++ echo _B_Q
++ for j in '$b'
++ echo _B_R
++ for j in '$b'
++ echo _B_S
++ for j in '$b'
++ echo _B_T
++ for j in '$b'
++ echo _B_U
++ for j in '$b'
++ echo _B_V
++ for j in '$b'
++ echo _B_W
++ for j in '$b'
++ echo _B_X
++ for j in '$b'
++ echo _B_Y
++ for j in '$b'
++ echo _B_Z
++ for i in '$(echo $b)'
++ echo _C
++ for j in '$b'
++ echo _C0
++ for j in '$b'
++ echo _C1
++ for j in '$b'
++ echo _C2
++ for j in '$b'
++ echo _C3
++ for j in '$b'
++ echo _C4
++ for j in '$b'
++ echo _C5
++ for j in '$b'
++ echo _C6
++ for j in '$b'
++ echo _C7
++ for j in '$b'
++ echo _C8
++ for j in '$b'
++ echo _C9
++ for j in '$b'
++ echo _Ca
++ for j in '$b'
++ echo _Cb
++ for j in '$b'
++ echo _Cc
++ for j in '$b'
++ echo _Cd
++ for j in '$b'
++ echo _Ce
++ for j in '$b'
++ echo _Cf
++ for j in '$b'
++ echo _Cg
++ for j in '$b'
++ echo _Ch
++ for j in '$b'
++ echo _Ci
++ for j in '$b'
++ echo _Cj
++ for j in '$b'
++ echo _Ck
++ for j in '$b'
++ echo _Cl
++ for j in '$b'
++ echo _Cm
++ for j in '$b'
++ echo _Cn
++ for j in '$b'
++ echo _Co
++ for j in '$b'
++ echo _Cp
++ for j in '$b'
++ echo _Cq
++ for j in '$b'
++ echo _Cr
++ for j in '$b'
++ echo _Cs
++ for j in '$b'
++ echo _Ct
++ for j in '$b'
++ echo _Cu
++ for j in '$b'
++ echo _Cv
++ for j in '$b'
++ echo _Cw
++ for j in '$b'
++ echo _Cx
++ for j in '$b'
++ echo _Cy
++ for j in '$b'
++ echo _Cz
++ for j in '$b'
++ echo _C_A
++ for j in '$b'
++ echo _C_B
++ for j in '$b'
++ echo _C_C
++ for j in '$b'
++ echo _C_D
++ for j in '$b'
++ echo _C_E
++ for j in '$b'
++ echo _C_F
++ for j in '$b'
++ echo _C_G
++ for j in '$b'
++ echo _C_H
++ for j in '$b'
++ echo _C_I
++ for j in '$b'
++ echo _C_J
++ for j in '$b'
++ echo _C_K
++ for j in '$b'
++ echo _C_L
++ for j in '$b'
++ echo _C_M
++ for j in '$b'
++ echo _C_N
++ for j in '$b'
++ echo _C_O
++ for j in '$b'
++ echo _C_P
++ for j in '$b'
++ echo _C_Q
++ for j in '$b'
++ echo _C_R
++ for j in '$b'
++ echo _C_S
++ for j in '$b'
++ echo _C_T
++ for j in '$b'
++ echo _C_U
++ for j in '$b'
++ echo _C_V
++ for j in '$b'
++ echo _C_W
++ for j in '$b'
++ echo _C_X
++ for j in '$b'
++ echo _C_Y
++ for j in '$b'
++ echo _C_Z
++ for i in '$(echo $b)'
++ echo _D
++ for j in '$b'
++ echo _D0
++ for j in '$b'
++ echo _D1
++ for j in '$b'
++ echo _D2
++ for j in '$b'
++ echo _D3
++ for j in '$b'
++ echo _D4
++ for j in '$b'
++ echo _D5
++ for j in '$b'
++ echo _D6
++ for j in '$b'
++ echo _D7
++ for j in '$b'
++ echo _D8
++ for j in '$b'
++ echo _D9
++ for j in '$b'
++ echo _Da
++ for j in '$b'
++ echo _Db
++ for j in '$b'
++ echo _Dc
++ for j in '$b'
++ echo _Dd
++ for j in '$b'
++ echo _De
++ for j in '$b'
++ echo _Df
++ for j in '$b'
++ echo _Dg
++ for j in '$b'
++ echo _Dh
++ for j in '$b'
++ echo _Di
++ for j in '$b'
++ echo _Dj
++ for j in '$b'
++ echo _Dk
++ for j in '$b'
++ echo _Dl
++ for j in '$b'
++ echo _Dm
++ for j in '$b'
++ echo _Dn
++ for j in '$b'
++ echo _Do
++ for j in '$b'
++ echo _Dp
++ for j in '$b'
++ echo _Dq
++ for j in '$b'
++ echo _Dr
++ for j in '$b'
++ echo _Ds
++ for j in '$b'
++ echo _Dt
++ for j in '$b'
++ echo _Du
++ for j in '$b'
++ echo _Dv
++ for j in '$b'
++ echo _Dw
++ for j in '$b'
++ echo _Dx
++ for j in '$b'
++ echo _Dy
++ for j in '$b'
++ echo _Dz
++ for j in '$b'
++ echo _D_A
++ for j in '$b'
++ echo _D_B
++ for j in '$b'
++ echo _D_C
++ for j in '$b'
++ echo _D_D
++ for j in '$b'
++ echo _D_E
++ for j in '$b'
++ echo _D_F
++ for j in '$b'
++ echo _D_G
++ for j in '$b'
++ echo _D_H
++ for j in '$b'
++ echo _D_I
++ for j in '$b'
++ echo _D_J
++ for j in '$b'
++ echo _D_K
++ for j in '$b'
++ echo _D_L
++ for j in '$b'
++ echo _D_M
++ for j in '$b'
++ echo _D_N
++ for j in '$b'
++ echo _D_O
++ for j in '$b'
++ echo _D_P
++ for j in '$b'
++ echo _D_Q
++ for j in '$b'
++ echo _D_R
++ for j in '$b'
++ echo _D_S
++ for j in '$b'
++ echo _D_T
++ for j in '$b'
++ echo _D_U
++ for j in '$b'
++ echo _D_V
++ for j in '$b'
++ echo _D_W
++ for j in '$b'
++ echo _D_X
++ for j in '$b'
++ echo _D_Y
++ for j in '$b'
++ echo _D_Z
++ for i in '$(echo $b)'
++ echo _E
++ for j in '$b'
++ echo _E0
++ for j in '$b'
++ echo _E1
++ for j in '$b'
++ echo _E2
++ for j in '$b'
++ echo _E3
++ for j in '$b'
++ echo _E4
++ for j in '$b'
++ echo _E5
++ for j in '$b'
++ echo _E6
++ for j in '$b'
++ echo _E7
++ for j in '$b'
++ echo _E8
++ for j in '$b'
++ echo _E9
++ for j in '$b'
++ echo _Ea
++ for j in '$b'
++ echo _Eb
++ for j in '$b'
++ echo _Ec
++ for j in '$b'
++ echo _Ed
++ for j in '$b'
++ echo _Ee
++ for j in '$b'
++ echo _Ef
++ for j in '$b'
++ echo _Eg
++ for j in '$b'
++ echo _Eh
++ for j in '$b'
++ echo _Ei
++ for j in '$b'
++ echo _Ej
++ for j in '$b'
++ echo _Ek
++ for j in '$b'
++ echo _El
++ for j in '$b'
++ echo _Em
++ for j in '$b'
++ echo _En
++ for j in '$b'
++ echo _Eo
++ for j in '$b'
++ echo _Ep
++ for j in '$b'
++ echo _Eq
++ for j in '$b'
++ echo _Er
++ for j in '$b'
++ echo _Es
++ for j in '$b'
++ echo _Et
++ for j in '$b'
++ echo _Eu
++ for j in '$b'
++ echo _Ev
++ for j in '$b'
++ echo _Ew
++ for j in '$b'
++ echo _Ex
++ for j in '$b'
++ echo _Ey
++ for j in '$b'
++ echo _Ez
++ for j in '$b'
++ echo _E_A
++ for j in '$b'
++ echo _E_B
++ for j in '$b'
++ echo _E_C
++ for j in '$b'
++ echo _E_D
++ for j in '$b'
++ echo _E_E
++ for j in '$b'
++ echo _E_F
++ for j in '$b'
++ echo _E_G
++ for j in '$b'
++ echo _E_H
++ for j in '$b'
++ echo _E_I
++ for j in '$b'
++ echo _E_J
++ for j in '$b'
++ echo _E_K
++ for j in '$b'
++ echo _E_L
++ for j in '$b'
++ echo _E_M
++ for j in '$b'
++ echo _E_N
++ for j in '$b'
++ echo _E_O
++ for j in '$b'
++ echo _E_P
++ for j in '$b'
++ echo _E_Q
++ for j in '$b'
++ echo _E_R
++ for j in '$b'
++ echo _E_S
++ for j in '$b'
++ echo _E_T
++ for j in '$b'
++ echo _E_U
++ for j in '$b'
++ echo _E_V
++ for j in '$b'
++ echo _E_W
++ for j in '$b'
++ echo _E_X
++ for j in '$b'
++ echo _E_Y
++ for j in '$b'
++ echo _E_Z
++ for i in '$(echo $b)'
++ echo _F
++ for j in '$b'
++ echo _F0
++ for j in '$b'
++ echo _F1
++ for j in '$b'
++ echo _F2
++ for j in '$b'
++ echo _F3
++ for j in '$b'
++ echo _F4
++ for j in '$b'
++ echo _F5
++ for j in '$b'
++ echo _F6
++ for j in '$b'
++ echo _F7
++ for j in '$b'
++ echo _F8
++ for j in '$b'
++ echo _F9
++ for j in '$b'
++ echo _Fa
++ for j in '$b'
++ echo _Fb
++ for j in '$b'
++ echo _Fc
++ for j in '$b'
++ echo _Fd
++ for j in '$b'
++ echo _Fe
++ for j in '$b'
++ echo _Ff
++ for j in '$b'
++ echo _Fg
++ for j in '$b'
++ echo _Fh
++ for j in '$b'
++ echo _Fi
++ for j in '$b'
++ echo _Fj
++ for j in '$b'
++ echo _Fk
++ for j in '$b'
++ echo _Fl
++ for j in '$b'
++ echo _Fm
++ for j in '$b'
++ echo _Fn
++ for j in '$b'
++ echo _Fo
++ for j in '$b'
++ echo _Fp
++ for j in '$b'
++ echo _Fq
++ for j in '$b'
++ echo _Fr
++ for j in '$b'
++ echo _Fs
++ for j in '$b'
++ echo _Ft
++ for j in '$b'
++ echo _Fu
++ for j in '$b'
++ echo _Fv
++ for j in '$b'
++ echo _Fw
++ for j in '$b'
++ echo _Fx
++ for j in '$b'
++ echo _Fy
++ for j in '$b'
++ echo _Fz
++ for j in '$b'
++ echo _F_A
++ for j in '$b'
++ echo _F_B
++ for j in '$b'
++ echo _F_C
++ for j in '$b'
++ echo _F_D
++ for j in '$b'
++ echo _F_E
++ for j in '$b'
++ echo _F_F
++ for j in '$b'
++ echo _F_G
++ for j in '$b'
++ echo _F_H
++ for j in '$b'
++ echo _F_I
++ for j in '$b'
++ echo _F_J
++ for j in '$b'
++ echo _F_K
++ for j in '$b'
++ echo _F_L
++ for j in '$b'
++ echo _F_M
++ for j in '$b'
++ echo _F_N
++ for j in '$b'
++ echo _F_O
++ for j in '$b'
++ echo _F_P
++ for j in '$b'
++ echo _F_Q
++ for j in '$b'
++ echo _F_R
++ for j in '$b'
++ echo _F_S
++ for j in '$b'
++ echo _F_T
++ for j in '$b'
++ echo _F_U
++ for j in '$b'
++ echo _F_V
++ for j in '$b'
++ echo _F_W
++ for j in '$b'
++ echo _F_X
++ for j in '$b'
++ echo _F_Y
++ for j in '$b'
++ echo _F_Z
++ for i in '$(echo $b)'
++ echo _G
++ for j in '$b'
++ echo _G0
++ for j in '$b'
++ echo _G1
++ for j in '$b'
++ echo _G2
++ for j in '$b'
++ echo _G3
++ for j in '$b'
++ echo _G4
++ for j in '$b'
++ echo _G5
++ for j in '$b'
++ echo _G6
++ for j in '$b'
++ echo _G7
++ for j in '$b'
++ echo _G8
++ for j in '$b'
++ echo _G9
++ for j in '$b'
++ echo _Ga
++ for j in '$b'
++ echo _Gb
++ for j in '$b'
++ echo _Gc
++ for j in '$b'
++ echo _Gd
++ for j in '$b'
++ echo _Ge
++ for j in '$b'
++ echo _Gf
++ for j in '$b'
++ echo _Gg
++ for j in '$b'
++ echo _Gh
++ for j in '$b'
++ echo _Gi
++ for j in '$b'
++ echo _Gj
++ for j in '$b'
++ echo _Gk
++ for j in '$b'
++ echo _Gl
++ for j in '$b'
++ echo _Gm
++ for j in '$b'
++ echo _Gn
++ for j in '$b'
++ echo _Go
++ for j in '$b'
++ echo _Gp
++ for j in '$b'
++ echo _Gq
++ for j in '$b'
++ echo _Gr
++ for j in '$b'
++ echo _Gs
++ for j in '$b'
++ echo _Gt
++ for j in '$b'
++ echo _Gu
++ for j in '$b'
++ echo _Gv
++ for j in '$b'
++ echo _Gw
++ for j in '$b'
++ echo _Gx
++ for j in '$b'
++ echo _Gy
++ for j in '$b'
++ echo _Gz
++ for j in '$b'
++ echo _G_A
++ for j in '$b'
++ echo _G_B
++ for j in '$b'
++ echo _G_C
++ for j in '$b'
++ echo _G_D
++ for j in '$b'
++ echo _G_E
++ for j in '$b'
++ echo _G_F
++ for j in '$b'
++ echo _G_G
++ for j in '$b'
++ echo _G_H
++ for j in '$b'
++ echo _G_I
++ for j in '$b'
++ echo _G_J
++ for j in '$b'
++ echo _G_K
++ for j in '$b'
++ echo _G_L
++ for j in '$b'
++ echo _G_M
++ for j in '$b'
++ echo _G_N
++ for j in '$b'
++ echo _G_O
++ for j in '$b'
++ echo _G_P
++ for j in '$b'
++ echo _G_Q
++ for j in '$b'
++ echo _G_R
++ for j in '$b'
++ echo _G_S
++ for j in '$b'
++ echo _G_T
++ for j in '$b'
++ echo _G_U
++ for j in '$b'
++ echo _G_V
++ for j in '$b'
++ echo _G_W
++ for j in '$b'
++ echo _G_X
++ for j in '$b'
++ echo _G_Y
++ for j in '$b'
++ echo _G_Z
++ for i in '$(echo $b)'
++ echo _H
++ for j in '$b'
++ echo _H0
++ for j in '$b'
++ echo _H1
++ for j in '$b'
++ echo _H2
++ for j in '$b'
++ echo _H3
++ for j in '$b'
++ echo _H4
++ for j in '$b'
++ echo _H5
++ for j in '$b'
++ echo _H6
++ for j in '$b'
++ echo _H7
++ for j in '$b'
++ echo _H8
++ for j in '$b'
++ echo _H9
++ for j in '$b'
++ echo _Ha
++ for j in '$b'
++ echo _Hb
++ for j in '$b'
++ echo _Hc
++ for j in '$b'
++ echo _Hd
++ for j in '$b'
++ echo _He
++ for j in '$b'
++ echo _Hf
++ for j in '$b'
++ echo _Hg
++ for j in '$b'
++ echo _Hh
++ for j in '$b'
++ echo _Hi
++ for j in '$b'
++ echo _Hj
++ for j in '$b'
++ echo _Hk
++ for j in '$b'
++ echo _Hl
++ for j in '$b'
++ echo _Hm
++ for j in '$b'
++ echo _Hn
++ for j in '$b'
++ echo _Ho
++ for j in '$b'
++ echo _Hp
++ for j in '$b'
++ echo _Hq
++ for j in '$b'
++ echo _Hr
++ for j in '$b'
++ echo _Hs
++ for j in '$b'
++ echo _Ht
++ for j in '$b'
++ echo _Hu
++ for j in '$b'
++ echo _Hv
++ for j in '$b'
++ echo _Hw
++ for j in '$b'
++ echo _Hx
++ for j in '$b'
++ echo _Hy
++ for j in '$b'
++ echo _Hz
++ for j in '$b'
++ echo _H_A
++ for j in '$b'
++ echo _H_B
++ for j in '$b'
++ echo _H_C
++ for j in '$b'
++ echo _H_D
++ for j in '$b'
++ echo _H_E
++ for j in '$b'
++ echo _H_F
++ for j in '$b'
++ echo _H_G
++ for j in '$b'
++ echo _H_H
++ for j in '$b'
++ echo _H_I
++ for j in '$b'
++ echo _H_J
++ for j in '$b'
++ echo _H_K
++ for j in '$b'
++ echo _H_L
++ for j in '$b'
++ echo _H_M
++ for j in '$b'
++ echo _H_N
++ for j in '$b'
++ echo _H_O
++ for j in '$b'
++ echo _H_P
++ for j in '$b'
++ echo _H_Q
++ for j in '$b'
++ echo _H_R
++ for j in '$b'
++ echo _H_S
++ for j in '$b'
++ echo _H_T
++ for j in '$b'
++ echo _H_U
++ for j in '$b'
++ echo _H_V
++ for j in '$b'
++ echo _H_W
++ for j in '$b'
++ echo _H_X
++ for j in '$b'
++ echo _H_Y
++ for j in '$b'
++ echo _H_Z
++ for i in '$(echo $b)'
++ echo _I
++ for j in '$b'
++ echo _I0
++ for j in '$b'
++ echo _I1
++ for j in '$b'
++ echo _I2
++ for j in '$b'
++ echo _I3
++ for j in '$b'
++ echo _I4
++ for j in '$b'
++ echo _I5
++ for j in '$b'
++ echo _I6
++ for j in '$b'
++ echo _I7
++ for j in '$b'
++ echo _I8
++ for j in '$b'
++ echo _I9
++ for j in '$b'
++ echo _Ia
++ for j in '$b'
++ echo _Ib
++ for j in '$b'
++ echo _Ic
++ for j in '$b'
++ echo _Id
++ for j in '$b'
++ echo _Ie
++ for j in '$b'
++ echo _If
++ for j in '$b'
++ echo _Ig
++ for j in '$b'
++ echo _Ih
++ for j in '$b'
++ echo _Ii
++ for j in '$b'
++ echo _Ij
++ for j in '$b'
++ echo _Ik
++ for j in '$b'
++ echo _Il
++ for j in '$b'
++ echo _Im
++ for j in '$b'
++ echo _In
++ for j in '$b'
++ echo _Io
++ for j in '$b'
++ echo _Ip
++ for j in '$b'
++ echo _Iq
++ for j in '$b'
++ echo _Ir
++ for j in '$b'
++ echo _Is
++ for j in '$b'
++ echo _It
++ for j in '$b'
++ echo _Iu
++ for j in '$b'
++ echo _Iv
++ for j in '$b'
++ echo _Iw
++ for j in '$b'
++ echo _Ix
++ for j in '$b'
++ echo _Iy
++ for j in '$b'
++ echo _Iz
++ for j in '$b'
++ echo _I_A
++ for j in '$b'
++ echo _I_B
++ for j in '$b'
++ echo _I_C
++ for j in '$b'
++ echo _I_D
++ for j in '$b'
++ echo _I_E
++ for j in '$b'
++ echo _I_F
++ for j in '$b'
++ echo _I_G
++ for j in '$b'
++ echo _I_H
++ for j in '$b'
++ echo _I_I
++ for j in '$b'
++ echo _I_J
++ for j in '$b'
++ echo _I_K
++ for j in '$b'
++ echo _I_L
++ for j in '$b'
++ echo _I_M
++ for j in '$b'
++ echo _I_N
++ for j in '$b'
++ echo _I_O
++ for j in '$b'
++ echo _I_P
++ for j in '$b'
++ echo _I_Q
++ for j in '$b'
++ echo _I_R
++ for j in '$b'
++ echo _I_S
++ for j in '$b'
++ echo _I_T
++ for j in '$b'
++ echo _I_U
++ for j in '$b'
++ echo _I_V
++ for j in '$b'
++ echo _I_W
++ for j in '$b'
++ echo _I_X
++ for j in '$b'
++ echo _I_Y
++ for j in '$b'
++ echo _I_Z
++ for i in '$(echo $b)'
++ echo _J
++ for j in '$b'
++ echo _J0
++ for j in '$b'
++ echo _J1
++ for j in '$b'
++ echo _J2
++ for j in '$b'
++ echo _J3
++ for j in '$b'
++ echo _J4
++ for j in '$b'
++ echo _J5
++ for j in '$b'
++ echo _J6
++ for j in '$b'
++ echo _J7
++ for j in '$b'
++ echo _J8
++ for j in '$b'
++ echo _J9
++ for j in '$b'
++ echo _Ja
++ for j in '$b'
++ echo _Jb
++ for j in '$b'
++ echo _Jc
++ for j in '$b'
++ echo _Jd
++ for j in '$b'
++ echo _Je
++ for j in '$b'
++ echo _Jf
++ for j in '$b'
++ echo _Jg
++ for j in '$b'
++ echo _Jh
++ for j in '$b'
++ echo _Ji
++ for j in '$b'
++ echo _Jj
++ for j in '$b'
++ echo _Jk
++ for j in '$b'
++ echo _Jl
++ for j in '$b'
++ echo _Jm
++ for j in '$b'
++ echo _Jn
++ for j in '$b'
++ echo _Jo
++ for j in '$b'
++ echo _Jp
++ for j in '$b'
++ echo _Jq
++ for j in '$b'
++ echo _Jr
++ for j in '$b'
++ echo _Js
++ for j in '$b'
++ echo _Jt
++ for j in '$b'
++ echo _Ju
++ for j in '$b'
++ echo _Jv
++ for j in '$b'
++ echo _Jw
++ for j in '$b'
++ echo _Jx
++ for j in '$b'
++ echo _Jy
++ for j in '$b'
++ echo _Jz
++ for j in '$b'
++ echo _J_A
++ for j in '$b'
++ echo _J_B
++ for j in '$b'
++ echo _J_C
++ for j in '$b'
++ echo _J_D
++ for j in '$b'
++ echo _J_E
++ for j in '$b'
++ echo _J_F
++ for j in '$b'
++ echo _J_G
++ for j in '$b'
++ echo _J_H
++ for j in '$b'
++ echo _J_I
++ for j in '$b'
++ echo _J_J
++ for j in '$b'
++ echo _J_K
++ for j in '$b'
++ echo _J_L
++ for j in '$b'
++ echo _J_M
++ for j in '$b'
++ echo _J_N
++ for j in '$b'
++ echo _J_O
++ for j in '$b'
++ echo _J_P
++ for j in '$b'
++ echo _J_Q
++ for j in '$b'
++ echo _J_R
++ for j in '$b'
++ echo _J_S
++ for j in '$b'
++ echo _J_T
++ for j in '$b'
++ echo _J_U
++ for j in '$b'
++ echo _J_V
++ for j in '$b'
++ echo _J_W
++ for j in '$b'
++ echo _J_X
++ for j in '$b'
++ echo _J_Y
++ for j in '$b'
++ echo _J_Z
++ for i in '$(echo $b)'
++ echo _K
++ for j in '$b'
++ echo _K0
++ for j in '$b'
++ echo _K1
++ for j in '$b'
++ echo _K2
++ for j in '$b'
++ echo _K3
++ for j in '$b'
++ echo _K4
++ for j in '$b'
++ echo _K5
++ for j in '$b'
++ echo _K6
++ for j in '$b'
++ echo _K7
++ for j in '$b'
++ echo _K8
++ for j in '$b'
++ echo _K9
++ for j in '$b'
++ echo _Ka
++ for j in '$b'
++ echo _Kb
++ for j in '$b'
++ echo _Kc
++ for j in '$b'
++ echo _Kd
++ for j in '$b'
++ echo _Ke
++ for j in '$b'
++ echo _Kf
++ for j in '$b'
++ echo _Kg
++ for j in '$b'
++ echo _Kh
++ for j in '$b'
++ echo _Ki
++ for j in '$b'
++ echo _Kj
++ for j in '$b'
++ echo _Kk
++ for j in '$b'
++ echo _Kl
++ for j in '$b'
++ echo _Km
++ for j in '$b'
++ echo _Kn
++ for j in '$b'
++ echo _Ko
++ for j in '$b'
++ echo _Kp
++ for j in '$b'
++ echo _Kq
++ for j in '$b'
++ echo _Kr
++ for j in '$b'
++ echo _Ks
++ for j in '$b'
++ echo _Kt
++ for j in '$b'
++ echo _Ku
++ for j in '$b'
++ echo _Kv
++ for j in '$b'
++ echo _Kw
++ for j in '$b'
++ echo _Kx
++ for j in '$b'
++ echo _Ky
++ for j in '$b'
++ echo _Kz
++ for j in '$b'
++ echo _K_A
++ for j in '$b'
++ echo _K_B
++ for j in '$b'
++ echo _K_C
++ for j in '$b'
++ echo _K_D
++ for j in '$b'
++ echo _K_E
++ for j in '$b'
++ echo _K_F
++ for j in '$b'
++ echo _K_G
++ for j in '$b'
++ echo _K_H
++ for j in '$b'
++ echo _K_I
++ for j in '$b'
++ echo _K_J
++ for j in '$b'
++ echo _K_K
++ for j in '$b'
++ echo _K_L
++ for j in '$b'
++ echo _K_M
++ for j in '$b'
++ echo _K_N
++ for j in '$b'
++ echo _K_O
++ for j in '$b'
++ echo _K_P
++ for j in '$b'
++ echo _K_Q
++ for j in '$b'
++ echo _K_R
++ for j in '$b'
++ echo _K_S
++ for j in '$b'
++ echo _K_T
++ for j in '$b'
++ echo _K_U
++ for j in '$b'
++ echo _K_V
++ for j in '$b'
++ echo _K_W
++ for j in '$b'
++ echo _K_X
++ for j in '$b'
++ echo _K_Y
++ for j in '$b'
++ echo _K_Z
++ for i in '$(echo $b)'
++ echo _L
++ for j in '$b'
++ echo _L0
++ for j in '$b'
++ echo _L1
++ for j in '$b'
++ echo _L2
++ for j in '$b'
++ echo _L3
++ for j in '$b'
++ echo _L4
++ for j in '$b'
++ echo _L5
++ for j in '$b'
++ echo _L6
++ for j in '$b'
++ echo _L7
++ for j in '$b'
++ echo _L8
++ for j in '$b'
++ echo _L9
++ for j in '$b'
++ echo _La
++ for j in '$b'
++ echo _Lb
++ for j in '$b'
++ echo _Lc
++ for j in '$b'
++ echo _Ld
++ for j in '$b'
++ echo _Le
++ for j in '$b'
++ echo _Lf
++ for j in '$b'
++ echo _Lg
++ for j in '$b'
++ echo _Lh
++ for j in '$b'
++ echo _Li
++ for j in '$b'
++ echo _Lj
++ for j in '$b'
++ echo _Lk
++ for j in '$b'
++ echo _Ll
++ for j in '$b'
++ echo _Lm
++ for j in '$b'
++ echo _Ln
++ for j in '$b'
++ echo _Lo
++ for j in '$b'
++ echo _Lp
++ for j in '$b'
++ echo _Lq
++ for j in '$b'
++ echo _Lr
++ for j in '$b'
++ echo _Ls
++ for j in '$b'
++ echo _Lt
++ for j in '$b'
++ echo _Lu
++ for j in '$b'
++ echo _Lv
++ for j in '$b'
++ echo _Lw
++ for j in '$b'
++ echo _Lx
++ for j in '$b'
++ echo _Ly
++ for j in '$b'
++ echo _Lz
++ for j in '$b'
++ echo _L_A
++ for j in '$b'
++ echo _L_B
++ for j in '$b'
++ echo _L_C
++ for j in '$b'
++ echo _L_D
++ for j in '$b'
++ echo _L_E
++ for j in '$b'
++ echo _L_F
++ for j in '$b'
++ echo _L_G
++ for j in '$b'
++ echo _L_H
++ for j in '$b'
++ echo _L_I
++ for j in '$b'
++ echo _L_J
++ for j in '$b'
++ echo _L_K
++ for j in '$b'
++ echo _L_L
++ for j in '$b'
++ echo _L_M
++ for j in '$b'
++ echo _L_N
++ for j in '$b'
++ echo _L_O
++ for j in '$b'
++ echo _L_P
++ for j in '$b'
++ echo _L_Q
++ for j in '$b'
++ echo _L_R
++ for j in '$b'
++ echo _L_S
++ for j in '$b'
++ echo _L_T
++ for j in '$b'
++ echo _L_U
++ for j in '$b'
++ echo _L_V
++ for j in '$b'
++ echo _L_W
++ for j in '$b'
++ echo _L_X
++ for j in '$b'
++ echo _L_Y
++ for j in '$b'
++ echo _L_Z
++ for i in '$(echo $b)'
++ echo _M
++ for j in '$b'
++ echo _M0
++ for j in '$b'
++ echo _M1
++ for j in '$b'
++ echo _M2
++ for j in '$b'
++ echo _M3
++ for j in '$b'
++ echo _M4
++ for j in '$b'
++ echo _M5
++ for j in '$b'
++ echo _M6
++ for j in '$b'
++ echo _M7
++ for j in '$b'
++ echo _M8
++ for j in '$b'
++ echo _M9
++ for j in '$b'
++ echo _Ma
++ for j in '$b'
++ echo _Mb
++ for j in '$b'
++ echo _Mc
++ for j in '$b'
++ echo _Md
++ for j in '$b'
++ echo _Me
++ for j in '$b'
++ echo _Mf
++ for j in '$b'
++ echo _Mg
++ for j in '$b'
++ echo _Mh
++ for j in '$b'
++ echo _Mi
++ for j in '$b'
++ echo _Mj
++ for j in '$b'
++ echo _Mk
++ for j in '$b'
++ echo _Ml
++ for j in '$b'
++ echo _Mm
++ for j in '$b'
++ echo _Mn
++ for j in '$b'
++ echo _Mo
++ for j in '$b'
++ echo _Mp
++ for j in '$b'
++ echo _Mq
++ for j in '$b'
++ echo _Mr
++ for j in '$b'
++ echo _Ms
++ for j in '$b'
++ echo _Mt
++ for j in '$b'
++ echo _Mu
++ for j in '$b'
++ echo _Mv
++ for j in '$b'
++ echo _Mw
++ for j in '$b'
++ echo _Mx
++ for j in '$b'
++ echo _My
++ for j in '$b'
++ echo _Mz
++ for j in '$b'
++ echo _M_A
++ for j in '$b'
++ echo _M_B
++ for j in '$b'
++ echo _M_C
++ for j in '$b'
++ echo _M_D
++ for j in '$b'
++ echo _M_E
++ for j in '$b'
++ echo _M_F
++ for j in '$b'
++ echo _M_G
++ for j in '$b'
++ echo _M_H
++ for j in '$b'
++ echo _M_I
++ for j in '$b'
++ echo _M_J
++ for j in '$b'
++ echo _M_K
++ for j in '$b'
++ echo _M_L
++ for j in '$b'
++ echo _M_M
++ for j in '$b'
++ echo _M_N
++ for j in '$b'
++ echo _M_O
++ for j in '$b'
++ echo _M_P
++ for j in '$b'
++ echo _M_Q
++ for j in '$b'
++ echo _M_R
++ for j in '$b'
++ echo _M_S
++ for j in '$b'
++ echo _M_T
++ for j in '$b'
++ echo _M_U
++ for j in '$b'
++ echo _M_V
++ for j in '$b'
++ echo _M_W
++ for j in '$b'
++ echo _M_X
++ for j in '$b'
++ echo _M_Y
++ for j in '$b'
++ echo _M_Z
++ for i in '$(echo $b)'
++ echo _N
++ for j in '$b'
++ echo _N0
++ for j in '$b'
++ echo _N1
++ for j in '$b'
++ echo _N2
++ for j in '$b'
++ echo _N3
++ for j in '$b'
++ echo _N4
++ for j in '$b'
++ echo _N5
++ for j in '$b'
++ echo _N6
++ for j in '$b'
++ echo _N7
++ for j in '$b'
++ echo _N8
++ for j in '$b'
++ echo _N9
++ for j in '$b'
++ echo _Na
++ for j in '$b'
++ echo _Nb
++ for j in '$b'
++ echo _Nc
++ for j in '$b'
++ echo _Nd
++ for j in '$b'
++ echo _Ne
++ for j in '$b'
++ echo _Nf
++ for j in '$b'
++ echo _Ng
++ for j in '$b'
++ echo _Nh
++ for j in '$b'
++ echo _Ni
++ for j in '$b'
++ echo _Nj
++ for j in '$b'
++ echo _Nk
++ for j in '$b'
++ echo _Nl
++ for j in '$b'
++ echo _Nm
++ for j in '$b'
++ echo _Nn
++ for j in '$b'
++ echo _No
++ for j in '$b'
++ echo _Np
++ for j in '$b'
++ echo _Nq
++ for j in '$b'
++ echo _Nr
++ for j in '$b'
++ echo _Ns
++ for j in '$b'
++ echo _Nt
++ for j in '$b'
++ echo _Nu
++ for j in '$b'
++ echo _Nv
++ for j in '$b'
++ echo _Nw
++ for j in '$b'
++ echo _Nx
++ for j in '$b'
++ echo _Ny
++ for j in '$b'
++ echo _Nz
++ for j in '$b'
++ echo _N_A
++ for j in '$b'
++ echo _N_B
++ for j in '$b'
++ echo _N_C
++ for j in '$b'
++ echo _N_D
++ for j in '$b'
++ echo _N_E
++ for j in '$b'
++ echo _N_F
++ for j in '$b'
++ echo _N_G
++ for j in '$b'
++ echo _N_H
++ for j in '$b'
++ echo _N_I
++ for j in '$b'
++ echo _N_J
++ for j in '$b'
++ echo _N_K
++ for j in '$b'
++ echo _N_L
++ for j in '$b'
++ echo _N_M
++ for j in '$b'
++ echo _N_N
++ for j in '$b'
++ echo _N_O
++ for j in '$b'
++ echo _N_P
++ for j in '$b'
++ echo _N_Q
++ for j in '$b'
++ echo _N_R
++ for j in '$b'
++ echo _N_S
++ for j in '$b'
++ echo _N_T
++ for j in '$b'
++ echo _N_U
++ for j in '$b'
++ echo _N_V
++ for j in '$b'
++ echo _N_W
++ for j in '$b'
++ echo _N_X
++ for j in '$b'
++ echo _N_Y
++ for j in '$b'
++ echo _N_Z
++ for i in '$(echo $b)'
++ echo _O
++ for j in '$b'
++ echo _O0
++ for j in '$b'
++ echo _O1
++ for j in '$b'
++ echo _O2
++ for j in '$b'
++ echo _O3
++ for j in '$b'
++ echo _O4
++ for j in '$b'
++ echo _O5
++ for j in '$b'
++ echo _O6
++ for j in '$b'
++ echo _O7
++ for j in '$b'
++ echo _O8
++ for j in '$b'
++ echo _O9
++ for j in '$b'
++ echo _Oa
++ for j in '$b'
++ echo _Ob
++ for j in '$b'
++ echo _Oc
++ for j in '$b'
++ echo _Od
++ for j in '$b'
++ echo _Oe
++ for j in '$b'
++ echo _Of
++ for j in '$b'
++ echo _Og
++ for j in '$b'
++ echo _Oh
++ for j in '$b'
++ echo _Oi
++ for j in '$b'
++ echo _Oj
++ for j in '$b'
++ echo _Ok
++ for j in '$b'
++ echo _Ol
++ for j in '$b'
++ echo _Om
++ for j in '$b'
++ echo _On
++ for j in '$b'
++ echo _Oo
++ for j in '$b'
++ echo _Op
++ for j in '$b'
++ echo _Oq
++ for j in '$b'
++ echo _Or
++ for j in '$b'
++ echo _Os
++ for j in '$b'
++ echo _Ot
++ for j in '$b'
++ echo _Ou
++ for j in '$b'
++ echo _Ov
++ for j in '$b'
++ echo _Ow
++ for j in '$b'
++ echo _Ox
++ for j in '$b'
++ echo _Oy
++ for j in '$b'
++ echo _Oz
++ for j in '$b'
++ echo _O_A
++ for j in '$b'
++ echo _O_B
++ for j in '$b'
++ echo _O_C
++ for j in '$b'
++ echo _O_D
++ for j in '$b'
++ echo _O_E
++ for j in '$b'
++ echo _O_F
++ for j in '$b'
++ echo _O_G
++ for j in '$b'
++ echo _O_H
++ for j in '$b'
++ echo _O_I
++ for j in '$b'
++ echo _O_J
++ for j in '$b'
++ echo _O_K
++ for j in '$b'
++ echo _O_L
++ for j in '$b'
++ echo _O_M
++ for j in '$b'
++ echo _O_N
++ for j in '$b'
++ echo _O_O
++ for j in '$b'
++ echo _O_P
++ for j in '$b'
++ echo _O_Q
++ for j in '$b'
++ echo _O_R
++ for j in '$b'
++ echo _O_S
++ for j in '$b'
++ echo _O_T
++ for j in '$b'
++ echo _O_U
++ for j in '$b'
++ echo _O_V
++ for j in '$b'
++ echo _O_W
++ for j in '$b'
++ echo _O_X
++ for j in '$b'
++ echo _O_Y
++ for j in '$b'
++ echo _O_Z
++ for i in '$(echo $b)'
++ echo _P
++ for j in '$b'
++ echo _P0
++ for j in '$b'
++ echo _P1
++ for j in '$b'
++ echo _P2
++ for j in '$b'
++ echo _P3
++ for j in '$b'
++ echo _P4
++ for j in '$b'
++ echo _P5
++ for j in '$b'
++ echo _P6
++ for j in '$b'
++ echo _P7
++ for j in '$b'
++ echo _P8
++ for j in '$b'
++ echo _P9
++ for j in '$b'
++ echo _Pa
++ for j in '$b'
++ echo _Pb
++ for j in '$b'
++ echo _Pc
++ for j in '$b'
++ echo _Pd
++ for j in '$b'
++ echo _Pe
++ for j in '$b'
++ echo _Pf
++ for j in '$b'
++ echo _Pg
++ for j in '$b'
++ echo _Ph
++ for j in '$b'
++ echo _Pi
++ for j in '$b'
++ echo _Pj
++ for j in '$b'
++ echo _Pk
++ for j in '$b'
++ echo _Pl
++ for j in '$b'
++ echo _Pm
++ for j in '$b'
++ echo _Pn
++ for j in '$b'
++ echo _Po
++ for j in '$b'
++ echo _Pp
++ for j in '$b'
++ echo _Pq
++ for j in '$b'
++ echo _Pr
++ for j in '$b'
++ echo _Ps
++ for j in '$b'
++ echo _Pt
++ for j in '$b'
++ echo _Pu
++ for j in '$b'
++ echo _Pv
++ for j in '$b'
++ echo _Pw
++ for j in '$b'
++ echo _Px
++ for j in '$b'
++ echo _Py
++ for j in '$b'
++ echo _Pz
++ for j in '$b'
++ echo _P_A
++ for j in '$b'
++ echo _P_B
++ for j in '$b'
++ echo _P_C
++ for j in '$b'
++ echo _P_D
++ for j in '$b'
++ echo _P_E
++ for j in '$b'
++ echo _P_F
++ for j in '$b'
++ echo _P_G
++ for j in '$b'
++ echo _P_H
++ for j in '$b'
++ echo _P_I
++ for j in '$b'
++ echo _P_J
++ for j in '$b'
++ echo _P_K
++ for j in '$b'
++ echo _P_L
++ for j in '$b'
++ echo _P_M
++ for j in '$b'
++ echo _P_N
++ for j in '$b'
++ echo _P_O
++ for j in '$b'
++ echo _P_P
++ for j in '$b'
++ echo _P_Q
++ for j in '$b'
++ echo _P_R
++ for j in '$b'
++ echo _P_S
++ for j in '$b'
++ echo _P_T
++ for j in '$b'
++ echo _P_U
++ for j in '$b'
++ echo _P_V
++ for j in '$b'
++ echo _P_W
++ for j in '$b'
++ echo _P_X
++ for j in '$b'
++ echo _P_Y
++ for j in '$b'
++ echo _P_Z
++ for i in '$(echo $b)'
++ echo _Q
++ for j in '$b'
++ echo _Q0
++ for j in '$b'
++ echo _Q1
++ for j in '$b'
++ echo _Q2
++ for j in '$b'
++ echo _Q3
++ for j in '$b'
++ echo _Q4
++ for j in '$b'
++ echo _Q5
++ for j in '$b'
++ echo _Q6
++ for j in '$b'
++ echo _Q7
++ for j in '$b'
++ echo _Q8
++ for j in '$b'
++ echo _Q9
++ for j in '$b'
++ echo _Qa
++ for j in '$b'
++ echo _Qb
++ for j in '$b'
++ echo _Qc
++ for j in '$b'
++ echo _Qd
++ for j in '$b'
++ echo _Qe
++ for j in '$b'
++ echo _Qf
++ for j in '$b'
++ echo _Qg
++ for j in '$b'
++ echo _Qh
++ for j in '$b'
++ echo _Qi
++ for j in '$b'
++ echo _Qj
++ for j in '$b'
++ echo _Qk
++ for j in '$b'
++ echo _Ql
++ for j in '$b'
++ echo _Qm
++ for j in '$b'
++ echo _Qn
++ for j in '$b'
++ echo _Qo
++ for j in '$b'
++ echo _Qp
++ for j in '$b'
++ echo _Qq
++ for j in '$b'
++ echo _Qr
++ for j in '$b'
++ echo _Qs
++ for j in '$b'
++ echo _Qt
++ for j in '$b'
++ echo _Qu
++ for j in '$b'
++ echo _Qv
++ for j in '$b'
++ echo _Qw
++ for j in '$b'
++ echo _Qx
++ for j in '$b'
++ echo _Qy
++ for j in '$b'
++ echo _Qz
++ for j in '$b'
++ echo _Q_A
++ for j in '$b'
++ echo _Q_B
++ for j in '$b'
++ echo _Q_C
++ for j in '$b'
++ echo _Q_D
++ for j in '$b'
++ echo _Q_E
++ for j in '$b'
++ echo _Q_F
++ for j in '$b'
++ echo _Q_G
++ for j in '$b'
++ echo _Q_H
++ for j in '$b'
++ echo _Q_I
++ for j in '$b'
++ echo _Q_J
++ for j in '$b'
++ echo _Q_K
++ for j in '$b'
++ echo _Q_L
++ for j in '$b'
++ echo _Q_M
++ for j in '$b'
++ echo _Q_N
++ for j in '$b'
++ echo _Q_O
++ for j in '$b'
++ echo _Q_P
++ for j in '$b'
++ echo _Q_Q
++ for j in '$b'
++ echo _Q_R
++ for j in '$b'
++ echo _Q_S
++ for j in '$b'
++ echo _Q_T
++ for j in '$b'
++ echo _Q_U
++ for j in '$b'
++ echo _Q_V
++ for j in '$b'
++ echo _Q_W
++ for j in '$b'
++ echo _Q_X
++ for j in '$b'
++ echo _Q_Y
++ for j in '$b'
++ echo _Q_Z
++ for i in '$(echo $b)'
++ echo _R
++ for j in '$b'
++ echo _R0
++ for j in '$b'
++ echo _R1
++ for j in '$b'
++ echo _R2
++ for j in '$b'
++ echo _R3
++ for j in '$b'
++ echo _R4
++ for j in '$b'
++ echo _R5
++ for j in '$b'
++ echo _R6
++ for j in '$b'
++ echo _R7
++ for j in '$b'
++ echo _R8
++ for j in '$b'
++ echo _R9
++ for j in '$b'
++ echo _Ra
++ for j in '$b'
++ echo _Rb
++ for j in '$b'
++ echo _Rc
++ for j in '$b'
++ echo _Rd
++ for j in '$b'
++ echo _Re
++ for j in '$b'
++ echo _Rf
++ for j in '$b'
++ echo _Rg
++ for j in '$b'
++ echo _Rh
++ for j in '$b'
++ echo _Ri
++ for j in '$b'
++ echo _Rj
++ for j in '$b'
++ echo _Rk
++ for j in '$b'
++ echo _Rl
++ for j in '$b'
++ echo _Rm
++ for j in '$b'
++ echo _Rn
++ for j in '$b'
++ echo _Ro
++ for j in '$b'
++ echo _Rp
++ for j in '$b'
++ echo _Rq
++ for j in '$b'
++ echo _Rr
++ for j in '$b'
++ echo _Rs
++ for j in '$b'
++ echo _Rt
++ for j in '$b'
++ echo _Ru
++ for j in '$b'
++ echo _Rv
++ for j in '$b'
++ echo _Rw
++ for j in '$b'
++ echo _Rx
++ for j in '$b'
++ echo _Ry
++ for j in '$b'
++ echo _Rz
++ for j in '$b'
++ echo _R_A
++ for j in '$b'
++ echo _R_B
++ for j in '$b'
++ echo _R_C
++ for j in '$b'
++ echo _R_D
++ for j in '$b'
++ echo _R_E
++ for j in '$b'
++ echo _R_F
++ for j in '$b'
++ echo _R_G
++ for j in '$b'
++ echo _R_H
++ for j in '$b'
++ echo _R_I
++ for j in '$b'
++ echo _R_J
++ for j in '$b'
++ echo _R_K
++ for j in '$b'
++ echo _R_L
++ for j in '$b'
++ echo _R_M
++ for j in '$b'
++ echo _R_N
++ for j in '$b'
++ echo _R_O
++ for j in '$b'
++ echo _R_P
++ for j in '$b'
++ echo _R_Q
++ for j in '$b'
++ echo _R_R
++ for j in '$b'
++ echo _R_S
++ for j in '$b'
++ echo _R_T
++ for j in '$b'
++ echo _R_U
++ for j in '$b'
++ echo _R_V
++ for j in '$b'
++ echo _R_W
++ for j in '$b'
++ echo _R_X
++ for j in '$b'
++ echo _R_Y
++ for j in '$b'
++ echo _R_Z
++ for i in '$(echo $b)'
++ echo _S
++ for j in '$b'
++ echo _S0
++ for j in '$b'
++ echo _S1
++ for j in '$b'
++ echo _S2
++ for j in '$b'
++ echo _S3
++ for j in '$b'
++ echo _S4
++ for j in '$b'
++ echo _S5
++ for j in '$b'
++ echo _S6
++ for j in '$b'
++ echo _S7
++ for j in '$b'
++ echo _S8
++ for j in '$b'
++ echo _S9
++ for j in '$b'
++ echo _Sa
++ for j in '$b'
++ echo _Sb
++ for j in '$b'
++ echo _Sc
++ for j in '$b'
++ echo _Sd
++ for j in '$b'
++ echo _Se
++ for j in '$b'
++ echo _Sf
++ for j in '$b'
++ echo _Sg
++ for j in '$b'
++ echo _Sh
++ for j in '$b'
++ echo _Si
++ for j in '$b'
++ echo _Sj
++ for j in '$b'
++ echo _Sk
++ for j in '$b'
++ echo _Sl
++ for j in '$b'
++ echo _Sm
++ for j in '$b'
++ echo _Sn
++ for j in '$b'
++ echo _So
++ for j in '$b'
++ echo _Sp
++ for j in '$b'
++ echo _Sq
++ for j in '$b'
++ echo _Sr
++ for j in '$b'
++ echo _Ss
++ for j in '$b'
++ echo _St
++ for j in '$b'
++ echo _Su
++ for j in '$b'
++ echo _Sv
++ for j in '$b'
++ echo _Sw
++ for j in '$b'
++ echo _Sx
++ for j in '$b'
++ echo _Sy
++ for j in '$b'
++ echo _Sz
++ for j in '$b'
++ echo _S_A
++ for j in '$b'
++ echo _S_B
++ for j in '$b'
++ echo _S_C
++ for j in '$b'
++ echo _S_D
++ for j in '$b'
++ echo _S_E
++ for j in '$b'
++ echo _S_F
++ for j in '$b'
++ echo _S_G
++ for j in '$b'
++ echo _S_H
++ for j in '$b'
++ echo _S_I
++ for j in '$b'
++ echo _S_J
++ for j in '$b'
++ echo _S_K
++ for j in '$b'
++ echo _S_L
++ for j in '$b'
++ echo _S_M
++ for j in '$b'
++ echo _S_N
++ for j in '$b'
++ echo _S_O
++ for j in '$b'
++ echo _S_P
++ for j in '$b'
++ echo _S_Q
++ for j in '$b'
++ echo _S_R
++ for j in '$b'
++ echo _S_S
++ for j in '$b'
++ echo _S_T
++ for j in '$b'
++ echo _S_U
++ for j in '$b'
++ echo _S_V
++ for j in '$b'
++ echo _S_W
++ for j in '$b'
++ echo _S_X
++ for j in '$b'
++ echo _S_Y
++ for j in '$b'
++ echo _S_Z
++ for i in '$(echo $b)'
++ echo _T
++ for j in '$b'
++ echo _T0
++ for j in '$b'
++ echo _T1
++ for j in '$b'
++ echo _T2
++ for j in '$b'
++ echo _T3
++ for j in '$b'
++ echo _T4
++ for j in '$b'
++ echo _T5
++ for j in '$b'
++ echo _T6
++ for j in '$b'
++ echo _T7
++ for j in '$b'
++ echo _T8
++ for j in '$b'
++ echo _T9
++ for j in '$b'
++ echo _Ta
++ for j in '$b'
++ echo _Tb
++ for j in '$b'
++ echo _Tc
++ for j in '$b'
++ echo _Td
++ for j in '$b'
++ echo _Te
++ for j in '$b'
++ echo _Tf
++ for j in '$b'
++ echo _Tg
++ for j in '$b'
++ echo _Th
++ for j in '$b'
++ echo _Ti
++ for j in '$b'
++ echo _Tj
++ for j in '$b'
++ echo _Tk
++ for j in '$b'
++ echo _Tl
++ for j in '$b'
++ echo _Tm
++ for j in '$b'
++ echo _Tn
++ for j in '$b'
++ echo _To
++ for j in '$b'
++ echo _Tp
++ for j in '$b'
++ echo _Tq
++ for j in '$b'
++ echo _Tr
++ for j in '$b'
++ echo _Ts
++ for j in '$b'
++ echo _Tt
++ for j in '$b'
++ echo _Tu
++ for j in '$b'
++ echo _Tv
++ for j in '$b'
++ echo _Tw
++ for j in '$b'
++ echo _Tx
++ for j in '$b'
++ echo _Ty
++ for j in '$b'
++ echo _Tz
++ for j in '$b'
++ echo _T_A
++ for j in '$b'
++ echo _T_B
++ for j in '$b'
++ echo _T_C
++ for j in '$b'
++ echo _T_D
++ for j in '$b'
++ echo _T_E
++ for j in '$b'
++ echo _T_F
++ for j in '$b'
++ echo _T_G
++ for j in '$b'
++ echo _T_H
++ for j in '$b'
++ echo _T_I
++ for j in '$b'
++ echo _T_J
++ for j in '$b'
++ echo _T_K
++ for j in '$b'
++ echo _T_L
++ for j in '$b'
++ echo _T_M
++ for j in '$b'
++ echo _T_N
++ for j in '$b'
++ echo _T_O
++ for j in '$b'
++ echo _T_P
++ for j in '$b'
++ echo _T_Q
++ for j in '$b'
++ echo _T_R
++ for j in '$b'
++ echo _T_S
++ for j in '$b'
++ echo _T_T
++ for j in '$b'
++ echo _T_U
++ for j in '$b'
++ echo _T_V
++ for j in '$b'
++ echo _T_W
++ for j in '$b'
++ echo _T_X
++ for j in '$b'
++ echo _T_Y
++ for j in '$b'
++ echo _T_Z
++ for i in '$(echo $b)'
++ echo _U
++ for j in '$b'
++ echo _U0
++ for j in '$b'
++ echo _U1
++ for j in '$b'
++ echo _U2
++ for j in '$b'
++ echo _U3
++ for j in '$b'
++ echo _U4
++ for j in '$b'
++ echo _U5
++ for j in '$b'
++ echo _U6
++ for j in '$b'
++ echo _U7
++ for j in '$b'
++ echo _U8
++ for j in '$b'
++ echo _U9
++ for j in '$b'
++ echo _Ua
++ for j in '$b'
++ echo _Ub
++ for j in '$b'
++ echo _Uc
++ for j in '$b'
++ echo _Ud
++ for j in '$b'
++ echo _Ue
++ for j in '$b'
++ echo _Uf
++ for j in '$b'
++ echo _Ug
++ for j in '$b'
++ echo _Uh
++ for j in '$b'
++ echo _Ui
++ for j in '$b'
++ echo _Uj
++ for j in '$b'
++ echo _Uk
++ for j in '$b'
++ echo _Ul
++ for j in '$b'
++ echo _Um
++ for j in '$b'
++ echo _Un
++ for j in '$b'
++ echo _Uo
++ for j in '$b'
++ echo _Up
++ for j in '$b'
++ echo _Uq
++ for j in '$b'
++ echo _Ur
++ for j in '$b'
++ echo _Us
++ for j in '$b'
++ echo _Ut
++ for j in '$b'
++ echo _Uu
++ for j in '$b'
++ echo _Uv
++ for j in '$b'
++ echo _Uw
++ for j in '$b'
++ echo _Ux
++ for j in '$b'
++ echo _Uy
++ for j in '$b'
++ echo _Uz
++ for j in '$b'
++ echo _U_A
++ for j in '$b'
++ echo _U_B
++ for j in '$b'
++ echo _U_C
++ for j in '$b'
++ echo _U_D
++ for j in '$b'
++ echo _U_E
++ for j in '$b'
++ echo _U_F
++ for j in '$b'
++ echo _U_G
++ for j in '$b'
++ echo _U_H
++ for j in '$b'
++ echo _U_I
++ for j in '$b'
++ echo _U_J
++ for j in '$b'
++ echo _U_K
++ for j in '$b'
++ echo _U_L
++ for j in '$b'
++ echo _U_M
++ for j in '$b'
++ echo _U_N
++ for j in '$b'
++ echo _U_O
++ for j in '$b'
++ echo _U_P
++ for j in '$b'
++ echo _U_Q
++ for j in '$b'
++ echo _U_R
++ for j in '$b'
++ echo _U_S
++ for j in '$b'
++ echo _U_T
++ for j in '$b'
++ echo _U_U
++ for j in '$b'
++ echo _U_V
++ for j in '$b'
++ echo _U_W
++ for j in '$b'
++ echo _U_X
++ for j in '$b'
++ echo _U_Y
++ for j in '$b'
++ echo _U_Z
++ for i in '$(echo $b)'
++ echo _V
++ for j in '$b'
++ echo _V0
++ for j in '$b'
++ echo _V1
++ for j in '$b'
++ echo _V2
++ for j in '$b'
++ echo _V3
++ for j in '$b'
++ echo _V4
++ for j in '$b'
++ echo _V5
++ for j in '$b'
++ echo _V6
++ for j in '$b'
++ echo _V7
++ for j in '$b'
++ echo _V8
++ for j in '$b'
++ echo _V9
++ for j in '$b'
++ echo _Va
++ for j in '$b'
++ echo _Vb
++ for j in '$b'
++ echo _Vc
++ for j in '$b'
++ echo _Vd
++ for j in '$b'
++ echo _Ve
++ for j in '$b'
++ echo _Vf
++ for j in '$b'
++ echo _Vg
++ for j in '$b'
++ echo _Vh
++ for j in '$b'
++ echo _Vi
++ for j in '$b'
++ echo _Vj
++ for j in '$b'
++ echo _Vk
++ for j in '$b'
++ echo _Vl
++ for j in '$b'
++ echo _Vm
++ for j in '$b'
++ echo _Vn
++ for j in '$b'
++ echo _Vo
++ for j in '$b'
++ echo _Vp
++ for j in '$b'
++ echo _Vq
++ for j in '$b'
++ echo _Vr
++ for j in '$b'
++ echo _Vs
++ for j in '$b'
++ echo _Vt
++ for j in '$b'
++ echo _Vu
++ for j in '$b'
++ echo _Vv
++ for j in '$b'
++ echo _Vw
++ for j in '$b'
++ echo _Vx
++ for j in '$b'
++ echo _Vy
++ for j in '$b'
++ echo _Vz
++ for j in '$b'
++ echo _V_A
++ for j in '$b'
++ echo _V_B
++ for j in '$b'
++ echo _V_C
++ for j in '$b'
++ echo _V_D
++ for j in '$b'
++ echo _V_E
++ for j in '$b'
++ echo _V_F
++ for j in '$b'
++ echo _V_G
++ for j in '$b'
++ echo _V_H
++ for j in '$b'
++ echo _V_I
++ for j in '$b'
++ echo _V_J
++ for j in '$b'
++ echo _V_K
++ for j in '$b'
++ echo _V_L
++ for j in '$b'
++ echo _V_M
++ for j in '$b'
++ echo _V_N
++ for j in '$b'
++ echo _V_O
++ for j in '$b'
++ echo _V_P
++ for j in '$b'
++ echo _V_Q
++ for j in '$b'
++ echo _V_R
++ for j in '$b'
++ echo _V_S
++ for j in '$b'
++ echo _V_T
++ for j in '$b'
++ echo _V_U
++ for j in '$b'
++ echo _V_V
++ for j in '$b'
++ echo _V_W
++ for j in '$b'
++ echo _V_X
++ for j in '$b'
++ echo _V_Y
++ for j in '$b'
++ echo _V_Z
++ for i in '$(echo $b)'
++ echo _W
++ for j in '$b'
++ echo _W0
++ for j in '$b'
++ echo _W1
++ for j in '$b'
++ echo _W2
++ for j in '$b'
++ echo _W3
++ for j in '$b'
++ echo _W4
++ for j in '$b'
++ echo _W5
++ for j in '$b'
++ echo _W6
++ for j in '$b'
++ echo _W7
++ for j in '$b'
++ echo _W8
++ for j in '$b'
++ echo _W9
++ for j in '$b'
++ echo _Wa
++ for j in '$b'
++ echo _Wb
++ for j in '$b'
++ echo _Wc
++ for j in '$b'
++ echo _Wd
++ for j in '$b'
++ echo _We
++ for j in '$b'
++ echo _Wf
++ for j in '$b'
++ echo _Wg
++ for j in '$b'
++ echo _Wh
++ for j in '$b'
++ echo _Wi
++ for j in '$b'
++ echo _Wj
++ for j in '$b'
++ echo _Wk
++ for j in '$b'
++ echo _Wl
++ for j in '$b'
++ echo _Wm
++ for j in '$b'
++ echo _Wn
++ for j in '$b'
++ echo _Wo
++ for j in '$b'
++ echo _Wp
++ for j in '$b'
++ echo _Wq
++ for j in '$b'
++ echo _Wr
++ for j in '$b'
++ echo _Ws
++ for j in '$b'
++ echo _Wt
++ for j in '$b'
++ echo _Wu
++ for j in '$b'
++ echo _Wv
++ for j in '$b'
++ echo _Ww
++ for j in '$b'
++ echo _Wx
++ for j in '$b'
++ echo _Wy
++ for j in '$b'
++ echo _Wz
++ for j in '$b'
++ echo _W_A
++ for j in '$b'
++ echo _W_B
++ for j in '$b'
++ echo _W_C
++ for j in '$b'
++ echo _W_D
++ for j in '$b'
++ echo _W_E
++ for j in '$b'
++ echo _W_F
++ for j in '$b'
++ echo _W_G
++ for j in '$b'
++ echo _W_H
++ for j in '$b'
++ echo _W_I
++ for j in '$b'
++ echo _W_J
++ for j in '$b'
++ echo _W_K
++ for j in '$b'
++ echo _W_L
++ for j in '$b'
++ echo _W_M
++ for j in '$b'
++ echo _W_N
++ for j in '$b'
++ echo _W_O
++ for j in '$b'
++ echo _W_P
++ for j in '$b'
++ echo _W_Q
++ for j in '$b'
++ echo _W_R
++ for j in '$b'
++ echo _W_S
++ for j in '$b'
++ echo _W_T
++ for j in '$b'
++ echo _W_U
++ for j in '$b'
++ echo _W_V
++ for j in '$b'
++ echo _W_W
++ for j in '$b'
++ echo _W_X
++ for j in '$b'
++ echo _W_Y
++ for j in '$b'
++ echo _W_Z
++ for i in '$(echo $b)'
++ echo _X
++ for j in '$b'
++ echo _X0
++ for j in '$b'
++ echo _X1
++ for j in '$b'
++ echo _X2
++ for j in '$b'
++ echo _X3
++ for j in '$b'
++ echo _X4
++ for j in '$b'
++ echo _X5
++ for j in '$b'
++ echo _X6
++ for j in '$b'
++ echo _X7
++ for j in '$b'
++ echo _X8
++ for j in '$b'
++ echo _X9
++ for j in '$b'
++ echo _Xa
++ for j in '$b'
++ echo _Xb
++ for j in '$b'
++ echo _Xc
++ for j in '$b'
++ echo _Xd
++ for j in '$b'
++ echo _Xe
++ for j in '$b'
++ echo _Xf
++ for j in '$b'
++ echo _Xg
++ for j in '$b'
++ echo _Xh
++ for j in '$b'
++ echo _Xi
++ for j in '$b'
++ echo _Xj
++ for j in '$b'
++ echo _Xk
++ for j in '$b'
++ echo _Xl
++ for j in '$b'
++ echo _Xm
++ for j in '$b'
++ echo _Xn
++ for j in '$b'
++ echo _Xo
++ for j in '$b'
++ echo _Xp
++ for j in '$b'
++ echo _Xq
++ for j in '$b'
++ echo _Xr
++ for j in '$b'
++ echo _Xs
++ for j in '$b'
++ echo _Xt
++ for j in '$b'
++ echo _Xu
++ for j in '$b'
++ echo _Xv
++ for j in '$b'
++ echo _Xw
++ for j in '$b'
++ echo _Xx
++ for j in '$b'
++ echo _Xy
++ for j in '$b'
++ echo _Xz
++ for j in '$b'
++ echo _X_A
++ for j in '$b'
++ echo _X_B
++ for j in '$b'
++ echo _X_C
++ for j in '$b'
++ echo _X_D
++ for j in '$b'
++ echo _X_E
++ for j in '$b'
++ echo _X_F
++ for j in '$b'
++ echo _X_G
++ for j in '$b'
++ echo _X_H
++ for j in '$b'
++ echo _X_I
++ for j in '$b'
++ echo _X_J
++ for j in '$b'
++ echo _X_K
++ for j in '$b'
++ echo _X_L
++ for j in '$b'
++ echo _X_M
++ for j in '$b'
++ echo _X_N
++ for j in '$b'
++ echo _X_O
++ for j in '$b'
++ echo _X_P
++ for j in '$b'
++ echo _X_Q
++ for j in '$b'
++ echo _X_R
++ for j in '$b'
++ echo _X_S
++ for j in '$b'
++ echo _X_T
++ for j in '$b'
++ echo _X_U
++ for j in '$b'
++ echo _X_V
++ for j in '$b'
++ echo _X_W
++ for j in '$b'
++ echo _X_X
++ for j in '$b'
++ echo _X_Y
++ for j in '$b'
++ echo _X_Z
++ for i in '$(echo $b)'
++ echo _Y
++ for j in '$b'
++ echo _Y0
++ for j in '$b'
++ echo _Y1
++ for j in '$b'
++ echo _Y2
++ for j in '$b'
++ echo _Y3
++ for j in '$b'
++ echo _Y4
++ for j in '$b'
++ echo _Y5
++ for j in '$b'
++ echo _Y6
++ for j in '$b'
++ echo _Y7
++ for j in '$b'
++ echo _Y8
++ for j in '$b'
++ echo _Y9
++ for j in '$b'
++ echo _Ya
++ for j in '$b'
++ echo _Yb
++ for j in '$b'
++ echo _Yc
++ for j in '$b'
++ echo _Yd
++ for j in '$b'
++ echo _Ye
++ for j in '$b'
++ echo _Yf
++ for j in '$b'
++ echo _Yg
++ for j in '$b'
++ echo _Yh
++ for j in '$b'
++ echo _Yi
++ for j in '$b'
++ echo _Yj
++ for j in '$b'
++ echo _Yk
++ for j in '$b'
++ echo _Yl
++ for j in '$b'
++ echo _Ym
++ for j in '$b'
++ echo _Yn
++ for j in '$b'
++ echo _Yo
++ for j in '$b'
++ echo _Yp
++ for j in '$b'
++ echo _Yq
++ for j in '$b'
++ echo _Yr
++ for j in '$b'
++ echo _Ys
++ for j in '$b'
++ echo _Yt
++ for j in '$b'
++ echo _Yu
++ for j in '$b'
++ echo _Yv
++ for j in '$b'
++ echo _Yw
++ for j in '$b'
++ echo _Yx
++ for j in '$b'
++ echo _Yy
++ for j in '$b'
++ echo _Yz
++ for j in '$b'
++ echo _Y_A
++ for j in '$b'
++ echo _Y_B
++ for j in '$b'
++ echo _Y_C
++ for j in '$b'
++ echo _Y_D
++ for j in '$b'
++ echo _Y_E
++ for j in '$b'
++ echo _Y_F
++ for j in '$b'
++ echo _Y_G
++ for j in '$b'
++ echo _Y_H
++ for j in '$b'
++ echo _Y_I
++ for j in '$b'
++ echo _Y_J
++ for j in '$b'
++ echo _Y_K
++ for j in '$b'
++ echo _Y_L
++ for j in '$b'
++ echo _Y_M
++ for j in '$b'
++ echo _Y_N
++ for j in '$b'
++ echo _Y_O
++ for j in '$b'
++ echo _Y_P
++ for j in '$b'
++ echo _Y_Q
++ for j in '$b'
++ echo _Y_R
++ for j in '$b'
++ echo _Y_S
++ for j in '$b'
++ echo _Y_T
++ for j in '$b'
++ echo _Y_U
++ for j in '$b'
++ echo _Y_V
++ for j in '$b'
++ echo _Y_W
++ for j in '$b'
++ echo _Y_X
++ for j in '$b'
++ echo _Y_Y
++ for j in '$b'
++ echo _Y_Z
++ for i in '$(echo $b)'
++ echo _Z
++ for j in '$b'
++ echo _Z0
++ for j in '$b'
++ echo _Z1
++ for j in '$b'
++ echo _Z2
++ for j in '$b'
++ echo _Z3
++ for j in '$b'
++ echo _Z4
++ for j in '$b'
++ echo _Z5
++ for j in '$b'
++ echo _Z6
++ for j in '$b'
++ echo _Z7
++ for j in '$b'
++ echo _Z8
++ for j in '$b'
++ echo _Z9
++ for j in '$b'
++ echo _Za
++ for j in '$b'
++ echo _Zb
++ for j in '$b'
++ echo _Zc
++ for j in '$b'
++ echo _Zd
++ for j in '$b'
++ echo _Ze
++ for j in '$b'
++ echo _Zf
++ for j in '$b'
++ echo _Zg
++ for j in '$b'
++ echo _Zh
++ for j in '$b'
++ echo _Zi
++ for j in '$b'
++ echo _Zj
++ for j in '$b'
++ echo _Zk
++ for j in '$b'
++ echo _Zl
++ for j in '$b'
++ echo _Zm
++ for j in '$b'
++ echo _Zn
++ for j in '$b'
++ echo _Zo
++ for j in '$b'
++ echo _Zp
++ for j in '$b'
++ echo _Zq
++ for j in '$b'
++ echo _Zr
++ for j in '$b'
++ echo _Zs
++ for j in '$b'
++ echo _Zt
++ for j in '$b'
++ echo _Zu
++ for j in '$b'
++ echo _Zv
++ for j in '$b'
++ echo _Zw
++ for j in '$b'
++ echo _Zx
++ for j in '$b'
++ echo _Zy
++ for j in '$b'
++ echo _Zz
++ for j in '$b'
++ echo _Z_A
++ for j in '$b'
++ echo _Z_B
++ for j in '$b'
++ echo _Z_C
++ for j in '$b'
++ echo _Z_D
++ for j in '$b'
++ echo _Z_E
++ for j in '$b'
++ echo _Z_F
++ for j in '$b'
++ echo _Z_G
++ for j in '$b'
++ echo _Z_H
++ for j in '$b'
++ echo _Z_I
++ for j in '$b'
++ echo _Z_J
++ for j in '$b'
++ echo _Z_K
++ for j in '$b'
++ echo _Z_L
++ for j in '$b'
++ echo _Z_M
++ for j in '$b'
++ echo _Z_N
++ for j in '$b'
++ echo _Z_O
++ for j in '$b'
++ echo _Z_P
++ for j in '$b'
++ echo _Z_Q
++ for j in '$b'
++ echo _Z_R
++ for j in '$b'
++ echo _Z_S
++ for j in '$b'
++ echo _Z_T
++ for j in '$b'
++ echo _Z_U
++ for j in '$b'
++ echo _Z_V
++ for j in '$b'
++ echo _Z_W
++ for j in '$b'
++ echo _Z_X
++ for j in '$b'
++ echo _Z_Y
++ for j in '$b'
++ echo _Z_Z
+++ cat .dirs
++ mkdir 0 00 01 02 03 04 05 06 07 08 09 0a 0b 0c 0d 0e 0f 0g 0h 0i 0j 0k 0l 0m 0n 0o 0p 0q 0r 0s 0t 0u 0v 0w 0x 0y 0z 0_A 0_B 0_C 0_D 0_E 0_F 0_G 0_H 0_I 0_J 0_K 0_L 0_M 0_N 0_O 0_P 0_Q 0_R 0_S 0_T 0_U 0_V 0_W 0_X 0_Y 0_Z 1 10 11 12 13 14 15 16 17 18 19 1a 1b 1c 1d 1e 1f 1g 1h 1i 1j 1k 1l 1m 1n 1o 1p 1q 1r 1s 1t 1u 1v 1w 1x 1y 1z 1_A 1_B 1_C 1_D 1_E 1_F 1_G 1_H 1_I 1_J 1_K 1_L 1_M 1_N 1_O 1_P 1_Q 1_R 1_S 1_T 1_U 1_V 1_W 1_X 1_Y 1_Z 2 20 21 22 23 24 25 26 27 28 29 2a 2b 2c 2d 2e 2f 2g 2h 2i 2j 2k 2l 2m 2n 2o 2p 2q 2r 2s 2t 2u 2v 2w 2x 2y 2z 2_A 2_B 2_C 2_D 2_E 2_F 2_G 2_H 2_I 2_J 2_K 2_L 2_M 2_N 2_O 2_P 2_Q 2_R 2_S 2_T 2_U 2_V 2_W 2_X 2_Y 2_Z 3 30 31 32 33 34 35 36 37 38 39 3a 3b 3c 3d 3e 3f 3g 3h 3i 3j 3k 3l 3m 3n 3o 3p 3q 3r 3s 3t 3u 3v 3w 3x 3y 3z 3_A 3_B 3_C 3_D 3_E 3_F 3_G 3_H 3_I 3_J 3_K 3_L 3_M 3_N 3_O 3_P 3_Q 3_R 3_S 3_T 3_U 3_V 3_W 3_X 3_Y 3_Z 4 40 41 42 43 44 45 46 47 48 49 4a 4b 4c 4d 4e 4f 4g 4h 4i 4j 4k 4l 4m 4n 4o 4p 4q 4r 4s 4t 4u 4v 4w 4x 4y 4z 4_A 4_B 4_C 4_D 4_E 4_F 4_G 4_H 4_I 4_J 4_K 4_L 4_M 4_N 4_O 4_P 4_Q 4_R 4_S 4_T 4_U 4_V 4_W 4_X 4_Y 4_Z 5 50 51 52 53 54 55 56 57 58 59 5a 5b 5c 5d 5e 5f 5g 5h 5i 5j 5k 5l 5m 5n 5o 5p 5q 5r 5s 5t 5u 5v 5w 5x 5y 5z 5_A 5_B 5_C 5_D 5_E 5_F 5_G 5_H 5_I 5_J 5_K 5_L 5_M 5_N 5_O 5_P 5_Q 5_R 5_S 5_T 5_U 5_V 5_W 5_X 5_Y 5_Z 6 60 61 62 63 64 65 66 67 68 69 6a 6b 6c 6d 6e 6f 6g 6h 6i 6j 6k 6l 6m 6n 6o 6p 6q 6r 6s 6t 6u 6v 6w 6x 6y 6z 6_A 6_B 6_C 6_D 6_E 6_F 6_G 6_H 6_I 6_J 6_K 6_L 6_M 6_N 6_O 6_P 6_Q 6_R 6_S 6_T 6_U 6_V 6_W 6_X 6_Y 6_Z 7 70 71 72 73 74 75 76 77 78 79 7a 7b 7c 7d 7e 7f 7g 7h 7i 7j 7k 7l 7m 7n 7o 7p 7q 7r 7s 7t 7u 7v 7w 7x 7y 7z 7_A 7_B 7_C 7_D 7_E 7_F 7_G 7_H 7_I 7_J 7_K 7_L 7_M 7_N 7_O 7_P 7_Q 7_R 7_S 7_T 7_U 7_V 7_W 7_X 7_Y 7_Z 8 80 81 82 83 84 85 86 87 88 89 8a 8b 8c 8d 8e 8f 8g 8h 8i 8j 8k 8l 8m 8n 8o 8p 8q 8r 8s 8t 8u 8v 8w 8x 8y 8z 8_A 8_B 8_C 8_D 8_E 8_F 8_G 8_H 8_I 8_J 8_K 8_L 8_M 8_N 8_O 8_P 8_Q 8_R 8_S 8_T 8_U 8_V 8_W 8_X 8_Y 8_Z 9 90 91 92 93 94 95 96 97 98 99 9a 9b 9c 9d 9e 9f 9g 9h 9i 9j 9k 9l 9m 9n 9o 9p 9q 9r 9s 9t 9u 9v 9w 9x 9y 9z 9_A 9_B 9_C 9_D 9_E 9_F 9_G 9_H 9_I 9_J 9_K 9_L 9_M 9_N 9_O 9_P 9_Q 9_R 9_S 9_T 9_U 9_V 9_W 9_X 9_Y 9_Z a a0 a1 a2 a3 a4 a5 a6 a7 a8 a9 aa ab ac ad ae af ag ah ai aj ak al am an ao ap aq ar as at au av aw ax ay az a_A a_B a_C a_D a_E a_F a_G a_H a_I a_J a_K a_L a_M a_N a_O a_P a_Q a_R a_S a_T a_U a_V a_W a_X a_Y a_Z b b0 b1 b2 b3 b4 b5 b6 b7 b8 b9 ba bb bc bd be bf bg bh bi bj bk bl bm bn bo bp bq br bs bt bu bv bw bx by bz b_A b_B b_C b_D b_E b_F b_G b_H b_I b_J b_K b_L b_M b_N b_O b_P b_Q b_R b_S b_T b_U b_V b_W b_X b_Y b_Z c c0 c1 c2 c3 c4 c5 c6 c7 c8 c9 ca cb cc cd ce cf cg ch ci cj ck cl cm cn co cp cq cr cs ct cu cv cw cx cy cz c_A c_B c_C c_D c_E c_F c_G c_H c_I c_J c_K c_L c_M c_N c_O c_P c_Q c_R c_S c_T c_U c_V c_W c_X c_Y c_Z d d0 d1 d2 d3 d4 d5 d6 d7 d8 d9 da db dc dd de df dg dh di dj dk dl dm dn do dp dq dr ds dt du dv dw dx dy dz d_A d_B d_C d_D d_E d_F d_G d_H d_I d_J d_K d_L d_M d_N d_O d_P d_Q d_R d_S d_T d_U d_V d_W d_X d_Y d_Z e e0 e1 e2 e3 e4 e5 e6 e7 e8 e9 ea eb ec ed ee ef eg eh ei ej ek el em en eo ep eq er es et eu ev ew ex ey ez e_A e_B e_C e_D e_E e_F e_G e_H e_I e_J e_K e_L e_M e_N e_O e_P e_Q e_R e_S e_T e_U e_V e_W e_X e_Y e_Z f f0 f1 f2 f3 f4 f5 f6 f7 f8 f9 fa fb fc fd fe ff fg fh fi fj fk fl fm fn fo fp fq fr fs ft fu fv fw fx fy fz f_A f_B f_C f_D f_E f_F f_G f_H f_I f_J f_K f_L f_M f_N f_O f_P f_Q f_R f_S f_T f_U f_V f_W f_X f_Y f_Z g g0 g1 g2 g3 g4 g5 g6 g7 g8 g9 ga gb gc gd ge gf gg gh gi gj gk gl gm gn go gp gq gr gs gt gu gv gw gx gy gz g_A g_B g_C g_D g_E g_F g_G g_H g_I g_J g_K g_L g_M g_N g_O g_P g_Q g_R g_S g_T g_U g_V g_W g_X g_Y g_Z h h0 h1 h2 h3 h4 h5 h6 h7 h8 h9 ha hb hc hd he hf hg hh hi hj hk hl hm hn ho hp hq hr hs ht hu hv hw hx hy hz h_A h_B h_C h_D h_E h_F h_G h_H h_I h_J h_K h_L h_M h_N h_O h_P h_Q h_R h_S h_T h_U h_V h_W h_X h_Y h_Z i i0 i1 i2 i3 i4 i5 i6 i7 i8 i9 ia ib ic id ie if ig ih ii ij ik il im in io ip iq ir is it iu iv iw ix iy iz i_A i_B i_C i_D i_E i_F i_G i_H i_I i_J i_K i_L i_M i_N i_O i_P i_Q i_R i_S i_T i_U i_V i_W i_X i_Y i_Z j j0 j1 j2 j3 j4 j5 j6 j7 j8 j9 ja jb jc jd je jf jg jh ji jj jk jl jm jn jo jp jq jr js jt ju jv jw jx jy jz j_A j_B j_C j_D j_E j_F j_G j_H j_I j_J j_K j_L j_M j_N j_O j_P j_Q j_R j_S j_T j_U j_V j_W j_X j_Y j_Z k k0 k1 k2 k3 k4 k5 k6 k7 k8 k9 ka kb kc kd ke kf kg kh ki kj kk kl km kn ko kp kq kr ks kt ku kv kw kx ky kz k_A k_B k_C k_D k_E k_F k_G k_H k_I k_J k_K k_L k_M k_N k_O k_P k_Q k_R k_S k_T k_U k_V k_W k_X k_Y k_Z l l0 l1 l2 l3 l4 l5 l6 l7 l8 l9 la lb lc ld le lf lg lh li lj lk ll lm ln lo lp lq lr ls lt lu lv lw lx ly lz l_A l_B l_C l_D l_E l_F l_G l_H l_I l_J l_K l_L l_M l_N l_O l_P l_Q l_R l_S l_T l_U l_V l_W l_X l_Y l_Z m m0 m1 m2 m3 m4 m5 m6 m7 m8 m9 ma mb mc md me mf mg mh mi mj mk ml mm mn mo mp mq mr ms mt mu mv mw mx my mz m_A m_B m_C m_D m_E m_F m_G m_H m_I m_J m_K m_L m_M m_N m_O m_P m_Q m_R m_S m_T m_U m_V m_W m_X m_Y m_Z n n0 n1 n2 n3 n4 n5 n6 n7 n8 n9 na nb nc nd ne nf ng nh ni nj nk nl nm nn no np nq nr ns nt nu nv nw nx ny nz n_A n_B n_C n_D n_E n_F n_G n_H n_I n_J n_K n_L n_M n_N n_O n_P n_Q n_R n_S n_T n_U n_V n_W n_X n_Y n_Z o o0 o1 o2 o3 o4 o5 o6 o7 o8 o9 oa ob oc od oe of og oh oi oj ok ol om on oo op oq or os ot ou ov ow ox oy oz o_A o_B o_C o_D o_E o_F o_G o_H o_I o_J o_K o_L o_M o_N o_O o_P o_Q o_R o_S o_T o_U o_V o_W o_X o_Y o_Z p p0 p1 p2 p3 p4 p5 p6 p7 p8 p9 pa pb pc pd pe pf pg ph pi pj pk pl pm pn po pp pq pr ps pt pu pv pw px py pz p_A p_B p_C p_D p_E p_F p_G p_H p_I p_J p_K p_L p_M p_N p_O p_P p_Q p_R p_S p_T p_U p_V p_W p_X p_Y p_Z q q0 q1 q2 q3 q4 q5 q6 q7 q8 q9 qa qb qc qd qe qf qg qh qi qj qk ql qm qn qo qp qq qr qs qt qu qv qw qx qy qz q_A q_B q_C q_D q_E q_F q_G q_H q_I q_J q_K q_L q_M q_N q_O q_P q_Q q_R q_S q_T q_U q_V q_W q_X q_Y q_Z r r0 r1 r2 r3 r4 r5 r6 r7 r8 r9 ra rb rc rd re rf rg rh ri rj rk rl rm rn ro rp rq rr rs rt ru rv rw rx ry rz r_A r_B r_C r_D r_E r_F r_G r_H r_I r_J r_K r_L r_M r_N r_O r_P r_Q r_R r_S r_T r_U r_V r_W r_X r_Y r_Z s s0 s1 s2 s3 s4 s5 s6 s7 s8 s9 sa sb sc sd se sf sg sh si sj sk sl sm sn so sp sq sr ss st su sv sw sx sy sz s_A s_B s_C s_D s_E s_F s_G s_H s_I s_J s_K s_L s_M s_N s_O s_P s_Q s_R s_S s_T s_U s_V s_W s_X s_Y s_Z t t0 t1 t2 t3 t4 t5 t6 t7 t8 t9 ta tb tc td te tf tg th ti tj tk tl tm tn to tp tq tr ts tt tu tv tw tx ty tz t_A t_B t_C t_D t_E t_F t_G t_H t_I t_J t_K t_L t_M t_N t_O t_P t_Q t_R t_S t_T t_U t_V t_W t_X t_Y t_Z u u0 u1 u2 u3 u4 u5 u6 u7 u8 u9 ua ub uc ud ue uf ug uh ui uj uk ul um un uo up uq ur us ut uu uv uw ux uy uz u_A u_B u_C u_D u_E u_F u_G u_H u_I u_J u_K u_L u_M u_N u_O u_P u_Q u_R u_S u_T u_U u_V u_W u_X u_Y u_Z v v0 v1 v2 v3 v4 v5 v6 v7 v8 v9 va vb vc vd ve vf vg vh vi vj vk vl vm vn vo vp vq vr vs vt vu vv vw vx vy vz v_A v_B v_C v_D v_E v_F v_G v_H v_I v_J v_K v_L v_M v_N v_O v_P v_Q v_R v_S v_T v_U v_V v_W v_X v_Y v_Z w w0 w1 w2 w3 w4 w5 w6 w7 w8 w9 wa wb wc wd we wf wg wh wi wj wk wl wm wn wo wp wq wr ws wt wu wv ww wx wy wz w_A w_B w_C w_D w_E w_F w_G w_H w_I w_J w_K w_L w_M w_N w_O w_P w_Q w_R w_S w_T w_U w_V w_W w_X w_Y w_Z x x0 x1 x2 x3 x4 x5 x6 x7 x8 x9 xa xb xc xd xe xf xg xh xi xj xk xl xm xn xo xp xq xr xs xt xu xv xw xx xy xz x_A x_B x_C x_D x_E x_F x_G x_H x_I x_J x_K x_L x_M x_N x_O x_P x_Q x_R x_S x_T x_U x_V x_W x_X x_Y x_Z y y0 y1 y2 y3 y4 y5 y6 y7 y8 y9 ya yb yc yd ye yf yg yh yi yj yk yl ym yn yo yp yq yr ys yt yu yv yw yx yy yz y_A y_B y_C y_D y_E y_F y_G y_H y_I y_J y_K y_L y_M y_N y_O y_P y_Q y_R y_S y_T y_U y_V y_W y_X y_Y y_Z z z0 z1 z2 z3 z4 z5 z6 z7 z8 z9 za zb zc zd ze zf zg zh zi zj zk zl zm zn zo zp zq zr zs zt zu zv zw zx zy zz z_A z_B z_C z_D z_E z_F z_G z_H z_I z_J z_K z_L z_M z_N z_O z_P z_Q z_R z_S z_T z_U z_V z_W z_X z_Y z_Z _A _A0 _A1 _A2 _A3 _A4 _A5 _A6 _A7 _A8 _A9 _Aa _Ab _Ac _Ad _Ae _Af _Ag _Ah _Ai _Aj _Ak _Al _Am _An _Ao _Ap _Aq _Ar _As _At _Au _Av _Aw _Ax _Ay _Az _A_A _A_B _A_C _A_D _A_E _A_F _A_G _A_H _A_I _A_J _A_K _A_L _A_M _A_N _A_O _A_P _A_Q _A_R _A_S _A_T _A_U _A_V _A_W _A_X _A_Y _A_Z _B _B0 _B1 _B2 _B3 _B4 _B5 _B6 _B7 _B8 _B9 _Ba _Bb _Bc _Bd _Be _Bf _Bg _Bh _Bi _Bj _Bk _Bl _Bm _Bn _Bo _Bp _Bq _Br _Bs _Bt _Bu _Bv _Bw _Bx _By _Bz _B_A _B_B _B_C _B_D _B_E _B_F _B_G _B_H _B_I _B_J _B_K _B_L _B_M _B_N _B_O _B_P _B_Q _B_R _B_S _B_T _B_U _B_V _B_W _B_X _B_Y _B_Z _C _C0 _C1 _C2 _C3 _C4 _C5 _C6 _C7 _C8 _C9 _Ca _Cb _Cc _Cd _Ce _Cf _Cg _Ch _Ci _Cj _Ck _Cl _Cm _Cn _Co _Cp _Cq _Cr _Cs _Ct _Cu _Cv _Cw _Cx _Cy _Cz _C_A _C_B _C_C _C_D _C_E _C_F _C_G _C_H _C_I _C_J _C_K _C_L _C_M _C_N _C_O _C_P _C_Q _C_R _C_S _C_T _C_U _C_V _C_W _C_X _C_Y _C_Z _D _D0 _D1 _D2 _D3 _D4 _D5 _D6 _D7 _D8 _D9 _Da _Db _Dc _Dd _De _Df _Dg _Dh _Di _Dj _Dk _Dl _Dm _Dn _Do _Dp _Dq _Dr _Ds _Dt _Du _Dv _Dw _Dx _Dy _Dz _D_A _D_B _D_C _D_D _D_E _D_F _D_G _D_H _D_I _D_J _D_K _D_L _D_M _D_N _D_O _D_P _D_Q _D_R _D_S _D_T _D_U _D_V _D_W _D_X _D_Y _D_Z _E _E0 _E1 _E2 _E3 _E4 _E5 _E6 _E7 _E8 _E9 _Ea _Eb _Ec _Ed _Ee _Ef _Eg _Eh _Ei _Ej _Ek _El _Em _En _Eo _Ep _Eq _Er _Es _Et _Eu _Ev _Ew _Ex _Ey _Ez _E_A _E_B _E_C _E_D _E_E _E_F _E_G _E_H _E_I _E_J _E_K _E_L _E_M _E_N _E_O _E_P _E_Q _E_R _E_S _E_T _E_U _E_V _E_W _E_X _E_Y _E_Z _F _F0 _F1 _F2 _F3 _F4 _F5 _F6 _F7 _F8 _F9 _Fa _Fb _Fc _Fd _Fe _Ff _Fg _Fh _Fi _Fj _Fk _Fl _Fm _Fn _Fo _Fp _Fq _Fr _Fs _Ft _Fu _Fv _Fw _Fx _Fy _Fz _F_A _F_B _F_C _F_D _F_E _F_F _F_G _F_H _F_I _F_J _F_K _F_L _F_M _F_N _F_O _F_P _F_Q _F_R _F_S _F_T _F_U _F_V _F_W _F_X _F_Y _F_Z _G _G0 _G1 _G2 _G3 _G4 _G5 _G6 _G7 _G8 _G9 _Ga _Gb _Gc _Gd _Ge _Gf _Gg _Gh _Gi _Gj _Gk _Gl _Gm _Gn _Go _Gp _Gq _Gr _Gs _Gt _Gu _Gv _Gw _Gx _Gy _Gz _G_A _G_B _G_C _G_D _G_E _G_F _G_G _G_H _G_I _G_J _G_K _G_L _G_M _G_N _G_O _G_P _G_Q _G_R _G_S _G_T _G_U _G_V _G_W _G_X _G_Y _G_Z _H _H0 _H1 _H2 _H3 _H4 _H5 _H6 _H7 _H8 _H9 _Ha _Hb _Hc _Hd _He _Hf _Hg _Hh _Hi _Hj _Hk _Hl _Hm _Hn _Ho _Hp _Hq _Hr _Hs _Ht _Hu _Hv _Hw _Hx _Hy _Hz _H_A _H_B _H_C _H_D _H_E _H_F _H_G _H_H _H_I _H_J _H_K _H_L _H_M _H_N _H_O _H_P _H_Q _H_R _H_S _H_T _H_U _H_V _H_W _H_X _H_Y _H_Z _I _I0 _I1 _I2 _I3 _I4 _I5 _I6 _I7 _I8 _I9 _Ia _Ib _Ic _Id _Ie _If _Ig _Ih _Ii _Ij _Ik _Il _Im _In _Io _Ip _Iq _Ir _Is _It _Iu _Iv _Iw _Ix _Iy _Iz _I_A _I_B _I_C _I_D _I_E _I_F _I_G _I_H _I_I _I_J _I_K _I_L _I_M _I_N _I_O _I_P _I_Q _I_R _I_S _I_T _I_U _I_V _I_W _I_X _I_Y _I_Z _J _J0 _J1 _J2 _J3 _J4 _J5 _J6 _J7 _J8 _J9 _Ja _Jb _Jc _Jd _Je _Jf _Jg _Jh _Ji _Jj _Jk _Jl _Jm _Jn _Jo _Jp _Jq _Jr _Js _Jt _Ju _Jv _Jw _Jx _Jy _Jz _J_A _J_B _J_C _J_D _J_E _J_F _J_G _J_H _J_I _J_J _J_K _J_L _J_M _J_N _J_O _J_P _J_Q _J_R _J_S _J_T _J_U _J_V _J_W _J_X _J_Y _J_Z _K _K0 _K1 _K2 _K3 _K4 _K5 _K6 _K7 _K8 _K9 _Ka _Kb _Kc _Kd _Ke _Kf _Kg _Kh _Ki _Kj _Kk _Kl _Km _Kn _Ko _Kp _Kq _Kr _Ks _Kt _Ku _Kv _Kw _Kx _Ky _Kz _K_A _K_B _K_C _K_D _K_E _K_F _K_G _K_H _K_I _K_J _K_K _K_L _K_M _K_N _K_O _K_P _K_Q _K_R _K_S _K_T _K_U _K_V _K_W _K_X _K_Y _K_Z _L _L0 _L1 _L2 _L3 _L4 _L5 _L6 _L7 _L8 _L9 _La _Lb _Lc _Ld _Le _Lf _Lg _Lh _Li _Lj _Lk _Ll _Lm _Ln _Lo _Lp _Lq _Lr _Ls _Lt _Lu _Lv _Lw _Lx _Ly _Lz _L_A _L_B _L_C _L_D _L_E _L_F _L_G _L_H _L_I _L_J _L_K _L_L _L_M _L_N _L_O _L_P _L_Q _L_R _L_S _L_T _L_U _L_V _L_W _L_X _L_Y _L_Z _M _M0 _M1 _M2 _M3 _M4 _M5 _M6 _M7 _M8 _M9 _Ma _Mb _Mc _Md _Me _Mf _Mg _Mh _Mi _Mj _Mk _Ml _Mm _Mn _Mo _Mp _Mq _Mr _Ms _Mt _Mu _Mv _Mw _Mx _My _Mz _M_A _M_B _M_C _M_D _M_E _M_F _M_G _M_H _M_I _M_J _M_K _M_L _M_M _M_N _M_O _M_P _M_Q _M_R _M_S _M_T _M_U _M_V _M_W _M_X _M_Y _M_Z _N _N0 _N1 _N2 _N3 _N4 _N5 _N6 _N7 _N8 _N9 _Na _Nb _Nc _Nd _Ne _Nf _Ng _Nh _Ni _Nj _Nk _Nl _Nm _Nn _No _Np _Nq _Nr _Ns _Nt _Nu _Nv _Nw _Nx _Ny _Nz _N_A _N_B _N_C _N_D _N_E _N_F _N_G _N_H _N_I _N_J _N_K _N_L _N_M _N_N _N_O _N_P _N_Q _N_R _N_S _N_T _N_U _N_V _N_W _N_X _N_Y _N_Z _O _O0 _O1 _O2 _O3 _O4 _O5 _O6 _O7 _O8 _O9 _Oa _Ob _Oc _Od _Oe _Of _Og _Oh _Oi _Oj _Ok _Ol _Om _On _Oo _Op _Oq _Or _Os _Ot _Ou _Ov _Ow _Ox _Oy _Oz _O_A _O_B _O_C _O_D _O_E _O_F _O_G _O_H _O_I _O_J _O_K _O_L _O_M _O_N _O_O _O_P _O_Q _O_R _O_S _O_T _O_U _O_V _O_W _O_X _O_Y _O_Z _P _P0 _P1 _P2 _P3 _P4 _P5 _P6 _P7 _P8 _P9 _Pa _Pb _Pc _Pd _Pe _Pf _Pg _Ph _Pi _Pj _Pk _Pl _Pm _Pn _Po _Pp _Pq _Pr _Ps _Pt _Pu _Pv _Pw _Px _Py _Pz _P_A _P_B _P_C _P_D _P_E _P_F _P_G _P_H _P_I _P_J _P_K _P_L _P_M _P_N _P_O _P_P _P_Q _P_R _P_S _P_T _P_U _P_V _P_W _P_X _P_Y _P_Z _Q _Q0 _Q1 _Q2 _Q3 _Q4 _Q5 _Q6 _Q7 _Q8 _Q9 _Qa _Qb _Qc _Qd _Qe _Qf _Qg _Qh _Qi _Qj _Qk _Ql _Qm _Qn _Qo _Qp _Qq _Qr _Qs _Qt _Qu _Qv _Qw _Qx _Qy _Qz _Q_A _Q_B _Q_C _Q_D _Q_E _Q_F _Q_G _Q_H _Q_I _Q_J _Q_K _Q_L _Q_M _Q_N _Q_O _Q_P _Q_Q _Q_R _Q_S _Q_T _Q_U _Q_V _Q_W _Q_X _Q_Y _Q_Z _R _R0 _R1 _R2 _R3 _R4 _R5 _R6 _R7 _R8 _R9 _Ra _Rb _Rc _Rd _Re _Rf _Rg _Rh _Ri _Rj _Rk _Rl _Rm _Rn _Ro _Rp _Rq _Rr _Rs _Rt _Ru _Rv _Rw _Rx _Ry _Rz _R_A _R_B _R_C _R_D _R_E _R_F _R_G _R_H _R_I _R_J _R_K _R_L _R_M _R_N _R_O _R_P _R_Q _R_R _R_S _R_T _R_U _R_V _R_W _R_X _R_Y _R_Z _S _S0 _S1 _S2 _S3 _S4 _S5 _S6 _S7 _S8 _S9 _Sa _Sb _Sc _Sd _Se _Sf _Sg _Sh _Si _Sj _Sk _Sl _Sm _Sn _So _Sp _Sq _Sr _Ss _St _Su _Sv _Sw _Sx _Sy _Sz _S_A _S_B _S_C _S_D _S_E _S_F _S_G _S_H _S_I _S_J _S_K _S_L _S_M _S_N _S_O _S_P _S_Q _S_R _S_S _S_T _S_U _S_V _S_W _S_X _S_Y _S_Z _T _T0 _T1 _T2 _T3 _T4 _T5 _T6 _T7 _T8 _T9 _Ta _Tb _Tc _Td _Te _Tf _Tg _Th _Ti _Tj _Tk _Tl _Tm _Tn _To _Tp _Tq _Tr _Ts _Tt _Tu _Tv _Tw _Tx _Ty _Tz _T_A _T_B _T_C _T_D _T_E _T_F _T_G _T_H _T_I _T_J _T_K _T_L _T_M _T_N _T_O _T_P _T_Q _T_R _T_S _T_T _T_U _T_V _T_W _T_X _T_Y _T_Z _U _U0 _U1 _U2 _U3 _U4 _U5 _U6 _U7 _U8 _U9 _Ua _Ub _Uc _Ud _Ue _Uf _Ug _Uh _Ui _Uj _Uk _Ul _Um _Un _Uo _Up _Uq _Ur _Us _Ut _Uu _Uv _Uw _Ux _Uy _Uz _U_A _U_B _U_C _U_D _U_E _U_F _U_G _U_H _U_I _U_J _U_K _U_L _U_M _U_N _U_O _U_P _U_Q _U_R _U_S _U_T _U_U _U_V _U_W _U_X _U_Y _U_Z _V _V0 _V1 _V2 _V3 _V4 _V5 _V6 _V7 _V8 _V9 _Va _Vb _Vc _Vd _Ve _Vf _Vg _Vh _Vi _Vj _Vk _Vl _Vm _Vn _Vo _Vp _Vq _Vr _Vs _Vt _Vu _Vv _Vw _Vx _Vy _Vz _V_A _V_B _V_C _V_D _V_E _V_F _V_G _V_H _V_I _V_J _V_K _V_L _V_M _V_N _V_O _V_P _V_Q _V_R _V_S _V_T _V_U _V_V _V_W _V_X _V_Y _V_Z _W _W0 _W1 _W2 _W3 _W4 _W5 _W6 _W7 _W8 _W9 _Wa _Wb _Wc _Wd _We _Wf _Wg _Wh _Wi _Wj _Wk _Wl _Wm _Wn _Wo _Wp _Wq _Wr _Ws _Wt _Wu _Wv _Ww _Wx _Wy _Wz _W_A _W_B _W_C _W_D _W_E _W_F _W_G _W_H _W_I _W_J _W_K _W_L _W_M _W_N _W_O _W_P _W_Q _W_R _W_S _W_T _W_U _W_V _W_W _W_X _W_Y _W_Z _X _X0 _X1 _X2 _X3 _X4 _X5 _X6 _X7 _X8 _X9 _Xa _Xb _Xc _Xd _Xe _Xf _Xg _Xh _Xi _Xj _Xk _Xl _Xm _Xn _Xo _Xp _Xq _Xr _Xs _Xt _Xu _Xv _Xw _Xx _Xy _Xz _X_A _X_B _X_C _X_D _X_E _X_F _X_G _X_H _X_I _X_J _X_K _X_L _X_M _X_N _X_O _X_P _X_Q _X_R _X_S _X_T _X_U _X_V _X_W _X_X _X_Y _X_Z _Y _Y0 _Y1 _Y2 _Y3 _Y4 _Y5 _Y6 _Y7 _Y8 _Y9 _Ya _Yb _Yc _Yd _Ye _Yf _Yg _Yh _Yi _Yj _Yk _Yl _Ym _Yn _Yo _Yp _Yq _Yr _Ys _Yt _Yu _Yv _Yw _Yx _Yy _Yz _Y_A _Y_B _Y_C _Y_D _Y_E _Y_F _Y_G _Y_H _Y_I _Y_J _Y_K _Y_L _Y_M _Y_N _Y_O _Y_P _Y_Q _Y_R _Y_S _Y_T _Y_U _Y_V _Y_W _Y_X _Y_Y _Y_Z _Z _Z0 _Z1 _Z2 _Z3 _Z4 _Z5 _Z6 _Z7 _Z8 _Z9 _Za _Zb _Zc _Zd _Ze _Zf _Zg _Zh _Zi _Zj _Zk _Zl _Zm _Zn _Zo _Zp _Zq _Zr _Zs _Zt _Zu _Zv _Zw _Zx _Zy _Zz _Z_A _Z_B _Z_C _Z_D _Z_E _Z_F _Z_G _Z_H _Z_I _Z_J _Z_K _Z_L _Z_M _Z_N _Z_O _Z_P _Z_Q _Z_R _Z_S _Z_T _Z_U _Z_V _Z_W _Z_X _Z_Y _Z_Z
++ sed 's,$,/f,' .dirs
++ xargs touch
+++ tail -n1 .dirs
++ last_file=_Z_Z/f
++ test -f _Z_Z/f
++ mv 0 00 01 02 03 04 05 06 07 08 09 0_A 0_B 0_C 0_D 0_E 0_F 0_G 0_H 0_I 0_J 0_K 0_L 0_M 0_N 0_O 0_P 0_Q 0_R 0_S 0_T 0_U 0_V 0_W 0_X 0_Y 0_Z 0a 0b 0c 0d 0e 0f 0g 0h 0i 0j 0k 0l 0m 0n 0o 0p 0q 0r 0s 0t 0u 0v 0w 0x 0y 0z 1 10 11 12 13 14 15 16 17 18 19 1_A 1_B 1_C 1_D 1_E 1_F 1_G 1_H 1_I 1_J 1_K 1_L 1_M 1_N 1_O 1_P 1_Q 1_R 1_S 1_T 1_U 1_V 1_W 1_X 1_Y 1_Z 1a 1b 1c 1d 1e 1f 1g 1h 1i 1j 1k 1l 1m 1n 1o 1p 1q 1r 1s 1t 1u 1v 1w 1x 1y 1z 2 20 21 22 23 24 25 26 27 28 29 2_A 2_B 2_C 2_D 2_E 2_F 2_G 2_H 2_I 2_J 2_K 2_L 2_M 2_N 2_O 2_P 2_Q 2_R 2_S 2_T 2_U 2_V 2_W 2_X 2_Y 2_Z 2a 2b 2c 2d 2e 2f 2g 2h 2i 2j 2k 2l 2m 2n 2o 2p 2q 2r 2s 2t 2u 2v 2w 2x 2y 2z 3 30 31 32 33 34 35 36 37 38 39 3_A 3_B 3_C 3_D 3_E 3_F 3_G 3_H 3_I 3_J 3_K 3_L 3_M 3_N 3_O 3_P 3_Q 3_R 3_S 3_T 3_U 3_V 3_W 3_X 3_Y 3_Z 3a 3b 3c 3d 3e 3f 3g 3h 3i 3j 3k 3l 3m 3n 3o 3p 3q 3r 3s 3t 3u 3v 3w 3x 3y 3z 4 40 41 42 43 44 45 46 47 48 49 4_A 4_B 4_C 4_D 4_E 4_F 4_G 4_H 4_I 4_J 4_K 4_L 4_M 4_N 4_O 4_P 4_Q 4_R 4_S 4_T 4_U 4_V 4_W 4_X 4_Y 4_Z 4a 4b 4c 4d 4e 4f 4g 4h 4i 4j 4k 4l 4m 4n 4o 4p 4q 4r 4s 4t 4u 4v 4w 4x 4y 4z 5 50 51 52 53 54 55 56 57 58 59 5_A 5_B 5_C 5_D 5_E 5_F 5_G 5_H 5_I 5_J 5_K 5_L 5_M 5_N 5_O 5_P 5_Q 5_R 5_S 5_T 5_U 5_V 5_W 5_X 5_Y 5_Z 5a 5b 5c 5d 5e 5f 5g 5h 5i 5j 5k 5l 5m 5n 5o 5p 5q 5r 5s 5t 5u 5v 5w 5x 5y 5z 6 60 61 62 63 64 65 66 67 68 69 6_A 6_B 6_C 6_D 6_E 6_F 6_G 6_H 6_I 6_J 6_K 6_L 6_M 6_N 6_O 6_P 6_Q 6_R 6_S 6_T 6_U 6_V 6_W 6_X 6_Y 6_Z 6a 6b 6c 6d 6e 6f 6g 6h 6i 6j 6k 6l 6m 6n 6o 6p 6q 6r 6s 6t 6u 6v 6w 6x 6y 6z 7 70 71 72 73 74 75 76 77 78 79 7_A 7_B 7_C 7_D 7_E 7_F 7_G 7_H 7_I 7_J 7_K 7_L 7_M 7_N 7_O 7_P 7_Q 7_R 7_S 7_T 7_U 7_V 7_W 7_X 7_Y 7_Z 7a 7b 7c 7d 7e 7f 7g 7h 7i 7j 7k 7l 7m 7n 7o 7p 7q 7r 7s 7t 7u 7v 7w 7x 7y 7z 8 80 81 82 83 84 85 86 87 88 89 8_A 8_B 8_C 8_D 8_E 8_F 8_G 8_H 8_I 8_J 8_K 8_L 8_M 8_N 8_O 8_P 8_Q 8_R 8_S 8_T 8_U 8_V 8_W 8_X 8_Y 8_Z 8a 8b 8c 8d 8e 8f 8g 8h 8i 8j 8k 8l 8m 8n 8o 8p 8q 8r 8s 8t 8u 8v 8w 8x 8y 8z 9 90 91 92 93 94 95 96 97 98 99 9_A 9_B 9_C 9_D 9_E 9_F 9_G 9_H 9_I 9_J 9_K 9_L 9_M 9_N 9_O 9_P 9_Q 9_R 9_S 9_T 9_U 9_V 9_W 9_X 9_Y 9_Z 9a 9b 9c 9d 9e 9f 9g 9h 9i 9j 9k 9l 9m 9n 9o 9p 9q 9r 9s 9t 9u 9v 9w 9x 9y 9z _A _A0 _A1 _A2 _A3 _A4 _A5 _A6 _A7 _A8 _A9 _A_A _A_B _A_C _A_D _A_E _A_F _A_G _A_H _A_I _A_J _A_K _A_L _A_M _A_N _A_O _A_P _A_Q _A_R _A_S _A_T _A_U _A_V _A_W _A_X _A_Y _A_Z _Aa _Ab _Ac _Ad _Ae _Af _Ag _Ah _Ai _Aj _Ak _Al _Am _An _Ao _Ap _Aq _Ar _As _At _Au _Av _Aw _Ax _Ay _Az _B _B0 _B1 _B2 _B3 _B4 _B5 _B6 _B7 _B8 _B9 _B_A _B_B _B_C _B_D _B_E _B_F _B_G _B_H _B_I _B_J _B_K _B_L _B_M _B_N _B_O _B_P _B_Q _B_R _B_S _B_T _B_U _B_V _B_W _B_X _B_Y _B_Z _Ba _Bb _Bc _Bd _Be _Bf _Bg _Bh _Bi _Bj _Bk _Bl _Bm _Bn _Bo _Bp _Bq _Br _Bs _Bt _Bu _Bv _Bw _Bx _By _Bz _C _C0 _C1 _C2 _C3 _C4 _C5 _C6 _C7 _C8 _C9 _C_A _C_B _C_C _C_D _C_E _C_F _C_G _C_H _C_I _C_J _C_K _C_L _C_M _C_N _C_O _C_P _C_Q _C_R _C_S _C_T _C_U _C_V _C_W _C_X _C_Y _C_Z _Ca _Cb _Cc _Cd _Ce _Cf _Cg _Ch _Ci _Cj _Ck _Cl _Cm _Cn _Co _Cp _Cq _Cr _Cs _Ct _Cu _Cv _Cw _Cx _Cy _Cz _D _D0 _D1 _D2 _D3 _D4 _D5 _D6 _D7 _D8 _D9 _D_A _D_B _D_C _D_D _D_E _D_F _D_G _D_H _D_I _D_J _D_K _D_L _D_M _D_N _D_O _D_P _D_Q _D_R _D_S _D_T _D_U _D_V _D_W _D_X _D_Y _D_Z _Da _Db _Dc _Dd _De _Df _Dg _Dh _Di _Dj _Dk _Dl _Dm _Dn _Do _Dp _Dq _Dr _Ds _Dt _Du _Dv _Dw _Dx _Dy _Dz _E _E0 _E1 _E2 _E3 _E4 _E5 _E6 _E7 _E8 _E9 _E_A _E_B _E_C _E_D _E_E _E_F _E_G _E_H _E_I _E_J _E_K _E_L _E_M _E_N _E_O _E_P _E_Q _E_R _E_S _E_T _E_U _E_V _E_W _E_X _E_Y _E_Z _Ea _Eb _Ec _Ed _Ee _Ef _Eg _Eh _Ei _Ej _Ek _El _Em _En _Eo _Ep _Eq _Er _Es _Et _Eu _Ev _Ew _Ex _Ey _Ez _F _F0 _F1 _F2 _F3 _F4 _F5 _F6 _F7 _F8 _F9 _F_A _F_B _F_C _F_D _F_E _F_F _F_G _F_H _F_I _F_J _F_K _F_L _F_M _F_N _F_O _F_P _F_Q _F_R _F_S _F_T _F_U _F_V _F_W _F_X _F_Y _F_Z _Fa _Fb _Fc _Fd _Fe _Ff _Fg _Fh _Fi _Fj _Fk _Fl _Fm _Fn _Fo _Fp _Fq _Fr _Fs _Ft _Fu _Fv _Fw _Fx _Fy _Fz _G _G0 _G1 _G2 _G3 _G4 _G5 _G6 _G7 _G8 _G9 _G_A _G_B _G_C _G_D _G_E _G_F _G_G _G_H _G_I _G_J _G_K _G_L _G_M _G_N _G_O _G_P _G_Q _G_R _G_S _G_T _G_U _G_V _G_W _G_X _G_Y _G_Z _Ga _Gb _Gc _Gd _Ge _Gf _Gg _Gh _Gi _Gj _Gk _Gl _Gm _Gn _Go _Gp _Gq _Gr _Gs _Gt _Gu _Gv _Gw _Gx _Gy _Gz _H _H0 _H1 _H2 _H3 _H4 _H5 _H6 _H7 _H8 _H9 _H_A _H_B _H_C _H_D _H_E _H_F _H_G _H_H _H_I _H_J _H_K _H_L _H_M _H_N _H_O _H_P _H_Q _H_R _H_S _H_T _H_U _H_V _H_W _H_X _H_Y _H_Z _Ha _Hb _Hc _Hd _He _Hf _Hg _Hh _Hi _Hj _Hk _Hl _Hm _Hn _Ho _Hp _Hq _Hr _Hs _Ht _Hu _Hv _Hw _Hx _Hy _Hz _I _I0 _I1 _I2 _I3 _I4 _I5 _I6 _I7 _I8 _I9 _I_A _I_B _I_C _I_D _I_E _I_F _I_G _I_H _I_I _I_J _I_K _I_L _I_M _I_N _I_O _I_P _I_Q _I_R _I_S _I_T _I_U _I_V _I_W _I_X _I_Y _I_Z _Ia _Ib _Ic _Id _Ie _If _Ig _Ih _Ii _Ij _Ik _Il _Im _In _Io _Ip _Iq _Ir _Is _It _Iu _Iv _Iw _Ix _Iy _Iz _J _J0 _J1 _J2 _J3 _J4 _J5 _J6 _J7 _J8 _J9 _J_A _J_B _J_C _J_D _J_E _J_F _J_G _J_H _J_I _J_J _J_K _J_L _J_M _J_N _J_O _J_P _J_Q _J_R _J_S _J_T _J_U _J_V _J_W _J_X _J_Y _J_Z _Ja _Jb _Jc _Jd _Je _Jf _Jg _Jh _Ji _Jj _Jk _Jl _Jm _Jn _Jo _Jp _Jq _Jr _Js _Jt _Ju _Jv _Jw _Jx _Jy _Jz _K _K0 _K1 _K2 _K3 _K4 _K5 _K6 _K7 _K8 _K9 _K_A _K_B _K_C _K_D _K_E _K_F _K_G _K_H _K_I _K_J _K_K _K_L _K_M _K_N _K_O _K_P _K_Q _K_R _K_S _K_T _K_U _K_V _K_W _K_X _K_Y _K_Z _Ka _Kb _Kc _Kd _Ke _Kf _Kg _Kh _Ki _Kj _Kk _Kl _Km _Kn _Ko _Kp _Kq _Kr _Ks _Kt _Ku _Kv _Kw _Kx _Ky _Kz _L _L0 _L1 _L2 _L3 _L4 _L5 _L6 _L7 _L8 _L9 _L_A _L_B _L_C _L_D _L_E _L_F _L_G _L_H _L_I _L_J _L_K _L_L _L_M _L_N _L_O _L_P _L_Q _L_R _L_S _L_T _L_U _L_V _L_W _L_X _L_Y _L_Z _La _Lb _Lc _Ld _Le _Lf _Lg _Lh _Li _Lj _Lk _Ll _Lm _Ln _Lo _Lp _Lq _Lr _Ls _Lt _Lu _Lv _Lw _Lx _Ly _Lz _M _M0 _M1 _M2 _M3 _M4 _M5 _M6 _M7 _M8 _M9 _M_A _M_B _M_C _M_D _M_E _M_F _M_G _M_H _M_I _M_J _M_K _M_L _M_M _M_N _M_O _M_P _M_Q _M_R _M_S _M_T _M_U _M_V _M_W _M_X _M_Y _M_Z _Ma _Mb _Mc _Md _Me _Mf _Mg _Mh _Mi _Mj _Mk _Ml _Mm _Mn _Mo _Mp _Mq _Mr _Ms _Mt _Mu _Mv _Mw _Mx _My _Mz _N _N0 _N1 _N2 _N3 _N4 _N5 _N6 _N7 _N8 _N9 _N_A _N_B _N_C _N_D _N_E _N_F _N_G _N_H _N_I _N_J _N_K _N_L _N_M _N_N _N_O _N_P _N_Q _N_R _N_S _N_T _N_U _N_V _N_W _N_X _N_Y _N_Z _Na _Nb _Nc _Nd _Ne _Nf _Ng _Nh _Ni _Nj _Nk _Nl _Nm _Nn _No _Np _Nq _Nr _Ns _Nt _Nu _Nv _Nw _Nx _Ny _Nz _O _O0 _O1 _O2 _O3 _O4 _O5 _O6 _O7 _O8 _O9 _O_A _O_B _O_C _O_D _O_E _O_F _O_G _O_H _O_I _O_J _O_K _O_L _O_M _O_N _O_O _O_P _O_Q _O_R _O_S _O_T _O_U _O_V _O_W _O_X _O_Y _O_Z _Oa _Ob _Oc _Od _Oe _Of _Og _Oh _Oi _Oj _Ok _Ol _Om _On _Oo _Op _Oq _Or _Os _Ot _Ou _Ov _Ow _Ox _Oy _Oz _P _P0 _P1 _P2 _P3 _P4 _P5 _P6 _P7 _P8 _P9 _P_A _P_B _P_C _P_D _P_E _P_F _P_G _P_H _P_I _P_J _P_K _P_L _P_M _P_N _P_O _P_P _P_Q _P_R _P_S _P_T _P_U _P_V _P_W _P_X _P_Y _P_Z _Pa _Pb _Pc _Pd _Pe _Pf _Pg _Ph _Pi _Pj _Pk _Pl _Pm _Pn _Po _Pp _Pq _Pr _Ps _Pt _Pu _Pv _Pw _Px _Py _Pz _Q _Q0 _Q1 _Q2 _Q3 _Q4 _Q5 _Q6 _Q7 _Q8 _Q9 _Q_A _Q_B _Q_C _Q_D _Q_E _Q_F _Q_G _Q_H _Q_I _Q_J _Q_K _Q_L _Q_M _Q_N _Q_O _Q_P _Q_Q _Q_R _Q_S _Q_T _Q_U _Q_V _Q_W _Q_X _Q_Y _Q_Z _Qa _Qb _Qc _Qd _Qe _Qf _Qg _Qh _Qi _Qj _Qk _Ql _Qm _Qn _Qo _Qp _Qq _Qr _Qs _Qt _Qu _Qv _Qw _Qx _Qy _Qz _R _R0 _R1 _R2 _R3 _R4 _R5 _R6 _R7 _R8 _R9 _R_A _R_B _R_C _R_D _R_E _R_F _R_G _R_H _R_I _R_J _R_K _R_L _R_M _R_N _R_O _R_P _R_Q _R_R _R_S _R_T _R_U _R_V _R_W _R_X _R_Y _R_Z _Ra _Rb _Rc _Rd _Re _Rf _Rg _Rh _Ri _Rj _Rk _Rl _Rm _Rn _Ro _Rp _Rq _Rr _Rs _Rt _Ru _Rv _Rw _Rx _Ry _Rz _S _S0 _S1 _S2 _S3 _S4 _S5 _S6 _S7 _S8 _S9 _S_A _S_B _S_C _S_D _S_E _S_F _S_G _S_H _S_I _S_J _S_K _S_L _S_M _S_N _S_O _S_P _S_Q _S_R _S_S _S_T _S_U _S_V _S_W _S_X _S_Y _S_Z _Sa _Sb _Sc _Sd _Se _Sf _Sg _Sh _Si _Sj _Sk _Sl _Sm _Sn _So _Sp _Sq _Sr _Ss _St _Su _Sv _Sw _Sx _Sy _Sz _T _T0 _T1 _T2 _T3 _T4 _T5 _T6 _T7 _T8 _T9 _T_A _T_B _T_C _T_D _T_E _T_F _T_G _T_H _T_I _T_J _T_K _T_L _T_M _T_N _T_O _T_P _T_Q _T_R _T_S _T_T _T_U _T_V _T_W _T_X _T_Y _T_Z _Ta _Tb _Tc _Td _Te _Tf _Tg _Th _Ti _Tj _Tk _Tl _Tm _Tn _To _Tp _Tq _Tr _Ts _Tt _Tu _Tv _Tw _Tx _Ty _Tz _U _U0 _U1 _U2 _U3 _U4 _U5 _U6 _U7 _U8 _U9 _U_A _U_B _U_C _U_D _U_E _U_F _U_G _U_H _U_I _U_J _U_K _U_L _U_M _U_N _U_O _U_P _U_Q _U_R _U_S _U_T _U_U _U_V _U_W _U_X _U_Y _U_Z _Ua _Ub _Uc _Ud _Ue _Uf _Ug _Uh _Ui _Uj _Uk _Ul _Um _Un _Uo _Up _Uq _Ur _Us _Ut _Uu _Uv _Uw _Ux _Uy _Uz _V _V0 _V1 _V2 _V3 _V4 _V5 _V6 _V7 _V8 _V9 _V_A _V_B _V_C _V_D _V_E _V_F _V_G _V_H _V_I _V_J _V_K _V_L _V_M _V_N _V_O _V_P _V_Q _V_R _V_S _V_T _V_U _V_V _V_W _V_X _V_Y _V_Z _Va _Vb _Vc _Vd _Ve _Vf _Vg _Vh _Vi _Vj _Vk _Vl _Vm _Vn _Vo _Vp _Vq _Vr _Vs _Vt _Vu _Vv _Vw _Vx _Vy _Vz _W _W0 _W1 _W2 _W3 _W4 _W5 _W6 _W7 _W8 _W9 _W_A _W_B _W_C _W_D _W_E _W_F _W_G _W_H _W_I _W_J _W_K _W_L _W_M _W_N _W_O _W_P _W_Q _W_R _W_S _W_T _W_U _W_V _W_W _W_X _W_Y _W_Z _Wa _Wb _Wc _Wd _We _Wf _Wg _Wh _Wi _Wj _Wk _Wl _Wm _Wn _Wo _Wp _Wq _Wr _Ws _Wt _Wu _Wv _Ww _Wx _Wy _Wz _X _X0 _X1 _X2 _X3 _X4 _X5 _X6 _X7 _X8 _X9 _X_A _X_B _X_C _X_D _X_E _X_F _X_G _X_H _X_I _X_J _X_K _X_L _X_M _X_N _X_O _X_P _X_Q _X_R _X_S _X_T _X_U _X_V _X_W _X_X _X_Y _X_Z _Xa _Xb _Xc _Xd _Xe _Xf _Xg _Xh _Xi _Xj _Xk _Xl _Xm _Xn _Xo _Xp _Xq _Xr _Xs _Xt _Xu _Xv _Xw _Xx _Xy _Xz _Y _Y0 _Y1 _Y2 _Y3 _Y4 _Y5 _Y6 _Y7 _Y8 _Y9 _Y_A _Y_B _Y_C _Y_D _Y_E _Y_F _Y_G _Y_H _Y_I _Y_J _Y_K _Y_L _Y_M _Y_N _Y_O _Y_P _Y_Q _Y_R _Y_S _Y_T _Y_U _Y_V _Y_W _Y_X _Y_Y _Y_Z _Ya _Yb _Yc _Yd _Ye _Yf _Yg _Yh _Yi _Yj _Yk _Yl _Ym _Yn _Yo _Yp _Yq _Yr _Ys _Yt _Yu _Yv _Yw _Yx _Yy _Yz _Z _Z0 _Z1 _Z2 _Z3 _Z4 _Z5 _Z6 _Z7 _Z8 _Z9 _Z_A _Z_B _Z_C _Z_D _Z_E _Z_F _Z_G _Z_H _Z_I _Z_J _Z_K _Z_L _Z_M _Z_N _Z_O _Z_P _Z_Q _Z_R _Z_S _Z_T _Z_U _Z_V _Z_W _Z_X _Z_Y _Z_Z _Za _Zb _Zc _Zd _Ze _Zf _Zg _Zh _Zi _Zj _Zk _Zl _Zm _Zn _Zo _Zp _Zq _Zr _Zs _Zt _Zu _Zv _Zw _Zx _Zy _Zz a a0 a1 a2 a3 a4 a5 a6 a7 a8 a9 a_A a_B a_C a_D a_E a_F a_G a_H a_I a_J a_K a_L a_M a_N a_O a_P a_Q a_R a_S a_T a_U a_V a_W a_X a_Y a_Z aa ab ac ad ae af ag ah ai aj ak al am an ao ap aq ar as at au av aw ax ay az b b0 b1 b2 b3 b4 b5 b6 b7 b8 b9 b_A b_B b_C b_D b_E b_F b_G b_H b_I b_J b_K b_L b_M b_N b_O b_P b_Q b_R b_S b_T b_U b_V b_W b_X b_Y b_Z ba bb bc bd be bf bg bh bi bj bk bl bm bn bo bp bq br bs bt bu bv bw bx by bz c c0 c1 c2 c3 c4 c5 c6 c7 c8 c9 c_A c_B c_C c_D c_E c_F c_G c_H c_I c_J c_K c_L c_M c_N c_O c_P c_Q c_R c_S c_T c_U c_V c_W c_X c_Y c_Z ca cb cc cd ce cf cg ch ci cj ck cl cm cn co cp cq cr cs ct cu cv cw cx cy cz d d0 d1 d2 d3 d4 d5 d6 d7 d8 d9 d_A d_B d_C d_D d_E d_F d_G d_H d_I d_J d_K d_L d_M d_N d_O d_P d_Q d_R d_S d_T d_U d_V d_W d_X d_Y d_Z da db dc dd de df dg dh di dj dk dl dm dn do dp dq dr ds dt du dv dw dx dy dz e e0 e1 e2 e3 e4 e5 e6 e7 e8 e9 e_A e_B e_C e_D e_E e_F e_G e_H e_I e_J e_K e_L e_M e_N e_O e_P e_Q e_R e_S e_T e_U e_V e_W e_X e_Y e_Z ea eb ec ed ee ef eg eh ei ej ek el em en eo ep eq er es et eu ev ew ex ey ez f f0 f1 f2 f3 f4 f5 f6 f7 f8 f9 f_A f_B f_C f_D f_E f_F f_G f_H f_I f_J f_K f_L f_M f_N f_O f_P f_Q f_R f_S f_T f_U f_V f_W f_X f_Y f_Z fa fb fc fd fe ff fg fh fi fj fk fl fm fn fo fp fq fr fs ft fu fv fw fx fy fz g g0 g1 g2 g3 g4 g5 g6 g7 g8 g9 g_A g_B g_C g_D g_E g_F g_G g_H g_I g_J g_K g_L g_M g_N g_O g_P g_Q g_R g_S g_T g_U g_V g_W g_X g_Y g_Z ga gb gc gd ge gf gg gh gi gj gk gl gm gn go gp gq gr gs gt gu gv gw gx gy gz h h0 h1 h2 h3 h4 h5 h6 h7 h8 h9 h_A h_B h_C h_D h_E h_F h_G h_H h_I h_J h_K h_L h_M h_N h_O h_P h_Q h_R h_S h_T h_U h_V h_W h_X h_Y h_Z ha hb hc hd he hf hg hh hi hj hk hl hm hn ho hp hq hr hs ht hu hv hw hx hy hz i i0 i1 i2 i3 i4 i5 i6 i7 i8 i9 i_A i_B i_C i_D i_E i_F i_G i_H i_I i_J i_K i_L i_M i_N i_O i_P i_Q i_R i_S i_T i_U i_V i_W i_X i_Y i_Z ia ib ic id ie if ig ih ii ij ik il im in io ip iq ir is it iu iv iw ix iy iz j j0 j1 j2 j3 j4 j5 j6 j7 j8 j9 j_A j_B j_C j_D j_E j_F j_G j_H j_I j_J j_K j_L j_M j_N j_O j_P j_Q j_R j_S j_T j_U j_V j_W j_X j_Y j_Z ja jb jc jd je jf jg jh ji jj jk jl jm jn jo jp jq jr js jt ju jv jw jx jy jz k k0 k1 k2 k3 k4 k5 k6 k7 k8 k9 k_A k_B k_C k_D k_E k_F k_G k_H k_I k_J k_K k_L k_M k_N k_O k_P k_Q k_R k_S k_T k_U k_V k_W k_X k_Y k_Z ka kb kc kd ke kf kg kh ki kj kk kl km kn ko kp kq kr ks kt ku kv kw kx ky kz l l0 l1 l2 l3 l4 l5 l6 l7 l8 l9 l_A l_B l_C l_D l_E l_F l_G l_H l_I l_J l_K l_L l_M l_N l_O l_P l_Q l_R l_S l_T l_U l_V l_W l_X l_Y l_Z la lb lc ld le lf lg lh li lj lk ll lm ln lo lp lq lr ls lt lu lv lw lx ly lz m m0 m1 m2 m3 m4 m5 m6 m7 m8 m9 m_A m_B m_C m_D m_E m_F m_G m_H m_I m_J m_K m_L m_M m_N m_O m_P m_Q m_R m_S m_T m_U m_V m_W m_X m_Y m_Z ma mb mc md me mf mg mh mi mj mk ml mm mn mo mp mq mr ms mt mu mv mw mx my mz n n0 n1 n2 n3 n4 n5 n6 n7 n8 n9 n_A n_B n_C n_D n_E n_F n_G n_H n_I n_J n_K n_L n_M n_N n_O n_P n_Q n_R n_S n_T n_U n_V n_W n_X n_Y n_Z na nb nc nd ne nf ng nh ni nj nk nl nm nn no np nq nr ns nt nu nv nw nx ny nz o o0 o1 o2 o3 o4 o5 o6 o7 o8 o9 o_A o_B o_C o_D o_E o_F o_G o_H o_I o_J o_K o_L o_M o_N o_O o_P o_Q o_R o_S o_T o_U o_V o_W o_X o_Y o_Z oa ob oc od oe of og oh oi oj ok ol om on oo op oq or os ot ou ov ow ox oy oz p p0 p1 p2 p3 p4 p5 p6 p7 p8 p9 p_A p_B p_C p_D p_E p_F p_G p_H p_I p_J p_K p_L p_M p_N p_O p_P p_Q p_R p_S p_T p_U p_V p_W p_X p_Y p_Z pa pb pc pd pe pf pg ph pi pj pk pl pm pn po pp pq pr ps pt pu pv pw px py pz q q0 q1 q2 q3 q4 q5 q6 q7 q8 q9 q_A q_B q_C q_D q_E q_F q_G q_H q_I q_J q_K q_L q_M q_N q_O q_P q_Q q_R q_S q_T q_U q_V q_W q_X q_Y q_Z qa qb qc qd qe qf qg qh qi qj qk ql qm qn qo qp qq qr qs qt qu qv qw qx qy qz r r0 r1 r2 r3 r4 r5 r6 r7 r8 r9 r_A r_B r_C r_D r_E r_F r_G r_H r_I r_J r_K r_L r_M r_N r_O r_P r_Q r_R r_S r_T r_U r_V r_W r_X r_Y r_Z ra rb rc rd re rf rg rh ri rj rk rl rm rn ro rp rq rr rs rt ru rv rw rx ry rz s s0 s1 s2 s3 s4 s5 s6 s7 s8 s9 s_A s_B s_C s_D s_E s_F s_G s_H s_I s_J s_K s_L s_M s_N s_O s_P s_Q s_R s_S s_T s_U s_V s_W s_X s_Y s_Z sa sb sc sd se sf sg sh si sj sk sl sm sn so sp sq sr ss st su sv sw sx sy sz t t0 t1 t2 t3 t4 t5 t6 t7 t8 t9 t_A t_B t_C t_D t_E t_F t_G t_H t_I t_J t_K t_L t_M t_N t_O t_P t_Q t_R t_S t_T t_U t_V t_W t_X t_Y t_Z ta tb tc td te tf tg th ti tj tk tl tm tn to tp tq tr ts tt tu tv tw tx ty tz u u0 u1 u2 u3 u4 u5 u6 u7 u8 u9 u_A u_B u_C u_D u_E u_F u_G u_H u_I u_J u_K u_L u_M u_N u_O u_P u_Q u_R u_S u_T u_U u_V u_W u_X u_Y u_Z ua ub uc ud ue uf ug uh ui uj uk ul um un uo up uq ur us ut uu uv uw ux uy uz v v0 v1 v2 v3 v4 v5 v6 v7 v8 v9 v_A v_B v_C v_D v_E v_F v_G v_H v_I v_J v_K v_L v_M v_N v_O v_P v_Q v_R v_S v_T v_U v_V v_W v_X v_Y v_Z va vb vc vd ve vf vg vh vi vj vk vl vm vn vo vp vq vr vs vt vu vv vw vx vy vz w w0 w1 w2 w3 w4 w5 w6 w7 w8 w9 w_A w_B w_C w_D w_E w_F w_G w_H w_I w_J w_K w_L w_M w_N w_O w_P w_Q w_R w_S w_T w_U w_V w_W w_X w_Y w_Z wa wb wc wd we wf wg wh wi wj wk wl wm wn wo wp wq wr ws wt wu wv ww wx wy wz x x0 x1 x2 x3 x4 x5 x6 x7 x8 x9 x_A x_B x_C x_D x_E x_F x_G x_H x_I x_J x_K x_L x_M x_N x_O x_P x_Q x_R x_S x_T x_U x_V x_W x_X x_Y x_Z xa xb xc xd xe xf xg xh xi xj xk xl xm xn xo xp xq xr xs xt xu xv xw xx xy xz y y0 y1 y2 y3 y4 y5 y6 y7 y8 y9 y_A y_B y_C y_D y_E y_F y_G y_H y_I y_J y_K y_L y_M y_N y_O y_P y_Q y_R y_S y_T y_U y_V y_W y_X y_Y y_Z ya yb yc yd ye yf yg yh yi yj yk yl ym yn yo yp yq yr ys yt yu yv yw yx yy yz z z0 z1 z2 z3 z4 z5 z6 z7 z8 z9 z_A z_B z_C z_D z_E z_F z_G z_H z_I z_J z_K z_L z_M z_N z_O z_P z_Q z_R z_S z_T z_U z_V z_W z_X z_Y z_Z za zb zc zd ze zf zg zh zi zj zk zl zm zn zo zp zq zr zs zt zu zv zw zx zy zz /dev/shm/tmp2252
++ test -f _Z_Z/f/f
++ rm .dirs
+++ ls -A
++ out=
++ test -z ''
++ Exit 0
++ set +e
++ exit 0
++ exit 0
++ remove_tmp_
++ __st=0
++ cleanup_
++ rm -rf /dev/shm/tmp2252
++ cd '/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23'
++ chmod -R u+rwx '/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/gt-leak-fd.sh.zbJj'
++ rm -rf '/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/gt-leak-fd.sh.zbJj'
++ exit 0

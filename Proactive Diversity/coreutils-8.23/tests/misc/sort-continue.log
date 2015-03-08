@@ -1,0 +1,209 @@
+++ initial_cwd_='/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23'
+++ fail=0
++++ testdir_prefix_
++++ printf gt
+++ pfx_=gt
++++ mktempd_ '/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23' gt-sort-continue.sh.XXXX
++++ case $# in
++++ destdir_='/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23'
++++ template_=gt-sort-continue.sh.XXXX
++++ MAX_TRIES_=4
++++ case $destdir_ in
++++ case $template_ in
+++++ unset TMPDIR
++++ d='/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/gt-sort-continue.sh.pgFq'
++++ case $d in
++++ test -d '/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/gt-sort-continue.sh.pgFq'
+++++ ls -dgo '/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/gt-sort-continue.sh.pgFq'
+++++ tr S -
++++ perms='drwx------ 2 4096 Mar  6 11:57 /home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/gt-sort-continue.sh.pgFq'
++++ case $perms in
++++ test 0 = 0
++++ echo '/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/gt-sort-continue.sh.pgFq'
++++ return
+++ test_dir_='/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/gt-sort-continue.sh.pgFq'
+++ cd '/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/gt-sort-continue.sh.pgFq'
+++ gl_init_sh_nl_='
+'
+++ IFS=' 	
+'
+++ for sig_ in 1 2 3 13 15
++++ expr 1 + 128
+++ eval 'trap '\''Exit 129'\'' 1'
++++ trap 'Exit 129' 1
+++ for sig_ in 1 2 3 13 15
++++ expr 2 + 128
+++ eval 'trap '\''Exit 130'\'' 2'
++++ trap 'Exit 130' 2
+++ for sig_ in 1 2 3 13 15
++++ expr 3 + 128
+++ eval 'trap '\''Exit 131'\'' 3'
++++ trap 'Exit 131' 3
+++ for sig_ in 1 2 3 13 15
++++ expr 13 + 128
+++ eval 'trap '\''Exit 141'\'' 13'
++++ trap 'Exit 141' 13
+++ for sig_ in 1 2 3 13 15
++++ expr 15 + 128
+++ eval 'trap '\''Exit 143'\'' 15'
++++ trap 'Exit 143' 15
+++ trap remove_tmp_ 0
++ path_prepend_ ./src
++ test 1 '!=' 0
++ path_dir_=./src
++ case $path_dir_ in
++ abs_path_dir_='/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/./src'
++ case $abs_path_dir_ in
++ PATH='/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/./src:/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/src:/home/jfloyd/.opam/system/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games'
++ create_exe_shims_ '/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/./src'
++ case $EXEEXT in
++ return 0
++ shift
++ test 0 '!=' 0
++ export PATH
++ print_ver_ sort
++ test yes = yes
++ local i
++ for i in '$*'
++ env sort --version
+sort (GNU coreutils) 8.23
+Copyright (C) 2014 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>.
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.
+
+Written by Mike Haertel and Paul Eggert.
++ ulimit -n 6
++ sort
+++ seq 31
++ for i in '$(seq 31)'
++ echo 1
++ tee -a in
++ for i in '$(seq 31)'
++ echo 2
++ tee -a in
++ for i in '$(seq 31)'
++ echo 3
++ tee -a in
++ for i in '$(seq 31)'
++ echo 4
++ tee -a in
++ for i in '$(seq 31)'
++ echo 5
++ tee -a in
++ for i in '$(seq 31)'
++ echo 6
++ tee -a in
++ for i in '$(seq 31)'
++ echo 7
++ tee -a in
++ for i in '$(seq 31)'
++ echo 8
++ tee -a in
++ for i in '$(seq 31)'
++ echo 9
++ tee -a in
++ for i in '$(seq 31)'
++ echo 10
++ tee -a in
++ for i in '$(seq 31)'
++ echo 11
++ tee -a in
++ for i in '$(seq 31)'
++ echo 12
++ tee -a in
++ for i in '$(seq 31)'
++ echo 13
++ tee -a in
++ for i in '$(seq 31)'
++ echo 14
++ tee -a in
++ for i in '$(seq 31)'
++ echo 15
++ tee -a in
++ for i in '$(seq 31)'
++ echo 16
++ tee -a in
++ for i in '$(seq 31)'
++ echo 17
++ tee -a in
++ for i in '$(seq 31)'
++ echo 18
++ tee -a in
++ for i in '$(seq 31)'
++ echo 19
++ tee -a in
++ for i in '$(seq 31)'
++ echo 20
++ tee -a in
++ for i in '$(seq 31)'
++ echo 21
++ tee -a in
++ for i in '$(seq 31)'
++ echo 22
++ tee -a in
++ for i in '$(seq 31)'
++ echo 23
++ tee -a in
++ for i in '$(seq 31)'
++ echo 24
++ tee -a in
++ for i in '$(seq 31)'
++ echo 25
++ tee -a in
++ for i in '$(seq 31)'
++ echo 26
++ tee -a in
++ for i in '$(seq 31)'
++ echo 27
++ tee -a in
++ for i in '$(seq 31)'
++ echo 28
++ tee -a in
++ for i in '$(seq 31)'
++ echo 29
++ tee -a in
++ for i in '$(seq 31)'
++ echo 30
++ tee -a in
++ for i in '$(seq 31)'
++ echo 31
++ tee -a in
+++ echo __test.1 __test.10 __test.11 __test.12 __test.13 __test.14 __test.15 __test.16 __test.17 __test.18 __test.19 __test.2 __test.20 __test.21 __test.22 __test.23 __test.24 __test.25 __test.26 __test.27 __test.28 __test.29 __test.3 __test.30 __test.31 __test.4 __test.5 __test.6 __test.7 __test.8 __test.9
++ test_files='__test.1 __test.10 __test.11 __test.12 __test.13 __test.14 __test.15 __test.16 __test.17 __test.18 __test.19 __test.2 __test.20 __test.21 __test.22 __test.23 __test.24 __test.25 __test.26 __test.27 __test.28 __test.29 __test.3 __test.30 __test.31 __test.4 __test.5 __test.6 __test.7 __test.8 __test.9'
++ ulimit -n 6
++ sort -n -m __test.1 __test.10 __test.11 __test.12 __test.13 __test.14 __test.15 __test.16 __test.17 __test.18 __test.19 __test.2 __test.20 __test.21 __test.22 __test.23 __test.24 __test.25 __test.26 __test.27 __test.28 __test.29 __test.3 __test.30 __test.31 __test.4 __test.5 __test.6 __test.7 __test.8 __test.9
++ compare in out
++ compare_dev_null_ in out
++ test 2 = 2
++ test xin = x/dev/null
++ test xout = x/dev/null
++ return 2
++ case $? in
++ compare_ in out
++ diff -u in out
++ echo 32
++ tee -a in
++ ulimit -n 6
++ sort -n -m __test.1 __test.10 __test.11 __test.12 __test.13 __test.14 __test.15 __test.16 __test.17 __test.18 __test.19 __test.2 __test.20 __test.21 __test.22 __test.23 __test.24 __test.25 __test.26 __test.27 __test.28 __test.29 __test.3 __test.30 __test.31 __test.4 __test.5 __test.6 __test.7 __test.8 __test.9 -
++ compare in out
++ compare_dev_null_ in out
++ test 2 = 2
++ test xin = x/dev/null
++ test xout = x/dev/null
++ return 2
++ case $? in
++ compare_ in out
++ diff -u in out
++ Exit 0
++ set +e
++ exit 0
++ exit 0
++ remove_tmp_
++ __st=0
++ cleanup_
++ :
++ cd '/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23'
++ chmod -R u+rwx '/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/gt-sort-continue.sh.pgFq'
++ rm -rf '/home/jfloyd/Documents/Projects/Proactive Diversity/coreutils-8.23/gt-sort-continue.sh.pgFq'
++ exit 0
